@@ -6,6 +6,7 @@ import "./globals.css";
 
 import BootstrapClient from "@/components/BootstrapClient";
 import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,8 @@ export default function RootLayout({
 					{children}
 				</main>
 				
+				<Footer />
+
 				<BootstrapClient />
 			</body>
 		</html>
