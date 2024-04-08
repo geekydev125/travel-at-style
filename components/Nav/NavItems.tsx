@@ -1,3 +1,6 @@
+"use client"
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import uniqid from 'uniqid'
 
 import routes from '@/data/routes.json'
@@ -9,29 +12,35 @@ interface Route {
 }
 
 function NavItems() {
+    const pathname = usePathname()
+
     return (
         <>
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav-underline">
                 {routes.map((route: Route, index) => {
                     if (route.path !== '/' && index < 5) {
                         return (
                             <li className="nav-item" key={uniqid()}>
-                                <a className="nav-link text-white" aria-current="page" href={route.path}>
+                                <Link
+                                    className={`nav-link text-white ${route.path === '/shop' && 'fst-italic fw-medium'} ${pathname === route.path && 'active'}`}
+                                    aria-current="page"
+                                    href={route.path}
+                                >
                                     {route.title}
-                                    {route.path === '/shop' && <IconShoppingCart />}
-                                </a>
+                                    {route.path === '/shop' && <span className='ms-2'><IconShoppingCart /></span>}
+                                </Link>
                             </li>
                         )
                     }
                 })}
             </ul>
 
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 nav-underline">
                 {routes.map((route: Route, index) => {
                     if (route.path !== '/' && index > 5) {
                         return (
                             <li className="nav-item" key={uniqid()}>
-                                <a className="nav-link text-white" aria-current="page" href={route.path}>{route.title}</a>
+                                <Link className={`nav-link text-white ${pathname === route.path && 'active'}`} aria-current="page" href={route.path}>{route.title}</Link>
                             </li>
                         )
                     }
