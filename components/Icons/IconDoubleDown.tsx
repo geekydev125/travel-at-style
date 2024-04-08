@@ -5,7 +5,6 @@ interface Props {
     classes?: string
 }
 
-
 function IconDoubleDown({
     width = '20px',
     height = '20px',
