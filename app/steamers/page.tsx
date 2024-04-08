@@ -8,7 +8,7 @@ function SteamersPage() {
 		<>
 			<BesteamVideoBackground />
 
-			<div className="position-absolute top-50 z-1 w-100">
+			<div className="position-absolute z-1 w-100" style={{top: '65%'}}>
 				<TextOverBackgroundVideo />
 
 				<FirstSectionCallToAction />
