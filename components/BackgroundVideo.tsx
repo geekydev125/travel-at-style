@@ -1,7 +1,17 @@
 "use client"
 import { useRef } from 'react';
 
-function HomeViewBackgroundVideo() {
+interface Props {
+    videoSrc: string;
+    posterSrc: string;
+    classes?: string;
+}
+
+function BackgroundVideo({
+    videoSrc,
+    posterSrc,
+    classes = 'w-100 h-100 object-fit-cover'
+}:Props) {
     const videoRef = useRef<null | HTMLVideoElement>(null);
 
     const handlePlay = () => {
@@ -15,15 +25,15 @@ function HomeViewBackgroundVideo() {
             <button className='d-none' onClick={handlePlay}>Play Video</button>
 
             <video
-                className='w-100 h-100 object-fit-cover'
-                poster="/assets/video/ny-timelapse/ny-timelapse-poster.jpg"
+                className={classes}
+                poster={posterSrc}
                 ref={videoRef}
                 autoPlay
                 muted
                 loop
                 playsInline
             >
-                <source src="/assets/video/ny-timelapse/ny-timelapse.mp4" type="video/mp4" />
+                <source src={videoSrc} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
             
@@ -31,4 +41,4 @@ function HomeViewBackgroundVideo() {
     )
 }
 
-export default HomeViewBackgroundVideo
+export default BackgroundVideo
