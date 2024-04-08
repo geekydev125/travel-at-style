@@ -1,0 +1,38 @@
+[
+    {
+        "path": "/",
+        "title": "Home"
+    },
+    {
+        "path": "/steamers",
+        "title": "Steamers"
+    },
+    {
+        "path": "/luggage",
+        "title": "Luggage"
+    },
+    {
+        "path": "/accessories",
+        "title": "Accessories"
+    },
+    {
+        "path": "/shop",
+        "title": "Shop Now"
+    },
+    {
+        "path": "/instructions",
+        "title": "User Instructions"
+    },
+    {
+        "path": "/warranty",
+        "title": "Warranty"
+    },
+    {
+        "path": "/location",
+        "title": "Location"
+    },
+    {
+        "path": "/contact",
+        "title": "Contact Us"
+    }
+]
