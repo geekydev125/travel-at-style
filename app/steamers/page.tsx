@@ -2,6 +2,7 @@ import BesteamVideoBackground from '@/components/SteamersViewComponents/BesteamV
 import TextOverBackgroundVideo from '@/components/SteamersViewComponents/TextOverBackgroundVideo'
 import FirstSectionCallToAction from '@/components/SteamersViewComponents/FirstSectionCallToAction'
 import SecondSectionBesteamDescription from '@/components/SteamersViewComponents/SecondSectionBesteamDescription'
+import ThirdSectionBesteamVideo from '@/components/SteamersViewComponents/ThirdSectionBesteamVideo'
 
 function SteamersPage() {
 	return (
@@ -14,6 +15,8 @@ function SteamersPage() {
 				<FirstSectionCallToAction />
 
 				<SecondSectionBesteamDescription />
+
+				<ThirdSectionBesteamVideo />
 
 			</div>
 		</>
