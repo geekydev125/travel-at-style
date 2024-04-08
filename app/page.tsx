@@ -4,11 +4,9 @@ import HomeViewBackgroundVideo from "@/components/HomeViewComponents/HomeViewBac
 
 export default function Home() {
 	return (
-		<main className={styles.main}>
-			<div className="overflow-hidden" style={{height: '100vh'}}>
-				<VideoOverlay />
-				<HomeViewBackgroundVideo />
-			</div>
-		</main>
+		<div className="overflow-hidden z-1" style={{ height: '100vh' }}>
+			<VideoOverlay />
+			<HomeViewBackgroundVideo />
+		</div>
 	);
 }
