@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./globals.css";
+
 import BootstrapClient from "@/components/BootstrapClient";
-import Nav from "@/components/Nav/Nav";
+import Header from "@/components/Header/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,15 +22,12 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<header 
-					className={`position-sticky top-0 z-2 px-md-5`}
-					style={{backgroundImage: `url('/assets/img/patterns/wood-pattern.jpg')`}}
-					 >
-					<Nav />
-				</header>
+				<Header />
+
 				<main>
 					{children}
 				</main>
+				
 				<BootstrapClient />
 			</body>
 		</html>

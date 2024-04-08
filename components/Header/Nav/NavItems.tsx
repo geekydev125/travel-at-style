@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import uniqid from 'uniqid'
 
 import routes from '@/data/routes.json'
-import IconShoppingCart from '../Icons/IconShoppingCart'
+import IconShoppingCart from '../../Icons/IconShoppingCart'
 
 interface Route {
     path: string
