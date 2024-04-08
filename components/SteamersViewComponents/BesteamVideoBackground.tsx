@@ -7,7 +7,7 @@ function BesteamVideoBackground() {
 			<VideoOverlay alpha={0.4} />
 			<BackgroundVideo
 				videoSrc="/assets/video/besteam/besteam.mp4"
-				posterSrc="/assets/video/besteam/besteam-poster.mp4"
+				posterSrc="/assets/video/besteam/besteam-poster.jpg"
 				classes="vh-100 w-100 position-absolute top-0 z-0 object-fit-cover"
 			/>
 		</>
