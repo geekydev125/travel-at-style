@@ -1,0 +1,25 @@
+// :root {
+
+// }
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+.background-pattern-wood {
+	background-image: url(/assets/img/patterns/wood-pattern.jpg);
+	background-repeat: repeat;
+	background-size: contain;
+}
+
+.background-pattern-wool {
+	background-image: url(/assets/img/patterns/wool-pattern.jpg);
+	background-repeat: repeat;
+	background-size: contain;
+}
+
+@import '/styles/_custom-fonts.scss';
+@import '/styles/_custom-variables.scss';
+@import '/node_modules/bootstrap/scss/bootstrap.scss';
