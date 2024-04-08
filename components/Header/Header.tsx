@@ -11,10 +11,7 @@ function Header() {
         <>
             {
                 pathname !== "/" && (
-                    <header
-                        className={`position-sticky top-0 z-2 px-md-5 shadow`}
-                        style={{ backgroundImage: `url('/assets/img/patterns/wood-pattern.jpg')` }}
-                    >
+                    <header className='position-sticky top-0 z-2 px-md-5 shadow background-pattern-wood'>
                         <Nav />
                     </header>
                 )

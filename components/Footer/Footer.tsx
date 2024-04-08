@@ -4,8 +4,7 @@ import React from 'react'
 function Footer() {
     return (
         <footer
-            style={{ backgroundImage: `url('/assets/img/patterns/wood-pattern.jpg')`, backgroundRepeat: 'repeat', backgroundSize: 'contain' }}
-            className='py-3'
+            className='py-3 background-pattern-wood'
         >
             <div className="d-flex flex-row justify-content-center align-items-center">
                 <div className='text-center'>
