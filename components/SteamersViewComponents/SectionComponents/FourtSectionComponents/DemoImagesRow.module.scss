@@ -1,0 +1,9 @@
+.imagesRow {
+    margin: 30px 0;
+}
+
+@media (min-width: 768px) { 
+    .imagesRow {
+        margin: 70px 0;
+    }  
+}
