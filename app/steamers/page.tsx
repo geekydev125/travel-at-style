@@ -3,7 +3,7 @@ import TextOverBackgroundVideo from '@/components/SteamersViewComponents/TextOve
 import FirstSectionCallToAction from '@/components/SteamersViewComponents/SectionComponents/FirstSectionCallToAction'
 import SecondSectionBesteamDescription from '@/components/SteamersViewComponents/SectionComponents/SecondSectionBesteamDescription'
 import ThirdSectionBesteamVideo from '@/components/SteamersViewComponents/SectionComponents/ThirdSectionBesteamVideo'
-import FourthSectionShopOverview from '@/components/SteamersViewComponents/SectionComponents/FourthSectionShopOverview'
+import FourthSectionShopOverview from '@/components/SteamersViewComponents/SectionComponents/FourtSectionComponents/FourthSectionShopOverview'
 
 function SteamersPage() {
 	return (
