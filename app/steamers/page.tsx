@@ -1,8 +1,9 @@
 import BesteamVideoBackground from '@/components/SteamersViewComponents/BesteamVideoBackground'
 import TextOverBackgroundVideo from '@/components/SteamersViewComponents/TextOverBackgroundVideo'
-import FirstSectionCallToAction from '@/components/SteamersViewComponents/FirstSectionCallToAction'
-import SecondSectionBesteamDescription from '@/components/SteamersViewComponents/SecondSectionBesteamDescription'
-import ThirdSectionBesteamVideo from '@/components/SteamersViewComponents/ThirdSectionBesteamVideo'
+import FirstSectionCallToAction from '@/components/SteamersViewComponents/SectionComponents/FirstSectionCallToAction'
+import SecondSectionBesteamDescription from '@/components/SteamersViewComponents/SectionComponents/SecondSectionBesteamDescription'
+import ThirdSectionBesteamVideo from '@/components/SteamersViewComponents/SectionComponents/ThirdSectionBesteamVideo'
+import FourtSectionShopOverview from '@/components/SteamersViewComponents/SectionComponents/FourtSectionShopOverview'
 
 function SteamersPage() {
 	return (
@@ -18,6 +19,7 @@ function SteamersPage() {
 
 				<ThirdSectionBesteamVideo />
 
+				<FourtSectionShopOverview />
 			</div>
 		</>
 	)

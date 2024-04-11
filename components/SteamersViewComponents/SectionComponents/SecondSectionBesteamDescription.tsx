@@ -1,5 +1,5 @@
-import IconCheckCircle from "../Icons/IconCheckCircle"
-import AnimatedSteamerImg from "./AnimatedSteamerImg"
+import IconCheckCircle from "../../Icons/IconCheckCircle"
+import AnimatedSteamerImg from "../AnimatedSteamerImg"
 
 const steamerBulletPoints = [
 	"Multi-purpose steamer suitable for travel and home use",
