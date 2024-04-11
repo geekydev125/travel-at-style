@@ -18,13 +18,17 @@
 .background-pattern-wool {
 	background-image: url(/assets/img/patterns/wool-pattern.jpg);
 	background-repeat: repeat;
-	background-size: contain;
 }
 
 .background-pattern-crossword {
 	background-image: url(/assets/img/patterns/crossword-pattern.jpg);
 	background-repeat: repeat;
 	background-size: contain;
+}
+
+.background-pattern-fabric {
+	background-image: url(/assets/img/patterns/fabric-pattern.jpg);
+	background-repeat: repeat;
 }
 
 @import '/styles/_custom-fonts.scss';
