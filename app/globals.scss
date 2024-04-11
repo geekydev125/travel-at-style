@@ -31,6 +31,36 @@
 	background-repeat: repeat;
 }
 
+// Carousel
+#carousel-besteam  {
+	.carousel-indicators {
+		bottom: -38px;
+		justify-content: space-around;
+		button {
+			height: 40px;
+			border: 1px solid lightgrey;
+			opacity: 1;
+			border-radius: 50px;
+			transition: transform 1s ease-in-out;
+			&.active {
+				transform: scale(1.2);
+			}
+			&[aria-label="blue"] {
+				background-color: blue;
+			}
+			&[aria-label="black"] {
+				background-color: black;
+			}
+			&[aria-label="red"] {
+				background-color: red;
+			}
+			&[aria-label="white"] {
+				background-color: white;
+			}
+		}
+	}
+}
+
 @import '/styles/_custom-fonts.scss';
 @import '/styles/_custom-variables.scss';
 @import '~bootstrap/scss/bootstrap';
