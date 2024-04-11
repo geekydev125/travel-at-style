@@ -1,0 +1,18 @@
+.steamer-slider {
+    background: url(/assets/img/steamer-slider.png);
+    background-repeat: repeat-x;
+    height: 182px;
+    width: 5076px;
+    animation: slide 60s linear infinite;
+    z-index: 0;
+    opacity: 0.6;
+}
+
+@keyframes slide {
+    0% {
+        transform: translate3d(0, 0, 0)
+    }
+    100% {
+        transform: translate3d(-3394px, 0, 0)
+    }
+}
