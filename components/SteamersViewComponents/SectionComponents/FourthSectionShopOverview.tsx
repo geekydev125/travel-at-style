@@ -8,7 +8,8 @@ function FourthSectionShopOverview() {
 			<div className="container background-pattern-fabric rounded-5 p-5">
 				<div className="row">
 					<div className="col-7">
-
+						<h2 className="text-center">{steamers.besteam.name}</h2>
+						<p className="text-center text-custom-light">{steamers.besteam.description}</p>
 					</div>
 					<div className="col-5">
 						<ProductCarousel
