@@ -10,7 +10,7 @@
             "Salt Container",
             "Salt Measuring Spoon"
         ],
-        "colors": [
+        "variants": [
             {
                 "color": "blue",
                 "img": "besteam-blue.jpg"
@@ -42,7 +42,7 @@
             "Salt Measuring Spoon",
             "Collar attachment"
         ],
-        "colors": [
+        "variants": [
             {
                 "color": "yellow",
                 "img": "besteam-xl-yellow.jpg"
