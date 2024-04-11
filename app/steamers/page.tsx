@@ -5,6 +5,7 @@ import SecondSectionBesteamDescription from '@/components/SteamersViewComponents
 import ThirdSectionBesteamVideo from '@/components/SteamersViewComponents/SectionComponents/ThirdSectionBesteamVideo'
 import FourthSectionShopOverview from '@/components/SteamersViewComponents/SectionComponents/FourtSectionComponents/FourthSectionShopOverview'
 import SteamerSlider from '@/components/SteamersViewComponents/SteamerSlider'
+import FifthSectionCallToActionDiscounts from '@/components/SteamersViewComponents/SectionComponents/FifthSectionCallToActionDiscounts'
 
 function SteamersPage() {
 	return (
@@ -23,7 +24,8 @@ function SteamersPage() {
 				<FourthSectionShopOverview />
 
 				<SteamerSlider />
-				
+
+				<FifthSectionCallToActionDiscounts />
 			</div>
 		</>
 	)
