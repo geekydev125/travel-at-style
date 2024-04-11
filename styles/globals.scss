@@ -36,7 +36,7 @@
 }
 
 // Carousel
-#carousel-besteam  {
+#carousel-besteam, #carousel-besteamXl  {
 	.carousel-indicators {
 		bottom: -38px;
 		justify-content: space-around;
@@ -48,6 +48,9 @@
 			transition: transform 1s ease-in-out;
 			&.active {
 				transform: scale(1.2);
+			}
+			&[aria-label="yellow"] {
+				background-color: yellow;
 			}
 			&[aria-label="blue"] {
 				background-color: blue;

@@ -2,6 +2,7 @@
 import Carousel from 'react-bootstrap/Carousel';
 
 import { Steamer } from "@/model/Steamer"
+import uniqid from 'uniqid';
 
 interface Props {
     carouselId: string,
@@ -18,7 +19,7 @@ function ProductCarousel({
         <Carousel id={carouselId} controls={false} fade indicators={true} indicatorLabels={indicatorLabels}>
             {
                 steamerModel.variants.map((variant, index) => (
-                    <Carousel.Item key={index}>
+                    <Carousel.Item key={uniqid()}>
                         <img
                             className="w-100"
                             src={`/assets/img/steamers/${steamerModel.imgFolder}/${variant.img}`}
