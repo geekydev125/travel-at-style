@@ -22,7 +22,7 @@ function NavItems() {
                         return (
                             <li className="nav-item" key={uniqid()}>
                                 <Link
-                                    className={`nav-link text-white ${route.path === '/shop' && 'fst-italic fw-medium'} ${pathname === route.path && 'active'}`}
+                                    className={`nav-link text-custom-light ${route.path === '/shop' && 'fst-italic fw-medium'} ${pathname === route.path && 'active'}`}
                                     aria-current="page"
                                     href={route.path}
                                 >
@@ -40,7 +40,7 @@ function NavItems() {
                     if (route.path !== '/' && index > 5) {
                         return (
                             <li className="nav-item" key={uniqid()}>
-                                <Link className={`nav-link text-white ${pathname === route.path && 'active'}`} aria-current="page" href={route.path}>{route.title}</Link>
+                                <Link className={`nav-link text-custom-light ${pathname === route.path && 'active'}`} aria-current="page" href={route.path}>{route.title}</Link>
                             </li>
                         )
                     }
