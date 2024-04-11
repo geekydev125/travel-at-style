@@ -1,0 +1,65 @@
+{
+    "besteam": {
+        "name": "Besteam",
+        "description": "Besteam can hold one (1) measuring cup of water, at a time, which will produce enough steam to last between 2 to 4 garments - approximately 5 minutes worth of steam.",
+        "packageIncludes": [
+            "Besteam steam iron",
+            "Electrical Cable suitable for 110V - 240V",
+            "Nylon Brush - For use on velvet",
+            "Water Measuring Cup",
+            "Salt Container",
+            "Salt Measuring Spoon"
+        ],
+        "colors": [
+            {
+                "color": "blue",
+                "img": "besteam-blue.jpg"
+            },
+            {
+                "color": "black",
+                "img": "besteam-black.jpg"
+            },
+            {
+                "color": "red",
+                "img": "besteam-red.jpg"
+            },
+            {
+                "color": "white",
+                "img": "besteam-white.jpg"
+            }
+        ],
+        "price": 99.99
+    },
+    "besteamXl": {
+        "name": "Besteam XL",
+        "description": "Besteam XL can hold one and a half (1.5) measuring cups of water, at a time, which will produce enough steam to last between 4 to 8 garments - approximately 8 minutes worth of steam.",
+        "packageIncludes": [
+            "Besteam XL steam iron",
+            "Electrical Cable suitable for 110V - 240V",
+            "Nylon Brush - For use on velvet",
+            "Water Measuring Cup",
+            "Salt Container",
+            "Salt Measuring Spoon",
+            "Collar attachment"
+        ],
+        "colors": [
+            {
+                "color": "yellow",
+                "img": "besteam-xl-yellow.jpg"
+            },
+            {
+                "color": "blue",
+                "img": "besteam-xl-blue.jpg"
+            },
+            {
+                "color": "black",
+                "img": "besteam-xl-black.jpg"
+            },
+            {
+                "color": "red",
+                "img": "besteam-xl-red.jpg"
+            }
+        ],
+        "price": 109.99
+    }
+}
