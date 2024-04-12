@@ -20,11 +20,11 @@
         "title": "Shop Now!"
     },
     {
-        "path": "/instructions",
+        "path": "/misc",
         "title": "User Instructions"
     },
     {
-        "path": "/warranty",
+        "path": "/misc",
         "title": "Warranty"
     },
     {
