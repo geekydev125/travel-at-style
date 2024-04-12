@@ -1,0 +1,44 @@
+{
+    "travelBottleSet": {
+        "name": "Travel Bottle Set",
+        "imgFolder": "accessories",
+        "img": "travelBottleSet.jpg",
+        "description": "TSA-approved 4-piece travel bottle set suitable for travel toiletries and cosmetics.",
+        "price": 19.99
+    },
+    "universalAdapter": {
+        "name": "Universal Adapter",
+        "imgFolder": "accessories",
+        "img": "universalAdapter.jpg",
+        "description": "All-in-one universal travel adapter with charging ports for USA, EU, UK, and AUS.",
+        "price": 29.99
+    },
+    "steamerHook": {
+        "name": "Steamer Hook",
+        "imgFolder": "accessories",
+        "img": "steamerHook.jpg",
+        "description": "Light suction cup, attachable to any flat surface, that can hold a weight of up to 10 lbs.",
+        "price": 12.99
+    },
+    "compressionSocks": {
+        "name": "Compression Socks",
+        "imgFolder": "accessories",
+        "img": "compressionSocks.jpg",
+        "description": "Men's and women's compression socks. Best graduated fit for sports and flight travel.",
+        "price": 29.99
+    },
+    "travelCase": {
+        "name": "Travel Case",
+        "imgFolder": "accessories",
+        "img": "travelCase.jpg",
+        "description": "Black fabric travel case for convenient transportation of Besteam and its components.",
+        "price": 9.99
+    },
+    "luggageScale": {
+        "name": "Luggage Scale",
+        "imgFolder": "accessories",
+        "img": "luggageScale.jpg",
+        "description": "Accurate home and travel luggage scale displaying weights of up to 77 lbs. (35 kg).",
+        "price": 19.99
+    }
+}
