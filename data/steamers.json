@@ -14,19 +14,23 @@
         "variants": [
             {
                 "color": "blue",
-                "img": "besteam-blue.jpg"
+                "img": "besteam-blue.jpg",
+                "imgShop": "besteam-blue-shop.jpg"
             },
             {
                 "color": "black",
-                "img": "besteam-black.jpg"
+                "img": "besteam-black.jpg",
+                "imgShop": "besteam-black-shop.jpg"
             },
             {
                 "color": "red",
-                "img": "besteam-red.jpg"
+                "img": "besteam-red.jpg",
+                "imgShop": "besteam-red-shop.jpg"
             },
             {
                 "color": "white",
-                "img": "besteam-white.jpg"
+                "img": "besteam-white.jpg",
+                "imgShop": "besteam-white-shop.jpg"
             }
         ],
         "price": 99.99
@@ -47,19 +51,23 @@
         "variants": [
             {
                 "color": "yellow",
-                "img": "besteam-xl-yellow.jpg"
+                "img": "besteam-xl-yellow.jpg",
+                "imgShop": "besteam-xl-yellow-shop.jpg"
             },
             {
                 "color": "blue",
-                "img": "besteam-xl-blue.jpg"
+                "img": "besteam-xl-blue.jpg",
+                "imgShop": "besteam-xl-blue-shop.jpg"
             },
             {
                 "color": "black",
-                "img": "besteam-xl-black.jpg"
+                "img": "besteam-xl-black.jpg",
+                "imgShop": "besteam-xl-black-shop.jpg"
             },
             {
                 "color": "red",
-                "img": "besteam-xl-red.jpg"
+                "img": "besteam-xl-red.jpg",
+                "imgShop": "besteam-xl-red-shop.jpg"
             }
         ],
         "price": 109.99
