@@ -71,7 +71,7 @@ function ProductsTabs() {
 							{Object.values(luggage).map((luggage: Luggage) => {
 								return (
 									<div className="col-12 col-md-4" key={uniqid()}>
-										<ShopProductCard product={luggage} />
+										<ShopProductCard product={luggage} showModalHandler={showModalHandler} />
 									</div>
 								)
 							})}
@@ -86,7 +86,7 @@ function ProductsTabs() {
 							{Object.values(accessories).map((accessory: Accessory) => {
 								return (
 									<div className="col-12 col-sm-6 col-lg-4" key={uniqid()}>
-										<ShopProductCard product={accessory} />
+										<ShopProductCard product={accessory} showModalHandler={showModalHandler} />
 									</div>
 								)
 							})}
