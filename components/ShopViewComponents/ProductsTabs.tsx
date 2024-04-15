@@ -1,4 +1,5 @@
 "use client"
+import { useState } from 'react';
 import uniqid from 'uniqid';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -13,8 +14,18 @@ import { Luggage } from '@/model/Luggage';
 
 import ShopProductCard from './ShopProductCard';
 import ShopVariantProductCard from './ShopVariantProductCard';
+import ProductModal from '../ProductModal';
 
 function ProductsTabs() {
+	const [showModal, setShowModal] = useState<boolean>(false);
+	const [productModal, setProductModal] = useState<Steamer | Accessory | Luggage | null>(null);
+
+	const showModalHandler = (showBool: boolean, product?: Steamer | Accessory | Luggage) => {
+		setShowModal(showBool)
+
+		if (product) setProductModal(product)
+	}
+
 	return (
 		<>
 			<Tabs
@@ -30,14 +41,22 @@ function ProductsTabs() {
 							{Object.values(steamers.besteam.variants).map((variant: SteamerVariant) => {
 								return (
 									<div className="col-12 col-md-4" key={uniqid()}>
-										<ShopVariantProductCard product={steamers.besteam} variant={variant} />
+										<ShopVariantProductCard
+											product={steamers.besteam}
+											variant={variant}
+											showModalHandler={showModalHandler}
+										/>
 									</div>
 								)
 							})}
 							{Object.values(steamers.besteamXl.variants).map((variant: SteamerVariant) => {
 								return (
 									<div className="col-12 col-md-4" key={uniqid()}>
-										<ShopVariantProductCard product={steamers.besteamXl} variant={variant} />
+										<ShopVariantProductCard
+											product={steamers.besteamXl}
+											variant={variant}
+											showModalHandler={showModalHandler}
+										/>
 									</div>
 								)
 							})}
@@ -75,6 +94,14 @@ function ProductsTabs() {
 					</div>
 				</Tab>
 			</Tabs>
+
+			{productModal && (
+				<ProductModal
+					product={productModal}
+					showModal={showModal}
+					showModalHandler={showModalHandler}
+				/>
+			)}
 		</>
 	)
 }
