@@ -5,7 +5,7 @@ import { useInView } from "framer-motion";
 
 import accessories from "@/data/accessories.json"
 import { Accessory } from "@/model/Accessory";
-import AccessoryCard from "@/components/AccessoriesViewComponents/AccessoryCard";
+import ProductCard from "@/components/ProductCard";
 
 function AccessoriesPage() {
 	const imgRef = useRef(null);
@@ -37,7 +37,7 @@ function AccessoriesPage() {
 					Object.values(accessories).map((accessory: Accessory) => {
 						return (
 							<div className="col-12 col-md-4" key={uniqid()}>
-								<AccessoryCard accessory={accessory} />
+								<ProductCard product={accessory} />
 							</div>
 						)
 					})

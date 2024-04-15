@@ -1,17 +1,18 @@
 import Link from "next/link"
 
 import { Accessory } from "@/model/Accessory"
-import styles from "./AccessoryCard.module.scss"
+import styles from "./ProductCard.module.scss"
 
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
+import { Luggage } from "@/model/Luggage"
 
 interface Props {
-    accessory: Accessory
+    product: Accessory | Luggage
 }
 
-function AccessoryCard({
-    accessory
+function ProductCard({
+    product
 }: Props) {
     return (
         <Card className={`shadow-sm ${styles['accessory-card']}`}>
@@ -19,17 +20,17 @@ function AccessoryCard({
                 <Card.Img
                     variant="top"
                     className={`object-fit-cover ${styles['accessory-card-img']}`}
-                    src={`/assets/img/${accessory.imgFolder}/${accessory.img}`}
-                    alt={accessory.name}
+                    src={`/assets/img/${product.imgFolder}/${product.img}`}
+                    alt={product.name}
                 />
             </div>
             <Card.Body>
-                <Card.Title>{accessory.name}</Card.Title>
+                <Card.Title>{product.name}</Card.Title>
                 <Card.Text className="text-custom-dark">
-                    {accessory.description}
+                    {product.description}
                 </Card.Text>
                 <Card.Text className="text-custom-dark h4">
-                    ${accessory.price}
+                    ${product.price}
                 </Card.Text>
 
                 <div className="d-flex justify-content-center">
@@ -42,4 +43,4 @@ function AccessoryCard({
     )
 }
 
-export default AccessoryCard
+export default ProductCard
