@@ -11,10 +11,10 @@ function LuggagePage() {
 	return (
 		<section className="row gy-4">
 			{
-				Object.values(luggage).map((accessory: Luggage) => {
+				Object.values(luggage).map((Luggage: Luggage) => {
 					return (
 						<div className="col-12 col-md-4" key={uniqid()}>
-							<ProductCard product={accessory} />
+							<ProductCard product={Luggage} />
 						</div>
 					)
 				})
