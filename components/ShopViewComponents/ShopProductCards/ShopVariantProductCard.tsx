@@ -1,14 +1,15 @@
-import { Steamer, SteamerVariant } from '@/model/Steamer'
-
-import styles from './ShopProductCard.module.scss'
-
-import Button from 'react-bootstrap/Button'
 import ShopProductCardPrice from './ShopProductCardComponents/ShopProductCardPrice'
+import ShopProductCardImage from './ShopProductCardComponents/ShopProductCardImage'
+
+import { Steamer, SteamerVariant } from '@/model/Steamer'
+import { Luggage } from '@/model/Luggage'
+import { Accessory } from '@/model/Accessory'
+import ShopProductCardButtons from './ShopProductCardComponents/ShopProductCardButtons'
 
 interface Props {
 	product: Steamer,
 	variant: SteamerVariant,
-    showModalHandler: (showBool: boolean, product?: Steamer) => void
+    showModalHandler: (showBool: boolean, product?: Steamer | Luggage | Accessory) => void
 }
 
 function ShopVariantProductCard({
@@ -17,19 +18,12 @@ function ShopVariantProductCard({
 	showModalHandler
 }: Props) {
 	return (
-		<div className="position-relative background-light-gradient" style={{ backgroundColor: 'lightgray' }}>
+		<div className="position-relative background-light-gradient">
 			<ShopProductCardPrice price={product.price} />
 
-			<div className="overflow-hidden position-relative" >
-				<img onClick={() => showModalHandler(true, product)} className={`img-fluid ${styles['shop-product-card-img']} `} src={`/assets/img/${product.imgFolder}/${variant.imgShop}`} alt={product.name} />
-			</div>
+			<ShopProductCardImage imgUrl={`/assets/img/${product.imgFolder}/${variant.imgShop}`} product={product} showModalHandler={showModalHandler} />
 
-			<div className="d-flex justify-content-between align-items-center px-2 py-4 position-relative overflow-hidden">
-
-				<Button variant='text' onClick={() => showModalHandler(true, product)} className="text-custom-dark fw-bold h5 mb-0">{product.name} ({variant.color})</Button>
-				<Button variant='button' className="btn btn-success btn-sm me-2">Add to cart</Button>
-			</div>
-
+			<ShopProductCardButtons product={product} showModalHandler={showModalHandler} variantColor={variant.color} />
 		</div>
 	)
 }

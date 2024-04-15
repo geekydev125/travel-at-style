@@ -19,16 +19,9 @@ function ShopProductCard({
         <div className="position-relative background-light-gradient">
             <ShopProductCardPrice price={product.price} />
 
-            <ShopProductCardImage
-                imgUrl={`/assets/img/${product.imgFolder}/${product.img}`}
-                product={product}
-                showModalHandler={showModalHandler}
-            />
+            <ShopProductCardImage imgUrl={`/assets/img/${product.imgFolder}/${product.img}`} product={product} showModalHandler={showModalHandler} />
 
-            <ShopProductCardButtons
-                product={product}
-                showModalHandler={showModalHandler}
-            />
+            <ShopProductCardButtons product={product} showModalHandler={showModalHandler} />
         </div>
     )
 }
