@@ -12,8 +12,8 @@ function AccessoriesPage() {
 	const isInView = useInView(imgRef, { once: true })
 
 	return (
-		<div className="container">
-			<div className="row">
+		<div className="container py-5">
+			<div className="row pb-5">
 				<div className="col-md-5 d-flex flex-column justify-content-center align-items-center">
 					<img
 						src="/assets/img/airplane.png"
@@ -32,7 +32,7 @@ function AccessoriesPage() {
 				</div>
 			</div>
 
-			<div className="row gy-2">
+			<section className="row gy-4">
 				{
 					Object.values(accessories).map((accessory: Accessory) => {
 						return (
@@ -42,7 +42,7 @@ function AccessoriesPage() {
 						)
 					})
 				}
-			</div>
+			</section>
 		</div>
 	)
 }
