@@ -1,7 +1,7 @@
 {
     "besteam": {
         "name": "Besteam",
-        "imgFolder": "besteam",
+        "imgFolder": "steamers/besteam",
         "description": "Besteam can hold one (1) measuring cup of water, at a time, which will produce enough steam to last between 2 to 4 garments - approximately 5 minutes worth of steam.",
         "packageIncludes": [
             "Besteam steam iron",
@@ -33,7 +33,7 @@
     },
     "besteamXl": {
         "name": "Besteam XL",
-        "imgFolder": "besteamXL",
+        "imgFolder": "steamers/besteamXL",
         "description": "Besteam XL can hold one and a half (1.5) measuring cups of water, at a time, which will produce enough steam to last between 4 to 8 garments - approximately 8 minutes worth of steam.",
         "packageIncludes": [
             "Besteam XL steam iron",
