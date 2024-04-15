@@ -8,9 +8,11 @@ import luggage from "@/data/luggage.json"
 import accessories from "@/data/accessories.json"
 
 import { Accessory } from '@/model/Accessory';
+import { Steamer, SteamerVariant } from '@/model/Steamer';
+import { Luggage } from '@/model/Luggage';
 
 import ShopProductCard from './ShopProductCard';
-import { Luggage } from '@/model/Luggage';
+import ShopVariantProductCard from './ShopVariantProductCard';
 
 function ProductsTabs() {
 	return (
@@ -25,7 +27,20 @@ function ProductsTabs() {
 					<p><small className='text-muted'>*Click on product's image/name for more info</small></p>
 					<div className='container'>
 						<div className='row gx-4 gy-5'>
-
+							{Object.values(steamers.besteam.variants).map((variant: SteamerVariant) => {
+								return (
+									<div className="col-12 col-md-4" key={uniqid()}>
+										<ShopVariantProductCard product={steamers.besteam} variant={variant} />
+									</div>
+								)
+							})}
+							{Object.values(steamers.besteamXl.variants).map((variant: SteamerVariant) => {
+								return (
+									<div className="col-12 col-md-4" key={uniqid()}>
+										<ShopVariantProductCard product={steamers.besteamXl} variant={variant} />
+									</div>
+								)
+							})}
 						</div>
 					</div>
 				</Tab>
