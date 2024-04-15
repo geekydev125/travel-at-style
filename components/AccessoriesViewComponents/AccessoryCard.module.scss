@@ -1,4 +1,11 @@
 .accessory-card {
     background: #b8e1fc;
-        background: linear-gradient(135deg, #b8e1fc 0, #a9d2f3 10%, #90bae4 25%, #90bcea 37%, #90bff0 50%, #90d5f4 76%, #6ba8e5 100%);
+    background: linear-gradient(135deg, #b8e1fc 0, #a9d2f3 10%, #90bae4 25%, #90bcea 37%, #90bff0 50%, #90d5f4 76%, #6ba8e5 100%);
+
+    .accessory-card-img {
+        transition: transform 0.5s ease-in-out;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
 }

@@ -1,6 +1,10 @@
+import Link from "next/link"
+
+import { Accessory } from "@/model/Accessory"
+import styles from "./AccessoryCard.module.scss"
+
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
-import { Accessory } from "@/model/Accessory"
 
 interface Props {
     accessory: Accessory
@@ -8,16 +12,31 @@ interface Props {
 
 function AccessoryCard({
     accessory
-}: Props ) {
+}: Props) {
     return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={`/assets/img/${accessory.imgFolder}/${accessory.img}`} />
+        <Card className={`shadow-sm ${styles['accessory-card']}`}>
+            <div className="m-2 rounded-1 overflow-hidden">
+                <Card.Img
+                    variant="top"
+                    className={`object-fit-cover ${styles['accessory-card-img']}`}
+                    src={`/assets/img/${accessory.imgFolder}/${accessory.img}`}
+                    alt={accessory.name}
+                />
+            </div>
             <Card.Body>
                 <Card.Title>{accessory.name}</Card.Title>
-                <Card.Text>
+                <Card.Text className="text-custom-dark">
                     {accessory.description}
                 </Card.Text>
-                <Button variant="secondary">Get yours</Button>
+                <Card.Text className="text-custom-dark h4">
+                    ${accessory.price}
+                </Card.Text>
+
+                <div className="d-flex justify-content-center">
+                    <Link href="/shop" className="text-center">
+                        <Button variant="success" className="">GET YOURS NOW!</Button>
+                    </Link>
+                </div>
             </Card.Body>
         </Card>
     )
