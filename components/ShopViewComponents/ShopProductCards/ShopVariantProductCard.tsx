@@ -3,6 +3,7 @@ import { Steamer, SteamerVariant } from '@/model/Steamer'
 import styles from './ShopProductCard.module.scss'
 
 import Button from 'react-bootstrap/Button'
+import ShopProductCardPrice from './ShopProductCardComponents/ShopProductCardPrice'
 
 interface Props {
 	product: Steamer,
@@ -17,9 +18,7 @@ function ShopVariantProductCard({
 }: Props) {
 	return (
 		<div className="position-relative background-light-gradient" style={{ backgroundColor: 'lightgray' }}>
-			<span className="background-light-gradient text-custom-dark mb-0 position-absolute z-1 top-0 end-0 p-2 fw-bold h5" style={{ borderBottomLeftRadius: '7px' }}>
-				${product.price}
-			</span>
+			<ShopProductCardPrice price={product.price} />
 
 			<div className="overflow-hidden position-relative" >
 				<img onClick={() => showModalHandler(true, product)} className={`img-fluid ${styles['shop-product-card-img']} `} src={`/assets/img/${product.imgFolder}/${variant.imgShop}`} alt={product.name} />

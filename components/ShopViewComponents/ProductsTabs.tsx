@@ -12,8 +12,8 @@ import { Accessory } from '@/model/Accessory';
 import { Steamer, SteamerVariant } from '@/model/Steamer';
 import { Luggage } from '@/model/Luggage';
 
-import ShopProductCard from './ShopProductCard';
-import ShopVariantProductCard from './ShopVariantProductCard';
+import ShopProductCard from './ShopProductCards/ShopProductCard';
+import ShopVariantProductCard from './ShopProductCards/ShopVariantProductCard';
 import ProductModal from '../ProductModal';
 
 function ProductsTabs() {
