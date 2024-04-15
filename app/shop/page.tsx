@@ -1,7 +1,12 @@
+import ProductsTabs from "@/components/ShopViewComponents/ProductsTabs"
+
 function ShopPage() {
-  return (
-    <div>ShopPage</div>
-  )
+	return (
+		<section className="container py-5">
+			<ProductsTabs />
+
+		</section>
+	)
 }
 
 export default ShopPage
