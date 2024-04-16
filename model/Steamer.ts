@@ -1,16 +1,10 @@
-export interface SteamerVariant {
+import { Product, ProductVariant } from "./Product";
+
+export interface SteamerVariant extends ProductVariant {
     color: string,
-    img: string,
-    imgShop: string
+    imgSpecial: string,
 }
 
-export class Steamer {
-    constructor(
-        public name: string,
-        public imgFolder: string,
-        public description: string,
-        public packageIncludes: string[],
-        public variants: SteamerVariant[],
-        public price: number
-    ) { }
+export interface Steamer extends Omit<Product, 'variants'> {
+    variants: SteamerVariant[]
 }
