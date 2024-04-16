@@ -21,7 +21,7 @@ function ShopProductCard({
         <div className="position-relative background-light-gradient">
             <ShopProductCardPrice price={variant.price} />
 
-            <ShopProductCardImage imgUrl={`/assets/img/${product.imgFolder}/${variant.img}`} product={product} />
+            <ShopProductCardImage imgUrl={`/assets/img/${product.imgFolder}/${variant.img}`} product={product} variant={variant} />
 
             <ShopProductCardButtons product={product} variant={variant} />
         </div>
