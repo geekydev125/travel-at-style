@@ -56,24 +56,27 @@
             {
                 "color": "yellow",
                 "img": "besteam-xl-yellow.jpg",
-                "imgSpecial": "besteam-xl-yellow-special.jpg"
+                "imgSpecial": "besteam-xl-yellow-special.jpg",
+                "price": 109.99
             },
             {
                 "color": "blue",
                 "img": "besteam-xl-blue.jpg",
-                "imgSpecial": "besteam-xl-blue-special.jpg"
+                "imgSpecial": "besteam-xl-blue-special.jpg",
+                "price": 109.99
             },
             {
                 "color": "black",
                 "img": "besteam-xl-black.jpg",
-                "imgSpecial": "besteam-xl-black-special.jpg"
+                "imgSpecial": "besteam-xl-black-special.jpg",
+                "price": 109.99
             },
             {
                 "color": "red",
                 "img": "besteam-xl-red.jpg",
-                "imgSpecial": "besteam-xl-red-special.jpg"
+                "imgSpecial": "besteam-xl-red-special.jpg",
+                "price": 109.99
             }
-        ],
-        "price": 109.99
+        ]
     }
 }
