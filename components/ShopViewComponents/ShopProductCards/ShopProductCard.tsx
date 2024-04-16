@@ -4,20 +4,24 @@ import { Luggage } from "@/model/Luggage"
 import ShopProductCardPrice from "./ShopProductCardComponents/ShopProductCardPrice"
 import ShopProductCardImage from "./ShopProductCardComponents/ShopProductCardImage"
 import ShopProductCardButtons from "./ShopProductCardComponents/ShopProductCardButtons"
+import { Steamer, SteamerVariant } from "@/model/Steamer"
+import { ProductVariant } from "@/model/Product"
 
 interface Props {
-    product: Luggage | Accessory
+    product: Luggage | Accessory | Steamer
+    variant: SteamerVariant | ProductVariant
 }
 
 function ShopProductCard({
     product,
+    variant
 }: Props) {
 
     return (
         <div className="position-relative background-light-gradient">
-            <ShopProductCardPrice price={product.price} />
+            <ShopProductCardPrice price={variant.price} />
 
-            <ShopProductCardImage imgUrl={`/assets/img/${product.imgFolder}/${product.img}`} product={product} />
+            <ShopProductCardImage imgUrl={`/assets/img/${product.imgFolder}/${variant.img}`} product={product} />
 
             <ShopProductCardButtons product={product} />
         </div>
