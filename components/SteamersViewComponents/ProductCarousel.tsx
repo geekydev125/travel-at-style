@@ -6,24 +6,24 @@ import uniqid from 'uniqid';
 
 interface Props {
     carouselId: string,
-    steamerModel: Steamer,
+    steamers: Steamer[],
     indicatorLabels: string[]
 }
 
 function ProductCarousel({
     carouselId,
-    steamerModel,
+    steamers,
     indicatorLabels
 }: Props) {
     return (
         <Carousel id={carouselId} controls={false} fade indicators={true} indicatorLabels={indicatorLabels}>
             {
-                steamerModel.variants.map((variant, index) => (
+                steamers.map((steamer, index) => (
                     <Carousel.Item key={uniqid()}>
                         <img
                             className="w-100"
-                            src={`/assets/img/${steamerModel.imgFolder}/${variant.imgSpecial}`}
-                            alt={variant.color}
+                            src={`/assets/img/${steamer.imgFolder}/${steamer.imgSpecial}`}
+                            alt={steamer.color}
                         />
                     </Carousel.Item>
                 ))
