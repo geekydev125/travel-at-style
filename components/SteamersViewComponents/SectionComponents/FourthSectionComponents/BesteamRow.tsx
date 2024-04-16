@@ -5,14 +5,17 @@ import ProductCarousel from "../../ProductCarousel"
 
 interface Props {
     steamers: Steamer[]
+    steamerModel: 'besteam' | 'besteamXl'
 }
 
 function BesteamRow({
-    steamers
-}:Props) {
+    steamers,
+    steamerModel
+}: Props) {
     return (
         <div className="row px-3 px-md-5">
-            <div className="col-12 col-md-7 order-2 order-md-1 d-flex flex-column justify-content-between py-3 px-md-5">
+
+            <div className={`col-12 col-md-7 order-2 d-flex flex-column justify-content-between py-3 px-md-5 ${steamerModel === 'besteam' ? "order-md-1" : 'order-md-2'}`}>
                 <h3 className="text-center text-custom-dark h2 mb-3">{steamers[0].name}</h3>
                 <p className="text-custom-dark">{steamers[0].description}</p>
 
@@ -33,11 +36,15 @@ function BesteamRow({
                 </div>
             </div>
 
-            <div className="col-12 col-md-5 mb-5 order-1 order-md-2">
+            <div className={`col-12 col-md-5 mb-5 order-1 ${steamerModel === 'besteam' ? "order-md-2" : 'order-md-1'}`}>
                 <ProductCarousel
-                    carouselId={'carousel-besteam'}
+                    carouselId={steamerModel === 'besteam' ? 'carousel-besteam' : 'carousel-besteamXl'}
                     steamers={steamers}
-                    indicatorLabels={['blue', 'black', 'red', 'white']}
+                    indicatorLabels={
+                        steamerModel === 'besteam'
+                            ? ['blue', 'black', 'red', 'white']
+                            : ['yellow', 'blue', 'black', 'red']
+                    }
                 />
             </div>
         </div>

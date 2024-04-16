@@ -1,7 +1,6 @@
 import steamers from "@/data/steamers.json"
 
 import BesteamRow from "./BesteamRow"
-import BesteamXlRow from "./BesteamXlRow"
 import DemoImagesRow from "./DemoImagesRow"
 
 function FourthSectionShopOverview() {
@@ -11,11 +10,11 @@ function FourthSectionShopOverview() {
 	return (
 		<section className="background-pattern-wool py-5 px-2 px-md-0" >
 			<div className="container background-pattern-fabric rounded-5 py-5 px-0">
-				<BesteamRow steamers={besteamSteamers} />
+				<BesteamRow steamers={besteamSteamers} steamerModel="besteam"/>
 
 				<DemoImagesRow />
 				
-				<BesteamXlRow steamers={besteamXlSteamers}/>
+				<BesteamRow steamers={besteamXlSteamers} steamerModel="besteamXl"/>
 			</div>
 		</section>
 	)
