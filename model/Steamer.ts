@@ -1,10 +1,7 @@
-import { Product, ProductVariant } from "./Product";
+import { Product } from "./Product";
 
-export interface SteamerVariant extends ProductVariant {
+export interface Steamer extends Product {
     color: string,
     imgSpecial: string,
-}
-
-export interface Steamer extends Omit<Product, 'variants'> {
-    variants: SteamerVariant[]
+    packageIncludes: string[] | [],
 }

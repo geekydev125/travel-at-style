@@ -1,7 +1,4 @@
-import { Product, ProductVariant } from "./Product";
-
-export interface LuggageVariant extends ProductVariant {
-}
+import { Product } from "./Product";
 
 export interface Luggage extends Product {
     

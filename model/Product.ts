@@ -1,12 +1,10 @@
-export interface ProductVariant {
-    img: string,
-    price: number,
-}
+import { IdType, Identifiable } from "@/types/common-types";
 
-export interface Product {
+export interface Product extends Identifiable<IdType>{
     name: string,
+    nameCamelCase: string,
     imgFolder: string,
+    img: string,
     description: string,
-    packageIncludes: string[] | [],
-    variants: ProductVariant[],
+    price: number
 }
