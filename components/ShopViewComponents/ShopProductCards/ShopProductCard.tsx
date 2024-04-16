@@ -23,7 +23,7 @@ function ShopProductCard({
 
             <ShopProductCardImage imgUrl={`/assets/img/${product.imgFolder}/${variant.img}`} product={product} />
 
-            <ShopProductCardButtons product={product} />
+            <ShopProductCardButtons product={product} variant={variant} />
         </div>
     )
 }
