@@ -2,43 +2,73 @@
     "travelBottleSet": {
         "name": "Travel Bottle Set",
         "imgFolder": "accessories",
-        "img": "travel-bottle-set.jpg",
         "description": "TSA-approved 4-piece travel bottle set suitable for travel toiletries and cosmetics.",
-        "price": 19.99
+        "packageIncludes": [],
+        "variants": [
+            {
+                "img": "travel-bottle-set.jpg",
+                "price": 19.99
+            }
+        ]
     },
     "universalAdapter": {
         "name": "Universal Adapter",
         "imgFolder": "accessories",
-        "img": "universal-adapter.jpg",
         "description": "All-in-one universal travel adapter with charging ports for USA, EU, UK, and AUS.",
-        "price": 29.99
+        "packageIncludes": [],
+        "variants": [
+            {
+                "img": "universal-adapter.jpg",
+                "price": 29.99
+            }
+        ]
     },
     "steamerHook": {
         "name": "Steamer Hook",
         "imgFolder": "accessories",
-        "img": "steamer-hook.jpg",
         "description": "Light suction cup, attachable to any flat surface, that can hold a weight of up to 10 lbs.",
-        "price": 12.99
+        "packageIncludes": [],
+        "variants": [
+            {
+                "img": "steamer-hook.jpg",
+                "price": 12.99
+            }
+        ]
     },
     "compressionSocks": {
         "name": "Compression Socks",
         "imgFolder": "accessories",
-        "img": "compression-socks.jpg",
         "description": "Men's and women's compression socks. Best graduated fit for sports and flight travel.",
-        "price": 29.99
+        "packageIncludes": [],
+        "variants": [
+            {
+                "img": "compression-socks.jpg",
+                "price": 29.99
+            }
+        ]
     },
     "travelCase": {
         "name": "Travel Case",
         "imgFolder": "accessories",
-        "img": "travel-case.jpg",
         "description": "Black fabric travel case for convenient transportation of Besteam and its components.",
-        "price": 9.99
+        "packageIncludes": [],
+        "variants": [
+            {
+                "img": "travel-case.jpg",
+                "price": 9.99
+            }
+        ]
     },
     "luggageScale": {
         "name": "Luggage Scale",
         "imgFolder": "accessories",
-        "img": "luggage-scale.jpg",
         "description": "Accurate home and travel luggage scale displaying weights of up to 77 lbs. (35 kg).",
-        "price": 19.99
+        "packageIncludes": [],
+        "variants": [
+            {
+                "img": "luggage-scale.jpg",
+                "price": 19.99
+            }
+        ]
     }
 }

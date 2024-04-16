@@ -2,22 +2,38 @@
     "foldableBag": {
         "name": "Foldable Bag",
         "imgFolder": "luggage",
-        "img": "foldable-bag.jpg",
         "description": "Compact foldable travel bag, perfect for on-the-go storage during trips.",
-        "price": 49.99
+        "packageIncludes": [],
+        "variants": [
+            {
+                "img": "foldable-bag.jpg",
+                "price": 49.99
+            }
+        ]
+        
     },
     "extendableSuitcase": {
         "name": "Extendable Suitcase",
         "imgFolder": "luggage",
-        "img": "extendable-suitcase.jpg",
         "description": "Expandable suitcase for versatile packing, ideal for all your travel needs.",
-        "price": 89.99
+        "packageIncludes": [],
+        "variants": [
+            {
+                "img": "extendable-suitcase.jpg",
+                "price": 89.99
+            }
+        ]
     },
     "foldableSuitcase": {
         "name": "Foldable Suitcase",
         "imgFolder": "luggage",
-        "img": "foldable-suitcase.jpg",
         "description": "Foldable suitcase, compact design for easy storage and convenient travel packing.",
-        "price": 79.99
+        "packageIncludes": [],
+        "variants": [
+            {
+                "img": "foldable-suitcase.jpg",
+                "price": 79.99
+            }
+        ]
     }
 }

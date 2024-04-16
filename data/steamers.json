@@ -15,25 +15,29 @@
             {
                 "color": "blue",
                 "img": "besteam-blue.jpg",
-                "imgShop": "besteam-blue-shop.jpg"
+                "imgSpecial": "besteam-blue-special.jpg",
+                "price": 99.99
             },
             {
                 "color": "black",
                 "img": "besteam-black.jpg",
-                "imgShop": "besteam-black-shop.jpg"
+                "imgSpecial": "besteam-black-special.jpg",
+                "price": 99.99
             },
             {
                 "color": "red",
                 "img": "besteam-red.jpg",
-                "imgShop": "besteam-red-shop.jpg"
+                "imgSpecial": "besteam-red-special.jpg",
+                "price": 99.99
             },
             {
                 "color": "white",
                 "img": "besteam-white.jpg",
-                "imgShop": "besteam-white-shop.jpg"
+                "imgSpecial": "besteam-white-special.jpg",
+                "price": 99.99
             }
-        ],
-        "price": 99.99
+        ]
+        
     },
     "besteamXl": {
         "name": "Besteam XL",
@@ -52,22 +56,22 @@
             {
                 "color": "yellow",
                 "img": "besteam-xl-yellow.jpg",
-                "imgShop": "besteam-xl-yellow-shop.jpg"
+                "imgSpecial": "besteam-xl-yellow-special.jpg"
             },
             {
                 "color": "blue",
                 "img": "besteam-xl-blue.jpg",
-                "imgShop": "besteam-xl-blue-shop.jpg"
+                "imgSpecial": "besteam-xl-blue-special.jpg"
             },
             {
                 "color": "black",
                 "img": "besteam-xl-black.jpg",
-                "imgShop": "besteam-xl-black-shop.jpg"
+                "imgSpecial": "besteam-xl-black-special.jpg"
             },
             {
                 "color": "red",
                 "img": "besteam-xl-red.jpg",
-                "imgShop": "besteam-xl-red-shop.jpg"
+                "imgSpecial": "besteam-xl-red-special.jpg"
             }
         ],
         "price": 109.99
