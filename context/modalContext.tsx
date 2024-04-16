@@ -1,19 +1,21 @@
 "use client"
 import { createContext, useContext, useState } from "react";
 
-import { Accessory } from "@/model/Accessory";
-import { Luggage } from "@/model/Luggage";
-import { Steamer } from "@/model/Steamer";
+import { Accessory, AccessoryVariant } from "@/model/Accessory";
+import { Luggage, LuggageVariant } from "@/model/Luggage";
+import { Steamer, SteamerVariant } from "@/model/Steamer";
 
 interface IModalContext {
     showModal: boolean,
     product: Steamer | Accessory | Luggage | null,
-    showModalHandler: (showModal: boolean, product?: Steamer | Accessory | Luggage) => void
+    variant: SteamerVariant | AccessoryVariant | LuggageVariant | null,
+    showModalHandler: (showModal: boolean, product: IModalContext['product'], variant: IModalContext['variant']) => void
 }
 
 export const ModalContext = createContext<IModalContext>({
     showModal: false,
     product: null,
+    variant: null,
     showModalHandler: () => {}
 });
 
@@ -24,11 +26,13 @@ interface Props {
 export const ModalContextProvider = ({ children }:Props) => {
     const [showModal, setShowModal] = useState<IModalContext['showModal']>(false);
 	const [product, setProduct] = useState<IModalContext['product']>(null);
+    const [variant, setVariant] = useState<IModalContext['variant']>(null);
 
-	const showModalHandler = (showModal: boolean, product?: Steamer | Accessory | Luggage) => {
+	const showModalHandler = (showModal: boolean, product: IModalContext['product'], variant: IModalContext['variant']) => {
         if(showModal) {
-            if (product) {
+            if (product && variant) {
                 setProduct(product)
+                setVariant(variant)
                 setShowModal(true)
             } else {
                 setShowModal(false)
@@ -39,7 +43,7 @@ export const ModalContextProvider = ({ children }:Props) => {
 	}
 
     return (
-        <ModalContext.Provider value={{showModal, product, showModalHandler}}>
+        <ModalContext.Provider value={{showModal, product, variant, showModalHandler}}>
             {children}
         </ModalContext.Provider>
     )
