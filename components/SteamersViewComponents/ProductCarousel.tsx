@@ -22,7 +22,7 @@ function ProductCarousel({
                     <Carousel.Item key={uniqid()}>
                         <img
                             className="w-100"
-                            src={`/assets/img/${steamerModel.imgFolder}/${variant.img}`}
+                            src={`/assets/img/${steamerModel.imgFolder}/${variant.imgSpecial}`}
                             alt={variant.color}
                         />
                     </Carousel.Item>

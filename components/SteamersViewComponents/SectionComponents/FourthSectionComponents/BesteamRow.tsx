@@ -28,7 +28,7 @@ function BesteamRow({
                 </ol>
 
                 <div className="text-center">
-                    <p className="text-custom-dark h1">Now only ${steamerModel.price}</p>
+                    <p className="text-custom-dark h1">Now only ${steamerModel.variants[0].price}</p>
                     <button className='btn btn-success btn-lg shadow-sm mt-3'>GET YOURS NOW!</button>
                 </div>
             </div>
