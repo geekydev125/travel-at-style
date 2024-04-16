@@ -1,8 +1,9 @@
+import Map from "@/components/Map"
 
 function LocationPage() {
 	return (
 		<div>
-			<section className='container' style={{ height: '60vh' }}>
+			<section className='container' style={{ height: '55vh' }}>
 				<div className='row h-100'>
 					<div className='col-12 col-lg-3 d-flex flex-column justify-content-center align-items-center  shadow-lg' style={{ backgroundColor: 'rgba(0,0,0,0.8)' }} >
 						<div className='py-3'>
@@ -24,8 +25,7 @@ function LocationPage() {
 			</section>
 
 			<section>
-				{/* map */}
-
+				<Map />
 			</section>
 		</div>
 	)
