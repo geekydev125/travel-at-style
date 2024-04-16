@@ -1,74 +1,56 @@
-{
-    "travelBottleSet": {
+[
+    {
+        "_id": "31",
         "name": "Travel Bottle Set",
+        "nameCamelCase": "travelBottleSet",
         "imgFolder": "accessories",
+        "img": "travel-bottle-set.jpg",
         "description": "TSA-approved 4-piece travel bottle set suitable for travel toiletries and cosmetics.",
-        "packageIncludes": [],
-        "variants": [
-            {
-                "img": "travel-bottle-set.jpg",
-                "price": 19.99
-            }
-        ]
+        "price": 19.99
     },
-    "universalAdapter": {
+    {
+        "_id": "32",
         "name": "Universal Adapter",
+        "nameCamelCase": "universalAdapter",
         "imgFolder": "accessories",
+        "img": "universal-adapter.jpg",
         "description": "All-in-one universal travel adapter with charging ports for USA, EU, UK, and AUS.",
-        "packageIncludes": [],
-        "variants": [
-            {
-                "img": "universal-adapter.jpg",
-                "price": 29.99
-            }
-        ]
+        "price": 29.99
     },
-    "steamerHook": {
+    {
+        "_id": "33",
         "name": "Steamer Hook",
+        "nameCamelCase": "steamerHook",
         "imgFolder": "accessories",
+        "img": "steamer-hook.jpg",
         "description": "Light suction cup, attachable to any flat surface, that can hold a weight of up to 10 lbs.",
-        "packageIncludes": [],
-        "variants": [
-            {
-                "img": "steamer-hook.jpg",
-                "price": 12.99
-            }
-        ]
+        "price": 12.99
     },
-    "compressionSocks": {
+    {
+        "_id": "34",
         "name": "Compression Socks",
+        "nameCamelCase": "compressionSocks",
         "imgFolder": "accessories",
+        "img": "compression-socks.jpg",
         "description": "Men's and women's compression socks. Best graduated fit for sports and flight travel.",
-        "packageIncludes": [],
-        "variants": [
-            {
-                "img": "compression-socks.jpg",
-                "price": 29.99
-            }
-        ]
+        "price": 29.99
     },
-    "travelCase": {
+    {
+        "_id": "35",
         "name": "Travel Case",
+        "nameCamelCase": "travelCase",
         "imgFolder": "accessories",
+        "img": "travel-case.jpg",
         "description": "Black fabric travel case for convenient transportation of Besteam and its components.",
-        "packageIncludes": [],
-        "variants": [
-            {
-                "img": "travel-case.jpg",
-                "price": 9.99
-            }
-        ]
+        "price": 9.99
     },
-    "luggageScale": {
+    {
+        "_id": "36",
         "name": "Luggage Scale",
+        "nameCamelCase": "luggageScale",
         "imgFolder": "accessories",
+        "img": "luggage-scale.jpg",
         "description": "Accurate home and travel luggage scale displaying weights of up to 77 lbs. (35 kg).",
-        "packageIncludes": [],
-        "variants": [
-            {
-                "img": "luggage-scale.jpg",
-                "price": 19.99
-            }
-        ]
+        "price": 19.99
     }
-}
+]
