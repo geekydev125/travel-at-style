@@ -1,38 +1,29 @@
 "use client"
 
+import { useModalContext } from '@/context/modalContext';
+
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-import { Accessory } from '@/model/Accessory';
-import { Luggage } from '@/model/Luggage';
-import { Steamer } from '@/model/Steamer';
+function ProductModal() {
+    const { showModal, product, showModalHandler } = useModalContext()
 
-interface Props {
-    product: Steamer | Accessory | Luggage,
-    showModal: boolean,
-    showModalHandler: (showBool: boolean, product?: Steamer | Accessory | Luggage) => void
-
-}
-
-function ProductModal({
-    product,
-    showModal,
-    showModalHandler
-}:Props) {
     return (
         <>
-            <Modal show={showModal} onHide={() => showModalHandler(false)}>
-                <Modal.Header closeButton>
-                    <Modal.Title>{product.name}</Modal.Title>
+            <Modal size='lg' show={showModal} onHide={() => showModalHandler(false)}>
+                <Modal.Header closeButton className='background-light-gradient text-custom-dark'>
+                    <Modal.Title>{product && product.name }</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>{product.description}</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={() => showModalHandler(false)}>
+
+                <Modal.Body className='background-pattern-crossword text-custom-dark'>
+                    {product && product.description}
+                </Modal.Body>
+
+                <Modal.Footer className='background-light-gradient'>
+                    <Button variant="outline-danger" className='btn-sm' onClick={() => showModalHandler(false)}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={() => showModalHandler(false)}>
-                        Save Changes
-                    </Button>
+
                 </Modal.Footer>
             </Modal>
         </>

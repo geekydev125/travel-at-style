@@ -14,18 +14,8 @@ import { Luggage } from '@/model/Luggage';
 
 import ShopProductCard from './ShopProductCards/ShopProductCard';
 import ShopVariantProductCard from './ShopProductCards/ShopVariantProductCard';
-import ProductModal from '../ProductModal';
 
 function ProductsTabs() {
-	const [showModal, setShowModal] = useState<boolean>(false);
-	const [productModal, setProductModal] = useState<Steamer | Accessory | Luggage | null>(null);
-
-	const showModalHandler = (showBool: boolean, product?: Steamer | Accessory | Luggage) => {
-		setShowModal(showBool)
-
-		if (product) setProductModal(product)
-	}
-
 	return (
 		<>
 			<Tabs
@@ -38,7 +28,7 @@ function ProductsTabs() {
 					<p><small className='text-muted'>*Click on product's image/name for more info</small></p>
 					<div className='container'>
 						<div className='row gx-4 gy-5'>
-							{Object.values(steamers.besteam.variants).map((variant: SteamerVariant) => {
+							{/* {Object.values(steamers.besteam.variants).map((variant: SteamerVariant) => {
 								return (
 									<div className="col-12 col-md-4" key={uniqid()}>
 										<ShopVariantProductCard
@@ -59,7 +49,7 @@ function ProductsTabs() {
 										/>
 									</div>
 								)
-							})}
+							})} */}
 						</div>
 					</div>
 				</Tab>
@@ -71,7 +61,7 @@ function ProductsTabs() {
 							{Object.values(luggage).map((luggage: Luggage) => {
 								return (
 									<div className="col-12 col-md-4" key={uniqid()}>
-										<ShopProductCard product={luggage} showModalHandler={showModalHandler} />
+										<ShopProductCard product={luggage} />
 									</div>
 								)
 							})}
@@ -86,7 +76,7 @@ function ProductsTabs() {
 							{Object.values(accessories).map((accessory: Accessory) => {
 								return (
 									<div className="col-12 col-sm-6 col-lg-4" key={uniqid()}>
-										<ShopProductCard product={accessory} showModalHandler={showModalHandler} />
+										<ShopProductCard product={accessory} />
 									</div>
 								)
 							})}
@@ -95,13 +85,6 @@ function ProductsTabs() {
 				</Tab>
 			</Tabs>
 
-			{productModal && (
-				<ProductModal
-					product={productModal}
-					showModal={showModal}
-					showModalHandler={showModalHandler}
-				/>
-			)}
 		</>
 	)
 }

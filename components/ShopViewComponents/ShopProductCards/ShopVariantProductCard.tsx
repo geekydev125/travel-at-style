@@ -19,11 +19,11 @@ function ShopVariantProductCard({
 }: Props) {
 	return (
 		<div className="position-relative background-light-gradient">
-			<ShopProductCardPrice price={product.price} />
+			{/* <ShopProductCardPrice price={product.price} />
 
 			<ShopProductCardImage imgUrl={`/assets/img/${product.imgFolder}/${variant.imgShop}`} product={product} showModalHandler={showModalHandler} />
 
-			<ShopProductCardButtons product={product} showModalHandler={showModalHandler} variantColor={variant.color} />
+			<ShopProductCardButtons product={product} showModalHandler={showModalHandler} variantColor={variant.color} /> */}
 		</div>
 	)
 }
