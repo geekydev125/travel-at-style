@@ -45,7 +45,8 @@
 }
 
 // Carousel
-#carousel-besteam, #carousel-besteamXl  {
+#carousel-besteam, 
+#carousel-besteamXl  {
 	.carousel-indicators {
 		bottom: -38px;
 		justify-content: space-around;
@@ -61,9 +62,6 @@
 			&[aria-label="yellow"] {
 				background-color: yellow;
 			}
-			&[aria-label="blue"] {
-				background-color: blue;
-			}
 			&[aria-label="black"] {
 				background-color: black;
 			}
@@ -72,6 +70,26 @@
 			}
 			&[aria-label="white"] {
 				background-color: white;
+			}
+		}
+	}
+}
+
+#carousel-besteam {
+	.carousel-indicators {
+		button {
+			&[aria-label="blue"] {
+				background-color: #147089;
+			}
+		}
+	}
+}
+
+#carousel-besteamXl {
+	.carousel-indicators {
+		button {
+			&[aria-label="blue"] {
+				background-color: blue;
 			}
 		}
 	}
