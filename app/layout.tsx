@@ -22,10 +22,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${inter.className} background-pattern-crossword`}>
+			<body style={{minHeight: '100vh'}} className={`${inter.className} d-flex flex-column  background-pattern-crossword`}>
 				<Header />
 
-				<main>
+				<main className="flex-grow-1">
 					<ModalContextProvider>
 						{children}
 					</ModalContextProvider>
