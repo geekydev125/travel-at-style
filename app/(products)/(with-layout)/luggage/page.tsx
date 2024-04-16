@@ -1,11 +1,12 @@
 "use client"
+import React from 'react'
 import uniqid from 'uniqid'
 
 import ProductCard from '@/components/ProductCard'
 
 import luggage from '@/data/luggage.json'
 
-import { Luggage } from '@/model/Luggage'
+import { Luggage, LuggageVariant } from '@/model/Luggage'
 
 function LuggagePage() {
 	return (
@@ -13,13 +14,21 @@ function LuggagePage() {
 			{
 				Object.values(luggage).map((Luggage: Luggage) => {
 					return (
-						<div className="col-12 col-md-4" key={uniqid()}>
-							<ProductCard product={Luggage} />
-						</div>
+						<React.Fragment key={uniqid()}>
+							{
+								Luggage.variants.map((variant:LuggageVariant) => {
+									return (
+										<div className="col-12 col-md-4" key={uniqid()}>
+											<ProductCard product={Luggage} variant={variant} />
+										</div>
+									)
+								})
+							}
+						</React.Fragment>
 					)
 				})
 			}
-		</section>
+		</section >
 	)
 }
 

@@ -1,18 +1,20 @@
 import Link from "next/link"
 
-import { Accessory } from "@/model/Accessory"
+import { Accessory, AccessoryVariant } from "@/model/Accessory"
+import { Luggage, LuggageVariant } from "@/model/Luggage"
 import styles from "./ProductCard.module.scss"
 
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
-import { Luggage } from "@/model/Luggage"
 
 interface Props {
     product: Accessory | Luggage
+    variant: AccessoryVariant | LuggageVariant
 }
 
 function ProductCard({
-    product
+    product,
+    variant
 }: Props) {
     return (
         <Card className={`shadow-sm ${styles['accessory-card']}`}>
@@ -20,7 +22,7 @@ function ProductCard({
                 <Card.Img
                     variant="top"
                     className={`object-fit-cover ${styles['accessory-card-img']}`}
-                    src={`/assets/img/${product.imgFolder}/${product.img}`}
+                    src={`/assets/img/${product.imgFolder}/${variant.img}`}
                     alt={product.name}
                 />
             </div>
@@ -30,7 +32,7 @@ function ProductCard({
                     {product.description}
                 </Card.Text>
                 <Card.Text className="text-custom-dark h4">
-                    ${product.price}
+                    ${variant.price}
                 </Card.Text>
 
                 <div className="d-flex justify-content-center">
