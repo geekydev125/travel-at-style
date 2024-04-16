@@ -6,6 +6,7 @@ import "../styles/globals.scss";
 import BootstrapClient from "@/components/BootstrapClient";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import { ModalContextProvider } from "@/context/modalContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,9 +26,11 @@ export default function RootLayout({
 				<Header />
 
 				<main>
-					{children}
+					<ModalContextProvider>
+						{children}
+					</ModalContextProvider>
 				</main>
-				
+
 				<Footer />
 
 				<BootstrapClient />
