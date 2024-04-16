@@ -1,5 +1,4 @@
 "use client"
-import { useState } from 'react';
 import uniqid from 'uniqid';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -11,9 +10,9 @@ import accessories from "@/data/accessories.json"
 import { Accessory } from '@/model/Accessory';
 import { Steamer, SteamerVariant } from '@/model/Steamer';
 import { Luggage } from '@/model/Luggage';
+import { ProductVariant } from '@/model/Product';
 
 import ShopProductCard from './ShopProductCards/ShopProductCard';
-import ShopVariantProductCard from './ShopProductCards/ShopVariantProductCard';
 
 function ProductsTabs() {
 	return (
@@ -28,28 +27,24 @@ function ProductsTabs() {
 					<p><small className='text-muted'>*Click on product's image/name for more info</small></p>
 					<div className='container'>
 						<div className='row gx-4 gy-5'>
-							{/* {Object.values(steamers.besteam.variants).map((variant: SteamerVariant) => {
+							{Object.values(steamers).map((steamer: Steamer) => {
 								return (
-									<div className="col-12 col-md-4" key={uniqid()}>
-										<ShopVariantProductCard
-											product={steamers.besteam}
-											variant={variant}
-											showModalHandler={showModalHandler}
-										/>
-									</div>
+									<>
+										{
+											Object.values(steamer.variants).map((variant: SteamerVariant) => {
+												return (
+													<div className="col-12 col-sm-6 col-lg-4" key={uniqid()}>
+														<ShopProductCard
+															product={steamer}
+															variant={variant}
+														/>
+													</div>
+												)
+											})
+										}
+									</>
 								)
 							})}
-							{Object.values(steamers.besteamXl.variants).map((variant: SteamerVariant) => {
-								return (
-									<div className="col-12 col-md-4" key={uniqid()}>
-										<ShopVariantProductCard
-											product={steamers.besteamXl}
-											variant={variant}
-											showModalHandler={showModalHandler}
-										/>
-									</div>
-								)
-							})} */}
 						</div>
 					</div>
 				</Tab>
@@ -60,9 +55,20 @@ function ProductsTabs() {
 						<div className='row gx-4 gy-5'>
 							{Object.values(luggage).map((luggage: Luggage) => {
 								return (
-									<div className="col-12 col-md-4" key={uniqid()}>
-										<ShopProductCard product={luggage} />
-									</div>
+									<>
+										{
+											Object.values(luggage.variants).map((variant: ProductVariant) => {
+												return (
+													<div className="col-12 col-sm-6 col-lg-4" key={uniqid()}>
+														<ShopProductCard
+															product={luggage}
+															variant={variant}
+														/>
+													</div>
+												)
+											})
+										}
+									</>
 								)
 							})}
 						</div>
@@ -75,9 +81,20 @@ function ProductsTabs() {
 						<div className='row gx-4 gy-5'>
 							{Object.values(accessories).map((accessory: Accessory) => {
 								return (
-									<div className="col-12 col-sm-6 col-lg-4" key={uniqid()}>
-										<ShopProductCard product={accessory} />
-									</div>
+									<>
+										{
+											Object.values(accessory.variants).map((variant: ProductVariant) => {
+												return (
+													<div className="col-12 col-sm-6 col-lg-4" key={uniqid()}>
+														<ShopProductCard
+															product={accessory}
+															variant={variant}
+														/>
+													</div>
+												)
+											})
+										}
+									</>
 								)
 							})}
 						</div>
