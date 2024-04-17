@@ -1,5 +1,6 @@
 "use client"
-import { useForm } from 'react-hook-form'
+import React, { BaseSyntheticEvent } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import contactFormSchema from '@/validation/contactFormSchema';
 
@@ -7,7 +8,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
-interface IContactForm {
+interface FormData {
     name: string,
     email: string,
     subject: string,
@@ -15,31 +16,51 @@ interface IContactForm {
 }
 
 function ContactForm() {
-    const { register } = useForm<IContactForm>({
-        resolver: yupResolver(contactFormSchema)
+    const { register, handleSubmit, formState: { errors, isDirty, isValid } } = useForm<FormData>({
+        resolver: yupResolver(contactFormSchema),
+        mode: 'onBlur',
+        defaultValues: {
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+        },
     });
+
+    const onFormSubmit:SubmitHandler<FormData> = (formData: FormData, e) => {
+        e?.preventDefault();
+        
+        console.log(formData);
+    }
 
 
     return (
-        <Form data-bs-theme="dark" className='w-100'>
-            <FloatingLabel className='mb-3' label="Name" controlId="name" >
-                <Form.Control {...register('name')} type="text" placeholder="Enter your name" name='name' id="name" />
+        <Form onSubmit={handleSubmit(onFormSubmit)} data-bs-theme="dark" className='w-100'>
+            
+            <FloatingLabel className='' label="Name" controlId="name" >
+                <Form.Control isInvalid={errors.name ? true : false} {...register('name')} type="text" placeholder="Enter your name" name='name' />
+                
             </FloatingLabel>
+            <p className="text-danger mb-2">{errors.name && errors.name.message}</p>
 
-            <FloatingLabel className='mb-3' label="Email Address" controlId="email" >
-                <Form.Control {...register('email')} type="email" placeholder="Enter email" name='email' id="email" />
+            <FloatingLabel className='' label="Email Address" controlId="email" >
+                <Form.Control isInvalid={errors.email ? true : false} {...register('email')} type="email" placeholder="Enter email" name='email' />
             </FloatingLabel>
+            <p className="text-danger mb-2">{errors.email && errors.email.message}</p>
 
-            <FloatingLabel className='mb-3' label="Subject" controlId="subject" >
-                <Form.Control {...register('subject')} type="text" placeholder="Enter subject" name='subject' id="subject" />
-            </FloatingLabel>
 
-            <FloatingLabel className='mb-3' label="Message" controlId="message" >
-                <Form.Control {...register('message')} as='textarea' style={{ height: '100px' }} placeholder="Enter your message" name='message' id="message" />
+            <FloatingLabel className='' label="Subject" controlId="subject" >
+                <Form.Control isInvalid={errors.subject ? true : false} {...register('subject')} type="text" placeholder="Enter subject" name='subject' />
             </FloatingLabel>
+            <p className="text-danger mb-2">{errors.subject && errors.subject.message}</p>
+
+            <FloatingLabel className='' label="Message" controlId="message" >
+                <Form.Control isInvalid={errors.message ? true : false} {...register('message')} as='textarea' style={{ height: '100px' }} placeholder="Enter your message" name='message' />
+            </FloatingLabel>
+            <p className="text-danger mb-2">{errors.message && errors.message.message}</p>
 
             <div className='d-flex justify-content-center'>
-                <Button variant="primary" type="submit" className=''>
+                <Button variant="primary" type="submit" disabled={!(isDirty && isValid)}>
                     Submit
                 </Button>
             </div>
