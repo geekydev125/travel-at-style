@@ -9,7 +9,7 @@ const center = {
 function Map() {
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: 'API_KEY_HERE'
+        googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY as string
     })
 
     const mapStyles = [
@@ -149,38 +149,37 @@ function Map() {
             ]
         }
     ];
-    
 
-    return isLoaded ? (
-
-        <GoogleMap
-            mapContainerStyle={{
-                width: '100%',
-                height: '300px',
-                zIndex: 0,
-            }}
-            center={center}
-            zoom={15}
-            options={{
-                controlSize: 24,
-                disableDefaultUI: true,
-                maxZoom: 20,
-                minZoom: 10,
-                scrollwheel: true,
-                styles: mapStyles,
-
-            }}
-        >
-            { /* Child components, such as markers, info windows, etc. */}
-            <MarkerF
-                position={center}
-                options={{
-                    icon: '/assets/img/logo/google-map-marker.png',
-                    title: 'Stitch Sense',
+    return isLoaded
+        ? (
+            <GoogleMap
+                mapContainerStyle={{
+                    width: '100%',
+                    height: '300px',
+                    zIndex: 0,
                 }}
-            />
-        </GoogleMap>
-    ) : <div>Loading Google Map...</div>
+                center={center}
+                zoom={15}
+                options={{
+                    controlSize: 24,
+                    disableDefaultUI: true,
+                    maxZoom: 20,
+                    minZoom: 10,
+                    scrollwheel: true,
+                    styles: mapStyles,
+
+                }}
+            >
+                { /* Child components, such as markers, info windows, etc. */}
+                <MarkerF
+                    position={center}
+                    options={{
+                        icon: '/assets/img/logo/google-map-marker.png',
+                        title: 'Stitch Sense',
+                    }}
+                />
+            </GoogleMap>
+        ) : <div className='px-2' style={{height: '300px'}}>Loading Map...</div>
 }
 
 export default Map
