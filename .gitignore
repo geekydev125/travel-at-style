@@ -2,6 +2,7 @@
 todo.txt
 .vscode
 .env
+.env.local
 
 # dependencies
 /node_modules
