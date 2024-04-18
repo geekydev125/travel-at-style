@@ -16,7 +16,7 @@ interface FormData {
 }
 
 function ContactForm() {
-    const { register, handleSubmit, formState: { errors, isDirty, isValid } } = useForm<FormData>({
+    const { register, handleSubmit, formState: { errors, isDirty, isValid, isLoading } } = useForm<FormData>({
         resolver: yupResolver(contactFormSchema),
         mode: 'onBlur',
         defaultValues: {
@@ -30,7 +30,17 @@ function ContactForm() {
     const onFormSubmit:SubmitHandler<FormData> = (formData: FormData, e) => {
         e?.preventDefault();
         
-        console.log(formData);
+        const response = fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        }).then(res => res.json()).then(data => console.log(data))
+
+        console.log(response);
+
     }
 
 
@@ -60,7 +70,7 @@ function ContactForm() {
             <p className="text-danger mb-2">{errors.message && errors.message.message}</p>
 
             <div className='d-flex justify-content-center'>
-                <Button variant="primary" type="submit" disabled={!(isDirty && isValid)}>
+                <Button variant="primary" type="submit" disabled={!(isDirty && isValid) || isLoading}>
                     Submit
                 </Button>
             </div>
