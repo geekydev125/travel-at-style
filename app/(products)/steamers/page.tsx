@@ -1,6 +1,6 @@
 import BesteamVideoBackground from '@/components/SteamersViewComponents/BesteamVideoBackground'
 import TextOverBackgroundVideo from '@/components/SteamersViewComponents/TextOverBackgroundVideo'
-import FirstSectionCallToAction from '@/components/SteamersViewComponents/SectionComponents/FirstSectionCallToAction'
+import FirstSectionCallToAction from '@/components/SteamersViewComponents/SectionComponents/FirstSectionComponents/FirstSectionCallToAction'
 import SecondSectionBesteamDescription from '@/components/SteamersViewComponents/SectionComponents/SecondSectionBesteamDescription'
 import ThirdSectionBesteamVideo from '@/components/SteamersViewComponents/SectionComponents/ThirdSectionBesteamVideo'
 import FourthSectionShopOverview from '@/components/SteamersViewComponents/SectionComponents/FourthSectionComponents/FourthSectionShopOverview'

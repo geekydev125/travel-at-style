@@ -1,0 +1,10 @@
+.section {
+    margin-top: 35vh;
+}
+
+@media (min-width: 768px) {
+    .section {
+        margin-top: 0;
+    }
+}
+

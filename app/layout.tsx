@@ -25,7 +25,7 @@ export default function RootLayout({
 			<body style={{minHeight: '100vh'}} className={`${inter.className} d-flex flex-column  background-pattern-crossword`}>
 				<Header />
 
-				<main className="flex-grow-1">
+				<main className="flex-grow-1 overflow-hidden">
 					<ModalContextProvider>
 						{children}
 					</ModalContextProvider>

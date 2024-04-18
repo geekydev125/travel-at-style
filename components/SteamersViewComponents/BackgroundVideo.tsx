@@ -1,17 +1,8 @@
 "use client"
 import { useRef } from 'react';
+import styles from './BackgroundVideo.module.scss'
 
-interface Props {
-    videoSrc: string;
-    posterSrc: string;
-    classes?: string;
-}
-
-function BackgroundVideo({
-    videoSrc,
-    posterSrc,
-    classes = 'w-100 h-100 object-fit-cover'
-}:Props) {
+function BackgroundVideo() {
     const videoRef = useRef<null | HTMLVideoElement>(null);
 
     const handlePlay = () => {
@@ -25,15 +16,15 @@ function BackgroundVideo({
             <button className='d-none' onClick={handlePlay}>Play Video</button>
 
             <video
-                className={classes}
-                poster={posterSrc}
+                className={styles.video}
+                poster='/assets/video/besteam/besteam-poster.jpg'
                 ref={videoRef}
                 autoPlay
                 muted
                 loop
                 playsInline
             >
-                <source src={videoSrc} type="video/mp4" />
+                <source src='/assets/video/besteam/besteam.mp4' type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
             
