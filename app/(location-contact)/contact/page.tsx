@@ -7,7 +7,8 @@ function ContactPage() {
 				<div className="row">
 					<div className="col-12 col-md-5">
 						<h3 className="text-center display-5 d-inline-block">Contact US</h3>
-						<p>Our main company objective is to provide liable, continuous, and excellent customer service for our consumers. We look forward to your suggestions, comments and questions regarding our product.</p>
+						<p style={{textAlign: 'justify'}}>Our main company objective is to provide liable, continuous, and excellent customer service for our consumers. We look forward to your suggestions, comments and questions regarding our product.</p>
+						<p data-bs-theme="dark" className='text-muted'>*All form fields are required</p>
 
 						<div className="w-50 mx-auto">
 							<img src="/assets/img/logo/logo-transparent.png" className="img-fluid" alt="Contact us" />
