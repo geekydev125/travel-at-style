@@ -4,6 +4,12 @@
 
 @media (min-width: 768px) { 
     .imagesRow {
+        margin: 40px 0;
+    }  
+}
+
+@media (min-width: 992px) { 
+    .imagesRow {
         margin: 70px 0;
     }  
 }

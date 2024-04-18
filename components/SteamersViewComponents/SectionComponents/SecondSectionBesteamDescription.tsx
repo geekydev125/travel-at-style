@@ -11,7 +11,7 @@ const steamerBulletPoints = [
 
 function SecondSectionBesteamDescription() {
 	return (
-		<section className="container-fluid pt-3 pt-xl-5 pb-4 background-pattern-crossword">
+		<section className="container-fluid pt-4 pt-md-0 pt-xl-4 pb-4 background-pattern-crossword">
 			<div className="row">
 
 				<div className="col-12 col-lg-4 mx-auto px-lg-4 p-md-4 ps-lg-5">

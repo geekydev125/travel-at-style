@@ -9,7 +9,7 @@ function FourthSectionShopOverview() {
 
 	return (
 		<section className="background-pattern-wool py-5 px-2 px-md-0" >
-			<div className="container background-pattern-fabric rounded-5 py-5 px-0">
+			<div className="container background-pattern-fabric rounded-5 py-3 py-lg-5 px-0">
 				<BesteamRow steamers={besteamSteamers} steamerModel="besteam"/>
 
 				<DemoImagesRow />
