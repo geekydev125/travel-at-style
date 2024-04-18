@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import styles from './Nav.module.scss'
 import NavItems from './NavItems'
+import IconBars from '@/components/Icons/IconBars'
 
 function Nav() {
     return (
@@ -12,7 +13,7 @@ function Nav() {
                 </Link>
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
+                    <IconBars width='30px' height='30px' />
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarContent">
