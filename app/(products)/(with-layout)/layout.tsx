@@ -15,13 +15,14 @@ function ProductsLayout({
 	const isInView = useInView(imgRef, { once: true })
 
     return (
-        <div className="container py-5">
-            <div className="row pb-5">
-                <div className="col-md-5 d-flex flex-column justify-content-center align-items-center">
+        <div className="container pt-4 pb-5 py-md-5">
+            <div className="row pb-4 pb-md-5">
+                <div className="col-4 col-md-5 d-flex flex-column justify-content-center align-items-center">
                     <img
                         src="/assets/img/airplane.png"
                         alt="Airplane"
                         ref={imgRef}
+                        className="img-fluid"
                         style={{
                             position: 'relative',
                             transition: 'all 1.1s ease-in-out',
@@ -30,8 +31,8 @@ function ProductsLayout({
                         }}
                     />
                 </div>
-                <div className="col-md-7 d-flex flex-column justify-content-center">
-                    <h2 className="display-4 text-center text-custom-dark">
+                <div className="col-8 col-md-7 d-flex flex-column justify-content-center">
+                    <h2 className="display-2 text-center text-custom-dark mb-0 fw-semibold">
                         {pathname === '/luggage' ? 'LUGGAGE' : 'TRAVEL ACCESSORIES'}
                     </h2>
                 </div>
