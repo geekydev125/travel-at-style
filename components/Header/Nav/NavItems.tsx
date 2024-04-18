@@ -1,10 +1,11 @@
 "use client"
-import Link from 'next/link'
+import NextLink from 'next/link'
 import { usePathname } from 'next/navigation'
 import uniqid from 'uniqid'
 
 import routes from '@/data/routes.json'
 import IconShoppingCart from '../../Icons/IconShoppingCart'
+import Nav from 'react-bootstrap/Nav'
 
 interface Route {
     path: string
@@ -16,36 +17,37 @@ function NavItems() {
 
     return (
         <>
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav-underline">
+            <Nav className="me-auto">
                 {routes.map((route: Route, index) => {
                     if (route.path !== '/' && index < 5) {
                         return (
-                            <li className="nav-item" key={uniqid()}>
-                                <Link
-                                    className={`nav-link text-custom-light ${route.path === '/shop' && 'fst-italic fw-medium'} ${pathname === route.path && 'active'}`}
-                                    aria-current="page"
-                                    href={route.path}
-                                >
-                                    {route.title}
-                                    {route.path === '/shop' && <span className='ms-2'><IconShoppingCart /></span>}
-                                </Link>
-                            </li>
+                            <NextLink
+                                key={uniqid()}
+                                className={`nav-link text-custom-light ${route.path === '/shop' && 'fst-italic fw-medium'} ${pathname === route.path && 'active'}`}
+                                href={route.path}
+                            >
+                                {route.title}
+                                {route.path === '/shop' && <span className='ms-2'><IconShoppingCart /></span>}
+                            </NextLink>
                         )
                     }
                 })}
-            </ul>
-
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 nav-underline">
+            </Nav>
+            
+            <Nav className="ms-auto">
                 {routes.map((route: Route, index) => {
                     if (route.path !== '/' && index > 4) {
                         return (
-                            <li className="nav-item" key={uniqid()}>
-                                <Link className={`nav-link text-custom-light ${pathname === route.path && 'active'}`} aria-current="page" href={route.path}>{route.title}</Link>
-                            </li>
+                            <NextLink
+                                key={uniqid()}
+                                className={`nav-link text-custom-light ${pathname === route.path && 'active'}`}
+                                href={route.path}>
+                                {route.title}
+                            </NextLink>
                         )
                     }
                 })}
-            </ul>
+            </Nav>
         </>
     )
 }
