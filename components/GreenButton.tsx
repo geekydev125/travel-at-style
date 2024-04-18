@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button"
 
 interface Props {
     size?: 'sm' | 'lg' | undefined
-    classes: string
+    classes?: string
     children: React.ReactNode
 }
 
