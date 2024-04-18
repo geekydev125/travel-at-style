@@ -39,9 +39,9 @@ function NavigationBar() {
 
 
     return (
-        <Navbar expand="lg" expanded={expanded} >
-            <div className="container-fluid">
-                <NextLink onClick={collapseNav} href="/steamers" className='d-lg-none'>
+        <Navbar expand="lg" expanded={expanded} fixed='top' className='background-pattern-wood' >
+            <div className="container-fluid px-3 px-lg-5">
+                <NextLink onClick={collapseNav} href="/steamers" className='d-lg-none py-1'>
                     <img className={`${styles.logo}`} src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" />
                 </NextLink>
 
@@ -49,7 +49,7 @@ function NavigationBar() {
                     <IconBars width='30px' height='30px' />
                 </Navbar.Toggle>
 
-                <Navbar.Collapse id="navbarContent" ref={navbarCollapseRef}>
+                <Navbar.Collapse id="navbarContent" ref={navbarCollapseRef} className='pt-3 pt-lg-0 pb-2 pb-lg-0'>
                     <NavItems collapseNav={collapseNav} />
                 </Navbar.Collapse>
             </div>
