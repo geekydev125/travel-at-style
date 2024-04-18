@@ -3,6 +3,8 @@ import NextLink from 'next/link'
 import { usePathname } from 'next/navigation'
 import uniqid from 'uniqid'
 
+import styles from './Nav.module.scss'
+
 import routes from '@/data/routes.json'
 import IconShoppingCart from '../../Icons/IconShoppingCart'
 import Nav from 'react-bootstrap/Nav'
@@ -40,6 +42,10 @@ function NavItems({
                     }
                 })}
             </Nav>
+
+            <NextLink onClick={collapseNav} href="/steamers" className='d-none d-lg-block'>
+                    <img className={`${styles.logo}`} src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" />
+                </NextLink>
 
             <Nav className="ms-auto">
                 {routes.map((route: Route, index) => {
