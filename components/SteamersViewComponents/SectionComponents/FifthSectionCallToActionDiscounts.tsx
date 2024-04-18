@@ -4,7 +4,7 @@ import Link from "next/link"
 function FifthSectionCallToActionDiscounts() {
     return (
         <section className="background-pattern-wool px-2 py-5">
-            <div className="container background-gray-gradient px-3 py-3">
+            <div className="container background-gray-radial-gradient px-3 py-3">
                 <div className="row gx-md-0">
 
                     <div className="col-4 col-md-3 col-lg-2 order-2 order-md-1 order-lg-1 d-flex justify-content-center align-items-center">

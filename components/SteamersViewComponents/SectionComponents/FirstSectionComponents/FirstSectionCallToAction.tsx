@@ -5,7 +5,7 @@ import GreenButton from '@/components/GreenButton'
 
 function FirstSectionCallToAction() {
     return (
-        <section className={`${styles.section} text-center px-3 py-3 py-lg-4 background-gray-gradient`} >
+        <section className={`${styles.section} text-center px-3 py-3 py-lg-4 background-gray-radial-gradient`} >
             <h3 className="display-5 text-capitalize">The steamer that has taken America by storm now available for purchase online</h3>
 
             <NextLink href='/shop'>
