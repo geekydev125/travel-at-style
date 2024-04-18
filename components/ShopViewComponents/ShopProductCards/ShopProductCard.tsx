@@ -14,7 +14,7 @@ function ShopProductCard({
     product,
 }: Props) {
     return (
-        <div className="position-relative background-light-gradient">
+        <div className="position-relative background-light-gradient h-100">
             <ShopProductCardPrice price={product.price} />
 
             <ShopProductCardImage product={product} />
