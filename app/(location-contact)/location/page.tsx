@@ -5,11 +5,11 @@ function LocationPage() {
 		<div>
 			<section className='container' style={{ height: '55vh' }}>
 				<div className='row h-100'>
-					<div className='col-12 col-lg-3 d-flex flex-column justify-content-center align-items-center  shadow-lg' style={{ backgroundColor: 'rgba(0,0,0,0.8)' }} >
-						<div className='py-3'>
-							<h3 className="text-center display-5 d-inline-block">Location</h3>
+					<div className='col-10 offset-1 offset-sm-0 col-sm-7 col-md-5 col-lg-4 col-xl-3 d-flex flex-column justify-content-center align-items-center  shadow-lg' style={{ backgroundColor: 'rgba(0,0,0,0.8)' }} >
+						<div className='py-3 text-center'>
+							<h3 className="display-2 d-inline-block">Location</h3>
 
-							<ul className="list-unstyled">
+							<ul className="list-unstyled text-start">
 								<li>Fulton Center (lower level)</li>
 								<li>200 Broadway</li>
 								<li>New York, NY 10038</li>
