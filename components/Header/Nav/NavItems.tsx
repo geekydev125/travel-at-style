@@ -12,7 +12,13 @@ interface Route {
     title: string
 }
 
-function NavItems() {
+interface Props {
+    collapseNav: () => void
+}
+
+function NavItems({
+    collapseNav
+}:Props) {
     const pathname = usePathname()
 
     return (
@@ -23,6 +29,7 @@ function NavItems() {
                         return (
                             <NextLink
                                 key={uniqid()}
+                                onClick={collapseNav}
                                 className={`nav-link text-custom-light ${route.path === '/shop' && 'fst-italic fw-medium'} ${pathname === route.path && 'active'}`}
                                 href={route.path}
                             >
@@ -33,13 +40,14 @@ function NavItems() {
                     }
                 })}
             </Nav>
-            
+
             <Nav className="ms-auto">
                 {routes.map((route: Route, index) => {
                     if (route.path !== '/' && index > 4) {
                         return (
                             <NextLink
                                 key={uniqid()}
+                                onClick={collapseNav}
                                 className={`nav-link text-custom-light ${pathname === route.path && 'active'}`}
                                 href={route.path}>
                                 {route.title}
