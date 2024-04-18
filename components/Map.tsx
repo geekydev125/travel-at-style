@@ -175,11 +175,16 @@ function Map() {
                     position={center}
                     options={{
                         icon: '/assets/img/logo/google-map-marker.png',
-                        title: 'Stitch Sense',
+                        title: 'Travel @ Style',
                     }}
                 />
             </GoogleMap>
-        ) : <div className='px-2' style={{height: '300px'}}>Loading Map...</div>
+        ) : (
+            <div className='px-2 background-blue-radial-gradient d-flex justify-content-center align-items-center' style={{ height: '300px' }}>
+                <p className='display-3 me-3'>Loading Map...</p>
+                <img src='/assets/img/logo/google-map-marker.png' alt='Travel @ Style marker' className='img-fluid' />
+            </div>
+        )
 }
 
 export default Map
