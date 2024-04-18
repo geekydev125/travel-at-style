@@ -21,6 +21,16 @@ header {
 	}
 }
 
+main {
+	margin-top: 79px;
+}
+
+@media (min-width: 992px) {
+	main {
+		margin-top: 83px;
+	}
+}
+
 .background-gray-gradient {
     background: rgb(66,66,66);
     background: linear-gradient(90deg, rgba(66,66,66,1) 0%, rgba(158,158,158,1) 54%);
