@@ -39,7 +39,7 @@ function NavigationBar() {
 
 
     return (
-        <Navbar expand="lg" expanded={expanded} fixed='top' className='background-pattern-wood' >
+        <Navbar expand="lg" expanded={expanded} className='background-pattern-wood' >
             <div className="container-fluid px-3 px-lg-5">
                 <NextLink onClick={collapseNav} href="/steamers" className='d-lg-none py-1'>
                     <img className={`${styles.logo}`} src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" />
