@@ -1,5 +1,4 @@
 import BesteamVideoBackground from '@/components/SteamersViewComponents/BesteamVideoBackground'
-import TextOverBackgroundVideo from '@/components/SteamersViewComponents/TextOverBackgroundVideo'
 import FirstSectionCallToAction from '@/components/SteamersViewComponents/SectionComponents/FirstSectionComponents/FirstSectionCallToAction'
 import SecondSectionBesteamDescription from '@/components/SteamersViewComponents/SectionComponents/SecondSectionBesteamDescription'
 import ThirdSectionBesteamVideo from '@/components/SteamersViewComponents/SectionComponents/ThirdSectionBesteamVideo'
@@ -13,8 +12,6 @@ function SteamersPage() {
 			<BesteamVideoBackground />
 
 			<div className="position-relative z-1">
-				<TextOverBackgroundVideo />
-
 				<FirstSectionCallToAction />
 
 				<SecondSectionBesteamDescription />
