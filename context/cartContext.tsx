@@ -1,24 +1,30 @@
 "use client";
 import useLocalStorage from "@/hooks/useLocalStorage";
-import { createContext, useContext, useState } from "react";
+import { Product } from "@/model/Product";
+import { createContext, useContext } from "react";
 
 export interface ICartProduct {
-    _id: string;
-    productCategory: string;
+    _id: Product['_id'];
+    productCategory: Product['productCategory'];
 }
 
-export type ICart = ICartProduct[];
+export type ICart = ICartProduct[] | [];
 
-const cartInitialState: ICart | [] = []
+const cartInitialState: ICart = []
 
-export const CartContext = createContext<ICart>(cartInitialState);
+interface ICartContext {
+    cart: ICart,
+    addProduct: (product: ICartProduct) => void;
+}
+
+export const CartContext = createContext<ICartContext>({
+    cart: cartInitialState,
+    addProduct: () => {}
+});
 
 interface Props {
     children: React.ReactNode;
 }
-
-// id
-// productType
 
 export const CartContextProvider = ({
     children
@@ -28,16 +34,14 @@ export const CartContextProvider = ({
     const addProduct = (product: ICartProduct) => {
         let newProduct = {
             _id: product._id,
-            productType: product.productCategory
+            productCategory: product.productCategory
         }
 
         setCart([...cart, newProduct]);
-    
     }
 
-
     return (
-        <CartContext.Provider value={cart}>
+        <CartContext.Provider value={{cart, addProduct}}>
             {children}
         </CartContext.Provider>
     )
