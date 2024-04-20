@@ -4,15 +4,17 @@ interface Props {
     size?: 'sm' | 'lg' | undefined
     classes?: string
     children: React.ReactNode
+    onClick: () => void
 }
 
 function GreenButton({
     size,
     classes,
-    children
+    onClick,
+    children,
 }: Props) {
     return (
-        <Button size={size} variant="success" className={`shadow ${classes}`} style={{border: '1px solid #32a670'}}>
+        <Button onClick={onClick} size={size} variant="success" className={`shadow ${classes}`} style={{border: '1px solid #32a670'}}>
             {children}
         </Button>
     )
