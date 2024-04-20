@@ -1,6 +1,7 @@
 [
     {
         "_id": "31",
+        "productCategory": "accessories",
         "name": "Travel Bottle Set",
         "nameCamelCase": "travelBottleSet",
         "imgFolder": "accessories",
@@ -10,6 +11,7 @@
     },
     {
         "_id": "32",
+        "productCategory": "accessories",
         "name": "Universal Adapter",
         "nameCamelCase": "universalAdapter",
         "imgFolder": "accessories",
@@ -19,6 +21,7 @@
     },
     {
         "_id": "33",
+        "productCategory": "accessories",
         "name": "Steamer Hook",
         "nameCamelCase": "steamerHook",
         "imgFolder": "accessories",
@@ -28,6 +31,7 @@
     },
     {
         "_id": "34",
+        "productCategory": "accessories",
         "name": "Compression Socks",
         "nameCamelCase": "compressionSocks",
         "imgFolder": "accessories",
@@ -37,6 +41,7 @@
     },
     {
         "_id": "35",
+        "productCategory": "accessories",
         "name": "Travel Case",
         "nameCamelCase": "travelCase",
         "imgFolder": "accessories",
@@ -46,6 +51,7 @@
     },
     {
         "_id": "36",
+        "productCategory": "accessories",
         "name": "Luggage Scale",
         "nameCamelCase": "luggageScale",
         "imgFolder": "accessories",

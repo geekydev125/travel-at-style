@@ -1,5 +1,6 @@
 [{
         "_id": "11",
+        "productCategory": "steamers",
         "name": "Besteam",
         "nameCamelCase": "besteam",
         "color": "blue",
@@ -19,6 +20,7 @@
     },
     {
         "_id": "12",
+        "productCategory": "steamers",
         "name": "Besteam",
         "nameCamelCase": "besteam",
         "color": "black",
@@ -38,6 +40,7 @@
     },
     {
         "_id": "13",
+        "productCategory": "steamers",
         "name": "Besteam",
         "nameCamelCase": "besteam",
         "color": "red",
@@ -57,6 +60,7 @@
     },
     {
         "_id": "14",
+        "productCategory": "steamers",
         "name": "Besteam",
         "nameCamelCase": "besteam",
         "color": "white",
@@ -76,6 +80,7 @@
     },
     {
         "_id": "15",
+        "productCategory": "steamers",
         "name": "Besteam XL",
         "nameCamelCase": "besteamXL",
         "color": "yellow",
@@ -96,6 +101,7 @@
     },
     {
         "_id": "16",
+        "productCategory": "steamers",
         "name": "Besteam XL",
         "nameCamelCase": "besteamXL",
         "color": "blue",
@@ -116,6 +122,7 @@
     },
     {
         "_id": "17",
+        "productCategory": "steamers",
         "name": "Besteam XL",
         "nameCamelCase": "besteamXL",
         "color": "black",
@@ -136,6 +143,7 @@
     },
     {
         "_id": "18",
+        "productCategory": "steamers",
         "name": "Besteam XL",
         "nameCamelCase": "besteamXL",
         "color": "red",
