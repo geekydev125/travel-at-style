@@ -21,14 +21,16 @@ const cartInitialState: ICart = []
 
 interface ICartContext {
     cart: ICart,
-    addProductToCart: (product: Steamer | Luggage | Accessory) => void;
-    getAllProductsInCart: () => ICart;
+    getAllProductsInCart: () => ICart,
+    addProductToCart: (product: Steamer | Luggage | Accessory) => void,
+    removeProductFromCart: (product: Steamer | Luggage | Accessory) => void,
 }
 
 export const CartContext = createContext<ICartContext>({
     cart: cartInitialState,
-    addProductToCart: () => { },
-    getAllProductsInCart: () => cartInitialState
+    getAllProductsInCart: () => cartInitialState,
+    addProductToCart: () => {},
+    removeProductFromCart: () => {}
 });
 
 interface Props {
@@ -71,12 +73,34 @@ export const CartContextProvider = ({
         }
     }
 
+    const removeProductFromCart = (product: Steamer | Luggage | Accessory) => {
+        let isProductAlreadyInCart = cart.find((cartProduct: ICartProduct) => cartProduct._id === product._id) || 0;
+
+        if (isProductAlreadyInCart) {
+            let indexOfProductInCart = cart.indexOf(isProductAlreadyInCart);
+            let newInstanceOfCart = [...cart];
+
+            let updatedProduct: ICartProduct = {
+                ...isProductAlreadyInCart,
+                quantity: isProductAlreadyInCart.quantity - 1
+            }
+
+            if (updatedProduct.quantity === 0) {
+                newInstanceOfCart.splice(indexOfProductInCart, 1);
+            } else {
+                newInstanceOfCart[indexOfProductInCart] = updatedProduct;
+            }
+
+            setCart(( previousCart:ICart ) => newInstanceOfCart);
+        }
+    }
+
     const getAllProductsInCart = () => {
         return cart;
     }
 
     return (
-        <CartContext.Provider value={{ cart, addProductToCart, getAllProductsInCart }}>
+        <CartContext.Provider value={{ cart, getAllProductsInCart, addProductToCart, removeProductFromCart }}>
             {children}
         </CartContext.Provider>
     )
