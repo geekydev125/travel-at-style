@@ -21,14 +21,12 @@ const cartInitialState: ICart = []
 
 interface ICartContext {
     cart: ICart,
-    getAllProductsInCart: () => ICart,
     addProductToCart: (product: Steamer | Luggage | Accessory) => void,
     removeProductFromCart: (product: Steamer | Luggage | Accessory) => void,
 }
 
 export const CartContext = createContext<ICartContext>({
     cart: cartInitialState,
-    getAllProductsInCart: () => cartInitialState,
     addProductToCart: () => {},
     removeProductFromCart: () => {}
 });
@@ -95,12 +93,8 @@ export const CartContextProvider = ({
         }
     }
 
-    const getAllProductsInCart = () => {
-        return cart;
-    }
-
     return (
-        <CartContext.Provider value={{ cart, getAllProductsInCart, addProductToCart, removeProductFromCart }}>
+        <CartContext.Provider value={{ cart, addProductToCart, removeProductFromCart }}>
             {children}
         </CartContext.Provider>
     )
