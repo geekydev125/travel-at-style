@@ -23,7 +23,7 @@ const cartInitialState: ICart = []
 interface ICartContext {
     cart: ICart,
     addProductToCart: (product: TProduct) => void,
-    removeProductFromCart: (product: TProduct) => void,
+    removeProductFromCart: (productId: TProduct['_id'] | ICartProduct['_id']) => void,
     isProductInCart: (productId: TProduct['_id'] | ICartProduct['_id']) => boolean,
     increaseProductQuantity: (product: ICartProduct) => void
 }
@@ -92,8 +92,8 @@ export const CartContextProvider = ({
         return setCart((previousCart: ICart) => newInstanceOfCart);
     }
 
-    const removeProductFromCart = (product: TProduct) => {
-        let isProductAlreadyInCart = cart.find((cartProduct: ICartProduct) => cartProduct._id === product._id) || 0;
+    const removeProductFromCart = (productId: TProduct['_id'] | ICartProduct['_id']) => {
+        let isProductAlreadyInCart = cart.find((cartProduct: ICartProduct) => cartProduct._id === productId);
 
         if (isProductAlreadyInCart) {
             let indexOfProductInCart = cart.indexOf(isProductAlreadyInCart);

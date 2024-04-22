@@ -54,7 +54,7 @@ function ProductModal() {
                                     </CustomButton>
                                     {
                                         isProductInCart((product as Steamer | Accessory | Luggage)._id) && (
-                                            <CustomButton variant="danger" size="sm" onClick={() => removeProductFromCart((product as Steamer | Accessory | Luggage))}>
+                                            <CustomButton variant="danger" size="sm" onClick={() => removeProductFromCart((product as Steamer | Accessory | Luggage)._id)}>
                                                 Remove from cart&nbsp;
                                                 <IconMinus />
                                             </CustomButton>
