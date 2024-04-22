@@ -33,7 +33,7 @@ function ShopProductCardButtons({
                 <IconPlus />
             </CustomButton>
             {
-                isProductInCart(product) && (
+                isProductInCart(product._id) && (
                     <CustomButton variant="danger" size="sm" onClick={() => removeProductFromCart(product)}>
                         Remove from cart&nbsp;
                         <IconMinus />
