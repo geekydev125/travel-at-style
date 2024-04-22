@@ -11,26 +11,28 @@ interface Props {
 function CartDrawerProductCart({
     product
 }: Props) {
-    const { removeProductFromCart, isProductInCart, increaseProductQuantity } = useCartContext()
+    const { removeProductFromCart, increaseProductQuantity } = useCartContext()
 
     return (
-        <div>
-            <img src={product.img} alt={product.productCategory} style={{ height: '100px', width: 'auto' }} />
-            <p className="text-custom-dark">{product._id} - {product.productCategory} - {product.quantity}</p>
+        <div className="border text-center">
+            <img src={product.img} alt={product.productCategory} style={{ height: 'auto', width: '100%' }} />
+            
+            <div className="p-1">
+                <h6 className="text-custom-dark mb-0 fw-bold">{product.name} {`${product.color ? ` (${product.color})` : ''}`}</h6>
+                <p className="text-custom-dark mb-0">Quantity: {product.quantity}</p>
+            </div>
 
-            <CustomButton variant="success" onClick={() => increaseProductQuantity(product._id)} size='sm' classes="me-2 mt-sm-1 mt-xl-0">
-                Add to cart&nbsp;
-                <IconPlus />
-            </CustomButton>
+            <div className="d-flex flex-row justify-content-between background-light-gradient p-2">
+                <div style={{cursor: 'pointer'}} onClick={() => removeProductFromCart(product._id)}>
+                    <IconMinus stroke="red" height="25px" width="25px" classes="shadow-sm"/>
+                </div>
 
-            {
-                isProductInCart(product._id) && (
-                    <CustomButton variant="danger" size="sm" onClick={() => removeProductFromCart(product._id)}>
-                        Remove from cart&nbsp;
-                        <IconMinus />
-                    </CustomButton>
-                )
-            }
+                <p className="text-custom-dark mb-0">${(product.price * product.quantity).toFixed(2)}</p>
+
+                <div style={{cursor: 'pointer'}} onClick={() => increaseProductQuantity(product._id)}>
+                    <IconPlus stroke="green" height="25px" width="25px" classes="shadow-sm" />
+                </div>
+            </div>
         </div>
     )
 }
