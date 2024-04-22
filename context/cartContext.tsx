@@ -13,6 +13,7 @@ export interface ICartProduct {
     img: Product['img'],
     price: Product['price'],
     quantity: number;
+    color?: Steamer['color'],
 }
 
 export type ICart = ICartProduct[] | [];
@@ -73,6 +74,13 @@ export const CartContextProvider = ({
                 img: `/assets/img/${product.imgFolder}/${product.img}`,
                 price: product.price,
                 quantity: 1
+            }
+
+            if(product.hasOwnProperty('color')) {
+                newProduct = {
+                    ...newProduct,
+                    color: (product as Steamer).color
+                }
             }
 
             setCart((previousCart: ICart) => [...previousCart, newProduct]);
