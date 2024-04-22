@@ -2,8 +2,8 @@
 import { useModalContext } from "@/context/modalContext"
 
 import ProductsTabs from "@/components/ShopViewComponents/ProductsTabs"
-import ProductModal from "@/components/ProductModal"
-import CartDrawer from "@/components/CartDrawer"
+import ProductModal from "@/components/ShopViewComponents/ProductModal"
+import CartDrawer from "@/components/Cart/CartDrawer"
 
 function ShopPage() {
 	const { showModal } = useModalContext()
