@@ -17,7 +17,7 @@ function CardDrawerAddRemoveCartButtons({
                 <IconMinus stroke="red" height="25px" width="25px" classes="shadow-sm" />
             </div>
 
-            <p className="text-custom-dark mb-0">${(product.price * product.quantity).toFixed(2)}</p>
+            <p className="text-custom-dark mb-0 fw-semibold">${(product.price * product.quantity).toFixed(2)}</p>
 
             <div style={{ cursor: 'pointer' }} onClick={() => increaseProductQuantity(product._id)}>
                 <IconPlus stroke="green" height="25px" width="25px" classes="shadow-sm" />
