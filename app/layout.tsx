@@ -9,6 +9,7 @@ import Footer from "@/components/Footer/Footer";
 import { ModalContextProvider } from "@/context/modalContext";
 import { CartContextProvider } from "@/context/cartContext";
 import { CartDrawerContextProvider } from "@/context/cartDrawerContext";
+import CartDrawer from "@/components/Cart/CartDrawer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,7 +34,7 @@ export default function RootLayout({
 							<main className="flex-grow-1 overflow-hidden">
 
 								{children}
-
+								<CartDrawer />
 							</main>
 
 							<Footer />
