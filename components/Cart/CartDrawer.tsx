@@ -5,7 +5,7 @@ import uniqid from "uniqid"
 
 import Offcanvas from "react-bootstrap/Offcanvas"
 import Button from "react-bootstrap/esm/Button";
-import CartDrawerProductCart from "./CartDrawerProductCart";
+import CartDrawerProductCard from "./CartDrawerProductCard";
 
 function CartDrawer() {
     const { cart } = useCartContext()
@@ -32,7 +32,7 @@ function CartDrawer() {
                                 <div className="row gx-3 gy-3">
                                     {cart.map((product) => (
                                         <div className="col-6" key={uniqid()}>
-                                           <CartDrawerProductCart product={product} />
+                                           <CartDrawerProductCard product={product} />
                                         </div>
                                     ))}
                                 </div>
