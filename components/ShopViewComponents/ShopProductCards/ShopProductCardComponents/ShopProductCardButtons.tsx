@@ -24,7 +24,7 @@ function ShopProductCardButtons({
                 {(product as Steamer).color ? ` (${(product as Steamer).color})` : ''}
             </Button>
             
-            <AddRemoveCartButtons product={product} />
+            <AddRemoveCartButtons classesRemoveButton="me-1" product={product} />
 
         </div>
     )

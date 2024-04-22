@@ -38,14 +38,13 @@ function ProductModal() {
                                     </p>
                                 </div>
 
-                                <div className='d-none d-lg-flex flex-row justify-content-between align-items-center'>
-                                    <p className='text-custom-dark display-5 fw-semibold mb-0'>
-                                        Price: {product && product.price}
-                                    </p>
+                                <p className='d-none d-lg-flex text-custom-dark display-5 fw-semibold mb-0'>
+                                    Price: {product && product.price}
+                                </p>
 
-                                    <AddRemoveCartButtons product={(product as Luggage | Accessory | Steamer)} />
+                                <div className='d-none d-lg-flex flex-row justify-content-end align-items-center'>
+                                    <AddRemoveCartButtons classesRemoveButton='me-1' product={(product as Luggage | Accessory | Steamer)} />
                                 </div>
-
                             </div>
                             <div className='col-12 col-lg-7 overflow-hidden '>
                                 {
@@ -58,12 +57,12 @@ function ProductModal() {
                                     )
                                 }
 
-                                <div className='d-flex d-lg-none flex-column flex-sm-row justify-content-between align-items-center mt-4'>
+                                <div className='d-flex d-lg-none flex-row flex-sm-row justify-content-between align-items-center mt-4'>
                                     <p className='text-custom-dark display-5 fw-semibold mb-0'>
                                         Price: {product && product.price}
                                     </p>
 
-                                    <AddRemoveCartButtons product={(product as Luggage | Accessory | Steamer)} />
+                                    <AddRemoveCartButtons classesRemoveButton='me-1' product={(product as Luggage | Accessory | Steamer)} />
                                 </div>
                             </div>
                         </div>
