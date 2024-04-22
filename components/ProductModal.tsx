@@ -1,15 +1,22 @@
 "use client"
 
 import { useModalContext } from '@/context/modalContext';
+import { useCartContext } from '@/context/cartContext';
+
 import { Steamer } from '@/model/Steamer';
+import { Accessory } from '@/model/Accessory';
+import { Luggage } from '@/model/Luggage';
+
+import IconPlus from '@/components/Icons/IconPlus';
+import CustomButton from '@/components/CustomButton';
+import IconMinus from '@/components/Icons/IconMinus';
 
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import CustomButton from '@/components/CustomButton';
-import IconPlus from './Icons/IconPlus';
 
 function ProductModal() {
     const { showModal, product, showModalHandler } = useModalContext()
+    const { addProductToCart, removeProductFromCart, isProductInCart } = useCartContext()
 
     return (
         <>
@@ -40,9 +47,21 @@ function ProductModal() {
                                     <p className='text-custom-dark display-5 fw-semibold mb-0'>
                                         Price: {product && product.price}
                                     </p>
-                                    <CustomButton variant='success' size='sm'>Add to cart <IconPlus /></CustomButton>
+
+                                    <CustomButton variant="success" onClick={() => addProductToCart((product as Steamer | Accessory | Luggage))} size='sm' classes="me-2 mt-sm-1 mt-xl-0">
+                                        Add to cart&nbsp;
+                                        <IconPlus />
+                                    </CustomButton>
+                                    {
+                                        isProductInCart((product as Steamer | Accessory | Luggage)) && (
+                                            <CustomButton variant="danger" size="sm" onClick={() => removeProductFromCart((product as Steamer | Accessory | Luggage))}>
+                                                Remove from cart&nbsp;
+                                                <IconMinus />
+                                            </CustomButton>
+                                        )
+                                    }
                                 </div>
-                               
+
                             </div>
                             <div className='col-12 col-lg-7 overflow-hidden '>
                                 {
