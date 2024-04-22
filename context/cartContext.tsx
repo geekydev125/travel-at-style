@@ -23,12 +23,14 @@ interface ICartContext {
     cart: ICart,
     addProductToCart: (product: Steamer | Luggage | Accessory) => void,
     removeProductFromCart: (product: Steamer | Luggage | Accessory) => void,
+    isProductInCart: (product: Steamer | Luggage | Accessory) => boolean
 }
 
 export const CartContext = createContext<ICartContext>({
     cart: cartInitialState,
     addProductToCart: () => {},
-    removeProductFromCart: () => {}
+    removeProductFromCart: () => {},
+    isProductInCart: () => false
 });
 
 interface Props {
@@ -93,8 +95,18 @@ export const CartContextProvider = ({
         }
     }
 
+    const isProductInCart = (product: Steamer | Luggage | Accessory) => {
+        let isProductAlreadyInCart = cart.find((cartProduct: ICartProduct) => cartProduct._id === product._id) || 0;
+
+        if (isProductAlreadyInCart) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     return (
-        <CartContext.Provider value={{ cart, addProductToCart, removeProductFromCart }}>
+        <CartContext.Provider value={{ cart, addProductToCart, removeProductFromCart, isProductInCart }}>
             {children}
         </CartContext.Provider>
     )
