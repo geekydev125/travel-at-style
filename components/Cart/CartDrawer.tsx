@@ -1,14 +1,16 @@
 "use client";
 import { useState } from "react";
-import { useCartContext } from "@/context/cartContext"
 import NextLink from "next/link";
-import uniqid from "uniqid"
+
+import { useCartContext } from "@/context/cartContext"
+
+import CartTotal from "@/components/Cart/CartTotal";
+import CustomButton from "@/components/CustomButton";
+import CartEmpty from "@/components/Cart/CartEmpty";
+import CartProductsList from "@/components/Cart/CartProductsList";
 
 import Offcanvas from "react-bootstrap/Offcanvas"
 import Button from "react-bootstrap/esm/Button";
-import CartDrawerProductCard from "./CartDrawerProductCard";
-import CartTotal from "./CartTotal";
-import CustomButton from "../CustomButton";
 
 function CartDrawer() {
     const { cart } = useCartContext()
@@ -23,29 +25,17 @@ function CartDrawer() {
                 Launch
             </Button>
             <Offcanvas show={show} onHide={handleClose} placement="end" >
-                <Offcanvas.Header closeButton>
+                <Offcanvas.Header closeButton className="background-light-gradient">
                     <Offcanvas.Title>
                         <h2 className="text-custom-dark">Cart</h2>
                     </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    {cart.length > 0 ? (
-                        <>
-                            <div className="container">
-                                <div className="row gx-3 gy-3">
-                                    {cart.map((product) => (
-                                        <div className="col-6" key={uniqid()}>
-                                            <CartDrawerProductCard product={product} />
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-
-                        </>
-                    ) : (
-                        <h2 className="text-custom-dark">Cart is empty</h2>
-                    )}
+                    {
+                        cart.length > 0
+                            ? <CartProductsList />
+                            : <CartEmpty handleDrawerClose={handleClose} />
+                    }
                 </Offcanvas.Body>
 
                 <div className="w-100 px-2 py-4 position-absolute bottom-0 background-light-gradient d-flex flex-row justify-content-between align-items-center">
