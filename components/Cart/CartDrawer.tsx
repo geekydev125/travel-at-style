@@ -5,6 +5,7 @@ import uniqid from "uniqid"
 
 import Offcanvas from "react-bootstrap/Offcanvas"
 import Button from "react-bootstrap/esm/Button";
+import CartDrawerProductCart from "./CartDrawerProductCart";
 
 function CartDrawer() {
     const { cart } = useCartContext()
@@ -27,15 +28,16 @@ function CartDrawer() {
                 <Offcanvas.Body>
                     {cart.length > 0 ? (
                         <>
+                            <div className="container">
+                                <div className="row gx-3 gy-3">
+                                    {cart.map((product) => (
+                                        <div className="col-6" key={uniqid()}>
+                                           <CartDrawerProductCart product={product} />
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
 
-                            <ul>Creating the initial structure of the cart drawer
-                                {cart.map((product) => (
-                                    <li key={uniqid()}>
-                                        <img src={product.img} alt={product.productCategory} style={{ height: '100px', width: 'auto' }} />
-                                        <p className="text-custom-dark">{product._id} - {product.productCategory} - {product.quantity}</p>
-                                    </li>
-                                ))}
-                            </ul>
                         </>
                     ) : (
                         <h2 className="text-custom-dark">Cart is empty</h2>
