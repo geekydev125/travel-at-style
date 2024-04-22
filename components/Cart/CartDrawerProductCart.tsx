@@ -1,6 +1,5 @@
 import { ICartProduct, useCartContext } from "@/context/cartContext"
 
-import CustomButton from "@/components/CustomButton"
 import IconPlus from "@/components/Icons/IconPlus"
 import IconMinus from "@/components/Icons/IconMinus"
 
