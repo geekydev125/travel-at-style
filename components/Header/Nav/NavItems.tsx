@@ -6,7 +6,9 @@ import uniqid from 'uniqid'
 import styles from './Nav.module.scss'
 
 import routes from '@/data/routes.json'
-import IconShoppingCart from '../../Icons/IconShoppingCart'
+
+import CartIconWithBadge from '@/components/Cart/CartIconWithBadge'
+
 import Nav from 'react-bootstrap/Nav'
 
 interface Route {
@@ -20,7 +22,7 @@ interface Props {
 
 function NavItems({
     collapseNav
-}:Props) {
+}: Props) {
     const pathname = usePathname()
 
     return (
@@ -36,20 +38,25 @@ function NavItems({
                                 href={route.path}
                             >
                                 {route.title}
-                                {route.path === '/shop' && <span className='ms-2'><IconShoppingCart /></span>}
                             </NextLink>
                         )
                     }
                 })}
+
+                {
+                    routes.find((route: Route) => route.path === '/shopping-cart') && (
+                        <CartIconWithBadge />
+                    )
+                }
             </Nav>
 
             <NextLink onClick={collapseNav} href="/steamers" className='d-none d-lg-block'>
-                    <img className={`${styles.logo}`} src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" />
-                </NextLink>
+                <img className={`${styles.logo}`} src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" />
+            </NextLink>
 
             <Nav className="ms-auto">
                 {routes.map((route: Route, index) => {
-                    if (route.path !== '/' && index > 4) {
+                    if (route.path !== '/' && index > 5) {
                         return (
                             <NextLink
                                 key={uniqid()}
