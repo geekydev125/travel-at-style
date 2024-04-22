@@ -27,15 +27,16 @@ interface ICartContext {
     increaseProductQuantity: (productId: TProduct['_id'] | ICartProduct['_id']) => void
     removeProductFromCart: (productId: TProduct['_id'] | ICartProduct['_id']) => void,
     isProductInCart: (productId: TProduct['_id'] | ICartProduct['_id']) => boolean,
-    
+    getCartTotal: () => number
 }
 
 export const CartContext = createContext<ICartContext>({
     cart: cartInitialState,
-    addProductToCart: () => { },
+    addProductToCart: () => {},
     removeProductFromCart: () => { },
     isProductInCart: () => false,
-    increaseProductQuantity: () => { }
+    increaseProductQuantity: () => { },
+    getCartTotal: () => 0
 });
 
 interface Props {
@@ -48,7 +49,6 @@ export const CartContextProvider = ({
     const [cart, setCart] = useLocalStorage('cart', cartInitialState);
 
     const addProductToCart = (product: TProduct) => {
-        // check if the product is already in the cart
         let isProductAlreadyInCart = cart.find((cartProduct: ICartProduct) => cartProduct._id === product._id);
 
         if (isProductAlreadyInCart) {
@@ -66,7 +66,6 @@ export const CartContextProvider = ({
 
             return setCart((previousCart: ICart) => newInstanceOfCart);
         } else {
-            // create the new product
             let newProduct: ICartProduct = {
                 _id: product._id,
                 productCategory: product.productCategory,
@@ -135,8 +134,14 @@ export const CartContextProvider = ({
         }
     }
 
+    const getCartTotal = () => {
+        return (cart.reduce((acc:number, product:ICartProduct) => {
+            return acc + product.price * product.quantity;
+        }, 0)).toFixed(2);
+    }
+
     return (
-        <CartContext.Provider value={{ cart, addProductToCart, removeProductFromCart, isProductInCart, increaseProductQuantity }}>
+        <CartContext.Provider value={{ cart, addProductToCart, removeProductFromCart, isProductInCart, increaseProductQuantity, getCartTotal }}>
             {children}
         </CartContext.Provider>
     )
