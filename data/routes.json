@@ -20,6 +20,10 @@
         "title": "Shop Now!"
     },
     {
+        "path": "/shopping-cart",
+        "title": "Shopping Cart"
+    },
+    {
         "path": "/instructions",
         "title": "User Instructions"
     },
