@@ -3,7 +3,7 @@ import uniqid from "uniqid"
 import { Steamer } from "@/model/Steamer"
 import ProductCarousel from "../../ProductCarousel"
 
-import GreenButton from "@/components/GreenButton"
+import CustomButton from "@/components/CustomButton"
 
 interface Props {
     steamers: Steamer[]
@@ -49,7 +49,7 @@ function BesteamRow({
 
                 <div className="text-center mt-3">
                     <p className="text-custom-dark display-3">Now only ${steamers[0].price}</p>
-                    <GreenButton>GET YOURS NOW!</GreenButton>
+                    <CustomButton variant="success">GET YOURS NOW!</CustomButton>
                 </div>
             </div>
 

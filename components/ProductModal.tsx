@@ -5,7 +5,7 @@ import { Steamer } from '@/model/Steamer';
 
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import GreenButton from '@/components/GreenButton';
+import CustomButton from '@/components/CustomButton';
 import IconPlus from './Icons/IconPlus';
 
 function ProductModal() {
@@ -40,7 +40,7 @@ function ProductModal() {
                                     <p className='text-custom-dark display-5 fw-semibold mb-0'>
                                         Price: {product && product.price}
                                     </p>
-                                    <GreenButton size='sm'>Add to cart <IconPlus /></GreenButton>
+                                    <CustomButton variant='success' size='sm'>Add to cart <IconPlus /></CustomButton>
                                 </div>
                                
                             </div>
@@ -59,7 +59,7 @@ function ProductModal() {
                                     <p className='text-custom-dark display-5 fw-semibold mb-0'>
                                         Price: {product && product.price}
                                     </p>
-                                    <GreenButton size='sm' classes='mt-2 mt-sm-0'>Add to cart <IconPlus /></GreenButton>
+                                    <CustomButton variant='success' size='sm' classes='mt-2 mt-sm-0'>Add to cart <IconPlus /></CustomButton>
                                 </div>
                             </div>
                         </div>

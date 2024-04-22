@@ -1,4 +1,4 @@
-import GreenButton from "@/components/GreenButton"
+import CustomButton from "@/components/CustomButton"
 import Link from "next/link"
 
 function FifthSectionCallToActionDiscounts() {
@@ -15,7 +15,7 @@ function FifthSectionCallToActionDiscounts() {
                         <h3 className="text-capitalize">Over the top quantity-based discounts</h3>
 
                         <Link href="/shop">
-                            <GreenButton classes="mt-md-2 mb-3">GET YOURS NOW!</GreenButton>
+                            <CustomButton variant="success" classes="mt-md-2 mb-3">GET YOURS NOW!</CustomButton>
                         </Link>
 
                         <h3 className="text-capitalize">Lifetime Warranty</h3>

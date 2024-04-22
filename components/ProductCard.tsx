@@ -3,7 +3,7 @@ import NextLink from "next/link"
 import { Accessory } from "@/model/Accessory"
 import { Luggage } from "@/model/Luggage"
 import styles from "./ProductCard.module.scss"
-import GreenButton from "@/components/GreenButton"
+import CustomButton from "@/components/CustomButton"
 
 import Card from "react-bootstrap/Card"
 
@@ -37,7 +37,7 @@ function ProductCard({
                             ${product.price}
                         </Card.Text>
                         <NextLink href="/shop" >
-                            <GreenButton >GET YOURS NOW!</GreenButton>
+                            <CustomButton variant="success" >GET YOURS NOW!</CustomButton>
                         </NextLink>
 
                         {/* <div className="d-flex justify-content-center">
