@@ -18,23 +18,23 @@ function AddRemoveCartButtons({
     product,
     classesAddButton,
     classesRemoveButton
-}:Props) {
+}: Props) {
     const { addProductToCart, removeProductFromCart, isProductInCart } = useCartContext()
     return (
-        <>
-            <CustomButton variant="success" onClick={() => addProductToCart(product)} size='sm' classes={classesAddButton}>
-                Add to cart&nbsp;
-                <IconPlus />
-            </CustomButton>
+        <div className="d-flex flex-row">
             {
                 isProductInCart(product._id) && (
                     <CustomButton classes={classesRemoveButton} variant="danger" size="sm" onClick={() => removeProductFromCart(product._id)}>
-                        Remove from cart&nbsp;
                         <IconMinus />
                     </CustomButton>
                 )
             }
-        </>
+
+            <CustomButton variant="success" onClick={() => addProductToCart(product)} size='sm' classes={classesAddButton}>
+                Add to cart&nbsp;
+                <IconPlus />
+            </CustomButton>
+        </div>
     )
 }
 
