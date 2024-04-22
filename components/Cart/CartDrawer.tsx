@@ -39,13 +39,20 @@ function CartDrawer() {
                 </Offcanvas.Body>
 
                 <div className="w-100 px-2 py-4 position-absolute bottom-0 background-light-gradient d-flex flex-row justify-content-between align-items-center">
-                    <CartTotal />
+                    {
+                        cart.length > 0 && (
+                            <>
+                                <CartTotal />
 
-                    <NextLink href='/checkout'>
-                        <CustomButton variant="primary" size="sm">
-                            Proceed to checkout
-                        </CustomButton>
-                    </NextLink>
+                                <NextLink href='/checkout'>
+                                    <CustomButton variant="primary" size="sm">
+                                        Proceed to checkout
+                                    </CustomButton>
+                                </NextLink>
+                            </>
+                        )
+                    }
+
                 </div>
 
             </Offcanvas>
