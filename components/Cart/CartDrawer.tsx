@@ -13,7 +13,7 @@ import Offcanvas from "react-bootstrap/Offcanvas"
 import Button from "react-bootstrap/esm/Button";
 
 function CartDrawer() {
-    const { cart } = useCartContext()
+    const { cart, getCarTotalProducts } = useCartContext()
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -27,7 +27,9 @@ function CartDrawer() {
             <Offcanvas show={show} onHide={handleClose} placement="end" >
                 <Offcanvas.Header closeButton className="background-light-gradient">
                     <Offcanvas.Title>
-                        <h2 className="text-custom-dark">Cart</h2>
+                        <h5 className="text-custom-dark mb-0 display-5 fw-semibold">
+                            Cart <span className="text-custom-dark fw-semibold">({getCarTotalProducts()})</span>
+                        </h5>
                     </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
