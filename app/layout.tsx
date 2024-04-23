@@ -10,6 +10,8 @@ import { ModalContextProvider } from "@/context/modalContext";
 import { CartContextProvider } from "@/context/cartContext";
 import { CartDrawerContextProvider } from "@/context/cartDrawerContext";
 import CartDrawer from "@/components/Cart/CartDrawer";
+import { NotificationProvider } from "@/context/notificationContext";
+import Notification from "@/components/Notification";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,21 +29,25 @@ export default function RootLayout({
 		<html lang="en">
 			<CartContextProvider>
 				<CartDrawerContextProvider>
-					<ModalContextProvider>
-						<body style={{ minHeight: '100vh' }} className={`${inter.className} d-flex flex-column  background-pattern-crossword`}>
-							<Header />
+					<NotificationProvider>
+						<ModalContextProvider>
+							<body style={{ minHeight: '100vh' }} className={`${inter.className} d-flex flex-column  background-pattern-crossword`}>
+								<Header />
 
-							<main className="flex-grow-1 overflow-hidden">
+								<main className="flex-grow-1 overflow-hidden">
 
-								{children}
-								<CartDrawer />
-							</main>
+									{children}
+									<CartDrawer />
 
-							<Footer />
+									<Notification />
+								</main>
 
-							<BootstrapClient />
-						</body>
-					</ModalContextProvider>
+								<Footer />
+
+								<BootstrapClient />
+							</body>
+						</ModalContextProvider>
+					</NotificationProvider>
 				</CartDrawerContextProvider>
 			</CartContextProvider>
 		</html>
