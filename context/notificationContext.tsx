@@ -10,14 +10,21 @@ interface INotification {
 }
 
 interface INotificationContext {
-    notification: INotification | null;
+    notification: INotification;
     displayNotification: (message: string, type: TNotificationType, options?: any) => void;
 }
 
+const initialNotificationState: INotification = {
+    message: '',
+    type: 'info',
+    options: {}
+}
+
 export const NotificationContext = createContext<INotificationContext>({
-    notification: null,
+    notification: initialNotificationState,
     displayNotification: () => { }
 });
+
 
 interface Props {
     children: React.ReactNode;
@@ -26,11 +33,17 @@ interface Props {
 export const NotificationProvider = ({
     children
 }: Props) => {
-    const [notification, setNotification] = useState<INotification | null>(null);
-
+    const [notification, setNotification] = useState<INotification>(initialNotificationState);
 
     function displayNotification(message: string, type: TNotificationType, options?: any) {
-        setNotification({ message, type, options: options });
+        setNotification(prevState => {
+            return {
+                ...prevState,
+                message, 
+                type, 
+                options 
+            }
+        });
     }
 
     return (
