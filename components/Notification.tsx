@@ -1,13 +1,13 @@
 "use client";
 import { useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify"
+import { ToastContainer, toast, Flip } from "react-toastify"
 
 import { TNotificationType, useNotificationContext } from "@/context/notificationContext"
 
 function Notification() {
     const { notification } = useNotificationContext()
 
-    useEffect(()=> {
+    useEffect(() => {
         const { message, type, options } = notification
 
         if (message) {
@@ -19,15 +19,17 @@ function Notification() {
     return (
         <ToastContainer
             position="bottom-left"
-            autoClose={1500}
+            autoClose={1000}
+            limit={3}
             hideProgressBar
             newestOnTop={false}
             closeOnClick
             rtl={false}
-            pauseOnFocusLoss
-            draggable
+            pauseOnFocusLoss={false}
+            draggable={false}
             pauseOnHover
-            theme="colored"
+            theme="dark"
+            transition={Flip}
         />
     )
 }
