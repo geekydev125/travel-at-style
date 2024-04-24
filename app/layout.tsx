@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import "../styles/globals.scss";
 import 'react-toastify/dist/ReactToastify.min.css';
+import "../styles/globals.scss";
+
+import { ModalContextProvider } from "@/context/modalContext";
+import { CartContextProvider } from "@/context/cartContext";
+import { CartDrawerContextProvider } from "@/context/cartDrawerContext";
+import { NotificationProvider } from "@/context/notificationContext";
 
 import BootstrapClient from "@/components/BootstrapClient";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import { ModalContextProvider } from "@/context/modalContext";
-import { CartContextProvider } from "@/context/cartContext";
-import { CartDrawerContextProvider } from "@/context/cartDrawerContext";
 import CartDrawer from "@/components/Cart/CartDrawer";
-import { NotificationProvider } from "@/context/notificationContext";
 import Notification from "@/components/Notification";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
