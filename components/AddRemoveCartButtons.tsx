@@ -25,19 +25,19 @@ function AddRemoveCartButtons({
 
     function addProductHandler(product: Luggage | Accessory | Steamer) {
         addProductToCart(product)
-        displayNotification('Product added to cart', 'success')
+        displayNotification(`${product.name} ${(product as Steamer).color ? ` (${(product as Steamer).color})` : ''} added to cart`, 'success')
     }
 
-    function removeProductHandler(productId: Luggage['_id'] | Accessory['_id'] | Steamer['_id']) {
-        removeProductFromCart(productId)
-        displayNotification('Product removed from cart', 'warning')
+    function removeProductHandler(product: Luggage | Accessory | Steamer) {
+        removeProductFromCart(product._id)
+        displayNotification(`${product.name} ${(product as Steamer).color ? ` (${(product as Steamer).color})` : ''} removed from cart`, 'warning')
     }
 
     return (
         <div className="d-flex flex-row">
             {
                 isProductInCart(product._id) && (
-                    <CustomButton classes={classesRemoveButton} variant="danger" size="sm" onClick={() => removeProductHandler(product._id)}>
+                    <CustomButton classes={classesRemoveButton} variant="danger" size="sm" onClick={() => removeProductHandler(product)}>
                         <IconMinus />
                     </CustomButton>
                 )
