@@ -10,19 +10,19 @@ import CartEmpty from "@/components/Cart/CartEmpty";
 import CartProductsList from "@/components/Cart/CartProductsList";
 
 import Offcanvas from "react-bootstrap/Offcanvas"
+import CartIconWithBadge from "./CartIconWithBadge";
 
 function CartDrawer() {
-    const { cart, getCarTotalProducts } = useCartContext()
+    const { cart } = useCartContext()
     const { show, handleClose } = useCartDrawerContext()
 
     return (
         <Offcanvas show={show} onHide={handleClose} placement="end" >
             <Offcanvas.Header closeButton className="background-light-gradient">
                 <Offcanvas.Title>
-                    <h5 className="text-custom-dark mb-0 display-5 fw-semibold">
-                        Cart <span className="text-custom-dark fw-semibold">({getCarTotalProducts()})</span>
-                    </h5>
+                    <h5 className="text-custom-dark mb-0 display-5 fw-semibold">Shopping Cart</h5>
                 </Offcanvas.Title>
+                <CartIconWithBadge iconContainerClasses="ms-1" cartIconHeight="25px" cartIconWidth="25px" cartIconFill="text-custom-dark" />
             </Offcanvas.Header>
             <Offcanvas.Body>
                 {
