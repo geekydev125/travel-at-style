@@ -3,6 +3,8 @@ import NextLink from 'next/link'
 import { usePathname } from 'next/navigation'
 import uniqid from 'uniqid'
 
+import { useCartDrawerContext } from '@/context/cartDrawerContext'
+
 import styles from './Nav.module.scss'
 
 import routes from '@/data/routes.json'
@@ -24,6 +26,8 @@ function NavItems({
     collapseNav
 }: Props) {
     const pathname = usePathname()
+    const { handleShow } = useCartDrawerContext()
+
 
     return (
         <>
@@ -45,7 +49,9 @@ function NavItems({
 
                 {
                     routes.find((route: Route) => route.path === '/shopping-cart') && (
-                        <CartIconWithBadge />
+                        <span onClick={handleShow} className='nav-link' style={{ cursor: 'pointer' }}>
+                            <CartIconWithBadge />
+                        </span>
                     )
                 }
             </Nav>

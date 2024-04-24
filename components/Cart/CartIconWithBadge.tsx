@@ -1,24 +1,42 @@
-import Badge from 'react-bootstrap/Badge';
+import { useCartContext } from '@/context/cartContext';
 
 import IconShoppingCart from '@/components/Icons/IconShoppingCart';
-import { useCartContext } from '@/context/cartContext';
-import { useCartDrawerContext } from '@/context/cartDrawerContext';
+import Badge from 'react-bootstrap/Badge';
 
+interface Props {
+    iconContainerClasses?: string
+    cartIconWidth?: string
+    cartIconHeight?: string
+    cartIconFill?: string
+    cartIconClasses?: string
+}
 
-function CartIconWithBadge() {
+function CartIconWithBadge({
+    iconContainerClasses,
+    cartIconWidth,
+    cartIconHeight,
+    cartIconFill,
+    cartIconClasses
+}: Props) {
     const { getCarTotalProducts } = useCartContext()
-    const { handleShow } = useCartDrawerContext()
-
+    
     return (
-        <div onClick={handleShow} style={{cursor: 'pointer'}} className='ms-2 nav-link position-relative'>
-            <IconShoppingCart />
+        <span  className={`position-relative ${iconContainerClasses}`}>
+            <IconShoppingCart
+                width={cartIconWidth}
+                height={cartIconHeight}
+                fill={cartIconFill}
+                classes={cartIconClasses}
+            />
 
             {
                 getCarTotalProducts() > 0 && (
-                    <Badge pill bg="primary" className='position-absolute top-0 end-0'>{getCarTotalProducts()}</Badge>
+                    <Badge pill bg="primary" className='position-absolute' style={{top: '-11px', right: '-14px' }} >
+                        {getCarTotalProducts()}
+                    </Badge>
                 )
             }
-        </div>
+        </span>
 
     )
 }
