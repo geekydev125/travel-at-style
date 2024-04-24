@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "../styles/globals.scss";
+import 'react-toastify/dist/ReactToastify.min.css';
 
 import BootstrapClient from "@/components/BootstrapClient";
 import Header from "@/components/Header/Header";
@@ -35,16 +36,16 @@ export default function RootLayout({
 								<Header />
 
 								<main className="flex-grow-1 overflow-hidden">
-
 									{children}
-									<CartDrawer />
-
-									<Notification />
 								</main>
+
+								<CartDrawer />
+								<Notification />
 
 								<Footer />
 
 								<BootstrapClient />
+								
 							</body>
 						</ModalContextProvider>
 					</NotificationProvider>
