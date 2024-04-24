@@ -1,20 +1,25 @@
 "use client";
-import { TNotificationType, useNotificationContext } from "@/context/notificationContext"
+import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify"
+
+import { TNotificationType, useNotificationContext } from "@/context/notificationContext"
 
 function Notification() {
     const { notification } = useNotificationContext()
 
-    if(notification) {
+    useEffect(()=> {
         const { message, type, options } = notification
 
-        toast[`${(type as TNotificationType)}`](message)
-    }
+        if (message) {
+            toast[`${(type as TNotificationType)}`](message, options)
+        }
+    }, [notification])
+
 
     return (
         <ToastContainer
-            position="bottom-right"
-            autoClose={2000}
+            position="bottom-left"
+            autoClose={1500}
             hideProgressBar
             newestOnTop={false}
             closeOnClick
