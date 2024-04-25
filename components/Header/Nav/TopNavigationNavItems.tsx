@@ -43,14 +43,15 @@ function TopNavigationNavItems({
                 {routes.map((route: Route, index) => {
                     if (route.path !== '/' && index < 4) {
                         return (
-                            <NextLink
-                                key={uniqid()}
-                                onClick={collapseNav}
-                                className={`nav-link mx-3 text-custom-light ${route.path === '/shop' && 'fst-italic fw-medium'} ${pathname === route.path && 'active'}`}
-                                href={route.path}
-                            >
-                                {route.title}
-                            </NextLink>
+                            <Nav.Item key={uniqid()}>
+                                <NextLink
+                                    onClick={collapseNav}
+                                    className={`nav-link mx-3 text-custom-light ${route.path === '/shop' && 'fst-italic fw-medium'} ${pathname === route.path && 'active'}`}
+                                    href={route.path}
+                                >
+                                    {route.title}
+                                </NextLink>
+                            </Nav.Item>
                         )
                     }
                 })}
@@ -59,42 +60,45 @@ function TopNavigationNavItems({
             {/* Logo */}
             <NextLink
                 onClick={collapseNav}
-                href="/steamers" className='d-none d-lg-block position-absolute'
-                style={{ left: '50%', top: '50%', transform: 'translateX(-50%) translateY(-50%)' }}
+                href="/steamers"
+                className='d-none d-lg-block'
+                style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translateX(-50%) translateY(-50%)' }}
             >
                 <img className={`${styles.logo}`} src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" />
             </NextLink>
 
             <Nav className="ms-auto">
                 {/* Misc menu item */}
-                <span onClick={() => handleBottomNavCollapse()} className={`nav-link text-custom-light mx-3 ${styles['chevron-icon-span']}`}>
-                    Misc
-                    <IconChevronUp classes={`ms-1 ${styles['chevron-icon']} ${isBottomNavCollapsed ? `${styles['rotated-icon']}` : ''}`} />
-                </span>
-                
-                {routes.map((route: Route, index) => {
+                <Nav.Item>
+                    <span onClick={() => handleBottomNavCollapse()} className={`nav-link text-custom-light mx-3 ${styles['chevron-icon-span']}`}>
+                        Misc
+                        <IconChevronUp classes={`ms-1 ${styles['chevron-icon']} ${isBottomNavCollapsed ? `${styles['rotated-icon']}` : ''}`} />
+                    </span>
+                </Nav.Item>
+
+                {/* Shop Now item */}
+                {routes.map((route: Route) => {
                     if (route.path == '/shop') {
                         return (
-                            <NextLink
-                                key={uniqid()}
-                                onClick={collapseNav}
-                                className={`nav-link text-custom-light fst-italic fw-medium mx-3 ${pathname === route.path && 'active'}`}
-                                href={route.path}
-                            >
-                                {route.title}
-                            </NextLink>
+                            <Nav.Item key={uniqid()}>
+                                <NextLink
+                                    onClick={collapseNav}
+                                    className={`nav-link fw-medium mx-3 ${styles['shop-item']} ${pathname === route.path && 'active'}`}
+                                    href={route.path}
+                                >
+                                    {route.title}
+                                </NextLink>
+                            </Nav.Item>
                         )
                     }
                 })}
 
                 {/* Cart */}
-                {
-                    routes.find((route: Route) => route.path === '/shopping-cart') && (
-                        <span onClick={handleShow} className='nav-link mx-3' style={{ cursor: 'pointer' }}>
-                            <CartIconWithBadge />
-                        </span>
-                    )
-                }
+                <Nav.Item>
+                    <span onClick={handleShow} className='nav-link mx-3' style={{ cursor: 'pointer' }}>
+                        <CartIconWithBadge cartIconHeight='23px' cartIconWidth='23px'/>
+                    </span>
+                </Nav.Item>
             </Nav>
         </>
     )
