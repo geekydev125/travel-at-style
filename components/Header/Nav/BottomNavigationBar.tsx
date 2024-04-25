@@ -12,13 +12,21 @@ interface Route {
     title: string
 }
 
-function BottomNavigationBar() {
+interface Props {
+    isBottomNavCollapsed: boolean,
+}
+
+function BottomNavigationBar({
+    isBottomNavCollapsed,
+}:Props) {
     const pathname = usePathname()
 
     return (
-        <Navbar className='px-md-5 py-0 bg-beige d-none d-lg-block' >
-            <div className="container-fluid px-3 px-lg-5">
-                <Nav className="me-auto">
+
+        <Navbar className={`${isBottomNavCollapsed ? 'py-0' : 'py-1'} px-md-5 d-none d-lg-block bg-primary`}  >
+
+            <div className="container-fluid px-3 px-lg-5 overflow-hidden" style={{ maxHeight: isBottomNavCollapsed ? '1px' : '32px', transition: 'max-height 0.5s ease-in-out' }}>
+                <Nav className={`me-auto ${isBottomNavCollapsed ? 'opacity-0' : 'opacity-100 '}`} style={{transition: 'opacity 0.5s ease-in-out'}}>
                     {routes.map((route: Route, index) => {
                         if (route.path !== '/' && index > 5 && index < 8) {
                             return (
@@ -36,9 +44,9 @@ function BottomNavigationBar() {
                     })}
                 </Nav>
 
-                <Nav className="ms-auto">
+                <Nav className={`ms-auto ${isBottomNavCollapsed ? 'opacity-0' : 'opacity-100 '}`} style={{transition: 'opacity 0.5s ease-in-out'}}>
                     {routes.map((route: Route, index) => {
-                        if (route.path !== '/' && index > 7 ) {
+                        if (route.path !== '/' && index > 7) {
                             return (
                                 <Nav.Item>
                                     <NextLink
