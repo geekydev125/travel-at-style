@@ -25,18 +25,18 @@
     },
     {
         "path": "/instructions",
-        "title": "User Instructions"
+        "title": "Steamers Instructions"
     },
     {
         "path": "/warranty",
-        "title": "Warranty"
+        "title": "Steamers Warranty"
     },
     {
         "path": "/location",
-        "title": "Location"
+        "title": "Physical Location"
     },
     {
         "path": "/contact",
-        "title": "Contact Us"
+        "title": "Contact"
     }
 ]
