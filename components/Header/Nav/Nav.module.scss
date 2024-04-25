@@ -2,14 +2,8 @@
     max-width: 90px;
 }
 
-@media (min-width: 992px) {
-    .logo {
-        max-width: 110px;
-    }
-}
-
 .shop-item {
-    animation: scaleColor 2.5s ease-in-out infinite;
+    font-style: italic;
 }
 
 .chevron-icon-span {
@@ -37,5 +31,16 @@
     100% {
         transform: scale(1);
         color: #0f6ec6;
+    }
+}
+
+@media (min-width: 992px) {
+    .logo {
+        max-width: 110px;
+    }
+
+    .shop-item {
+        font-style: normal;
+        animation: scaleColor 2.5s ease-in-out infinite;
     }
 }

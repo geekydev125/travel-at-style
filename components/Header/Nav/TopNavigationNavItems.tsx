@@ -69,18 +69,18 @@ function TopNavigationNavItems({
 
             <Nav className="ms-auto">
                 {/* Misc menu item */}
-                <Nav.Item>
+                <Nav.Item className='d-none d-lg-block'>
                     <span onClick={() => handleBottomNavCollapse()} className={`nav-link text-custom-light mx-3 ${styles['chevron-icon-span']}`}>
                         Misc
                         <IconChevronUp classes={`ms-1 ${styles['chevron-icon']} ${isBottomNavCollapsed ? `${styles['rotated-icon']}` : ''}`} />
                     </span>
                 </Nav.Item>
 
-                {/* Shop Now item */}
+                {/* Shop Now item - Desktop*/}
                 {routes.map((route: Route) => {
                     if (route.path == '/shop') {
                         return (
-                            <Nav.Item key={uniqid()}>
+                            <Nav.Item key={uniqid()} className='d-none d-lg-block'>
                                 <NextLink
                                     onClick={collapseNav}
                                     className={`nav-link fw-medium mx-3 ${styles['shop-item']} ${pathname === route.path && 'active'}`}
@@ -93,8 +93,8 @@ function TopNavigationNavItems({
                     }
                 })}
 
-                {/* Cart */}
-                <Nav.Item>
+                {/* Cart - Desktop*/}
+                <Nav.Item className='d-none d-lg-block'>
                     <span onClick={handleShow} className='nav-link mx-3' style={{ cursor: 'pointer' }}>
                         <CartIconWithBadge cartIconHeight='23px' cartIconWidth='23px'/>
                     </span>
