@@ -54,6 +54,25 @@ function TopNavigationNavItems({
                             </Nav.Item>
                         )
                     }
+
+                    // Additional links on mobile
+                    if (route.path !== '/' && index > 5) {
+                        return (
+                            <>
+                                {index === 6 && <hr className='my-2' />}
+                                <Nav.Item key={uniqid()} className='d-lg-none'>
+
+                                    <NextLink
+                                        onClick={collapseNav}
+                                        className={`nav-link mx-3 text-custom-light ${pathname === route.path && 'active'}`}
+                                        href={route.path}
+                                    >
+                                        {route.title}
+                                    </NextLink>
+                                </Nav.Item>
+                            </>
+                        )
+                    }
                 })}
             </Nav>
 
@@ -83,7 +102,7 @@ function TopNavigationNavItems({
                             <Nav.Item key={uniqid()} className='d-none d-lg-block'>
                                 <NextLink
                                     onClick={collapseNav}
-                                    className={`nav-link fw-medium mx-3 ${styles['shop-item']} ${pathname === route.path && 'active'}`}
+                                    className={`nav-link fst-italic fw-medium mx-3 text-custom-light ${styles['shop-item']} ${pathname === route.path && 'active'}`}
                                     href={route.path}
                                 >
                                     {route.title}
@@ -96,7 +115,7 @@ function TopNavigationNavItems({
                 {/* Cart - Desktop*/}
                 <Nav.Item className='d-none d-lg-block'>
                     <span onClick={handleShow} className='nav-link mx-3' style={{ cursor: 'pointer' }}>
-                        <CartIconWithBadge cartIconHeight='23px' cartIconWidth='23px'/>
+                        <CartIconWithBadge cartIconHeight='23px' cartIconWidth='23px' />
                     </span>
                 </Nav.Item>
             </Nav>
