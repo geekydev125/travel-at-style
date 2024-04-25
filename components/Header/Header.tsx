@@ -10,7 +10,7 @@ function Header() {
     useEffect(() => {
         setTimeout(() => {
             setIsBottomNavCollapsed(true)
-        }, 2000);
+        }, 800);
     }, [])
 
     function handleBottomNavCollapse() {
