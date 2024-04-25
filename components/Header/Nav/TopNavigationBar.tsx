@@ -7,14 +7,23 @@ import { usePathname } from 'next/navigation'
 import styles from './Nav.module.scss'
 import TopNavigationNavItems from './TopNavigationNavItems'
 import IconBars from '@/components/Icons/IconBars'
+import IconChevronDown from '@/components/Icons/IconChevronDown'
 
-function TopNavigationBar() {
+interface Props {
+    isBottomNavCollapsed: boolean,
+    handleBottomNavCollapse: () => void
+}
+
+function TopNavigationBar({
+    isBottomNavCollapsed,
+    handleBottomNavCollapse
+}: Props) {
     const pathname = usePathname()
     const [numRender, setNumRender] = useState<number>(0)
     const [expanded, setExpanded] = useState<boolean>(false)
     const navButtonRef = useRef<HTMLButtonElement | null>(null);
     const navbarCollapseRef = useRef<HTMLDivElement | null>(null);
-    
+
     useEffect(() => {
         if (numRender < 1) {
             setNumRender(numRender + 1);
@@ -30,7 +39,7 @@ function TopNavigationBar() {
             navButtonRef.current.click();
         }
 
-        if (navbarCollapseRef.current !== null ) {
+        if (navbarCollapseRef.current !== null) {
             navbarCollapseRef.current.click();
         }
 
@@ -52,6 +61,11 @@ function TopNavigationBar() {
                 <Navbar.Collapse id="navbarContent" ref={navbarCollapseRef} className='py-lg-3 position-relative'>
                     <TopNavigationNavItems collapseNav={collapseNav} />
                 </Navbar.Collapse>
+
+                <span onClick={() => handleBottomNavCollapse()} className='nav-link ms-5' style={{ cursor: 'pointer' }}>
+                    Misc
+                    <IconChevronDown classes='ms-1' />
+                </span>
             </div>
         </Navbar >
     )

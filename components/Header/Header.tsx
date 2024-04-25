@@ -15,13 +15,11 @@ function Header() {
 
     function handleBottomNavCollapse() {
         setIsBottomNavCollapsed(prevState => !prevState)
-
     }
 
     return (
         <header className='position-fixed w-100 top-0 z-2 shadow'>
-            <button onClick={handleBottomNavCollapse}>Toggle Bottom Nav</button>
-            <TopNavigationBar />
+            <TopNavigationBar isBottomNavCollapsed={isBottomNavCollapsed} handleBottomNavCollapse={handleBottomNavCollapse} />
             <BottomNavigationBar isBottomNavCollapsed={isBottomNavCollapsed} />
         </header>
     )
