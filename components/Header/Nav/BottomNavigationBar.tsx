@@ -30,9 +30,8 @@ function BottomNavigationBar({
                     {routes.map((route: Route, index) => {
                         if (route.path !== '/' && index > 5 && index < 8) {
                             return (
-                                <Nav.Item>
+                                <Nav.Item key={uniqid()}>
                                     <NextLink
-                                        key={uniqid()}
                                         className={`py-0 mx-2 nav-link text-custom-light ${pathname === route.path && 'active'}`}
                                         href={route.path}
                                     >
@@ -48,9 +47,8 @@ function BottomNavigationBar({
                     {routes.map((route: Route, index) => {
                         if (route.path !== '/' && index > 7) {
                             return (
-                                <Nav.Item>
+                                <Nav.Item key={uniqid()}>
                                     <NextLink
-                                        key={uniqid()}
                                         className={`py-0 mx-2 nav-link text-custom-light ${pathname === route.path && 'active'}`}
                                         href={route.path}
                                     >
