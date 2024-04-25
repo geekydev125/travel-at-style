@@ -33,7 +33,7 @@ function BottomNavigationBar({
                                 <Nav.Item>
                                     <NextLink
                                         key={uniqid()}
-                                        className={`py-0 nav-link text-custom-light ${pathname === route.path && 'active'}`}
+                                        className={`py-0 mx-2 nav-link text-custom-light ${pathname === route.path && 'active'}`}
                                         href={route.path}
                                     >
                                         {route.title}
@@ -51,7 +51,7 @@ function BottomNavigationBar({
                                 <Nav.Item>
                                     <NextLink
                                         key={uniqid()}
-                                        className={`py-0 nav-link text-custom-light ${pathname === route.path && 'active'}`}
+                                        className={`py-0 mx-2 nav-link text-custom-light ${pathname === route.path && 'active'}`}
                                         href={route.path}
                                     >
                                         {route.title}
