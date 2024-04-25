@@ -22,7 +22,7 @@ interface Props {
     collapseNav: () => void
 }
 
-function NavItems({
+function TopNavigationNavItems({
     collapseNav
 }: Props) {
     const pathname = usePathname()
@@ -33,7 +33,7 @@ function NavItems({
         <>
             <Nav className="me-auto">
                 {routes.map((route: Route, index) => {
-                    if (route.path !== '/' && index < 5) {
+                    if (route.path !== '/' && index < 4) {
                         return (
                             <NextLink
                                 key={uniqid()}
@@ -47,13 +47,7 @@ function NavItems({
                     }
                 })}
 
-                {
-                    routes.find((route: Route) => route.path === '/shopping-cart') && (
-                        <span onClick={handleShow} className='nav-link' style={{ cursor: 'pointer' }}>
-                            <CartIconWithBadge />
-                        </span>
-                    )
-                }
+
             </Nav>
 
             <NextLink onClick={collapseNav} href="/steamers" className='d-none d-lg-block'>
@@ -62,21 +56,29 @@ function NavItems({
 
             <Nav className="ms-auto">
                 {routes.map((route: Route, index) => {
-                    if (route.path !== '/' && index > 5) {
+                    if (route.path == '/shop') {
                         return (
                             <NextLink
                                 key={uniqid()}
                                 onClick={collapseNav}
-                                className={`nav-link text-custom-light ${pathname === route.path && 'active'}`}
-                                href={route.path}>
+                                className={`nav-link text-custom-light fst-italic fw-medium ${pathname === route.path && 'active'}`}
+                                href={route.path}
+                            >
                                 {route.title}
                             </NextLink>
                         )
                     }
                 })}
+                {
+                    routes.find((route: Route) => route.path === '/shopping-cart') && (
+                        <span onClick={handleShow} className='nav-link' style={{ cursor: 'pointer' }}>
+                            <CartIconWithBadge />
+                        </span>
+                    )
+                }
             </Nav>
         </>
     )
 }
 
-export default NavItems
+export default TopNavigationNavItems

@@ -5,11 +5,11 @@ import { useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
 import styles from './Nav.module.scss'
-import NavItems from './NavItems'
+import TopNavigationNavItems from './TopNavigationNavItems'
 import IconBars from '@/components/Icons/IconBars'
 
-function NavigationBar() {
-    const location = usePathname()
+function TopNavigationBar() {
+    const pathname = usePathname()
     const [numRender, setNumRender] = useState<number>(0)
     const [expanded, setExpanded] = useState<boolean>(false)
     const navButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -23,7 +23,7 @@ function NavigationBar() {
             setExpanded(false)
             collapseNav()
         }
-    }, [location])
+    }, [pathname])
 
     function collapseNav() {
         if (navButtonRef.current !== null) {
@@ -39,7 +39,7 @@ function NavigationBar() {
 
 
     return (
-        <Navbar expand="lg" expanded={expanded} className='background-pattern-wood' >
+        <Navbar expand="lg" expanded={expanded} className='background-pattern-wood px-md-5' >
             <div className="container-fluid px-3 px-lg-5">
                 <NextLink onClick={collapseNav} href="/steamers" className='d-lg-none py-1'>
                     <img className={`${styles.logo}`} src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" />
@@ -50,11 +50,11 @@ function NavigationBar() {
                 </Navbar.Toggle>
 
                 <Navbar.Collapse id="navbarContent" ref={navbarCollapseRef} className='pt-3 pt-lg-0 pb-2 pb-lg-0'>
-                    <NavItems collapseNav={collapseNav} />
+                    <TopNavigationNavItems collapseNav={collapseNav} />
                 </Navbar.Collapse>
             </div>
         </Navbar >
     )
 }
 
-export default NavigationBar
+export default TopNavigationBar
