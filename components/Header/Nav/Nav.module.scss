@@ -7,3 +7,14 @@
         max-width: 110px;
     }
 }
+
+.chevron-icon-span {
+    cursor: pointer;
+
+    .chevron-icon {
+        transition: transform 0.5s ease-in-out;
+        &.rotated-icon {
+            transform: rotate(-180deg);
+        }
+    }
+}
