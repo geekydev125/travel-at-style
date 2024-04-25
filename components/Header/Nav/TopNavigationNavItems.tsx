@@ -50,7 +50,11 @@ function TopNavigationNavItems({
 
             </Nav>
 
-            <NextLink onClick={collapseNav} href="/steamers" className='d-none d-lg-block'>
+            <NextLink
+                onClick={collapseNav}
+                href="/steamers" className='d-none d-lg-block position-absolute'
+                style={{ left: '50%', top: '50%', transform: 'translateX(-50%) translateY(-50%)'}}
+            >
                 <img className={`${styles.logo}`} src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" />
             </NextLink>
 

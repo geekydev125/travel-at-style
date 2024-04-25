@@ -49,7 +49,7 @@ function TopNavigationBar() {
                     <IconBars width='30px' height='30px' />
                 </Navbar.Toggle>
 
-                <Navbar.Collapse id="navbarContent" ref={navbarCollapseRef} className='pt-3 pt-lg-0 pb-2 pb-lg-0'>
+                <Navbar.Collapse id="navbarContent" ref={navbarCollapseRef} className='py-lg-3 position-relative'>
                     <TopNavigationNavItems collapseNav={collapseNav} />
                 </Navbar.Collapse>
             </div>
