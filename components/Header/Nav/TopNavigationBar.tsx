@@ -5,9 +5,10 @@ import { useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
 import styles from './Nav.module.scss'
+
 import TopNavigationNavItems from './TopNavigationNavItems'
 import IconBars from '@/components/Icons/IconBars'
-import IconChevronDown from '@/components/Icons/IconChevronDown'
+import IconChevronUp from '@/components/Icons/IconChevronUp'
 
 interface Props {
     isBottomNavCollapsed: boolean,
@@ -62,9 +63,9 @@ function TopNavigationBar({
                     <TopNavigationNavItems collapseNav={collapseNav} />
                 </Navbar.Collapse>
 
-                <span onClick={() => handleBottomNavCollapse()} className='nav-link ms-5' style={{ cursor: 'pointer' }}>
+                <span onClick={() => handleBottomNavCollapse()} className={`nav-link ms-5 ${styles['chevron-icon-span']}`}>
                     Misc
-                    <IconChevronDown classes='ms-1' />
+                    <IconChevronUp classes={`ms-1 ${styles['chevron-icon']} ${isBottomNavCollapsed ? `${styles['rotated-icon']}` : ''}`} />
                 </span>
             </div>
         </Navbar >
