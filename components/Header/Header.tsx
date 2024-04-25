@@ -1,12 +1,14 @@
 "use client";
 
-import NavigationBar from "@/components/Header/Nav/NavigationBar";
+import TopNavigationBar from "@/components/Header/Nav/TopNavigationBar";
+import BottomNavigationBar from "./Nav/BottomNavigationBar";
 
 function Header() {
 
     return (
-        <header className='position-fixed w-100 top-0 z-2 px-md-5 shadow background-pattern-wood'>
-            <NavigationBar />
+        <header className='position-fixed w-100 top-0 z-2 shadow'>
+            <TopNavigationBar />
+            <BottomNavigationBar />
         </header>
     )
 }
