@@ -8,7 +8,6 @@ import styles from './Nav.module.scss'
 
 import TopNavigationNavItems from './TopNavigationNavItems'
 import IconBars from '@/components/Icons/IconBars'
-import IconChevronUp from '@/components/Icons/IconChevronUp'
 
 interface Props {
     isBottomNavCollapsed: boolean,
@@ -60,13 +59,14 @@ function TopNavigationBar({
                 </Navbar.Toggle>
 
                 <Navbar.Collapse id="navbarContent" ref={navbarCollapseRef} className='py-lg-3 position-relative'>
-                    <TopNavigationNavItems collapseNav={collapseNav} />
+                    <TopNavigationNavItems
+                        collapseNav={collapseNav}
+                        isBottomNavCollapsed={isBottomNavCollapsed}
+                        handleBottomNavCollapse={handleBottomNavCollapse}
+                    />
                 </Navbar.Collapse>
 
-                <span onClick={() => handleBottomNavCollapse()} className={`nav-link ms-5 ${styles['chevron-icon-span']}`}>
-                    Misc
-                    <IconChevronUp classes={`ms-1 ${styles['chevron-icon']} ${isBottomNavCollapsed ? `${styles['rotated-icon']}` : ''}`} />
-                </span>
+
             </div>
         </Navbar >
     )
