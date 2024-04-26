@@ -1,4 +1,5 @@
 "use client"
+import { Fragment } from 'react'
 import NextLink from 'next/link'
 import { usePathname } from 'next/navigation'
 import uniqid from 'uniqid'
@@ -55,9 +56,9 @@ function TopNavigationNavItems({
                     // Additional links on mobile
                     if (route.path !== '/' && index > 5) {
                         return (
-                            <>
+                            <Fragment key={uniqid()}>
                                 {index === 6 && <hr className='my-2' />}
-                                <Nav.Item key={uniqid()} className='d-lg-none'>
+                                <Nav.Item  className='d-lg-none'>
 
                                     <NextLink
                                         onClick={collapseNav}
@@ -67,7 +68,7 @@ function TopNavigationNavItems({
                                         {route.title}
                                     </NextLink>
                                 </Nav.Item>
-                            </>
+                            </Fragment>
                         )
                     }
                 })}
