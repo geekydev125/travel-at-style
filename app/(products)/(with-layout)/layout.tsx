@@ -32,9 +32,9 @@ function ProductsLayout({
                     />
                 </div>
                 <div className="col-8 col-md-7 d-flex flex-column justify-content-center">
-                    <h2 className="display-2 text-center text-custom-dark mb-0 fw-semibold">
-                        {pathname === '/luggage' ? 'LUGGAGE' : 'TRAVEL ACCESSORIES'}
-                    </h2>
+                    <h3 className="display-2 text-center text-custom-dark mb-0 fw-semibold">
+                        {pathname === '/luggage' ? 'Luggage' : 'Travel Accessories'}
+                    </h3>
                 </div>
             </div>
 
