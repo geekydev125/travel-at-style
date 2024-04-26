@@ -1,9 +1,13 @@
 import uniqid from "uniqid"
 
 import { Steamer } from "@/model/Steamer"
+
 import ProductCarousel from "../../ProductCarousel"
 
 import CustomButton from "@/components/CustomButton"
+
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
 interface Props {
     steamers: Steamer[]
@@ -15,9 +19,9 @@ function BesteamRow({
     steamerModel
 }: Props) {
     return (
-        <div className="row px-3 px-md-5">
+        <Row className="px-3 px-md-5">
 
-            <div className={`col-12 col-lg-7 order-2 d-flex flex-column justify-content-between py-3 px-2 px-lg-5 ${steamerModel === 'besteam' ? "order-md-1" : 'order-md-2'}`}>
+            <Col xs={{span: 12, order: 2}} md={{order: steamerModel === 'besteam' ? 1 : 2 }} lg={7} className='d-flex flex-column justify-content-between py-3 px-2 px-lg-5'>
                 <h3 className="text-center text-custom-dark h2 mb-3 display-3 fw-bold">{steamers[0].name}</h3>
                 <p className="text-custom-dark">{steamers[0].description}</p>
 
@@ -48,9 +52,9 @@ function BesteamRow({
                     <p className="text-custom-dark display-3 fw-semibold">Now only ${steamers[0].price}</p>
                     <CustomButton variant="primary" size="lg">GET YOURS NOW!</CustomButton>
                 </div>
-            </div>
+            </Col>
 
-            <div className={`col-12 col-lg-5 d-none d-lg-block mb-5 order-1 ${steamerModel === 'besteam' ? "order-md-2" : 'order-md-1'}`}>
+            <Col xs={{span: 12, order: 1}} md={{order: steamerModel === 'besteam' ? 2 : 1 }} lg={5} className='d-none d-lg-block mb-5'>
                 <ProductCarousel
                     carouselId={steamerModel === 'besteam' ? 'carousel-besteam' : 'carousel-besteamXl'}
                     steamers={steamers}
@@ -60,8 +64,8 @@ function BesteamRow({
                             : ['yellow', 'blue', 'black', 'red']
                     }
                 />
-            </div>
-        </div>
+            </Col>
+        </Row>
     )
 }
 
