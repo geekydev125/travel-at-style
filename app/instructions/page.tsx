@@ -1,5 +1,9 @@
 import uniqid from "uniqid";
 
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+
 const instructions = [
 	"Swing handle up to the open point (90 degrees) marked on the steamer.",
 	"Add tap water to the water measuring cup. Fill it up to the top. Note: If you have a level indicator, fill it up to the level indicator.",
@@ -14,9 +18,9 @@ const instructions = [
 
 function InstructionsPage() {
 	return (
-		<section className="container py-5">
-			<div className="row">
-				<div className="col-12 col-md-9">
+		<Container as='section' className="py-5">
+			<Row>
+				<Col xs={12} md={9}>
 					<h3 className="text-custom-dark">Besteam operation instructions: </h3>
 					<ol>
 						{
@@ -47,16 +51,16 @@ function InstructionsPage() {
 							})
 						}
 					</ol>
-				</div>
-				<div className="col-12 offset-3 offset-sm-0 col-md-3 d-flex flex-column align-items-center mt-4 mt-md-0">
+				</Col>
+				<Col xs={{span: 12, offset: 3}} sm={{offset: 0}} md={{span: 3}}  className="d-flex flex-column align-items-center mt-4 mt-md-0">
 					<a href="/assets/docs/besteam-manual.pdf" target="_blank">
 						<img src="/assets/img/besteam-manual-cover.jpg" className="img-fluid" alt="Instructions Manual" />
 					</a>
 
 					<a href="/assets/docs/besteam-manual.pdf" target="_blank" className="text-center mt-3">VIEW OR DOWNLOAD THE INSTRUCTIONS MANUAL</a>
-				</div>
-			</div>
-		</section>
+				</Col>
+			</Row>
+		</Container>
 	)
 }
 

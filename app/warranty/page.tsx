@@ -1,8 +1,12 @@
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+
 function WarrantyPage() {
 	return (
-		<section className="container py-5">
-			<div className="row">
-				<div className="col-sm-9">
+		<Container as='section' className="py-5">
+			<Row className="row">
+				<Col sm={9}>
 					<h3 className="text-custom-dark">Warranty</h3>
 
 					<div className="ps-md-4">
@@ -13,14 +17,14 @@ function WarrantyPage() {
 						</p>
 					</div>
 
-				</div>
-				<div className="col-sm-3 d-flex flex-column justify-content-center justify-content-md-start align-items-center">
+				</Col>
+				<Col sm={3} className="d-flex flex-column justify-content-center justify-content-md-start align-items-center">
 					<a href="http://www.besteamitaly.com/warranty" target="_blank">
 						<img src="/assets/img/lifetime-warranty.png" className="img-fluid mt-md-5 mt-lg-0 mx-auto" alt="Lifetime Warranty Logo" />
 					</a>
-				</div>
-			</div>
-		</section>
+				</Col>
+			</Row>
+		</Container>
 	)
 }
 
