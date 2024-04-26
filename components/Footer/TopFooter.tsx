@@ -5,12 +5,13 @@ import routes from "@/data/routes.json"
 
 import { Route } from '@/components/Header/Nav/TopNavigationBar'
 
+import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
 function TopFooter() {
     return (
-        <nav className="container">
+        <Container as='nav'>
             <Row className="px-4 pt-5">
                 <Col xs={6} md={3} className="order-1 d-flex flex-column align-items-md-center">
                     <h4 className="text-custom-light">Products</h4>
@@ -69,7 +70,7 @@ function TopFooter() {
                     </ul>
                 </Col>
             </Row>
-        </nav>
+        </Container>
     )
 }
 

@@ -1,3 +1,6 @@
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+
 interface Props {
     children: React.ReactNode
 }
@@ -7,12 +10,14 @@ function ProductsTab({
 }: Props) {
     return (
         <>
-            <p><small className='text-muted'>*Click on product's image/name for more info</small></p>
-            <div className='container'>
-                <div className='row gx-3 gx-lg-4 gy-4'>
+            <p>
+                <small className='text-muted'>*Click on product's image/name for more info</small>
+            </p>
+            <Container>
+                <Row className='gx-3 gx-lg-4 gy-4'>
                     {children}
-                </div>
-            </div>
+                </Row>
+            </Container>
         </>
     )
 }

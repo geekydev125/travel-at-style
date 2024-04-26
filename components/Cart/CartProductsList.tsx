@@ -4,19 +4,23 @@ import { useCartContext } from "@/context/cartContext"
 
 import CartDrawerProductCard from "./CartDrawerProductCard"
 
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+
 function CartProductsList() {
     const { cart } = useCartContext()
     
     return (
-        <div className="container">
-            <div className="row gx-3 gy-4">
+        <Container>
+            <Row className="gx-3 gy-4">
                 {cart.map((product) => (
-                    <div className="col-6" key={uniqid()}>
+                    <Col xs={6} key={uniqid()}>
                         <CartDrawerProductCard product={product} />
-                    </div>
+                    </Col>
                 ))}
-            </div>
-        </div>
+            </Row>
+        </Container>
     )
 }
 

@@ -4,9 +4,10 @@ import NextLink from 'next/link'
 import { usePathname } from 'next/navigation'
 import uniqid from 'uniqid'
 
+import { useCartDrawerContext } from '@/context/cartDrawerContext'
+
 import styles from './Nav.module.scss'
 import routes from '@/data/routes.json'
-import { useCartDrawerContext } from '@/context/cartDrawerContext'
 
 import TopNavigationNavItems from '@/components/Header/Nav/TopNavigationNavItems'
 import IconBars from '@/components/Icons/IconBars'
@@ -14,6 +15,7 @@ import CartIconWithBadge from '@/components/Cart/CartIconWithBadge'
 
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
+import Container from "react-bootstrap/Container"
 
 export interface Route {
     path: string
@@ -61,7 +63,7 @@ function TopNavigationBar({
 
     return (
         <Navbar expand="lg" expanded={expanded} className='background-pattern-wood px-md-5' >
-            <div className="container-fluid px-3 px-lg-5">
+            <Container fluid className="px-3 px-lg-5">
                 <NextLink onClick={collapseNav} href="/steamers" className='d-lg-none py-0'>
                     <img className={`${styles.logo}`} src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" style={{maxWidth: '75px'}}/>
                 </NextLink>
@@ -103,7 +105,7 @@ function TopNavigationBar({
                         handleBottomNavCollapse={handleBottomNavCollapse}
                     />
                 </Navbar.Collapse>
-            </div>
+            </Container>
         </Navbar >
     )
 }

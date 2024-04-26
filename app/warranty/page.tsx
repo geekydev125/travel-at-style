@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col"
 function WarrantyPage() {
 	return (
 		<Container as='section' className="py-5">
-			<Row className="row">
+			<Row>
 				<Col sm={9}>
 					<h3 className="text-custom-dark">Warranty</h3>
 

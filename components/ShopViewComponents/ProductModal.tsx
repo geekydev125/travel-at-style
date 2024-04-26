@@ -1,14 +1,17 @@
 "use client"
-
 import { useModalContext } from '@/context/modalContext';
 
 import { Steamer } from '@/model/Steamer';
 import { Accessory } from '@/model/Accessory';
 import { Luggage } from '@/model/Luggage';
 
+import AddRemoveCartButtons from '../AddRemoveCartButtons';
+
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import AddRemoveCartButtons from '../AddRemoveCartButtons';
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
 function ProductModal() {
     const { showModal, product, showModalHandler } = useModalContext()
@@ -24,9 +27,9 @@ function ProductModal() {
                 </Modal.Header> */}
 
                 <Modal.Body className='background-pattern-crossword text-custom-dark rounded-3'>
-                    <div className='container'>
-                        <div className='row'>
-                            <div className='col-12 col-lg-5 mb-3 mb-lg-0 d-flex flex-column justify-content-between '>
+                    <Container>
+                        <Row>
+                            <Col xs={12} lg={5} className='mb-3 mb-lg-0 d-flex flex-column justify-content-between '>
                                 <div>
                                     <h4 className='text-custom-dark display-4 fw-semibold'>
                                         {product && product.name}
@@ -45,8 +48,8 @@ function ProductModal() {
                                 <div className='d-none d-lg-flex flex-row justify-content-end align-items-center'>
                                     <AddRemoveCartButtons classesRemoveButton='me-1' product={(product as Luggage | Accessory | Steamer)} />
                                 </div>
-                            </div>
-                            <div className='col-12 col-lg-7 overflow-hidden '>
+                            </Col>
+                            <Col xs={12} lg={7} className='overflow-hidden '>
                                 {
                                     product && (
                                         <img
@@ -64,9 +67,9 @@ function ProductModal() {
 
                                     <AddRemoveCartButtons classesRemoveButton='me-1' product={(product as Luggage | Accessory | Steamer)} />
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            </Col>
+                        </Row>
+                    </Container>
                 </Modal.Body>
 
                 <Modal.Footer className='background-light-gradient'>

@@ -15,7 +15,7 @@ import ProductsTab from './ProductsTab';
 
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-
+import Col from "react-bootstrap/Col"
 
 function ProductsTabs({ }) {
 	const searchParams = useSearchParams()
@@ -28,9 +28,9 @@ function ProductsTabs({ }) {
 					<ProductsTab>
 						{steamers.map((steamer: Steamer) => {
 							return (
-								<div className="col-12 col-sm-6 col-lg-4" key={uniqid()}>
+								<Col xs={12} sm={6} lg={4} key={uniqid()}>
 									<ShopProductCard product={steamer} />
-								</div>
+								</Col>
 							)
 						})}
 					</ProductsTab>
@@ -40,9 +40,9 @@ function ProductsTabs({ }) {
 					<ProductsTab>
 						{luggage.map((luggage: Luggage) => {
 							return (
-								<div className="col-12 col-sm-6 col-lg-4" key={uniqid()}>
+								<Col xs={12} sm={6} lg={4} key={uniqid()}>
 									<ShopProductCard product={luggage} />
-								</div>
+								</Col>
 							)
 						})}
 					</ProductsTab>
@@ -52,9 +52,9 @@ function ProductsTabs({ }) {
 					<ProductsTab>
 						{accessories.map((accessory: Accessory) => {
 							return (
-								<div className="col-12 col-sm-6 col-lg-4" key={uniqid()}>
+								<Col xs={12} sm={6} lg={4} key={uniqid()}>
 									<ShopProductCard product={accessory} />
-								</div>
+								</Col>
 							)
 						})}
 					</ProductsTab>
