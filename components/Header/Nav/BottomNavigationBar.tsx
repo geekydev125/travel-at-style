@@ -7,10 +7,7 @@ import Nav from 'react-bootstrap/Nav'
 
 import routes from '@/data/routes.json'
 
-interface Route {
-    path: string
-    title: string
-}
+import { Route } from '@/components/Header/Nav/TopNavigationBar'
 
 interface Props {
     isBottomNavCollapsed: boolean,

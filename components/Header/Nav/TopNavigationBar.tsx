@@ -15,7 +15,7 @@ import CartIconWithBadge from '@/components/Cart/CartIconWithBadge'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 
-interface Route {
+export interface Route {
     path: string
     title: string
 }

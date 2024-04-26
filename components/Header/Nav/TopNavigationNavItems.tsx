@@ -14,10 +14,7 @@ import CartIconWithBadge from '@/components/Cart/CartIconWithBadge'
 import Nav from 'react-bootstrap/Nav'
 import IconChevronUp from '@/components/Icons/IconChevronUp'
 
-interface Route {
-    path: string
-    title: string
-}
+import { Route } from '@/components/Header/Nav/TopNavigationBar'
 
 interface Props {
     collapseNav: () => void
