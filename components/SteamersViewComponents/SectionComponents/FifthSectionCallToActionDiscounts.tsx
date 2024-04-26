@@ -15,7 +15,7 @@ function FifthSectionCallToActionDiscounts() {
                         <h3 className="text-capitalize">Over the top quantity-based discounts</h3>
 
                         <Link href="/shop">
-                            <CustomButton variant="success" classes="mt-md-2 mb-3">GET YOURS NOW!</CustomButton>
+                            <CustomButton variant="primary" size="lg" classes="mt-md-2 mb-3">GET YOURS NOW!</CustomButton>
                         </Link>
 
                         <h3 className="text-capitalize">Lifetime Warranty</h3>

@@ -9,7 +9,7 @@ function FirstSectionCallToAction() {
             <h3 className="display-5 text-capitalize">The steamer that has taken America by storm now available for purchase online</h3>
 
             <NextLink href='/shop'>
-                <CustomButton variant='success' classes='mt-1 mt-md-3'>
+                <CustomButton variant='primary' size='lg' classes='mt-1 mt-md-3'>
                     GET YOURS NOW!
                 </CustomButton>
             </NextLink>

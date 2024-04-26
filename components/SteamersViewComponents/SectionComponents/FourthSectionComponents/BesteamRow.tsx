@@ -33,9 +33,6 @@ function BesteamRow({
                     />
                 </div>
 
-
-                
-
                 <p className="text-custom-dark display-5 mb-0 mt-3"> Package Includes:</p>
                 <ol>
                     {
@@ -48,8 +45,8 @@ function BesteamRow({
                 </ol>
 
                 <div className="text-center mt-3">
-                    <p className="text-custom-dark display-3">Now only ${steamers[0].price}</p>
-                    <CustomButton variant="success">GET YOURS NOW!</CustomButton>
+                    <p className="text-custom-dark display-3 fw-semibold">Now only ${steamers[0].price}</p>
+                    <CustomButton variant="primary" size="lg">GET YOURS NOW!</CustomButton>
                 </div>
             </div>
 
