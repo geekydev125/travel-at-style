@@ -1,12 +1,13 @@
 import ContactForm from "@/components/ContactForm"
 
-import Col from "react-bootstrap/Col"
+import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
 function ContactPage() {
 	return (
 		<div style={{ minHeight: '83vh' }} className="d-flex justify-content-center align-items-center py-5">
-			<section className="container p-3 p-md-5 rounded-4" style={{ backgroundColor: 'rgba(0,0,0,0.8)' }}>
+			<Container as='section' className="p-3 p-md-5 rounded-4" style={{ backgroundColor: 'rgba(0,0,0,0.8)' }}>
 				<Row>
 					<Col xs={12} md={5}>
 						<h3 className="text-center display-3">Contact US</h3>
@@ -21,7 +22,7 @@ function ContactPage() {
 						<ContactForm />
 					</Col>
 				</Row>
-			</section>
+			</Container>
 		</div>
 	)
 }

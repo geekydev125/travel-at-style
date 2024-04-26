@@ -1,12 +1,13 @@
 import Map from "@/components/Map"
 
-import Col from "react-bootstrap/Col"
+import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
 function LocationPage() {
 	return (
 		<>
-			<section className='container' style={{ height: '55vh' }}>
+			<Container as='section' style={{ height: '55vh' }}>
 				<Row className='h-100'>
 					<Col xs={{ span: 10, offset: 1 }} sm={{ span: 7, offset: 0 }} md={5} lg={4} xl={3}
 						className='d-flex flex-column justify-content-center align-items-center shadow-lg'
@@ -28,7 +29,7 @@ function LocationPage() {
 						</div>
 					</Col>
 				</Row>
-			</section>
+			</Container>
 
 			<Map />
 		</>

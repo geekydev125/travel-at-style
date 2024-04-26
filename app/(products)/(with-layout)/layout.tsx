@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { usePathname } from "next/navigation";
 
+import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
@@ -18,7 +19,7 @@ function ProductsLayout({
     const isInView = useInView(imgRef, { once: true })
 
     return (
-        <div className="container pt-4 pb-5 py-md-5">
+        <Container as='div' className="pt-4 pb-5 py-md-5">
             <Row className="pb-4 pb-md-5">
                 <Col xs={4} md={5} className="d-flex flex-column justify-content-center align-items-center">
                     <img
@@ -46,7 +47,7 @@ function ProductsLayout({
                     {children}
                 </Row>
             </section>
-        </div>
+        </Container>
     )
 }
 
