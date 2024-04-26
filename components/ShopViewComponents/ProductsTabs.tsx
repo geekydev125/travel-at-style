@@ -17,14 +17,13 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
 
-function ProductsTabs({}) {
+function ProductsTabs({ }) {
 	const searchParams = useSearchParams()
 	const defaultTab = searchParams.get('tab') || 'steamers'
 
 	return (
 		<>
-			<Tabs defaultActiveKey={defaultTab} className="mb-3" fill >
-
+			<Tabs justify variant='pills' defaultActiveKey={defaultTab} className='custom-tabs mb-3' >
 				<Tab eventKey="steamers" title="Steamers">
 					<ProductsTab>
 						{steamers.map((steamer: Steamer) => {
