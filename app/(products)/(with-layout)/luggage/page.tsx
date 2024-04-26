@@ -8,19 +8,21 @@ import luggage from '@/data/luggage.json'
 
 import { Luggage } from '@/model/Luggage'
 
+import Col from 'react-bootstrap/Col'
+
 function LuggagePage() {
 	return (
-		<section className="row gx-2 gx-md-3 gy-4 d-flex flex-row align-items-stretch">
+		<>
 			{
 				Object.values(luggage).map((Luggage: Luggage) => {
 					return (
-						<div className="col-12 col-sm-6 col-md-4 d-flex flex-grow-1" key={uniqid()}>
+						<Col className="col-12 col-sm-6 col-md-4 d-flex flex-grow-1" key={uniqid()}>
 							<ProductCard product={Luggage} />
-						</div>
+						</Col>
 					)
 				})
 			}
-		</section >
+		</ >
 	)
 }
 
