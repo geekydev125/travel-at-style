@@ -36,8 +36,8 @@ function ProductCard({
                         <Card.Text className="text-custom-dark display-5 fw-semibold mb-0">
                             ${product.price}
                         </Card.Text>
-                        <NextLink href="/shop" >
-                            <CustomButton variant="success" >GET YOURS NOW!</CustomButton>
+                        <NextLink href={`/shop?tab=${product.productCategory}`} >
+                            <CustomButton variant="success">GET YOURS NOW!</CustomButton>
                         </NextLink>
 
                         {/* <div className="d-flex justify-content-center">

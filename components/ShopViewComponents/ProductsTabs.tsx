@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import { useSearchParams } from 'next/navigation';
 import uniqid from 'uniqid';
 
 import steamers from "@/data/steamers.json"
@@ -10,16 +10,20 @@ import { Accessory } from '@/model/Accessory';
 import { Steamer } from '@/model/Steamer';
 import { Luggage } from '@/model/Luggage';
 
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
-
 import ShopProductCard from './ShopProductCards/ShopProductCard';
 import ProductsTab from './ProductsTab';
 
-function ProductsTabs() {
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+
+
+function ProductsTabs({}) {
+	const searchParams = useSearchParams()
+	const defaultTab = searchParams.get('tab') || 'steamers'
+
 	return (
 		<>
-			<Tabs defaultActiveKey="steamers" className="mb-3" fill >
+			<Tabs defaultActiveKey={defaultTab} className="mb-3" fill >
 
 				<Tab eventKey="steamers" title="Steamers">
 					<ProductsTab>
