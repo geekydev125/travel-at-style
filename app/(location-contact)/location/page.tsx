@@ -1,11 +1,17 @@
 import Map from "@/components/Map"
 
+import Col from "react-bootstrap/Col"
+import Row from "react-bootstrap/Row"
+
 function LocationPage() {
 	return (
-		<div>
+		<>
 			<section className='container' style={{ height: '55vh' }}>
-				<div className='row h-100'>
-					<div className='col-10 offset-1 offset-sm-0 col-sm-7 col-md-5 col-lg-4 col-xl-3 d-flex flex-column justify-content-center align-items-center  shadow-lg' style={{ backgroundColor: 'rgba(0,0,0,0.8)' }} >
+				<Row className='h-100'>
+					<Col xs={{ span: 10, offset: 1 }} sm={{ span: 7, offset: 0 }} md={5} lg={4} xl={3}
+						className='d-flex flex-column justify-content-center align-items-center shadow-lg'
+						style={{ backgroundColor: 'rgba(0,0,0,0.8)' }}
+					>
 						<div className='py-3 w-100 d-flex flex-column justify-content-center align-items-center'>
 							<h3 className="display-3 d-inline-block">Shop Location</h3>
 
@@ -20,14 +26,12 @@ function LocationPage() {
 							<h6>Subway Trains to Fulton Center</h6>
 							<img src="/assets/img/ny-subway-trains.png" className="img-fluid" alt="Fulton center trains" />
 						</div>
-					</div>
-				</div>
+					</Col>
+				</Row>
 			</section>
 
-			<section>
-				<Map />
-			</section>
-		</div>
+			<Map />
+		</>
 	)
 }
 
