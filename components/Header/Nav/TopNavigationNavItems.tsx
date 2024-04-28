@@ -15,6 +15,7 @@ import Nav from 'react-bootstrap/Nav'
 import IconChevronUp from '@/components/Icons/IconChevronUp'
 
 import { Route } from '@/components/Header/Nav/TopNavigationBar'
+import { usePathname } from 'next/navigation'
 
 interface Props {
     collapseNav: () => void
@@ -30,12 +31,13 @@ function TopNavigationNavItems({
     isBottomNavCollapsed,
     handleBottomNavCollapse
 }: Props) {
+    const pathname = usePathname()
     const { handleShow } = useCartDrawerContext()
 
 
     return (
         <>
-            <Nav className="me-auto">
+            <Nav className="me-auto" activeKey={pathname}>
                 {routes.map((route: Route, index) => {
                     if (route.path !== '/' && index < 4) {
                         return (
@@ -56,8 +58,7 @@ function TopNavigationNavItems({
                     if (route.path !== '/' && index > 5) {
                         return (
                             <Fragment key={uniqid()}>
-                                {index === 6 && <hr className='my-2' />}
-                                <Nav.Item  className='d-lg-none'>
+                                <Nav.Item className={`d-inline-block d-lg-none ${index === 6 ? 'mt-3' : ''}`}>
                                     <Nav.Link 
                                         as={NextLink}
                                         onClick={collapseNav}
@@ -83,7 +84,7 @@ function TopNavigationNavItems({
                 <img className={`${styles.logo}`} src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" />
             </NextLink>
 
-            <Nav className="ms-auto">
+            <Nav className="ms-auto" activeKey={pathname}>
                 {/* Misc menu item */}
                 <Nav.Item className='d-none d-lg-block'>
                     <Nav.Link as={'span'} onClick={() => handleBottomNavCollapse()} className={`text-custom-light mx-3 ${styles['chevron-icon-span']}`}>

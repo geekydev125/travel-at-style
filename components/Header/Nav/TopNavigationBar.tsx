@@ -60,7 +60,6 @@ function TopNavigationBar({
         setExpanded(false)
     }
 
-
     return (
         <Navbar expand="lg" expanded={expanded} className='background-pattern-wood px-md-5' >
             <Container fluid className="px-3 px-lg-5">
@@ -68,7 +67,7 @@ function TopNavigationBar({
                     <img className={`${styles.logo}`} src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" style={{maxWidth: '75px'}}/>
                 </NextLink>
 
-                <Nav className='d-flex flex-row d-lg-none'>
+                <Nav className='d-flex flex-row d-lg-none' activeKey={pathname}>
                     {/* Shop Now item - Mobile*/}
                     {routes.map((route: Route) => {
                         if (route.path == '/shop') {
