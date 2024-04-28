@@ -28,7 +28,7 @@ interface ICartContext {
     removeProductFromCart: (productId: TProduct['_id'] | ICartProduct['_id']) => void,
     isProductInCart: (productId: TProduct['_id'] | ICartProduct['_id']) => boolean,
     getCartTotalPrice: () => number
-    getCarTotalProducts: () => number
+    getCartTotalProducts: () => number
 }
 
 export const CartContext = createContext<ICartContext>({
@@ -38,7 +38,7 @@ export const CartContext = createContext<ICartContext>({
     isProductInCart: () => false,
     increaseProductQuantity: () => { },
     getCartTotalPrice: () => 0,
-    getCarTotalProducts: () => 0
+    getCartTotalProducts: () => 0
 });
 
 interface Props {
@@ -142,14 +142,14 @@ export const CartContextProvider = ({
         }, 0)).toFixed(2);
     }
 
-    const getCarTotalProducts = () => {
+    const getCartTotalProducts = () => {
         return cart.reduce((acc:number, product:ICartProduct) => {
             return acc + product.quantity;
         }, 0);
     }
 
     return (
-        <CartContext.Provider value={{ cart, addProductToCart, removeProductFromCart, isProductInCart, increaseProductQuantity, getCartTotalPrice, getCarTotalProducts }}>
+        <CartContext.Provider value={{ cart, addProductToCart, removeProductFromCart, isProductInCart, increaseProductQuantity, getCartTotalPrice, getCartTotalProducts }}>
             {children}
         </CartContext.Provider>
     )

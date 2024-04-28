@@ -18,7 +18,7 @@ function CartIconWithBadge({
     cartIconFill,
     cartIconClasses
 }: Props) {
-    const { getCarTotalProducts } = useCartContext()
+    const { getCartTotalProducts } = useCartContext()
     
     return (
         <span  className={`position-relative ${iconContainerClasses}`}>
@@ -30,9 +30,9 @@ function CartIconWithBadge({
             />
 
             {
-                getCarTotalProducts() > 0 && (
+                getCartTotalProducts() > 0 && (
                     <Badge pill bg="primary" className='position-absolute' style={{top: '-11px', right: '-14px' }} >
-                        {getCarTotalProducts()}
+                        {getCartTotalProducts()}
                     </Badge>
                 )
             }
