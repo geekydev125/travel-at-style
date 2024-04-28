@@ -12,7 +12,7 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import CartTotal from "@/components/Cart/CartTotal"
 
-function CheckoutPage() {
+function ReviewPage() {
 	const { cart } = useCartContext()
 
 	return (
@@ -34,4 +34,4 @@ function CheckoutPage() {
 	)
 }
 
-export default isCartEmptyRouteGuard(CheckoutPage)
+export default isCartEmptyRouteGuard(ReviewPage)
