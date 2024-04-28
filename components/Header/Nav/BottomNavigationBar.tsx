@@ -23,7 +23,7 @@ function BottomNavigationBar({
 
         <Navbar className={`${isBottomNavCollapsed ? 'py-0' : 'py-1'} px-md-5 d-none d-lg-block bg-primary`} style={{transition: 'padding 0.5s ease-out'}} >
 
-            <Container fluid className="px-3 px-lg-5 overflow-hidden" style={{ maxHeight: isBottomNavCollapsed ? '2px' : '32px', transition: 'max-height 0.5s ease-out' }}>
+            <Container fluid className="px-3 px-lg-5 overflow-hidden" style={{ maxHeight: isBottomNavCollapsed ? '4px' : '32px', transition: 'max-height 0.5s ease-out' }}>
                 <Nav className={`me-auto ${isBottomNavCollapsed ? 'opacity-0' : 'opacity-100 '}`} style={{transition: 'opacity 0.5s ease-out'}}activeKey={pathname} >
                     {routes.map((route: Route, index) => {
                         if (route.path !== '/' && index > 5 && index < 8) {
