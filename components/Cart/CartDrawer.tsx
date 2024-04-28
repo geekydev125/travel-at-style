@@ -38,7 +38,7 @@ function CartDrawer() {
                         <>
                             <CartTotal />
 
-                            <NextLink href='/checkout'>
+                            <NextLink href='/checkout/review'>
                                 <CustomButton variant="primary" size="sm">
                                     Proceed to checkout
                                 </CustomButton>
