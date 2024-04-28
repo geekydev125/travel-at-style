@@ -1,7 +1,6 @@
 "use client"
 import { Fragment } from 'react'
 import NextLink from 'next/link'
-import { usePathname } from 'next/navigation'
 import uniqid from 'uniqid'
 
 import { useCartDrawerContext } from '@/context/cartDrawerContext'
@@ -31,7 +30,6 @@ function TopNavigationNavItems({
     isBottomNavCollapsed,
     handleBottomNavCollapse
 }: Props) {
-    const pathname = usePathname()
     const { handleShow } = useCartDrawerContext()
 
 
@@ -45,7 +43,7 @@ function TopNavigationNavItems({
                                 <Nav.Link 
                                     as={NextLink}
                                     onClick={collapseNav}
-                                    className={`mx-3 text-custom-light ${route.path === '/shop' ? 'fst-italic fw-medium' : ''}${pathname === route.path ? 'active' : ''}`}
+                                    className={`mx-3 text-custom-light ${route.path === '/shop' ? 'fst-italic fw-medium' : ''}`}
                                     href={route.path}
                                 >
                                     {route.title}
@@ -63,7 +61,7 @@ function TopNavigationNavItems({
                                     <Nav.Link 
                                         as={NextLink}
                                         onClick={collapseNav}
-                                        className={`mx-3 text-custom-light ${pathname === route.path ? 'active' : ''}`}
+                                        className={`mx-3 text-custom-light`}
                                         href={route.path}
                                     >
                                         {route.title}
@@ -102,7 +100,7 @@ function TopNavigationNavItems({
                                 <Nav.Link
                                     as={NextLink}
                                     onClick={collapseNav}
-                                    className={`fst-italic fw-medium mx-3 text-custom-light ${styles['shop-item']} ${pathname === route.path ? 'active' : ''}`}
+                                    className={`fst-italic fw-medium mx-3 text-custom-light ${styles['shop-item']}`}
                                     href={route.path}
                                 >
                                     {route.title}

@@ -1,5 +1,4 @@
 import uniqid from 'uniqid'
-import { usePathname } from 'next/navigation'
 import NextLink from 'next/link'
 
 import Navbar from 'react-bootstrap/Navbar'
@@ -17,8 +16,6 @@ interface Props {
 function BottomNavigationBar({
     isBottomNavCollapsed,
 }:Props) {
-    const pathname = usePathname()
-
     return (
 
         <Navbar className={`${isBottomNavCollapsed ? 'py-0' : 'py-1'} px-md-5 d-none d-lg-block bg-primary`} style={{transition: 'padding 0.5s ease-out'}} >
@@ -31,7 +28,7 @@ function BottomNavigationBar({
                                 <Nav.Item key={uniqid()}>
                                     <Nav.Link
                                         as={NextLink}
-                                        className={`py-0 mx-2 text-custom-light ${pathname === route.path ? 'active' : ''}`}
+                                        className={`py-0 mx-2 text-custom-light`}
                                         href={route.path}
                                     >
                                         {route.title}
@@ -49,7 +46,7 @@ function BottomNavigationBar({
                                 <Nav.Item key={uniqid()}>
                                     <Nav.Link
                                         as={NextLink}
-                                        className={`py-0 mx-2 text-custom-light ${pathname === route.path ? 'active' : ''}`}
+                                        className={`py-0 mx-2 text-custom-light`}
                                         href={route.path}
                                     >
                                         {route.title}

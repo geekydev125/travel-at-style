@@ -68,16 +68,17 @@ function TopNavigationBar({
                     <img className={`${styles.logo}`} src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" style={{maxWidth: '75px'}}/>
                 </NextLink>
 
-                <Nav className='d-flex flex-row d-lg-none' >
+                <Nav className='d-flex flex-row d-lg-none'>
                     {/* Shop Now item - Mobile*/}
                     {routes.map((route: Route) => {
                         if (route.path == '/shop') {
                             return (
                                 <Nav.Item key={uniqid()}>
                                     <Nav.Link 
+                                        eventKey={route.path}
                                         as={NextLink}
                                         onClick={collapseNav}
-                                        className={`fw-medium fst-italic text-custom-light mx-2 me-sm-4 ${styles['shop-item']} ${pathname === route.path ? 'active' : ''}`}
+                                        className={`fw-medium fst-italic text-custom-light mx-2 me-sm-4 ${styles['shop-item']}`}
                                         href={route.path}
                                     >
                                         {route.title}
