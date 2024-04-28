@@ -19,6 +19,18 @@ header {
 			color: transparent;
 		}
 	}
+
+	.navbar {
+		.navbar-nav {
+			.nav-item {
+				.nav-link {
+					&.active {
+						border-bottom: 1px solid #f5f5f5;
+					}
+				}
+			}
+		}
+	}
 }
 
 main {
