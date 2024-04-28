@@ -76,7 +76,7 @@ function TopNavigationBar({
                                 <Nav.Item key={uniqid()}>
                                     <NextLink
                                         onClick={collapseNav}
-                                        className={`nav-link fw-medium fst-italic text-custom-light mx-2 me-sm-4 ${styles['shop-item']} ${pathname === route.path && 'active'}`}
+                                        className={`nav-link fw-medium fst-italic text-custom-light mx-2 me-sm-4 ${styles['shop-item']} ${pathname === route.path ? 'active' : ''}`}
                                         href={route.path}
                                     >
                                         {route.title}

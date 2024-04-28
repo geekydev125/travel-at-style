@@ -42,13 +42,14 @@ function TopNavigationNavItems({
                     if (route.path !== '/' && index < 4) {
                         return (
                             <Nav.Item key={uniqid()}>
-                                <NextLink
+                                <Nav.Link 
+                                    as={NextLink}
                                     onClick={collapseNav}
-                                    className={`nav-link mx-3 text-custom-light ${route.path === '/shop' && 'fst-italic fw-medium'} ${pathname === route.path && 'active'}`}
+                                    className={`mx-3 text-custom-light ${route.path === '/shop' ? 'fst-italic fw-medium' : ''}${pathname === route.path ? 'active' : ''}`}
                                     href={route.path}
                                 >
                                     {route.title}
-                                </NextLink>
+                                </Nav.Link>
                             </Nav.Item>
                         )
                     }
@@ -59,10 +60,9 @@ function TopNavigationNavItems({
                             <Fragment key={uniqid()}>
                                 {index === 6 && <hr className='my-2' />}
                                 <Nav.Item  className='d-lg-none'>
-
                                     <NextLink
                                         onClick={collapseNav}
-                                        className={`nav-link mx-3 text-custom-light ${pathname === route.path && 'active'}`}
+                                        className={`nav-link mx-3 text-custom-light ${pathname === route.path ? 'active' : ''}`}
                                         href={route.path}
                                     >
                                         {route.title}
@@ -100,7 +100,7 @@ function TopNavigationNavItems({
                             <Nav.Item key={uniqid()} className='d-none d-lg-block'>
                                 <NextLink
                                     onClick={collapseNav}
-                                    className={`nav-link fst-italic fw-medium mx-3 text-custom-light ${styles['shop-item']} ${pathname === route.path && 'active'}`}
+                                    className={`nav-link fst-italic fw-medium mx-3 text-custom-light ${styles['shop-item']} ${pathname === route.path ? 'active' : ''}`}
                                     href={route.path}
                                 >
                                     {route.title}
