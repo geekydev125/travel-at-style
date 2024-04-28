@@ -1,16 +1,14 @@
 "use client"
-import NextLink from "next/link";
-
 import { useCartContext } from "@/context/cartContext"
 import { useCartDrawerContext } from "@/context/cartDrawerContext";
 
 import CartTotal from "@/components/Cart/CartTotal";
-import CustomButton from "@/components/CustomButton";
 import CartEmpty from "@/components/Cart/CartEmpty";
 import CartProductsList from "@/components/Cart/CartProductsList";
 
 import Offcanvas from "react-bootstrap/Offcanvas"
 import CartIconWithBadge from "./CartIconWithBadge";
+import ProceedToCheckoutButton from "../ProceedToCheckoutButton";
 
 function CartDrawer() {
     const { cart } = useCartContext()
@@ -38,11 +36,7 @@ function CartDrawer() {
                         <>
                             <CartTotal />
 
-                            <NextLink href='/checkout/review'>
-                                <CustomButton variant="primary" size="sm">
-                                    Proceed to checkout
-                                </CustomButton>
-                            </NextLink>
+                            <ProceedToCheckoutButton />
                         </>
                     )
                 }
