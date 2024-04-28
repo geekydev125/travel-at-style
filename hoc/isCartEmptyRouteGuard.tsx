@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import { useCartContext } from "@/context/cartContext";
 import { redirect } from "next/navigation";
 
-function isCartEmptyRouteGuard( Component: React.FunctionComponent<React.PropsWithChildren> ) {
-    const WrappedComponent = (props?: React.PropsWithChildren ) => {
+function isCartEmptyRouteGuard<P extends JSX.IntrinsicAttributes>( Component: React.ComponentType<P> ) {
+    const WrappedComponent = (props: P ) => {
         const { cart } = useCartContext();
 
         const isCartEmpty = cart.length === 0;
