@@ -60,13 +60,14 @@ function TopNavigationNavItems({
                             <Fragment key={uniqid()}>
                                 {index === 6 && <hr className='my-2' />}
                                 <Nav.Item  className='d-lg-none'>
-                                    <NextLink
+                                    <Nav.Link 
+                                        as={NextLink}
                                         onClick={collapseNav}
-                                        className={`nav-link mx-3 text-custom-light ${pathname === route.path ? 'active' : ''}`}
+                                        className={`mx-3 text-custom-light ${pathname === route.path ? 'active' : ''}`}
                                         href={route.path}
                                     >
                                         {route.title}
-                                    </NextLink>
+                                    </Nav.Link>
                                 </Nav.Item>
                             </Fragment>
                         )
@@ -87,10 +88,10 @@ function TopNavigationNavItems({
             <Nav className="ms-auto">
                 {/* Misc menu item */}
                 <Nav.Item className='d-none d-lg-block'>
-                    <span onClick={() => handleBottomNavCollapse()} className={`nav-link text-custom-light mx-3 ${styles['chevron-icon-span']}`}>
+                    <Nav.Link as={'span'} onClick={() => handleBottomNavCollapse()} className={`text-custom-light mx-3 ${styles['chevron-icon-span']}`}>
                         Misc
                         <IconChevronUp classes={`ms-1 ${styles['chevron-icon']} ${isBottomNavCollapsed ? `${styles['rotated-icon']}` : ''}`} />
-                    </span>
+                    </Nav.Link>
                 </Nav.Item>
 
                 {/* Shop Now item - Desktop*/}
@@ -98,13 +99,14 @@ function TopNavigationNavItems({
                     if (route.path == '/shop') {
                         return (
                             <Nav.Item key={uniqid()} className='d-none d-lg-block'>
-                                <NextLink
+                                <Nav.Link
+                                    as={NextLink}
                                     onClick={collapseNav}
-                                    className={`nav-link fst-italic fw-medium mx-3 text-custom-light ${styles['shop-item']} ${pathname === route.path ? 'active' : ''}`}
+                                    className={`fst-italic fw-medium mx-3 text-custom-light ${styles['shop-item']} ${pathname === route.path ? 'active' : ''}`}
                                     href={route.path}
                                 >
                                     {route.title}
-                                </NextLink>
+                                </Nav.Link>
                             </Nav.Item>
                         )
                     }
@@ -112,7 +114,7 @@ function TopNavigationNavItems({
 
                 {/* Cart - Desktop*/}
                 <Nav.Item className='d-none d-lg-block'>
-                    <span onClick={handleShow} className='nav-link mx-3' style={{ cursor: 'pointer' }}>
+                    <span onClick={handleShow} className='mx-3' style={{ cursor: 'pointer' }}>
                         <CartIconWithBadge cartIconHeight='23px' cartIconWidth='23px' />
                     </span>
                 </Nav.Item>

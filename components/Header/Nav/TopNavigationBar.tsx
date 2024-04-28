@@ -74,13 +74,14 @@ function TopNavigationBar({
                         if (route.path == '/shop') {
                             return (
                                 <Nav.Item key={uniqid()}>
-                                    <NextLink
+                                    <Nav.Link 
+                                        as={NextLink}
                                         onClick={collapseNav}
-                                        className={`nav-link fw-medium fst-italic text-custom-light mx-2 me-sm-4 ${styles['shop-item']} ${pathname === route.path ? 'active' : ''}`}
+                                        className={`fw-medium fst-italic text-custom-light mx-2 me-sm-4 ${styles['shop-item']} ${pathname === route.path ? 'active' : ''}`}
                                         href={route.path}
                                     >
                                         {route.title}
-                                    </NextLink>
+                                    </Nav.Link>
                                 </Nav.Item>
                             )
                         }
@@ -88,7 +89,7 @@ function TopNavigationBar({
 
                     {/* Cart - Mobile*/}
                     <Nav.Item>
-                        <span onClick={handleShow} className='nav-link mx-2' style={{ cursor: 'pointer' }}>
+                        <span onClick={handleShow} className='mx-2' style={{ cursor: 'pointer' }}>
                             <CartIconWithBadge cartIconHeight='23px' cartIconWidth='23px' />
                         </span>
                     </Nav.Item>

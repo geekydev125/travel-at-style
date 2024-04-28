@@ -29,12 +29,13 @@ function BottomNavigationBar({
                         if (route.path !== '/' && index > 5 && index < 8) {
                             return (
                                 <Nav.Item key={uniqid()}>
-                                    <NextLink
-                                        className={`py-0 mx-2 nav-link text-custom-light ${pathname === route.path ? 'active' : ''}`}
+                                    <Nav.Link
+                                        as={NextLink}
+                                        className={`py-0 mx-2 text-custom-light ${pathname === route.path ? 'active' : ''}`}
                                         href={route.path}
                                     >
                                         {route.title}
-                                    </NextLink>
+                                    </Nav.Link>
                                 </Nav.Item>
                             )
                         }
@@ -46,12 +47,13 @@ function BottomNavigationBar({
                         if (route.path !== '/' && index > 7) {
                             return (
                                 <Nav.Item key={uniqid()}>
-                                    <NextLink
-                                        className={`py-0 mx-2 nav-link text-custom-light ${pathname === route.path ? 'active' : ''}`}
+                                    <Nav.Link
+                                        as={NextLink}
+                                        className={`py-0 mx-2 text-custom-light ${pathname === route.path ? 'active' : ''}`}
                                         href={route.path}
                                     >
                                         {route.title}
-                                    </NextLink>
+                                    </Nav.Link>
                                 </Nav.Item>
                             )
                         }
