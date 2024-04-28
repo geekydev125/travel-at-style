@@ -89,9 +89,9 @@ function TopNavigationBar({
 
                     {/* Cart - Mobile*/}
                     <Nav.Item>
-                        <span onClick={handleShow} className='mx-2' style={{ cursor: 'pointer' }}>
+                        <Nav.Link as={'span'} onClick={handleShow} className='mx-2' style={{ cursor: 'pointer' }}>
                             <CartIconWithBadge cartIconHeight='23px' cartIconWidth='23px' />
-                        </span>
+                        </Nav.Link>
                     </Nav.Item>
                 </Nav>
 

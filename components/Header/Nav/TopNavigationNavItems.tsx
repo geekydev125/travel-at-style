@@ -114,9 +114,9 @@ function TopNavigationNavItems({
 
                 {/* Cart - Desktop*/}
                 <Nav.Item className='d-none d-lg-block'>
-                    <span onClick={handleShow} className='mx-3' style={{ cursor: 'pointer' }}>
+                    <Nav.Link as={'span'} onClick={handleShow} className='mx-3' style={{ cursor: 'pointer' }}>
                         <CartIconWithBadge cartIconHeight='23px' cartIconWidth='23px' />
-                    </span>
+                    </Nav.Link>
                 </Nav.Item>
             </Nav>
         </>
