@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation'
 
+import isCartEmptyRouteGuard from '@/hoc/isCartEmptyRouteGuard';
 import CartIconWithBadge from '@/components/Cart/CartIconWithBadge'
 
 import Container from 'react-bootstrap/Container'
@@ -16,7 +17,7 @@ interface Props {
     children: React.ReactNode
 }
 
-function layout({
+function CheckoutLayout({
     children
 }: Props) {
     const pathname = usePathname()
@@ -84,4 +85,4 @@ function layout({
     )
 }
 
-export default layout
+export default isCartEmptyRouteGuard(CheckoutLayout as React.ComponentType<JSX.IntrinsicAttributes>) ;
