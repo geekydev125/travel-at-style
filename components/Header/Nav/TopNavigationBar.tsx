@@ -99,7 +99,7 @@ function TopNavigationBar({
                     <IconBars width='30px' height='30px' />
                 </Navbar.Toggle>
 
-                <Navbar.Collapse id="navbarContent" ref={navbarCollapseRef} className='py-lg-3 position-relative'>
+                <Navbar.Collapse id="navbarContent" ref={navbarCollapseRef} className='py-3 position-relative'>
                     <TopNavigationNavItems
                         collapseNav={collapseNav}
                         isBottomNavCollapsed={isBottomNavCollapsed}
