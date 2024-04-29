@@ -42,7 +42,7 @@ function TopNavigationNavItems({
                     if (route.path !== '/' && index < 4) {
                         return (
                             <Nav.Item key={uniqid()}>
-                                <Nav.Link 
+                                <Nav.Link
                                     as={NextLink}
                                     onClick={collapseNav}
                                     className={`mx-3 text-custom-light ${route.path === '/shop' ? 'fst-italic fw-medium' : ''}`}
@@ -59,7 +59,7 @@ function TopNavigationNavItems({
                         return (
                             <Fragment key={uniqid()}>
                                 <Nav.Item className={`d-inline-block d-lg-none ${index === 6 ? 'mt-3' : ''}`}>
-                                    <Nav.Link 
+                                    <Nav.Link
                                         as={NextLink}
                                         onClick={collapseNav}
                                         className={`mx-3 text-custom-light`}
@@ -87,7 +87,11 @@ function TopNavigationNavItems({
             <Nav className="ms-auto" activeKey={pathname}>
                 {/* Misc menu item */}
                 <Nav.Item className='d-none d-lg-block'>
-                    <Nav.Link as={'span'} onClick={() => handleBottomNavCollapse()} className={`text-custom-light mx-3 ${styles['chevron-icon-span']}`}>
+                    <Nav.Link
+                        as={'span'}
+                        onClick={() => handleBottomNavCollapse()}
+                        className={`text-custom-light mx-3 ${styles['chevron-icon-span']} ${isBottomNavCollapsed ? '' : styles['custom-opacity']}`}
+                    >
                         Misc
                         <IconChevronUp classes={`ms-1 ${styles['chevron-icon']} ${isBottomNavCollapsed ? `${styles['rotated-icon']}` : ''}`} />
                     </Nav.Link>

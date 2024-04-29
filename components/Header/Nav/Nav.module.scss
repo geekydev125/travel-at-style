@@ -8,6 +8,12 @@
 
 .chevron-icon-span {
     cursor: pointer;
+    background-color: rgba(8, 77, 141, 0.2)!important;
+    border-radius: 6px;
+
+    &.custom-opacity {
+        background-color: rgb(8, 77, 141)!important;
+    }
 
     .chevron-icon {
         transition: transform 0.5s ease-in-out;
