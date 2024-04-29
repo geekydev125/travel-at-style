@@ -13,9 +13,14 @@ import Container from 'react-bootstrap/Container'
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import IconChevronLeft from '@/components/Icons/IconChevronLeft';
 
-interface ProgressBar {
+interface IProgressBar {
     value: number
     label: string
+}
+
+interface IButtonTextAndLink {
+    text: string
+    link: string
 }
 
 interface Props {
@@ -28,15 +33,20 @@ function CheckoutLayout({
     const { getCartTotalProducts } = useCartContext()
     const pathname = usePathname()
     const [pageTitle, setPageTitle] = useState<string>('')
-    const [progressBarValueAndLabel, setProgressBarValueAndLabel] = useState<ProgressBar>({
+    const [progressBarValueAndLabel, setProgressBarValueAndLabel] = useState<IProgressBar>({
         value: 0,
         label: ''
+    })
+    const [buttonTextAndLink, setButtonTextAndLink] = useState<IButtonTextAndLink>({
+        text: '',
+        link: ''
     })
 
 
     useEffect(() => {
         getPageTitle(pathname)
         getProgressBarValue(pathname)
+        getButtonTextAndLink(pathname)
     }, [pathname])
 
     function getPageTitle(path: string) {
@@ -74,6 +84,28 @@ function CheckoutLayout({
         }
     }
 
+    function getButtonTextAndLink(path: string) {
+        switch (path) {
+            case '/checkout/review':
+                return setButtonTextAndLink({
+                    text: 'Back to Shop',
+                    link: '/shop'
+                })
+            case '/checkout/client-details':
+                return setButtonTextAndLink({
+                    text: 'Back to Shopping Cart Review',
+                    link: '/checkout/review'
+                })
+            case '/checkout/payment':
+                return setButtonTextAndLink({
+                    text: 'Back to Client Details',
+                    link: '/checkout/client-details'
+                })
+            default:
+                return ''
+        }
+    }
+
     return (
         <Container as='section' className="py-lg-5">
             <div className='d-flex flex-row align-items-center justify-content-between'>
@@ -83,10 +115,10 @@ function CheckoutLayout({
                     <span className='text-custom-dark display-6 fw-semibold ms-2'>{getCartTotalProducts() > 0 && `(${getCartTotalProducts()} product${getCartTotalProducts() > 1 ? 's' : ''} selected)`}</span>
                 </h3>
 
-                <NextLink href='/shop'>
+                <NextLink href={buttonTextAndLink.link}>
                     <CustomButton variant='primary' size='sm'>
                         <IconChevronLeft />
-                        &nbsp;Go back to shop
+                        &nbsp;{buttonTextAndLink.text}
                     </CustomButton>
                 </NextLink>
             </div>
