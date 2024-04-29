@@ -18,20 +18,19 @@ function ReviewPage() {
 
 	return (
 		<Container as="section" className="py-5">
-			<h4 className="text-custom-dark"> Please review your items</h4>
-			<Row>
-
+			<h4 className="text-custom-dark mb-3">Please review your selected products:</h4>
+			<Row className="gx-3 gy-4" >
 				{
 					cart.map((item) => (
-						<Col xs={3} key={uniqid()}>
+						<Col xs={6} sm={4} md={3} lg={2} key={uniqid()}>
 							<CartDrawerProductCard key={uniqid()} product={item} />
 						</Col>
 					))
 				}
 			</Row>
 
-			<div className="d-flex flex-row justify-content-between">
-				<CartTotal />
+			<div className="mt-5 d-flex flex-row justify-content-between">
+				<CartTotal displaySize="display-5" />
 				
 				<NextLink href='/checkout/client-details'>
 					<CustomButton variant="primary" size="sm">
