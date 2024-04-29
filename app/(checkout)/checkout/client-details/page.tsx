@@ -1,9 +1,13 @@
-import React from 'react'
+import ClientDetailsForm from "@/components/ClientDetailsViewComponents/ClientDetailsForm"
+import Container from "react-bootstrap/Container"
 
 function ClientDetailsPage() {
-  return (
-    <div>ClientDetailsPage</div>
-  )
+	return (
+		<Container as="section" className="py-5">
+			<ClientDetailsForm />
+
+		</Container>
+	)
 }
 
 export default ClientDetailsPage
