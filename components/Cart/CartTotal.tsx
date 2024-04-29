@@ -1,11 +1,16 @@
 import { useCartContext } from "@/context/cartContext"
 
+interface Props {
+    displaySize?: string
+}
 
-function CartTotal() {
+function CartTotal({
+    displaySize = "display-6"
+}: Props) {
     const { getCartTotalPrice } = useCartContext()
 
     return (
-        <p className="text-custom-dark display-6 fw-bold mb-0">
+        <p className={`${displaySize} text-custom-dark fw-bold mb-0`}>
             Total: $
             {getCartTotalPrice()}
         </p>
