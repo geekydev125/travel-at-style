@@ -1,5 +1,5 @@
 "use client"
-import React, { BaseSyntheticEvent } from 'react';
+import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import contactFormSchema from '@/validation/contactFormSchema';
