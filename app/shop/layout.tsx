@@ -20,12 +20,14 @@ function ShopLayout({
 
     return (
         <Container as='section' className="py-lg-5">
-            <div className='mb-5 d-flex flex-row justify-content-between align-items-center'>
-                <h3 className="display-2 text-custom-dark mb-4 fw-semibold">
-                    Shop <span className='text-custom-dark display-6 fw-semibold'>{getCartTotalProducts() > 0 && `(${getCartTotalProducts()} product${getCartTotalProducts() > 1 ? 's' : ''} selected)`}</span>
-                </h3>
+            <div className='d-flex flex-column flex-md-row align-items-sm-end justify-content-between pb-3 pb-lg-0 mb-lg-4'>
+                <div className='me-auto'>
+                    <h3 className="display-2 text-custom-dark mb-0 fw-semibold">Shop</h3>
+                    <span className='text-custom-dark display-6 fw-semibold'>{getCartTotalProducts() > 0 && `(${getCartTotalProducts()} product${getCartTotalProducts() > 1 ? 's' : ''} selected)`}</span>
+                </div>
+
                 {cart.length > 0 && (
-                    <div>
+                    <div className='ms-auto'>
                         <CustomButton variant='primary' size='sm' classes='me-2' onClick={handleShow}>
                             Show Cart&nbsp;
                             <IconShoppingCart />
