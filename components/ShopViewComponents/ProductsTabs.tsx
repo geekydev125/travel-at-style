@@ -22,7 +22,7 @@ function ProductsTabs({ }) {
 	const defaultTab = searchParams.get('tab') || 'steamers'
 
 	return (
-		<>
+		<section className='py-4'>
 			<Tabs justify variant='pills' defaultActiveKey={defaultTab} className='custom-tabs mb-3' >
 				<Tab eventKey="steamers" title="Steamers">
 					<ProductsTab>
@@ -61,7 +61,7 @@ function ProductsTabs({ }) {
 				</Tab>
 			</Tabs>
 
-		</>
+		</section>
 	)
 }
 
