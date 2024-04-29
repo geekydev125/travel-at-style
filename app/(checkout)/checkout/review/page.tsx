@@ -1,16 +1,17 @@
 "use client"
 import uniqid from "uniqid"
+import NextLink from "next/link"
 
 import { useCartContext } from "@/context/cartContext"
 
-import isCartEmptyRouteGuard from "@/hoc/isCartEmptyRouteGuard"
-
 import CartDrawerProductCard from "@/components/Cart/CartDrawerProductCard"
+import CartTotal from "@/components/Cart/CartTotal"
+import CustomButton from "@/components/CustomButton"
+import IconChevronRight from "@/components/Icons/IconChevronRight"
 
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import CartTotal from "@/components/Cart/CartTotal"
 
 function ReviewPage() {
 	const { cart } = useCartContext()
@@ -21,17 +22,26 @@ function ReviewPage() {
 			<Row>
 
 				{
-					cart.map((item, index) => (
+					cart.map((item) => (
 						<Col xs={3} key={uniqid()}>
 							<CartDrawerProductCard key={uniqid()} product={item} />
 						</Col>
 					))
 				}
-
-				<CartTotal />
 			</Row>
+
+			<div className="d-flex flex-row justify-content-between">
+				<CartTotal />
+				
+				<NextLink href='/checkout/client-details'>
+					<CustomButton variant="primary" size="sm">
+						Continue&nbsp;
+						<IconChevronRight />
+						</CustomButton>
+				</NextLink>
+			</div>
 		</Container>
 	)
 }
 
-export default isCartEmptyRouteGuard(ReviewPage)
+export default ReviewPage
