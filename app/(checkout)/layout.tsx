@@ -108,14 +108,15 @@ function CheckoutLayout({
 
     return (
         <Container as='section' className="py-lg-5">
-            <div className='d-flex flex-row align-items-center justify-content-between'>
-                <h3 className="display-2 text-custom-dark mb-4 fw-semibold">
-                    {pageTitle}
+            <div className='d-flex flex-column flex-md-row align-items-sm-end justify-content-between pb-3 pb-lg-0 mb-lg-4'>
+                <div className='me-auto'>
+                    <h3 className="display-2 text-custom-dark mb-0 fw-semibold">
+                        {pageTitle}
+                    </h3>
+                    <span className='text-custom-dark display-6 fw-semibold'>{getCartTotalProducts() > 0 && `(${getCartTotalProducts()} product${getCartTotalProducts() > 1 ? 's' : ''} selected)`}</span>
+                </div>
 
-                    <span className='text-custom-dark display-6 fw-semibold ms-2'>{getCartTotalProducts() > 0 && `(${getCartTotalProducts()} product${getCartTotalProducts() > 1 ? 's' : ''} selected)`}</span>
-                </h3>
-
-                <NextLink href={buttonTextAndLink.link}>
+                <NextLink href={buttonTextAndLink.link} className='ms-auto'>
                     <CustomButton variant='primary' size='sm'>
                         <IconChevronLeft />
                         &nbsp;{buttonTextAndLink.text}
