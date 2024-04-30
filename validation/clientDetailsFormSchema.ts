@@ -68,7 +68,6 @@ export const clientDetailsFormSchemaShape = {
     notes: yup
         .string()
         .optional()
-        .min(2, 'Note should be at least 2 characters long')
         .max(150, 'Note should be at most 150 characters long'),
 }
 
