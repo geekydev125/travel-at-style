@@ -4,8 +4,9 @@ interface Props {
     size?: 'sm' | 'lg' | undefined
     variant: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link' | 'outline-primary' | 'outline-secondary' | 'outline-success' | 'outline-danger' | 'outline-warning' | 'outline-info' | 'outline-light' | 'outline-dark' | 'outline-link' | undefined
     classes?: string
-    children: React.ReactNode
     onClick?: () => void
+    disabled?: boolean
+    children: React.ReactNode
 }
 
 function CustomButton({
@@ -13,10 +14,11 @@ function CustomButton({
     variant,
     classes,
     onClick,
+    disabled,
     children,
 }: Props) {
     return (
-        <Button onClick={onClick} size={size} variant={variant} className={`shadow ${classes}`} style={{border: '1px solid #32a670'}}>
+        <Button disabled={disabled} onClick={onClick} size={size} variant={variant} className={`shadow ${classes}`} style={{border: '1px solid #32a670'}}>
             {children}
         </Button>
     )
