@@ -48,22 +48,25 @@ export const clientDetailsFormSchemaShape = {
                     .optional()
         }),
     zipCode: yup
-        .string()
+        .number()
         .required('Zip Code is required')
         .when('country', ([country], schema: any) => {
             return country === 'United States'
-                ? schema.matches(/^[0-9]{5}$/, 'Zip Code should be a 5-digit number')
-                : schema.matches(/^[0-9]{3,}$/, 'Zip Code should be at least a 3-digit number and contain only numbers')
+                ? schema
+                    .min(5, 'Zip Code should be a 5-digit number')
+                : schema
+                    .min(3, 'Zip Code should be at least a 3-digit number')
         }),
     countryCode: yup
         .string()
         .required('Country Code is required')
         .matches(/^\+[0-9]{1,4}$/, 'Country Code should be a 1-4 digit number'),
     phoneNumber: yup
-        .string()
+        .number()
         .required('Phone Number is required')
-        .matches(/^[0-9]{6,10}$/, 'Phone Number should be a 6-10 digit number'),
-    note: yup
+        .min(6, 'Phone Number should be at least a 6 digit number')
+        .max(10, 'Phone Number should be at most a 10 digit number'),
+    notes: yup
         .string()
         .optional()
         .min(2, 'Note should be at least 2 characters long')
