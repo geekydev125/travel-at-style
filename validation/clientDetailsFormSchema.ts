@@ -21,7 +21,7 @@ export const clientDetailsFormSchemaShape = {
     country: yup
         .string()
         .required('Country is required')
-        .oneOf(allCountries(), 'Country is not valid'),
+        .oneOf(allCountries(), 'Country code is invalid'),
     addressOne: yup
         .string()
         .required('Address is required')
@@ -76,13 +76,13 @@ export const clientDetailsFormSchemaShape = {
 const clientDetailsFormSchema = yup.object().shape(clientDetailsFormSchemaShape)
 
 function allCountries() {
-    let countriesArray = countries.map(country => country.name);
+    let countriesArray = countries.map(country => country.code);
 
     return countriesArray;
 }
 
 function allUsStates() {
-    let usStatesArray = usStates.map(state => state.name);
+    let usStatesArray = usStates.map(state => state.code);
 
     return usStatesArray;
 }
