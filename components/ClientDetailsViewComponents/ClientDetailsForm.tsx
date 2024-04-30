@@ -13,8 +13,9 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CustomButton from '../CustomButton';
+import ClientDetailsFormInput from './ClientDetailsFormInput';
 
-interface FormData {
+export interface ClientDetailsFormData {
     firstName: string,
     lastName: string,
     email: string,
@@ -30,26 +31,26 @@ interface FormData {
 }
 
 function ClientDetailsForm() {
-    const { register, handleSubmit, formState: { errors, isDirty, isValid, isLoading } } = useForm<FormData>({
+    const { register, handleSubmit, formState: { errors, isDirty, isValid, isLoading } } = useForm<ClientDetailsFormData>({
         resolver: yupResolver(clientDetailsFormSchema),
         mode: 'onBlur',
         defaultValues: {
             firstName: '',
             lastName: '',
             email: '',
-            country: '',
+            country: 'US',
             addressOne: '',
             addressTwo: '',
             city: '',
-            state: '',
+            state: 'AL',
             zipCode: '',
-            countryCode: '',
+            countryCode: '(United States) +1',
             phoneNumber: '',
             notes: ''
         },
     });
 
-    const onFormSubmit: SubmitHandler<FormData> = (formData: FormData, e) => {
+    const onFormSubmit: SubmitHandler<ClientDetailsFormData> = (formData: ClientDetailsFormData, e) => {
         e?.preventDefault();
 
         console.log(formData);
@@ -69,31 +70,21 @@ function ClientDetailsForm() {
 
 
     return (
-        <Form onSubmit={handleSubmit(onFormSubmit)} data-bs-theme="light" className='w-100'>
+        <Form onSubmit={handleSubmit(onFormSubmit)} data-bs-theme="dark" className='w-100'>
             <Row className='gx-2'>
                 <Col md={6}>
                     {/* First Name */}
-                    <FloatingLabel label="First Name" controlId="firstName" >
-                        <Form.Control isInvalid={errors.firstName && true} {...register('firstName')} type="text" name='firstName' />
-
-                    </FloatingLabel>
-                    <p className="text-danger mb-2">{errors.firstName && errors.firstName.message}</p>
+                    <ClientDetailsFormInput label='First Name' type='text' register={register} name='firstName' errors={errors} />
                 </Col>
 
                 <Col md={6}>
                     {/* Last Name */}
-                    <FloatingLabel label="Last Name" controlId="lastName" >
-                        <Form.Control isInvalid={errors.lastName && true} {...register('lastName')} type="text" name='lastName' />
-                    </FloatingLabel>
-                    <p className="text-danger mb-2">{errors.lastName && errors.lastName.message}</p>
+                    <ClientDetailsFormInput label='Last Name' type='text' register={register} name='lastName' errors={errors} />
                 </Col>
             </Row>
 
             {/* Email Address */}
-            <FloatingLabel label="Email Address" controlId="email" >
-                <Form.Control isInvalid={errors.email && true} {...register('email')} type="email" name='email' />
-            </FloatingLabel>
-            <p className="text-danger mb-2">{errors.email && errors.email.message}</p>
+            <ClientDetailsFormInput label='Email Address' type='email' register={register} name='email' errors={errors} />
 
             <Row className='gx-2'>
                 <Col md={4}>
@@ -112,10 +103,7 @@ function ClientDetailsForm() {
 
                 <Col md={4}>
                     {/* City */}
-                    <FloatingLabel label="City" controlId="city" >
-                        <Form.Control isInvalid={errors.city && true} {...register('city')} type="text" name='city' />
-                    </FloatingLabel>
-                    <p className="text-danger mb-2">{errors.city && errors.city.message}</p>
+                    <ClientDetailsFormInput label='City' type='text' register={register} name='city' errors={errors} />
                 </Col>
 
                 <Col md={4}>
@@ -137,26 +125,16 @@ function ClientDetailsForm() {
             <Row className='gx-2'>
                 <Col md={5}>
                     {/* Address 1 */}
-                    <FloatingLabel label="Address" controlId="addressOne" >
-                        <Form.Control isInvalid={errors.addressOne && true} {...register('addressOne')} type="text" name='addressOne' />
-                    </FloatingLabel>
-                    <p className="text-danger mb-2">{errors.addressOne && errors.addressOne.message}</p>
+                    <ClientDetailsFormInput label='Address' type='text' register={register} name='addressOne' errors={errors} />
                 </Col>
                 <Col md={5}>
-
                     {/* Address 2 */}
-                    <FloatingLabel label="Apartment, suite, etc. (optional)" controlId="addressTwo" >
-                        <Form.Control isInvalid={errors.addressTwo && true} {...register('addressTwo')} type="text" name='addressTwo' />
-                    </FloatingLabel>
-                    <p className="text-danger mb-2">{errors.addressTwo && errors.addressTwo.message}</p>
+                    <ClientDetailsFormInput label='Apartment, suite, etc. (optional)' type='text' register={register} name='addressTwo' errors={errors} />
                 </Col>
 
                 <Col md={2}>
                     {/* ZIP Code */}
-                    <FloatingLabel label="ZIP code" controlId="zipCode" >
-                        <Form.Control isInvalid={errors.zipCode && true} {...register('zipCode')} type="text" name='zipCode' />
-                    </FloatingLabel>
-                    <p className="text-danger mb-2">{errors.zipCode && errors.zipCode.message}</p>
+                    <ClientDetailsFormInput label='ZIP code' type='text' register={register} name='zipCode' errors={errors} />
                 </Col>
             </Row>
 
@@ -165,10 +143,10 @@ function ClientDetailsForm() {
                     {/* Country code */}
                     {/* Make it controlled depending on the country */}
                     <FloatingLabel label="Country Code" controlId='countryCode'>
-                        <Form.Select {...register('countryCode')} name='countryCode' size='lg' defaultChecked={true} >
+                        <Form.Select {...register('countryCode')} name='countryCode' size='lg' defaultChecked={true}>
                             {
                                 countries.map((country) => {
-                                    return <option key={uniqid()} value={country.dialCode}>({country.name}) {country.dialCode}</option>
+                                    return <option key={uniqid()} value={`(${country.name}) ${country.dialCode}`}>({country.name}) {country.dialCode}</option>
                                 })
                             }
                         </Form.Select>
@@ -177,10 +155,7 @@ function ClientDetailsForm() {
                 </Col>
                 <Col md={9}>
                     {/* Phone Number */}
-                    <FloatingLabel label="Phone Number" controlId="phoneNumber" >
-                        <Form.Control isInvalid={errors.phoneNumber && true} {...register('phoneNumber')} type="text" name='phoneNumber' />
-                    </FloatingLabel>
-                    <p className="text-danger mb-2">{errors.phoneNumber && errors.phoneNumber.message}</p>
+                    <ClientDetailsFormInput label='Phone Number' type='text' register={register} name='phoneNumber' errors={errors} />
                 </Col>
             </Row>
 
