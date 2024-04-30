@@ -10,9 +10,9 @@ import usStates from '@/data/usStates.json';
 
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import CustomButton from '../CustomButton';
 
 interface FormData {
     firstName: string,
@@ -69,7 +69,7 @@ function ClientDetailsForm() {
 
 
     return (
-        <Form onSubmit={handleSubmit(onFormSubmit)} data-bs-theme="dark" className='w-100'>
+        <Form onSubmit={handleSubmit(onFormSubmit)} data-bs-theme="light" className='w-100'>
             <Row className='gx-2'>
                 <Col md={6}>
                     {/* First Name */}
@@ -184,22 +184,15 @@ function ClientDetailsForm() {
                 </Col>
             </Row>
 
-
-
-
-
-
             {/* Notes */}
             <FloatingLabel label="Notes" controlId="notes" >
                 <Form.Control as='textarea' style={{ height: '100px' }} isInvalid={errors.notes && true} {...register('notes')} type="text" name='notes' />
             </FloatingLabel>
             <p className="text-danger mb-2">{errors.notes && errors.notes.message}</p>
 
-
+            {/* Submit button */}
             <div className='d-flex justify-content-center'>
-                <Button variant="primary" type="submit" disabled={!(isDirty && isValid) || isLoading}>
-                    Submit
-                </Button>
+                <CustomButton variant='primary' disabled={!(isDirty && isValid) || isLoading}>Submit</CustomButton>
             </div>
         </Form>
     )

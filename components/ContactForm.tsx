@@ -2,10 +2,12 @@
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
+
 import contactFormSchema from '@/validation/contactFormSchema';
 
+import CustomButton from '@/components/CustomButton';
+
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 interface FormData {
@@ -27,9 +29,9 @@ function ContactForm() {
         },
     });
 
-    const onFormSubmit:SubmitHandler<FormData> = (formData: FormData, e) => {
+    const onFormSubmit: SubmitHandler<FormData> = (formData: FormData, e) => {
         e?.preventDefault();
-        
+
         const response = fetch('/api/contact', {
             method: 'POST',
             headers: {
@@ -40,39 +42,38 @@ function ContactForm() {
         }).then(res => res.json()).then(data => console.log(data))
 
         console.log(response);
-
     }
-
 
     return (
         <Form onSubmit={handleSubmit(onFormSubmit)} data-bs-theme="dark" className='w-100'>
-            
-            <FloatingLabel className='' label="Name" controlId="name" >
+            {/* Name */}
+            <FloatingLabel label="Name" controlId="name" >
                 <Form.Control isInvalid={errors.name && true} {...register('name')} type="text" placeholder="Enter your name" name='name' />
-                
+
             </FloatingLabel>
             <p className="text-danger mb-2">{errors.name && errors.name.message}</p>
 
-            <FloatingLabel className='' label="Email Address" controlId="email" >
+            {/* Email */}
+            <FloatingLabel label="Email Address" controlId="email" >
                 <Form.Control isInvalid={errors.email && true} {...register('email')} type="email" placeholder="Enter email" name='email' />
             </FloatingLabel>
             <p className="text-danger mb-2">{errors.email && errors.email.message}</p>
 
-
-            <FloatingLabel className='' label="Subject" controlId="subject" >
+            {/* Subject */}
+            <FloatingLabel label="Subject" controlId="subject" >
                 <Form.Control isInvalid={errors.subject && true} {...register('subject')} type="text" placeholder="Enter subject" name='subject' />
             </FloatingLabel>
             <p className="text-danger mb-2">{errors.subject && errors.subject.message}</p>
 
-            <FloatingLabel className='' label="Message" controlId="message" >
+            {/* Message */}
+            <FloatingLabel label="Message" controlId="message" >
                 <Form.Control isInvalid={errors.message && true} {...register('message')} as='textarea' style={{ height: '100px' }} placeholder="Enter your message" name='message' />
             </FloatingLabel>
             <p className="text-danger mb-2">{errors.message && errors.message.message}</p>
 
+            {/* Submit Button */}
             <div className='d-flex justify-content-center'>
-                <Button variant="primary" type="submit" disabled={!(isDirty && isValid) || isLoading}>
-                    Submit
-                </Button>
+                <CustomButton variant='primary' disabled={!(isDirty && isValid) || isLoading}>Submit</CustomButton>
             </div>
         </Form>
     )
