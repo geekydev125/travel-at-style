@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from 'react';
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import uniqid from 'uniqid';
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -44,6 +44,7 @@ function ClientDetailsForm() {
     const [countryName, setCountryName] = useState<Country['name']>('United States');
     const [usState, setUsState] = useState<string>('AL');
     const [countryDialCode, setCountryDialCode] = useState<string>('');
+    const router = useRouter();
 
     const { register, handleSubmit, formState: { errors, isDirty, isValid, isLoading } } = useForm<ClientDetailsFormData>({
         resolver: yupResolver(clientDetailsFormSchema),
@@ -78,7 +79,7 @@ function ClientDetailsForm() {
 
         let allGood = true;
         if (allGood) {
-            redirect('/checkout/payment')
+            router.push('/checkout/payment')
         }
 
         // const response = fetch('/api/contact', {
@@ -200,7 +201,7 @@ function ClientDetailsForm() {
             <p className="text-danger mb-2">{errors.notes?.message}</p>
 
             {/* Submit button */}
-            <div className='d-flex justify-content-center'>
+            <div className='d-flex justify-content-center mt-4'>
                 <CustomButton variant='primary' disabled={!(isDirty && isValid) || isLoading} type="submit">Continue to Payment <IconChevronRight /></CustomButton>
             </div>
         </Form>
