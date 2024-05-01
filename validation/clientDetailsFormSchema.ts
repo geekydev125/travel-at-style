@@ -21,7 +21,7 @@ export const clientDetailsFormSchemaShape = {
     country: yup
         .string()
         .required('Country is required')
-        .oneOf(allCountries(), 'Country code is invalid'),
+        .oneOf(allCountries(), 'Country name is invalid'),
     addressOne: yup
         .string()
         .required('Address is required')
@@ -42,7 +42,7 @@ export const clientDetailsFormSchemaShape = {
             return country === 'United States'
                 ? schema
                     .required('State is required')
-                    .oneOf(allUsStates(), 'State is not valid')
+                    .oneOf(allUsStates(), 'Input should be valid state from the United States of America')
                 : schema
                     .nullable()
                     .optional()
@@ -53,7 +53,7 @@ export const clientDetailsFormSchemaShape = {
         .when('country', ([country], schema: any) => {
             return country === 'United States'
                 ? schema
-                    .matches(/^[0-9]{5}$/, 'Zip Code should be a 5-digit number')
+                    .matches(/^[0-9]{5}$/, 'United States Zip Code should be a 5-digit number')
                 : schema
                     .matches(/^[0-9]{3,10}$/, 'Zip Code should be a 3-10 digit number')
         }),
@@ -74,7 +74,7 @@ export const clientDetailsFormSchemaShape = {
 const clientDetailsFormSchema = yup.object().shape(clientDetailsFormSchemaShape)
 
 function allCountries() {
-    let countriesArray = countries.map(country => country.code);
+    let countriesArray = countries.map(country => country.name);
 
     return countriesArray;
 }
