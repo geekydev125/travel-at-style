@@ -1,7 +1,7 @@
-import FloatingLabel from "react-bootstrap/esm/FloatingLabel"
-import Form from "react-bootstrap/esm/Form"
+import FloatingLabel from "react-bootstrap/FloatingLabel"
+import Form from "react-bootstrap/Form"
 
-import { UseFormRegister } from "react-hook-form"
+import { FieldErrors, UseFormRegister } from "react-hook-form"
 import { ClientDetailsFormData } from "./ClientDetailsForm"
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
     register: UseFormRegister<ClientDetailsFormData>,
     name: keyof ClientDetailsFormData,
     type: string
-    errors: any
+    errors: FieldErrors<ClientDetailsFormData>
 }
 
 function ClientDetailsFormInput({
@@ -25,7 +25,7 @@ function ClientDetailsFormInput({
                 <Form.Control isInvalid={errors[name] && true} {...register(name)} type={type} name={name} />
 
             </FloatingLabel>
-            <p className="text-danger mb-2">{errors[name] && errors[name].message}</p>
+            <p className="text-danger mb-2">{errors[name]?.message}</p>
         </>
     )
 }
