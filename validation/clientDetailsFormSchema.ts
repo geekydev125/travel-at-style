@@ -60,7 +60,7 @@ export const clientDetailsFormSchemaShape = {
     countryCode: yup
         .string()
         .required('Country Code is required')
-        .matches(/^\+[0-9]{1,4}$/, 'Country Code should be a 1-4 digit number'),
+        .matches(/^\([^)]+\) \+\d{1,4}$/, 'The input should be a valid country code'),
     phoneNumber: yup
         .string()
         .required('Phone Number is required')
