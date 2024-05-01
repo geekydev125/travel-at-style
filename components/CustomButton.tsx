@@ -6,6 +6,7 @@ interface Props {
     classes?: string
     onClick?: () => void
     disabled?: boolean
+    type?: 'button' | 'submit' | 'reset' | undefined
     children: React.ReactNode
 }
 
@@ -15,10 +16,11 @@ function CustomButton({
     classes,
     onClick,
     disabled,
+    type,
     children,
 }: Props) {
     return (
-        <Button disabled={disabled} onClick={onClick} size={size} variant={variant} className={`shadow ${classes}`} style={{border: '1px solid #32a670'}}>
+        <Button type={type} disabled={disabled} onClick={onClick} size={size} variant={variant} className={`shadow ${classes}`} style={{border: '1px solid #32a670'}}>
             {children}
         </Button>
     )
