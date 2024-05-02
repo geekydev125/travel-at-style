@@ -44,12 +44,12 @@ function CheckoutLayout({
 
 
     useEffect(() => {
-        getPageTitle(pathname)
-        getProgressBarValue(pathname)
-        getButtonTextAndLink(pathname)
+        handlePageTitle(pathname)
+        handleProgressBarValueAndLabel(pathname)
+        handleButtonTextAndLink(pathname)
     }, [pathname])
 
-    function getPageTitle(path: string) {
+    function handlePageTitle(path: string) {
         switch (path) {
             case '/checkout/review':
                 setPageTitle('Shopping Cart Review')
@@ -65,24 +65,24 @@ function CheckoutLayout({
         }
     }
 
-    function getProgressBarValue(path: string) {
+    function handleProgressBarValueAndLabel(path: string) {
         switch (path) {
             case '/checkout/review':
                 setProgressBarValueAndLabel({
                     value: 33,
-                    label: 'Shopping Cart Review'
+                    label: 'Cart Review (1/3)'
                 })
                 break;
             case '/checkout/client-details':
                 setProgressBarValueAndLabel({
                     value: 66,
-                    label: 'Client Details'
+                    label: 'Client Details (2/3)'
                 })
                 break;
             case '/checkout/payment':
                 setProgressBarValueAndLabel({
                     value: 100,
-                    label: 'Payment Details'
+                    label: 'Payment Details (3/3)'
                 })
                 break;
             default:
@@ -90,7 +90,7 @@ function CheckoutLayout({
         }
     }
 
-    function getButtonTextAndLink(path: string) {
+    function handleButtonTextAndLink(path: string) {
         switch (path) {
             case '/checkout/review':
                 setButtonTextAndLink({
@@ -115,7 +115,7 @@ function CheckoutLayout({
         }
     }
 
-    function setReviewedCartOrClient() {
+    function handleReviewedCartOrClient() {
         switch (pathname) {
             case '/checkout/review':
                 setClientDetails(null)
@@ -140,7 +140,7 @@ function CheckoutLayout({
                     <span className='text-custom-dark display-6 fw-semibold'>{getCartTotalProducts() > 0 && `(${getCartTotalProducts()} product${getCartTotalProducts() > 1 ? 's' : ''} selected)`}</span>
                 </div>
 
-                <NextLink href={buttonTextAndLink.link} className='ms-auto mt-3 mt-sm-0' onClick={setReviewedCartOrClient}>
+                <NextLink href={buttonTextAndLink.link} className='ms-auto mt-3 mt-sm-0' onClick={handleReviewedCartOrClient}>
                     <CustomButton variant='primary' size='sm'>
                         <IconChevronLeft />
                         &nbsp;{buttonTextAndLink.text}
