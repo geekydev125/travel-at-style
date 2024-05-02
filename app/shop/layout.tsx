@@ -28,7 +28,7 @@ function ShopLayout({
                     </span>
                 </div>
 
-                {cart.length > 0 && (
+                {cart.products.length > 0 && (
                     <div className='ms-auto'>
                         <CustomButton variant='primary' size='sm' classes='me-2' onClick={handleShow}>
                             Show Cart&nbsp;

@@ -21,7 +21,7 @@ function ReviewPage() {
 			<h4 className="text-custom-dark mb-3">Please review your selected products:</h4>
 			<Row className="gx-3 gy-4" >
 				{
-					cart.map((item) => (
+					cart.products.map((item) => (
 						<Col xs={6} sm={4} md={3} lg={2} key={uniqid()}>
 							<CartDrawerProductCard key={uniqid()} product={item} />
 						</Col>

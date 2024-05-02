@@ -24,7 +24,7 @@ function CartDrawer() {
             </Offcanvas.Header>
             <Offcanvas.Body>
                 {
-                    cart.length > 0
+                    cart.products.length > 0
                         ? <CartProductsList />
                         : <CartEmpty handleDrawerClose={handleClose} />
                 }
@@ -32,7 +32,7 @@ function CartDrawer() {
 
             <div className="w-100 px-2 py-4 position-absolute bottom-0 background-light-gradient d-flex flex-row justify-content-between align-items-center">
                 {
-                    cart.length > 0 && (
+                    cart.products.length > 0 && (
                         <>
                             <CartTotal />
 

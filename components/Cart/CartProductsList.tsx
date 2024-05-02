@@ -14,7 +14,7 @@ function CartProductsList() {
     return (
         <Container>
             <Row className="gx-3 gy-4">
-                {cart.map((product) => (
+                {cart.products.map((product) => (
                     <Col xs={6} key={uniqid()}>
                         <CartDrawerProductCard product={product} />
                     </Col>

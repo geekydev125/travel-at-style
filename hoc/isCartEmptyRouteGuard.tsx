@@ -8,7 +8,7 @@ function isCartEmptyRouteGuard<P extends JSX.IntrinsicAttributes>( Component: Re
     const WrappedComponent = (props: P ) => {
         const { cart } = useCartContext();
 
-        const isCartEmpty = cart.length === 0;
+        const isCartEmpty = cart.products.length === 0;
 
         useEffect(() => {
             if(isCartEmpty) {
