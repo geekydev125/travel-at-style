@@ -57,7 +57,7 @@ export const clientDetailsFormSchemaShape = {
                 : schema
                     .matches(/^[0-9]{3,10}$/, 'Zip Code should be a 3-10 digit number')
         }),
-    countryCode: yup
+    countryDialCode: yup
         .string()
         .required('Country Code is required')
         .matches(/^\([^)]+\) \+\d{1,4}$/, 'The input should be a valid country code'),

@@ -16,7 +16,7 @@ export interface IClient {
     city: string,
     state?: string | undefined,
     zipCode: string,
-    countryCode: string,
+    countryDialCode: string,
     phoneNumber: string,
     notes?: string | undefined
 
