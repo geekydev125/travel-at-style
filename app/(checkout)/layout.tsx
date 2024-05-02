@@ -140,7 +140,7 @@ function CheckoutLayout({
                     <span className='text-custom-dark display-6 fw-semibold'>{getCartTotalProducts() > 0 && `(${getCartTotalProducts()} product${getCartTotalProducts() > 1 ? 's' : ''} selected)`}</span>
                 </div>
 
-                <NextLink href={buttonTextAndLink.link} className='ms-auto' onClick={setReviewedCartOrClient}>
+                <NextLink href={buttonTextAndLink.link} className='ms-auto mt-3 mt-sm-0' onClick={setReviewedCartOrClient}>
                     <CustomButton variant='primary' size='sm'>
                         <IconChevronLeft />
                         &nbsp;{buttonTextAndLink.text}
