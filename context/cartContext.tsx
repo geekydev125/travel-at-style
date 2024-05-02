@@ -98,7 +98,8 @@ export const CartContextProvider = ({
 
             return setCart((previousCart: ICart) => ({
                 ...previousCart,
-                products: newInstanceOfCartProducts
+                products: newInstanceOfCartProducts,
+                reviewed: false
             
             }));
         } else {
@@ -120,7 +121,8 @@ export const CartContextProvider = ({
 
             setCart((previousCart: ICart) => ({
                 ...previousCart,
-                products: [...previousCart.products, newProduct]
+                products: [...previousCart.products, newProduct],
+                reviewed: false
             }));
         }
     }
@@ -140,7 +142,8 @@ export const CartContextProvider = ({
 
         return setCart((previousCart: ICart) => ({
             ...previousCart,
-            products: newInstanceOfCartProducts
+            products: newInstanceOfCartProducts,
+            reviewed: false
         
         }));
     }
@@ -164,7 +167,8 @@ export const CartContextProvider = ({
 
             setCart((previousCart: ICart) => ({
                 ...previousCart,
-                products: newInstanceOfCartProducts
+                products: newInstanceOfCartProducts,
+                reviewed: false,
             }));
         }
     }
