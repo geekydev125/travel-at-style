@@ -29,11 +29,11 @@ function ReviewPage() {
 				}
 			</Row>
 
-			<div className="mt-5 d-flex flex-row justify-content-between">
+			<div className="mt-2 d-flex flex-column align-items-end">
 				<CartTotal displaySize="display-5" />
 				
-				<NextLink href='/checkout/client-details' onClick={() => setReviewedCart(true)}>
-					<CustomButton variant="primary" size="sm">
+				<NextLink href='/checkout/client-details' onClick={() => setReviewedCart(true)} className="mt-2">
+					<CustomButton variant="primary">
 						Continue&nbsp;
 						<IconChevronRight />
 						</CustomButton>
