@@ -184,7 +184,7 @@ function Map() {
                         </GoogleMap>
                     ) : (
                         <div className='px-2 background-blue-radial-gradient d-flex justify-content-center align-items-center' style={{ height: '300px' }}>
-                            <p className='display-3 me-3'>Loading Map...</p>
+                            <p className='display-3 me-3 text-custom-light'>Loading Map...</p>
                             <img src='/assets/img/logo/google-map-marker.png' alt='Travel @ Style marker' className='img-fluid' />
                         </div>
                     )
