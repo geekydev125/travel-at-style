@@ -1,4 +1,5 @@
 import uniqid from "uniqid"
+import NextLink from "next/link"
 
 import { Steamer } from "@/model/Steamer"
 
@@ -51,7 +52,10 @@ function BesteamRow({
 
                 <div className="text-center mt-3 ">
                     <p className="text-custom-dark display-3 fw-semibold">Now only ${steamers[0].price}</p>
-                    <CustomButton variant="primary" size="lg">GET YOURS NOW!</CustomButton>
+                    
+                    <NextLink href="/shop">
+                        <CustomButton variant="primary" size="lg">GET YOURS NOW!</CustomButton>
+                    </NextLink>
                 </div>
             </Col>
 

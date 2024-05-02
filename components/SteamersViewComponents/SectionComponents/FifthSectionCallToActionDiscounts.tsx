@@ -1,5 +1,6 @@
+import NextLink from "next/link"
+
 import CustomButton from "@/components/CustomButton"
-import Link from "next/link"
 
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
@@ -18,9 +19,9 @@ function FifthSectionCallToActionDiscounts() {
                     <Col xs={{span: 12, order: 1}} md={{span: 6, order: 2}} lg={{span: 7, order: 2}}  className="text-center d-flex flex-column justify-content-center align-items-center">
                         <h3 className="text-capitalize text-custom-light">Over the top quantity-based discounts</h3>
 
-                        <Link href="/shop">
-                            <CustomButton variant="primary" size="lg" classes="mt-md-2 mb-3">GET YOURS NOW!</CustomButton>
-                        </Link>
+                        <NextLink href="/shop">
+                            <CustomButton variant="primary" size="lg" classes="mt-md-2 mb-3">GET YOUR STEAMER NOW!</CustomButton>
+                        </NextLink>
 
                         <h3 className="text-capitalize text-custom-light">Lifetime Warranty</h3>
                     </Col>
