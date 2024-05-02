@@ -14,7 +14,7 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
 function ReviewPage() {
-	const { cart } = useCartContext()
+	const { cart, setReviewedCart } = useCartContext()
 
 	return (
 		<Container as="section" className="py-5">
@@ -32,7 +32,7 @@ function ReviewPage() {
 			<div className="mt-5 d-flex flex-row justify-content-between">
 				<CartTotal displaySize="display-5" />
 				
-				<NextLink href='/checkout/client-details'>
+				<NextLink href='/checkout/client-details' onClick={() => setReviewedCart(true)}>
 					<CustomButton variant="primary" size="sm">
 						Continue&nbsp;
 						<IconChevronRight />
