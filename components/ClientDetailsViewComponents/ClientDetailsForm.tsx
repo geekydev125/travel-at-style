@@ -91,7 +91,7 @@ function ClientDetailsForm() {
     }
 
     return (
-        <Form onSubmit={handleSubmit(onFormSubmit)} data-bs-theme="dark" className='w-100'>
+        <Form onSubmit={handleSubmit(onFormSubmit)} className='w-100'>
             {/* First Name/Last Name */}
             <Row className='gx-2'>
                 <Col md={6}>
@@ -195,7 +195,7 @@ function ClientDetailsForm() {
             <p className="text-danger mb-2">{errors.notes?.message}</p>
 
             {/* Submit button */}
-            <div className='d-flex justify-content-center mt-4'>
+            <div className='d-flex justify-content-end mt-4'>
                 <CustomButton variant='primary' disabled={!(isDirty && isValid) || isLoading} type="submit">Continue to Payment <IconChevronRight /></CustomButton>
             </div>
         </Form>
