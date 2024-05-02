@@ -18,7 +18,7 @@ function Header() {
     }
 
     return (
-        <header className='position-fixed w-100 top-0 z-2 shadow'>
+        <header className='position-fixed w-100 top-0 z-3 shadow'>
             <TopNavigationBar isBottomNavCollapsed={isBottomNavCollapsed} handleBottomNavCollapse={handleBottomNavCollapse} />
             <BottomNavigationBar isBottomNavCollapsed={isBottomNavCollapsed} />
         </header>
