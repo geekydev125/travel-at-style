@@ -1,5 +1,6 @@
 .video {
     min-height: 40vh;
+    
     width: 100%;
     position: absolute;
     top: 50px;
@@ -9,7 +10,7 @@
 
 @media (min-width: 768px) {
     .video {
-        top: 0;
+        top: -5vh;
         min-height: 100vh;
     }
 }
