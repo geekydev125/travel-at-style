@@ -34,7 +34,7 @@ function ReviewPage() {
 				
 				<NextLink href='/checkout/client-details' onClick={() => setReviewedCart(true)} className="mt-2">
 					<CustomButton variant="primary">
-						Continue&nbsp;
+						Continue to Client Details&nbsp;
 						<IconChevronRight />
 						</CustomButton>
 				</NextLink>
