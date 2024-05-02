@@ -11,7 +11,7 @@ import countries from '@/data/countries.json';
 import usStates from '@/data/usStates.json';
 
 import CustomButton from '@/components/CustomButton';
-import ClientDetailsFormInput from '@/components/Forms/ClientDetailsFormInput';
+import FormInputField from '@/components/Forms/FormInputField';
 import IconChevronRight from '@/components/Icons/IconChevronRight';
 
 import Form from 'react-bootstrap/Form';
@@ -97,17 +97,17 @@ function ClientDetailsForm() {
             <Row className='gx-2'>
                 <Col xs={6}>
                     {/* First Name */}
-                    <ClientDetailsFormInput label='First Name' type='text' register={register} inputName='firstName' errors={errors} />
+                    <FormInputField label='First Name' type='text' register={register} inputName='firstName' errors={errors} />
                 </Col>
 
                 <Col xs={6}>
                     {/* Last Name */}
-                    <ClientDetailsFormInput label='Last Name' type='text' register={register} inputName='lastName' errors={errors} />
+                    <FormInputField label='Last Name' type='text' register={register} inputName='lastName' errors={errors} />
                 </Col>
             </Row>
 
             {/* Email Address */}
-            <ClientDetailsFormInput label='Email Address' type='email' register={register} inputName='email' errors={errors} />
+            <FormInputField label='Email Address' type='email' register={register} inputName='email' errors={errors} />
 
             {/* Country/City/State */}
             <Row className='gx-2'>
@@ -146,7 +146,7 @@ function ClientDetailsForm() {
 
                 <Col md={countryName === 'United States' ? 4 : 6}>
                     {/* City */}
-                    <ClientDetailsFormInput label='City' type='text' register={register} inputName='city' errors={errors} />
+                    <FormInputField label='City' type='text' register={register} inputName='city' errors={errors} />
                 </Col>               
             </Row>
 
@@ -154,16 +154,16 @@ function ClientDetailsForm() {
             <Row className='gx-2'>
                 <Col md={5}>
                     {/* Address 1 */}
-                    <ClientDetailsFormInput label='Address' type='text' register={register} inputName='addressOne' errors={errors} />
+                    <FormInputField label='Address' type='text' register={register} inputName='addressOne' errors={errors} />
                 </Col>
                 <Col md={5}>
                     {/* Address 2 */}
-                    <ClientDetailsFormInput label='Apartment, suite, etc. (optional)' type='text' register={register} inputName='addressTwo' errors={errors} />
+                    <FormInputField label='Apartment, suite, etc. (optional)' type='text' register={register} inputName='addressTwo' errors={errors} />
                 </Col>
 
                 <Col md={2}>
                     {/* ZIP Code */}
-                    <ClientDetailsFormInput label='ZIP code' type='text' register={register} inputName='zipCode' errors={errors} />
+                    <FormInputField label='ZIP code' type='text' register={register} inputName='zipCode' errors={errors} />
                 </Col>
             </Row>
 
@@ -185,7 +185,7 @@ function ClientDetailsForm() {
                 </Col>
                 <Col xs={6} lg={9}>
                     {/* Phone Number */}
-                    <ClientDetailsFormInput label='Phone Number' type='text' register={register} inputName='phoneNumber' errors={errors} />
+                    <FormInputField label='Phone Number' type='text' register={register} inputName='phoneNumber' errors={errors} />
                 </Col>
             </Row>
 

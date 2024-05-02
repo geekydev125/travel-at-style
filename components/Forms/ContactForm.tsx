@@ -1,15 +1,13 @@
 "use client"
-import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import contactFormSchema from '@/validation/contactFormSchema';
 
 import CustomButton from '@/components/CustomButton';
+import FormInputField from '@/components/Forms/FormInputField';
 
 import Form from 'react-bootstrap/Form';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import FormErrorMessage from './FormErrorMessage';
 
 export interface ContactFormData {
     name: string,
@@ -48,29 +46,16 @@ function ContactForm() {
     return (
         <Form onSubmit={handleSubmit(onFormSubmit)} data-bs-theme="dark" className='w-100'>
             {/* Name */}
-            <FloatingLabel label="Name" controlId="name" >
-                <Form.Control isInvalid={errors.name && true} {...register('name')} type="text" placeholder="Enter your name" name='name' />
-
-            </FloatingLabel>
-            <FormErrorMessage errors={errors} inputName='name' />
+            <FormInputField label='Name' register={register} inputName='name' type='text' errors={errors} />
 
             {/* Email */}
-            <FloatingLabel label="Email Address" controlId="email" >
-                <Form.Control isInvalid={errors.email && true} {...register('email')} type="email" placeholder="Enter email" name='email' />
-            </FloatingLabel>
-            <FormErrorMessage errors={errors} inputName='email' />            
+            <FormInputField label='Email Address' register={register} inputName='email' type='email' errors={errors} />
 
             {/* Subject */}
-            <FloatingLabel label="Subject" controlId="subject" >
-                <Form.Control isInvalid={errors.subject && true} {...register('subject')} type="text" placeholder="Enter subject" name='subject' />
-            </FloatingLabel>
-            <FormErrorMessage errors={errors} inputName='subject' />
+            <FormInputField label='Subject' register={register} inputName='subject' type='text' errors={errors} />
 
             {/* Message */}
-            <FloatingLabel label="Message" controlId="message" >
-                <Form.Control isInvalid={errors.message && true} {...register('message')} as='textarea' style={{ height: '100px' }} placeholder="Enter your message" name='message' />
-            </FloatingLabel>
-            <FormErrorMessage errors={errors} inputName='message' />
+            <FormInputField label='Message' register={register} inputName='message' type='textarea' errors={errors} formControlStyle={{ height: '100px' }} />
 
             {/* Submit Button */}
             <div className='d-flex justify-content-center mt-3'>
