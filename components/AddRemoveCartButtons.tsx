@@ -30,7 +30,7 @@ function AddRemoveCartButtons({
 
     function removeProductHandler(product: Luggage | Accessory | Steamer) {
         removeProductFromCart(product._id)
-        displayNotification(`${product.name} ${(product as Steamer).color ? ` (${(product as Steamer).color})` : ''} removed from cart`, 'warning')
+        displayNotification(`${product.name} ${(product as Steamer).color ? ` (${(product as Steamer).color})` : ''} removed from cart`, 'error')
     }
 
     return (

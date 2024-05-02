@@ -21,7 +21,7 @@ function CardDrawerAddRemoveCartButtons({
 
     function removeProductHandler(product: ICartProduct) {
         removeProductFromCart(product._id)
-        displayNotification(`${product.name} ${product.color ? ` (${product.color})` : ''} removed from cart`, 'warning')
+        displayNotification(`${product.name} ${product.color ? ` (${product.color})` : ''} removed from cart`, 'error')
     }
 
     return (
