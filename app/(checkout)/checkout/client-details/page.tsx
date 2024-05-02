@@ -1,7 +1,7 @@
 "use client"
 import isCartReviewedRouteGuard from "@/hoc/isCartReviewedRouteGuard"
 
-import ClientDetailsForm from "@/components/ClientDetailsViewComponents/ClientDetailsForm"
+import ClientDetailsForm from "@/components/Forms/ClientDetailsForm"
 
 import Container from "react-bootstrap/Container"
 

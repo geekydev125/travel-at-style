@@ -11,7 +11,7 @@ import countries from '@/data/countries.json';
 import usStates from '@/data/usStates.json';
 
 import CustomButton from '@/components/CustomButton';
-import ClientDetailsFormInput from '@/components/ClientDetailsViewComponents/ClientDetailsFormInput';
+import ClientDetailsFormInput from '@/components/Forms/ClientDetailsFormInput';
 import IconChevronRight from '@/components/Icons/IconChevronRight';
 
 import Form from 'react-bootstrap/Form';

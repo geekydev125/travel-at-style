@@ -1,4 +1,4 @@
-import ContactForm from "@/components/ContactForm"
+import ContactForm from "@/components/Forms/ContactForm"
 
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
