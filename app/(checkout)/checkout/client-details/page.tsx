@@ -1,4 +1,8 @@
+"use client"
+import isCartReviewedRouteGuard from "@/hoc/isCartReviewedRouteGuard"
+
 import ClientDetailsForm from "@/components/ClientDetailsViewComponents/ClientDetailsForm"
+
 import Container from "react-bootstrap/Container"
 
 function ClientDetailsPage() {
@@ -10,4 +14,4 @@ function ClientDetailsPage() {
 	)
 }
 
-export default ClientDetailsPage
+export default isCartReviewedRouteGuard(ClientDetailsPage)
