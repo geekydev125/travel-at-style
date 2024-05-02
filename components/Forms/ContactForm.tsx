@@ -9,8 +9,9 @@ import CustomButton from '@/components/CustomButton';
 
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import FormErrorMessage from './FormErrorMessage';
 
-interface FormData {
+export interface ContactFormData {
     name: string,
     email: string,
     subject: string,
@@ -18,7 +19,7 @@ interface FormData {
 }
 
 function ContactForm() {
-    const { register, handleSubmit, formState: { errors, isDirty, isValid, isLoading } } = useForm<FormData>({
+    const { register, handleSubmit, formState: { errors, isDirty, isValid, isLoading } } = useForm<ContactFormData>({
         resolver: yupResolver(contactFormSchema),
         mode: 'onBlur',
         defaultValues: {
@@ -29,7 +30,7 @@ function ContactForm() {
         },
     });
 
-    const onFormSubmit: SubmitHandler<FormData> = (formData: FormData, e) => {
+    const onFormSubmit: SubmitHandler<ContactFormData> = (formData: ContactFormData, e) => {
         e?.preventDefault();
 
         const response = fetch('/api/contact', {
@@ -51,25 +52,25 @@ function ContactForm() {
                 <Form.Control isInvalid={errors.name && true} {...register('name')} type="text" placeholder="Enter your name" name='name' />
 
             </FloatingLabel>
-            <p className="text-danger mb-2">{errors.name && errors.name.message}</p>
+            <FormErrorMessage errors={errors} inputName='name' />
 
             {/* Email */}
             <FloatingLabel label="Email Address" controlId="email" >
                 <Form.Control isInvalid={errors.email && true} {...register('email')} type="email" placeholder="Enter email" name='email' />
             </FloatingLabel>
-            <p className="text-danger mb-2">{errors.email && errors.email.message}</p>
+            <FormErrorMessage errors={errors} inputName='email' />            
 
             {/* Subject */}
             <FloatingLabel label="Subject" controlId="subject" >
                 <Form.Control isInvalid={errors.subject && true} {...register('subject')} type="text" placeholder="Enter subject" name='subject' />
             </FloatingLabel>
-            <p className="text-danger mb-2">{errors.subject && errors.subject.message}</p>
+            <FormErrorMessage errors={errors} inputName='subject' />
 
             {/* Message */}
             <FloatingLabel label="Message" controlId="message" >
                 <Form.Control isInvalid={errors.message && true} {...register('message')} as='textarea' style={{ height: '100px' }} placeholder="Enter your message" name='message' />
             </FloatingLabel>
-            <p className="text-danger mb-2">{errors.message && errors.message.message}</p>
+            <FormErrorMessage errors={errors} inputName='message' />
 
             {/* Submit Button */}
             <div className='d-flex justify-content-center mt-3'>
