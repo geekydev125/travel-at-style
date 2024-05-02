@@ -3,11 +3,12 @@ import Form from "react-bootstrap/Form"
 
 import { FieldErrors, UseFormRegister } from "react-hook-form"
 import { ClientDetailsFormData } from "./ClientDetailsForm"
+import FormErrorMessage from "./FormErrorMessage"
 
 interface Props {
     label: string,
     register: UseFormRegister<ClientDetailsFormData>,
-    name: keyof ClientDetailsFormData,
+    inputName: keyof ClientDetailsFormData,
     type: string
     errors: FieldErrors<ClientDetailsFormData>
 }
@@ -15,17 +16,17 @@ interface Props {
 function ClientDetailsFormInput({
     label,
     register,
-    name,
+    inputName,
     type,
     errors
 }: Props) {
     return (
         <>
-            <FloatingLabel label={label} controlId={name} >
-                <Form.Control isInvalid={errors[name] && true} {...register(name)} type={type} name={name} />
+            <FloatingLabel label={label} controlId={inputName} >
+                <Form.Control isInvalid={errors[inputName] && true} {...register(inputName)} type={type} name={inputName} />
 
             </FloatingLabel>
-            <p className="text-danger mb-2">{errors[name]?.message}</p>
+            <FormErrorMessage errors={errors} inputName={inputName} />
         </>
     )
 }

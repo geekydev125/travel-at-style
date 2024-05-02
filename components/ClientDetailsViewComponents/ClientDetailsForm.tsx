@@ -19,6 +19,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useCartContext, IClient } from '@/context/cartContext';
+import FormErrorMessage from './FormErrorMessage';
 
 interface ICountry {
     name: string,
@@ -94,26 +95,26 @@ function ClientDetailsForm() {
         <Form onSubmit={handleSubmit(onFormSubmit)} className='w-100'>
             {/* First Name/Last Name */}
             <Row className='gx-2'>
-                <Col md={6}>
+                <Col xs={6}>
                     {/* First Name */}
-                    <ClientDetailsFormInput label='First Name' type='text' register={register} name='firstName' errors={errors} />
+                    <ClientDetailsFormInput label='First Name' type='text' register={register} inputName='firstName' errors={errors} />
                 </Col>
 
-                <Col md={6}>
+                <Col xs={6}>
                     {/* Last Name */}
-                    <ClientDetailsFormInput label='Last Name' type='text' register={register} name='lastName' errors={errors} />
+                    <ClientDetailsFormInput label='Last Name' type='text' register={register} inputName='lastName' errors={errors} />
                 </Col>
             </Row>
 
             {/* Email Address */}
-            <ClientDetailsFormInput label='Email Address' type='email' register={register} name='email' errors={errors} />
+            <ClientDetailsFormInput label='Email Address' type='email' register={register} inputName='email' errors={errors} />
 
             {/* Country/City/State */}
             <Row className='gx-2'>
                 <Col md={countryName === 'United States' ? 4 : 6}>
                     {/* Country */}
                     <FloatingLabel label="Country" controlId='country'>
-                        <Form.Select {...register('country', { onChange: (e) => setCountryName(e.target.value) })} name='country' size='lg' value={countryName}>
+                        <Form.Select {...register('country', { onChange: (e) => setCountryName(e.target.value) })} name='country' value={countryName}>
                             {
                                 countries.map((country) => {
                                     return <option key={uniqid()} value={country.name}>{country.name}</option>
@@ -121,12 +122,7 @@ function ClientDetailsForm() {
                             }
                         </Form.Select>
                     </FloatingLabel>
-                    <p className="text-danger mb-2">{errors.country?.message}</p>
-                </Col>
-
-                <Col md={countryName === 'United States' ? 4 : 6}>
-                    {/* City */}
-                    <ClientDetailsFormInput label='City' type='text' register={register} name='city' errors={errors} />
+                    <FormErrorMessage errors={errors} inputName='country' />
                 </Col>
 
                 {
@@ -135,7 +131,7 @@ function ClientDetailsForm() {
                             {/* State */}
                             {/* Make it conditional depending on the country */}
                             <FloatingLabel label="State" controlId='state'>
-                                <Form.Select {...register('state', { onChange: (e) => setUsState(e.target.value) })} name='state' size='lg' value={usState}>
+                                <Form.Select {...register('state', { onChange: (e) => setUsState(e.target.value) })} name='state' value={usState}>
                                     {
                                         usStates.map((state) => {
                                             return <option key={uniqid()} value={state.code}>{state.name}</option>
@@ -143,36 +139,41 @@ function ClientDetailsForm() {
                                     }
                                 </Form.Select>
                             </FloatingLabel>
-                            <p className="text-danger mb-2">{errors.state?.message}</p>
+                            <FormErrorMessage errors={errors} inputName='state' />
                         </Col>
                     )
                 }
+
+                <Col md={countryName === 'United States' ? 4 : 6}>
+                    {/* City */}
+                    <ClientDetailsFormInput label='City' type='text' register={register} inputName='city' errors={errors} />
+                </Col>               
             </Row>
 
             {/* Address 1/Address 2/ZIP code */}
             <Row className='gx-2'>
                 <Col md={5}>
                     {/* Address 1 */}
-                    <ClientDetailsFormInput label='Address' type='text' register={register} name='addressOne' errors={errors} />
+                    <ClientDetailsFormInput label='Address' type='text' register={register} inputName='addressOne' errors={errors} />
                 </Col>
                 <Col md={5}>
                     {/* Address 2 */}
-                    <ClientDetailsFormInput label='Apartment, suite, etc. (optional)' type='text' register={register} name='addressTwo' errors={errors} />
+                    <ClientDetailsFormInput label='Apartment, suite, etc. (optional)' type='text' register={register} inputName='addressTwo' errors={errors} />
                 </Col>
 
                 <Col md={2}>
                     {/* ZIP Code */}
-                    <ClientDetailsFormInput label='ZIP code' type='text' register={register} name='zipCode' errors={errors} />
+                    <ClientDetailsFormInput label='ZIP code' type='text' register={register} inputName='zipCode' errors={errors} />
                 </Col>
             </Row>
 
             {/* Country code/Phone number */}
             <Row className='gx-2'>
-                <Col md={3}>
+                <Col xs={6} lg={3}>
                     {/* Country code */}
                     {/* Make it controlled depending on the country */}
                     <FloatingLabel label="Country Code" controlId='countryDialCode'>
-                        <Form.Select {...register('countryDialCode', { onChange: (e) => setCountryDialCode(e.target.value) })} name='countryDialCode' size='lg' value={countryDialCode}>
+                        <Form.Select {...register('countryDialCode', { onChange: (e) => setCountryDialCode(e.target.value) })} name='countryDialCode' value={countryDialCode}>
                             {
                                 countries.map((country) => {
                                     return <option key={uniqid()} value={`(${country.name}) ${country.dialCode}`}>({country.name}) {country.dialCode}</option>
@@ -180,11 +181,11 @@ function ClientDetailsForm() {
                             }
                         </Form.Select>
                     </FloatingLabel>
-                    <p className="text-danger mb-2">{errors.countryDialCode?.message}</p>
+                    <FormErrorMessage errors={errors} inputName='countryDialCode' />
                 </Col>
-                <Col md={9}>
+                <Col xs={6} lg={9}>
                     {/* Phone Number */}
-                    <ClientDetailsFormInput label='Phone Number' type='text' register={register} name='phoneNumber' errors={errors} />
+                    <ClientDetailsFormInput label='Phone Number' type='text' register={register} inputName='phoneNumber' errors={errors} />
                 </Col>
             </Row>
 
@@ -192,7 +193,7 @@ function ClientDetailsForm() {
             <FloatingLabel label="Notes" controlId="notes" >
                 <Form.Control as='textarea' style={{ height: '100px' }} isInvalid={errors.notes && true} {...register('notes')} type="text" name='notes' />
             </FloatingLabel>
-            <p className="text-danger mb-2">{errors.notes?.message}</p>
+            <FormErrorMessage errors={errors} inputName='notes' />
 
             {/* Submit button */}
             <div className='d-flex justify-content-end mt-4'>
