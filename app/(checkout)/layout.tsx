@@ -52,68 +52,81 @@ function CheckoutLayout({
     function getPageTitle(path: string) {
         switch (path) {
             case '/checkout/review':
-                return setPageTitle('Shopping Cart Review')
+                setPageTitle('Shopping Cart Review')
+                break;
             case '/checkout/client-details':
-                return setPageTitle('Client Details')
+                setPageTitle('Client Details')
+                break;
             case '/checkout/payment':
-                return setPageTitle('Payment Details')
+                setPageTitle('Payment Details')
+                break;
             default:
-                return ''
+                break;
         }
     }
 
     function getProgressBarValue(path: string) {
         switch (path) {
             case '/checkout/review':
-                return setProgressBarValueAndLabel({
+                setProgressBarValueAndLabel({
                     value: 33,
                     label: 'Shopping Cart Review'
                 })
+                break;
             case '/checkout/client-details':
-                return setProgressBarValueAndLabel({
+                setProgressBarValueAndLabel({
                     value: 66,
                     label: 'Client Details'
                 })
+                break;
             case '/checkout/payment':
-                return setProgressBarValueAndLabel({
+                setProgressBarValueAndLabel({
                     value: 100,
                     label: 'Payment Details'
                 })
+                break;
             default:
-                return ''
+                break; ''
         }
     }
 
     function getButtonTextAndLink(path: string) {
         switch (path) {
             case '/checkout/review':
-                return setButtonTextAndLink({
+                setButtonTextAndLink({
                     text: 'Back to Shop',
                     link: '/shop'
                 })
+                break;
             case '/checkout/client-details':
-                return setButtonTextAndLink({
+                setButtonTextAndLink({
                     text: 'Back to Shopping Cart Review',
                     link: '/checkout/review'
                 })
+                break;
             case '/checkout/payment':
-                return setButtonTextAndLink({
+                setButtonTextAndLink({
                     text: 'Back to Client Details',
                     link: '/checkout/client-details'
                 })
+                break;
             default:
-                return ''
+                break;
         }
     }
 
     function setReviewedCartOrClient() {
         switch (pathname) {
             case '/checkout/review':
-                return setReviewedCart(false)
+                setClientDetails(null)
+                break;
             case '/checkout/client-details':
-                return setClientDetails(null)
+                setReviewedCart(false)
+                break;
+            case '/checkout/payment':
+                break;
             default:
-                return null;
+                break;
         }
     }
 
