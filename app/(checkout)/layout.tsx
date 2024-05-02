@@ -30,7 +30,7 @@ interface Props {
 function CheckoutLayout({
     children
 }: Props) {
-    const { getCartTotalProducts } = useCartContext()
+    const { getCartTotalProducts, setReviewedCart, setClientDetails } = useCartContext()
     const pathname = usePathname()
     const [pageTitle, setPageTitle] = useState<string>('')
     const [progressBarValueAndLabel, setProgressBarValueAndLabel] = useState<IProgressBar>({
@@ -106,6 +106,17 @@ function CheckoutLayout({
         }
     }
 
+    function setReviewedCartOrClient() {
+        switch (pathname) {
+            case '/checkout/review':
+                return setReviewedCart(false)
+            case '/checkout/client-details':
+                return setClientDetails(null)
+            default:
+                return null;
+        }
+    }
+
     return (
         <Container as='section' className="py-lg-5">
             <div className='d-flex flex-column flex-md-row align-items-sm-end justify-content-between pb-3 pb-lg-0 mb-lg-4'>
@@ -116,7 +127,7 @@ function CheckoutLayout({
                     <span className='text-custom-dark display-6 fw-semibold'>{getCartTotalProducts() > 0 && `(${getCartTotalProducts()} product${getCartTotalProducts() > 1 ? 's' : ''} selected)`}</span>
                 </div>
 
-                <NextLink href={buttonTextAndLink.link} className='ms-auto'>
+                <NextLink href={buttonTextAndLink.link} className='ms-auto' onClick={setReviewedCartOrClient}>
                     <CustomButton variant='primary' size='sm'>
                         <IconChevronLeft />
                         &nbsp;{buttonTextAndLink.text}
