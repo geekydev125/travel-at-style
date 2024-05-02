@@ -16,13 +16,13 @@ function FifthSectionCallToActionDiscounts() {
                     </Col>
 
                     <Col xs={{span: 12, order: 1}} md={{span: 6, order: 2}} lg={{span: 7, order: 2}}  className="text-center d-flex flex-column justify-content-center align-items-center">
-                        <h3 className="text-capitalize">Over the top quantity-based discounts</h3>
+                        <h3 className="text-capitalize text-custom-light">Over the top quantity-based discounts</h3>
 
                         <Link href="/shop">
                             <CustomButton variant="primary" size="lg" classes="mt-md-2 mb-3">GET YOURS NOW!</CustomButton>
                         </Link>
 
-                        <h3 className="text-capitalize">Lifetime Warranty</h3>
+                        <h3 className="text-capitalize text-custom-light">Lifetime Warranty</h3>
                     </Col>
 
                     <Col xs={{span: 8, order: 3}} md={3} className="d-flex justify-content-center align-items-center ">

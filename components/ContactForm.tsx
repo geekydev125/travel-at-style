@@ -72,7 +72,7 @@ function ContactForm() {
             <p className="text-danger mb-2">{errors.message && errors.message.message}</p>
 
             {/* Submit Button */}
-            <div className='d-flex justify-content-center'>
+            <div className='d-flex justify-content-center mt-3'>
                 <CustomButton variant='primary' disabled={!(isDirty && isValid) || isLoading}>Submit</CustomButton>
             </div>
         </Form>

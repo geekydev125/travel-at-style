@@ -20,7 +20,7 @@ function TopFooter() {
                             if (route.path !== '/' && index < 4) {
                                 return (
                                     <li key={uniqid()}>
-                                        <NextLink className="nav-link" href={route.path}>
+                                        <NextLink className="nav-link text-custom-light" href={route.path}>
                                             {route.title}
                                         </NextLink>
                                     </li>
@@ -37,7 +37,7 @@ function TopFooter() {
                             if (route.path !== '/' && index > 5 && index < 8) {
                                 return (
                                     <li key={uniqid()}>
-                                        <NextLink className="nav-link" href={route.path}>
+                                        <NextLink className="nav-link text-custom-light" href={route.path}>
                                             {route.title}
                                         </NextLink>
                                     </li>
@@ -60,7 +60,7 @@ function TopFooter() {
                             if (route.path !== '/' && index > 7) {
                                 return (
                                     <li key={uniqid()}>
-                                        <NextLink className="nav-link" href={route.path}>
+                                        <NextLink className="nav-link text-custom-light" href={route.path}>
                                             {route.title}
                                         </NextLink>
                                     </li>
