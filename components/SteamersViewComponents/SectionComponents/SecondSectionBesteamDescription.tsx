@@ -18,7 +18,7 @@ function SecondSectionBesteamDescription() {
 		<Container fluid as='section' className="pt-4 pt-md-0 pt-xl-4 pb-4 background-pattern-crossword">
 			<Row>
 				<Col xs={12} lg={4} className="mx-auto px-lg-4 p-md-4 ps-lg-5">
-					<h3 className="display-3 text-center text-custom-dark fw-bold">BeSteam</h3>
+					<h3 className="display-3 text-center text-custom-dark fw-bold">Besteam</h3>
 					<p className="mt-4 text-custom-dark" style={{ textAlign: 'justify' }}>BeSteam is the ultimate user-friendly, light steam iron. Small and light, it's built using cutting-edge technology and top-quality materials.</p>
 
 					<p className="text-custom-dark" style={{ textAlign: 'justify' }}>BeSteam is not only designed for ease of use but also prioritizes safety. Equipped with advanced temperature control mechanisms and automatic shut-off features, it ensures worry-free ironing sessions, even for beginners.</p>
