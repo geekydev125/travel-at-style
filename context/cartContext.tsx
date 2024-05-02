@@ -6,6 +6,22 @@ import { Product } from "@/model/Product";
 import { Steamer } from "@/model/Steamer";
 import { createContext, useContext } from "react";
 
+export interface IClient {
+    firstName: string,
+    lastName: string,
+    email: string,
+    country: string,
+    addressOne: string,
+    addressTwo?: string | undefined,
+    city: string,
+    state?: string | undefined,
+    zipCode: string,
+    countryCode: string,
+    phoneNumber: string,
+    notes?: string | undefined
+
+}
+
 export interface ICartProduct {
     _id: Product['_id'],
     productCategory: Product['productCategory'],
@@ -16,10 +32,20 @@ export interface ICartProduct {
     color?: Steamer['color'],
 }
 
-export type ICart = ICartProduct[] | [];
+export interface ICart {
+    products: ICartProduct[] | [],
+    reviewed: boolean,
+    client: IClient | null
+
+}
+
 export type TProduct = Steamer | Luggage | Accessory;
 
-const cartInitialState: ICart = []
+const cartInitialState: ICart = {
+    products: [],
+    reviewed: false,
+    client: null
+}
 
 interface ICartContext {
     cart: ICart,
@@ -51,22 +77,26 @@ export const CartContextProvider = ({
     const [cart, setCart] = useLocalStorage('cart', cartInitialState);
 
     const addProductToCart = (product: TProduct) => {
-        let isProductAlreadyInCart = cart.find((cartProduct: ICartProduct) => cartProduct._id === product._id);
+        let isProductAlreadyInCart: ICartProduct = cart.products.find((cartProduct: ICartProduct) => cartProduct._id === product._id);
 
         if (isProductAlreadyInCart) {
-            let productAlreadyInCart = isProductAlreadyInCart;
+            let productAlreadyInCart: ICartProduct = isProductAlreadyInCart;
 
-            let indexOfProductInCart = cart.indexOf(productAlreadyInCart);
-            let newInstanceOfCart = [...cart];
+            let indexOfProductInCart: number = cart.products.indexOf(productAlreadyInCart);
+            let newInstanceOfCartProducts: ICart['products'] = [...cart.products];
 
             let updatedProduct: ICartProduct = {
                 ...productAlreadyInCart,
                 quantity: productAlreadyInCart.quantity + 1
             }
 
-            newInstanceOfCart[indexOfProductInCart] = updatedProduct;
+            newInstanceOfCartProducts[indexOfProductInCart] = updatedProduct;
 
-            return setCart((previousCart: ICart) => newInstanceOfCart);
+            return setCart((previousCart: ICart) => ({
+                ...previousCart,
+                products: newInstanceOfCartProducts
+            
+            }));
         } else {
             let newProduct: ICartProduct = {
                 _id: product._id,
@@ -84,50 +114,59 @@ export const CartContextProvider = ({
                 }
             }
 
-            setCart((previousCart: ICart) => [...previousCart, newProduct]);
+            setCart((previousCart: ICart) => ({
+                ...previousCart,
+                products: [...previousCart.products, newProduct]
+            }));
         }
     }
 
     const increaseProductQuantity = (productId: TProduct['_id'] | ICartProduct['_id']) => {
-        let productAlreadyInCart = cart.find((cartProduct: ICartProduct) => cartProduct._id === productId);
+        let productAlreadyInCart: ICartProduct = cart.products.find((cartProduct: ICartProduct) => cartProduct._id === productId);
 
-        let indexOfProductInCart = cart.indexOf(productAlreadyInCart);
-        let newInstanceOfCart = [...cart];
+        let indexOfProductInCart: number = cart.products.indexOf(productAlreadyInCart);
+        let newInstanceOfCartProducts = [...cart.products];
 
         let updatedProduct: ICartProduct = {
             ...productAlreadyInCart,
             quantity: productAlreadyInCart.quantity + 1
         }
 
-        newInstanceOfCart[indexOfProductInCart] = updatedProduct;
+        newInstanceOfCartProducts[indexOfProductInCart] = updatedProduct;
 
-        return setCart((previousCart: ICart) => newInstanceOfCart);
+        return setCart((previousCart: ICart) => ({
+            ...previousCart,
+            products: newInstanceOfCartProducts
+        
+        }));
     }
 
     const removeProductFromCart = (productId: TProduct['_id'] | ICartProduct['_id']) => {
-        let isProductAlreadyInCart = cart.find((cartProduct: ICartProduct) => cartProduct._id === productId);
+        let isProductAlreadyInCart: ICartProduct = cart.products.find((cartProduct: ICartProduct) => cartProduct._id === productId);
 
         if (isProductAlreadyInCart) {
-            let indexOfProductInCart = cart.indexOf(isProductAlreadyInCart);
-            let newInstanceOfCart = [...cart];
+            let indexOfProductInCart:number = cart.products.indexOf(isProductAlreadyInCart);
+            let newInstanceOfCartProducts = [...cart.products];
 
             let updatedProduct: ICartProduct = {
                 ...isProductAlreadyInCart,
                 quantity: isProductAlreadyInCart.quantity - 1
             }
-
             if (updatedProduct.quantity === 0) {
-                newInstanceOfCart.splice(indexOfProductInCart, 1);
+                newInstanceOfCartProducts.splice(indexOfProductInCart, 1);
             } else {
-                newInstanceOfCart[indexOfProductInCart] = updatedProduct;
+                newInstanceOfCartProducts[indexOfProductInCart] = updatedProduct;
             }
 
-            setCart((previousCart: ICart) => newInstanceOfCart);
+            setCart((previousCart: ICart) => ({
+                ...previousCart,
+                products: newInstanceOfCartProducts
+            }));
         }
     }
 
     const isProductInCart = (productId: TProduct['_id'] | ICartProduct['_id']) => {
-        let isProductAlreadyInCart = cart.find((cartProduct: ICartProduct) => cartProduct._id === productId);
+        let isProductAlreadyInCart:ICartProduct = cart.products.find((cartProduct: ICartProduct) => cartProduct._id === productId);
 
         if (isProductAlreadyInCart) {
             return true;
@@ -137,13 +176,13 @@ export const CartContextProvider = ({
     }
 
     const getCartTotalPrice = () => {
-        return (cart.reduce((acc:number, product:ICartProduct) => {
+        return (cart.products.reduce((acc:number, product:ICartProduct) => {
             return acc + product.price * product.quantity;
         }, 0)).toFixed(2);
     }
 
     const getCartTotalProducts = () => {
-        return cart.reduce((acc:number, product:ICartProduct) => {
+        return cart.products.reduce((acc:number, product:ICartProduct) => {
             return acc + product.quantity;
         }, 0);
     }
