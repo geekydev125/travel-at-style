@@ -56,6 +56,7 @@ interface ICartContext {
     getCartTotalPrice: () => number
     getCartTotalProducts: () => number
     setReviewedCart: (isReviewed: boolean) => void
+    setClientDetails: (client: IClient | null) => void
 }
 
 export const CartContext = createContext<ICartContext>({
@@ -66,7 +67,8 @@ export const CartContext = createContext<ICartContext>({
     increaseProductQuantity: () => { },
     getCartTotalPrice: () => 0,
     getCartTotalProducts: () => 0,
-    setReviewedCart: () => {}
+    setReviewedCart: () => {},
+    setClientDetails: () => {}
 });
 
 interface Props {
@@ -196,8 +198,15 @@ export const CartContextProvider = ({
         }));
     }
 
+    const setClientDetails = (client: IClient | null) => {
+        setCart((previousCart: ICart) => ({
+            ...previousCart,
+            client: client
+        }));
+    }
+
     return (
-        <CartContext.Provider value={{ cart, addProductToCart, removeProductFromCart, isProductInCart, increaseProductQuantity, getCartTotalPrice, getCartTotalProducts, setReviewedCart }}>
+        <CartContext.Provider value={{ cart, addProductToCart, removeProductFromCart, isProductInCart, increaseProductQuantity, getCartTotalPrice, getCartTotalProducts, setReviewedCart, setClientDetails }}>
             {children}
         </CartContext.Provider>
     )
