@@ -1,8 +1,9 @@
 "use client";
-import Carousel from 'react-bootstrap/Carousel';
+import uniqid from 'uniqid';
 
 import { Steamer } from "@/model/Steamer"
-import uniqid from 'uniqid';
+
+import Carousel from 'react-bootstrap/Carousel';
 
 interface Props {
     carouselId: string,
@@ -16,7 +17,7 @@ function ProductCarousel({
     indicatorLabels
 }: Props) {
     return (
-        <Carousel id={carouselId} controls={false} fade indicators={true} indicatorLabels={indicatorLabels}>
+        <Carousel id={carouselId} controls={false} fade indicators={true} indicatorLabels={indicatorLabels} interval={1200} touch>
             {
                 steamers.map((steamer, index) => (
                     <Carousel.Item key={uniqid()}>
