@@ -18,12 +18,18 @@ import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useCartContext, IClient } from '@/context/cartContext';
 
-interface Country {
+interface ICountry {
     name: string,
     code: string,
     dialCode: string
 }
+
+interface IUsState {
+    name: string,
+    code: string
+} 
 
 export interface ClientDetailsFormData {
     firstName: string,
@@ -35,33 +41,34 @@ export interface ClientDetailsFormData {
     city: string,
     state?: string | undefined,
     zipCode: string,
-    countryCode: string,
+    countryDialCode: string,
     phoneNumber: string,
     notes?: string | undefined
 }
 
 function ClientDetailsForm() {
-    const [countryName, setCountryName] = useState<Country['name']>('United States');
-    const [usState, setUsState] = useState<string>('AL');
-    const [countryDialCode, setCountryDialCode] = useState<string>('');
+    const { cart, setClientDetails } = useCartContext();
+    const [countryName, setCountryName] = useState<IClient['country'] | ICountry['name']>(cart.client?.country || 'United States');
+    const [usState, setUsState] = useState<IClient['state'] | IUsState['code']>(cart.client?.state || 'AL');
+    const [countryDialCode, setCountryDialCode] = useState<IClient['countryDialCode'] | string>(cart.client?.countryDialCode || '(United States) +1');
     const router = useRouter();
 
     const { register, handleSubmit, formState: { errors, isDirty, isValid, isLoading } } = useForm<ClientDetailsFormData>({
         resolver: yupResolver(clientDetailsFormSchema),
         mode: 'onBlur',
         defaultValues: {
-            firstName: '',
-            lastName: '',
-            email: '',
-            country: countryName,
-            addressOne: '',
-            addressTwo: '',
-            city: '',
-            state: usState,
-            zipCode: '',
-            countryCode: countryDialCode,
-            phoneNumber: '',
-            notes: ''
+            firstName: cart.client?.firstName || '',
+            lastName: cart.client?.lastName || '',
+            email: cart.client?.email || '',
+            country: cart.client?.country || countryName,
+            addressOne: cart.client?.addressOne || '',
+            addressTwo: cart.client?.addressTwo || '',
+            city: cart.client?.city || '',
+            state: cart.client?.state || usState,
+            zipCode: cart.client?.zipCode || '',
+            countryDialCode: cart.client?.countryDialCode || countryDialCode,
+            phoneNumber: cart.client?.phoneNumber || '',
+            notes: cart.client?.notes || ''
         },
     });
 
@@ -73,28 +80,15 @@ function ClientDetailsForm() {
     }, [countryName])
 
     const onFormSubmit: SubmitHandler<ClientDetailsFormData> = (formData: ClientDetailsFormData, e) => {
+        console.log('formData:', formData)
         e?.preventDefault();
 
-        console.log(formData);
-
-        let allGood = true;
-        if (allGood) {
+        if (formData) {
+            setClientDetails(formData);
             router.push('/checkout/payment')
         }
 
-        // const response = fetch('/api/contact', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Accept': 'application/json'
-        //     },
-        //     body: JSON.stringify(formData)
-        // }).then(res => res.json()).then(data => console.log(data))
-
-        // console.log(response);
-
     }
-
 
     return (
         <Form onSubmit={handleSubmit(onFormSubmit)} data-bs-theme="dark" className='w-100'>
@@ -177,8 +171,8 @@ function ClientDetailsForm() {
                 <Col md={3}>
                     {/* Country code */}
                     {/* Make it controlled depending on the country */}
-                    <FloatingLabel label="Country Code" controlId='countryCode'>
-                        <Form.Select {...register('countryCode', { onChange: (e) => setCountryDialCode(e.target.value) })} name='countryCode' size='lg' value={countryDialCode}>
+                    <FloatingLabel label="Country Code" controlId='countryDialCode'>
+                        <Form.Select {...register('countryDialCode', { onChange: (e) => setCountryDialCode(e.target.value) })} name='countryDialCode' size='lg' value={countryDialCode}>
                             {
                                 countries.map((country) => {
                                     return <option key={uniqid()} value={`(${country.name}) ${country.dialCode}`}>({country.name}) {country.dialCode}</option>
@@ -186,7 +180,7 @@ function ClientDetailsForm() {
                             }
                         </Form.Select>
                     </FloatingLabel>
-                    <p className="text-danger mb-2">{errors.countryCode?.message}</p>
+                    <p className="text-danger mb-2">{errors.countryDialCode?.message}</p>
                 </Col>
                 <Col md={9}>
                     {/* Phone Number */}
