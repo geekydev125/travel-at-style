@@ -30,13 +30,13 @@ function CartDrawer() {
                 }
             </Offcanvas.Body>
 
-            <div className="w-100 px-2 py-4 position-absolute bottom-0 background-light-gradient d-flex flex-row justify-content-between align-items-center">
+            <div className="w-100 px-3 py-4 position-absolute bottom-0 background-light-gradient d-flex flex-row justify-content-between align-items-center">
                 {
                     cart.products.length > 0 && (
                         <>
                             <CartTotal />
 
-                            <ProceedToCheckoutButton />
+                            <ProceedToCheckoutButton handleDrawerClose={handleClose}/>
                         </>
                     )
                 }
