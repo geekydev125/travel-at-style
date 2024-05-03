@@ -96,12 +96,11 @@ export const CartContextProvider = ({
 
             newInstanceOfCartProducts[indexOfProductInCart] = updatedProduct;
 
-            return setCart((previousCart: ICart) => ({
-                ...previousCart,
+            return setCart({
+                ...cart,
                 products: newInstanceOfCartProducts,
-                reviewed: false
-            
-            }));
+                reviewed: false,
+            });
         } else {
             let newProduct: ICartProduct = {
                 _id: product._id,
@@ -119,11 +118,11 @@ export const CartContextProvider = ({
                 }
             }
 
-            setCart((previousCart: ICart) => ({
-                ...previousCart,
-                products: [...previousCart.products, newProduct],
-                reviewed: false
-            }));
+            setCart({
+                ...cart,
+                products: [...cart.products, newProduct],
+                reviewed: false,
+            });
         }
     }
 
@@ -140,12 +139,11 @@ export const CartContextProvider = ({
 
         newInstanceOfCartProducts[indexOfProductInCart] = updatedProduct;
 
-        return setCart((previousCart: ICart) => ({
-            ...previousCart,
+        return setCart({
+            ...cart,
             products: newInstanceOfCartProducts,
             reviewed: false
-        
-        }));
+        });
     }
 
     const removeProductFromCart = (productId: TProduct['_id'] | ICartProduct['_id']) => {
@@ -165,11 +163,11 @@ export const CartContextProvider = ({
                 newInstanceOfCartProducts[indexOfProductInCart] = updatedProduct;
             }
 
-            setCart((previousCart: ICart) => ({
-                ...previousCart,
+            setCart({
+                ...cart,
                 products: newInstanceOfCartProducts,
                 reviewed: false,
-            }));
+            });
         }
     }
 
@@ -196,17 +194,17 @@ export const CartContextProvider = ({
     }
 
     const setReviewedCart = (isReviewed: boolean) => {
-        setCart((previousCart: ICart) => ({
-            ...previousCart,
+        setCart({
+            ...cart,
             reviewed: isReviewed
-        }));
+        });
     }
 
     const setClientDetails = (client: IClient | null) => {
-        setCart((previousCart: ICart) => ({
-            ...previousCart,
+        setCart({
+            ...cart,
             client: client
-        }));
+        });
     }
 
     return (
