@@ -52,7 +52,7 @@ interface ICartContext {
     addProductToCart: (product: TProduct) => void,
     increaseProductQuantity: (productId: TProduct['_id'] | ICartProduct['_id']) => void
     removeProductFromCart: (productId: TProduct['_id'] | ICartProduct['_id']) => void,
-    isProductInCart: (productId: TProduct['_id'] | ICartProduct['_id']) => boolean,
+    isProductInCart: (productId: TProduct['_id'] | ICartProduct['_id']) => boolean | ICartProduct,
     getCartTotalPrice: () => number
     getCartTotalProducts: () => number
     setReviewedCart: (isReviewed: boolean) => void
@@ -81,17 +81,15 @@ export const CartContextProvider = ({
     const [cart, setCart] = useLocalStorage('cart', cartInitialState);
 
     const addProductToCart = (product: TProduct) => {
-        let isProductAlreadyInCart: ICartProduct = cart.products.find((cartProduct: ICartProduct) => cartProduct._id === product._id);
+        let productInCart: ICartProduct | false = isProductInCart(product._id);
 
-        if (isProductAlreadyInCart) {
-            let productAlreadyInCart: ICartProduct = isProductAlreadyInCart;
-
-            let indexOfProductInCart: number = cart.products.indexOf(productAlreadyInCart);
+        if (productInCart) {
+            let indexOfProductInCart: number = cart.products.indexOf(productInCart);
             let newInstanceOfCartProducts: ICart['products'] = [...cart.products];
 
             let updatedProduct: ICartProduct = {
-                ...productAlreadyInCart,
-                quantity: productAlreadyInCart.quantity + 1
+                ...productInCart,
+                quantity: productInCart.quantity + 1
             }
 
             newInstanceOfCartProducts[indexOfProductInCart] = updatedProduct;
@@ -127,14 +125,14 @@ export const CartContextProvider = ({
     }
 
     const increaseProductQuantity = (productId: TProduct['_id'] | ICartProduct['_id']) => {
-        let productAlreadyInCart: ICartProduct = cart.products.find((cartProduct: ICartProduct) => cartProduct._id === productId);
+        let productInCart: ICartProduct = isProductInCart(productId) as ICartProduct;
 
-        let indexOfProductInCart: number = cart.products.indexOf(productAlreadyInCart);
+        let indexOfProductInCart: number = cart.products.indexOf(productInCart);
         let newInstanceOfCartProducts = [...cart.products];
 
         let updatedProduct: ICartProduct = {
-            ...productAlreadyInCart,
-            quantity: productAlreadyInCart.quantity + 1
+            ...productInCart,
+            quantity: productInCart.quantity + 1
         }
 
         newInstanceOfCartProducts[indexOfProductInCart] = updatedProduct;
@@ -147,15 +145,15 @@ export const CartContextProvider = ({
     }
 
     const removeProductFromCart = (productId: TProduct['_id'] | ICartProduct['_id']) => {
-        let isProductAlreadyInCart: ICartProduct = cart.products.find((cartProduct: ICartProduct) => cartProduct._id === productId);
+        let productInCart: ICartProduct = isProductInCart(productId) as ICartProduct;
 
-        if (isProductAlreadyInCart) {
-            let indexOfProductInCart:number = cart.products.indexOf(isProductAlreadyInCart);
+        if (productInCart) {
+            let indexOfProductInCart:number = cart.products.indexOf(productInCart);
             let newInstanceOfCartProducts = [...cart.products];
 
             let updatedProduct: ICartProduct = {
-                ...isProductAlreadyInCart,
-                quantity: isProductAlreadyInCart.quantity - 1
+                ...productInCart,
+                quantity: productInCart.quantity - 1
             }
             if (updatedProduct.quantity === 0) {
                 newInstanceOfCartProducts.splice(indexOfProductInCart, 1);
@@ -172,10 +170,10 @@ export const CartContextProvider = ({
     }
 
     const isProductInCart = (productId: TProduct['_id'] | ICartProduct['_id']) => {
-        let isProductAlreadyInCart:ICartProduct = cart.products.find((cartProduct: ICartProduct) => cartProduct._id === productId);
+        let productInCart:ICartProduct = cart.products.find((cartProduct: ICartProduct) => cartProduct._id === productId);
 
-        if (isProductAlreadyInCart) {
-            return true;
+        if (productInCart) {
+            return productInCart;
         } else {
             return false;
         }
