@@ -1,7 +1,7 @@
 "use client";
 import uniqid from 'uniqid';
 
-import { Steamer } from "@/model/Steamer"
+import Steamer from "@/model/Steamer"
 
 import Carousel from 'react-bootstrap/Carousel';
 

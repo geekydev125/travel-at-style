@@ -1,9 +1,9 @@
 
 import { useModalContext } from "@/context/modalContext"
 
-import { Accessory } from "@/model/Accessory"
-import { Luggage } from "@/model/Luggage"
-import { Steamer } from "@/model/Steamer"
+import Accessory from "@/model/Accessory"
+import Luggage from "@/model/Luggage"
+import Steamer from "@/model/Steamer"
 
 import Button from "react-bootstrap/Button"
 import AddRemoveCartButtons from "@/components/AddRemoveCartButtons"

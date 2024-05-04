@@ -1,9 +1,9 @@
 "use client";
 import useLocalStorage from "@/hooks/useLocalStorage";
-import { Accessory } from "@/model/Accessory";
-import { Luggage } from "@/model/Luggage";
-import { Product } from "@/model/Product";
-import { Steamer } from "@/model/Steamer";
+import Accessory from "@/model/Accessory";
+import Luggage from "@/model/Luggage";
+import Product from "@/model/Product";
+import Steamer from "@/model/Steamer";
 import { createContext, useContext } from "react";
 
 export interface IClient {

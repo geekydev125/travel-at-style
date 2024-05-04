@@ -6,9 +6,9 @@ import steamers from "@/data/steamers.json"
 import luggage from "@/data/luggage.json"
 import accessories from "@/data/accessories.json"
 
-import { Accessory } from '@/model/Accessory';
-import { Steamer } from '@/model/Steamer';
-import { Luggage } from '@/model/Luggage';
+import Accessory from '@/model/Accessory';
+import Steamer from '@/model/Steamer';
+import Luggage from '@/model/Luggage';
 
 import ShopProductCard from './ShopProductCards/ShopProductCard';
 import ProductsTab from './ProductsTab';

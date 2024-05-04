@@ -1,9 +1,9 @@
 "use client"
 import { createContext, useContext, useState } from "react";
 
-import { Accessory } from "@/model/Accessory";
-import { Luggage } from "@/model/Luggage";
-import { Steamer } from "@/model/Steamer";
+import Accessory from "@/model/Accessory";
+import Luggage from "@/model/Luggage";
+import Steamer from "@/model/Steamer";
 
 interface IModalContext {
     showModal: boolean,

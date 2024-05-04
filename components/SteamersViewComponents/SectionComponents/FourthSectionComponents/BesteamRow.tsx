@@ -1,7 +1,7 @@
 import uniqid from "uniqid"
 import NextLink from "next/link"
 
-import { Steamer } from "@/model/Steamer"
+import Steamer from "@/model/Steamer"
 
 import ProductCarousel from "../../ProductCarousel"
 

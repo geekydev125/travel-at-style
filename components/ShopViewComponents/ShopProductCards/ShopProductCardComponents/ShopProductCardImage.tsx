@@ -1,8 +1,8 @@
 import styles from '../ShopProductCard.module.scss'
 
-import { Steamer } from '@/model/Steamer'
-import { Luggage } from '@/model/Luggage'
-import { Accessory } from '@/model/Accessory'
+import Steamer from '@/model/Steamer'
+import Luggage from '@/model/Luggage'
+import Accessory from '@/model/Accessory'
 import { useModalContext } from '@/context/modalContext'
 
 interface Props {

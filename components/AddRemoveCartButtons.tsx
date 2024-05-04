@@ -1,8 +1,8 @@
 import { useCartContext } from "@/context/cartContext"
 
-import { Luggage } from "@/model/Luggage"
-import { Accessory } from "@/model/Accessory"
-import { Steamer } from "@/model/Steamer"
+import Luggage from "@/model/Luggage"
+import Accessory from "@/model/Accessory"
+import Steamer from "@/model/Steamer"
 
 import CustomButton from "@/components/CustomButton"
 import IconPlus from "@/components/Icons/IconPlus"

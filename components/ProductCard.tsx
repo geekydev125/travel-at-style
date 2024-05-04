@@ -1,8 +1,10 @@
 import NextLink from "next/link"
 
-import { Accessory } from "@/model/Accessory"
-import { Luggage } from "@/model/Luggage"
+import Accessory from "@/model/Accessory"
+import Luggage from "@/model/Luggage"
+
 import styles from "./ProductCard.module.scss"
+
 import CustomButton from "@/components/CustomButton"
 
 import Card from "react-bootstrap/Card"

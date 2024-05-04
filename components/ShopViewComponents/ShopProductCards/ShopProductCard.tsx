@@ -1,10 +1,10 @@
-import { Accessory } from "@/model/Accessory"
-import { Luggage } from "@/model/Luggage"
+import Accessory from "@/model/Accessory"
+import Luggage from "@/model/Luggage"
+import Steamer from "@/model/Steamer"
 
 import ShopProductCardPrice from "./ShopProductCardComponents/ShopProductCardPrice"
 import ShopProductCardImage from "./ShopProductCardComponents/ShopProductCardImage"
 import ShopProductCardButtons from "./ShopProductCardComponents/ShopProductCardButtons"
-import { Steamer } from "@/model/Steamer"
 
 interface Props {
     product: Luggage | Accessory | Steamer

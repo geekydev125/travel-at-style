@@ -1,9 +1,9 @@
 "use client"
 import { useModalContext } from '@/context/modalContext';
 
-import { Steamer } from '@/model/Steamer';
-import { Accessory } from '@/model/Accessory';
-import { Luggage } from '@/model/Luggage';
+import Steamer from '@/model/Steamer';
+import Accessory from '@/model/Accessory';
+import Luggage from '@/model/Luggage';
 
 import AddRemoveCartButtons from '../AddRemoveCartButtons';
 
