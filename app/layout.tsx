@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 		default: "Travel @ Style",
 		template: "Travel @ Style | %s",
 	},
-	description: "Indulge in the elegance of Italian steamers, find practical travel bags, and explore our range of accessories at Travel At Style. Elevate your travel experience with comfort and sophistication."
+	description: "Indulge in the elegance of Italian steamers, find practical travel bags, and explore our range of accessories at Travel @ Style. Elevate your travel experience with comfort and sophistication."
 };
 
 export default function RootLayout({
