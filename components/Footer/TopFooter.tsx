@@ -14,7 +14,7 @@ function TopFooter() {
         <Container as='nav'>
             <Row className="px-4 pt-5">
                 <Col xs={6} md={3} className="order-1 d-flex flex-column align-items-md-center">
-                    <h4 className="text-custom-light">Products</h4>
+                    <h4 className="text-primary fw-semibold">Products</h4>
                     <ul className="list-unstyled">
                         {routes.map((route: Route, index) => {
                             if (route.path !== '/' && index < 4) {
@@ -31,7 +31,7 @@ function TopFooter() {
                 </Col>
 
                 <Col xs={6} md={3} className="order-2 d-flex flex-column align-items-md-center">
-                    <h4 className="text-custom-light">Steamers Misc</h4>
+                    <h4 className="text-primary fw-semibold">Steamers Misc</h4>
                     <ul className="list-unstyled">
                         {routes.map((route: Route, index) => {
                             if (route.path !== '/' && index > 5 && index < 8) {
@@ -54,7 +54,7 @@ function TopFooter() {
                 </Col>
 
                 <Col xs={6} md={3} className="order-3 order-md-4 d-flex flex-column align-items-md-center">
-                    <h4 className="text-custom-light">Get In Touch</h4>
+                    <h4 className="text-primary fw-semibold">Get In Touch</h4>
                     <ul className="list-unstyled">
                         {routes.map((route: Route, index) => {
                             if (route.path !== '/' && index > 7) {

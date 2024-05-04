@@ -11,7 +11,7 @@ function BottomFooter() {
 				</p>
 				<p className="text-custom-light mb-0">
 					<span className='pe-1 text-custom-light'>Powered by</span>
-					<a href="http://www.arielbehar.com">
+					<a href="http://www.arielbehar.com" className='text-primary fw-bold'>
 						Ariel Behar
 						<Image src='/assets/img/logo/arielbehar-logo.png' alt='Ariel Behar Logo' width={18} height={18} className='ms-2' />
 					</a>
