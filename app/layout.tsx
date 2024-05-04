@@ -4,17 +4,13 @@ import { Inter } from "next/font/google";
 import 'react-toastify/dist/ReactToastify.min.css';
 import "../styles/globals.scss";
 
-import { ModalContextProvider } from "@/context/modalContext";
-import { CartContextProvider } from "@/context/cartContext";
-import { CartDrawerContextProvider } from "@/context/cartDrawerContext";
-import { NotificationProvider } from "@/context/notificationContext";
+import Providers from "./providers";
 
 import BootstrapClient from "@/components/BootstrapClient";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import CartDrawer from "@/components/Cart/CartDrawer";
 import Notification from "@/components/Notification";
-
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,29 +33,23 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<CartContextProvider>
-				<CartDrawerContextProvider>
-					<NotificationProvider>
-						<ModalContextProvider>
-							<body style={{ minHeight: '100vh' }} className={`${inter.className} d-flex flex-column  background-pattern-crossword`}>
-								<Header />
+			<Providers>
+				<body style={{ minHeight: '100vh' }} className={`${inter.className} d-flex flex-column  background-pattern-crossword`}>
+					<Header />
 
-								<main className="flex-grow-1 overflow-hidden">
-									{children}
-								</main>
+					<main className="flex-grow-1 overflow-hidden">
+						{children}
+					</main>
 
-								<CartDrawer />
-								<Notification />
+					<CartDrawer />
+					<Notification />
 
-								<Footer />
+					<Footer />
 
-								<BootstrapClient />
-								
-							</body>
-						</ModalContextProvider>
-					</NotificationProvider>
-				</CartDrawerContextProvider>
-			</CartContextProvider>
+					<BootstrapClient />
+
+				</body>
+			</Providers>
 		</html>
 	);
 }
