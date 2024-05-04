@@ -4,6 +4,8 @@ import NextLink from "next/link"
 
 import { useCartContext } from "@/context/cartContext"
 
+import isCartEmptyRouteGuard from "@/hoc/isCartEmptyRouteGuard"
+
 import CartDrawerProductCard from "@/components/Cart/CartDrawerProductCard"
 import CartTotal from "@/components/Cart/CartTotal"
 import CustomButton from "@/components/CustomButton"
@@ -43,4 +45,4 @@ function ReviewPage() {
 	)
 }
 
-export default ReviewPage
+export default isCartEmptyRouteGuard(ReviewPage)
