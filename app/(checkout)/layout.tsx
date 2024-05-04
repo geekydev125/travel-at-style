@@ -1,12 +1,6 @@
-"use client"
-
-import isCartEmptyRouteGuard from '@/hoc/isCartEmptyRouteGuard';
+import CheckoutViewLayoutHeader from '@/components/CheckoutViewComponents/CheckoutViewLayoutHeader';
 
 import Container from 'react-bootstrap/Container'
-
-import CheckoutViewLayoutTitle from '@/components/CheckoutViewComponents/CheckoutViewLayoutTitle';
-import CheckoutViewLayoutButtons from '@/components/CheckoutViewComponents/CheckoutViewLayoutButtons';
-import CheckoutViewLayoutProgressBar from '@/components/CheckoutViewComponents/CheckoutViewLayoutProgressBar';
 
 interface Props {
     children: React.ReactNode
@@ -17,17 +11,11 @@ function CheckoutLayout({
 }: Props) {
     return (
         <Container as='section' className="py-lg-5">
-            <div className='d-flex flex-column flex-md-row align-items-sm-end justify-content-between pb-3 pb-lg-0 mb-lg-4'>
-                <CheckoutViewLayoutTitle />
-
-                <CheckoutViewLayoutButtons />
-            </div>
-
-            <CheckoutViewLayoutProgressBar />
+            <CheckoutViewLayoutHeader />
 
             {children}
-        </Container>
+        </Container >
     )
 }
 
-export default isCartEmptyRouteGuard(CheckoutLayout as React.ComponentType<JSX.IntrinsicAttributes>);
+export default CheckoutLayout;
