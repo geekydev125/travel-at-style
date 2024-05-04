@@ -96,7 +96,7 @@ function TopNavigationBar({
                 </Nav>
 
                 <Navbar.Toggle className='btn-feedback' aria-controls="navbarContent" ref={navButtonRef} onClick={() => setExpanded(() => !expanded)}>
-                    <IconBars width='30px' height='30px' />
+                    <IconBars width='30px' height='30px' stroke='#f5f5f5' />
                 </Navbar.Toggle>
 
                 <Navbar.Collapse id="navbarContent" ref={navbarCollapseRef} className='py-3 position-relative'>
