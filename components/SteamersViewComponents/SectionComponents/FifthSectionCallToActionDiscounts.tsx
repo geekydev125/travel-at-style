@@ -17,7 +17,7 @@ function FifthSectionCallToActionDiscounts() {
                     </Col>
 
                     <Col xs={{span: 12, order: 1}} md={{span: 6, order: 2}} lg={{span: 7, order: 2}}  className="text-center d-flex flex-column justify-content-center align-items-center">
-                        <h3 className="text-uppercase text-custom-light mb-0">Over the top quantity-based discounts</h3>
+                        <h3 className="text-uppercase text-custom-light mb-0">Over-the-top quality and efficiency</h3>
 
                         <NextLink href="/shop" className="my-3 ">
                             <CustomButton variant="primary" size="lg" classes="">GET YOUR STEAMER NOW!</CustomButton>
