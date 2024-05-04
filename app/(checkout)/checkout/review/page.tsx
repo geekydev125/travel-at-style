@@ -4,8 +4,6 @@ import NextLink from "next/link"
 
 import { useCartContext } from "@/context/cartContext"
 
-import isCartEmptyRouteGuard from "@/hoc/isCartEmptyRouteGuard"
-
 import CartDrawerProductCard from "@/components/Cart/CartDrawerProductCard"
 import CartTotal from "@/components/Cart/CartTotal"
 import CustomButton from "@/components/CustomButton"
@@ -14,6 +12,7 @@ import IconChevronRight from "@/components/Icons/IconChevronRight"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
+import isCartEmptyRouteGuard from "@/hoc/isCartEmptyRouteGuard"
 
 function ReviewPage() {
 	const { cart, setReviewedCart } = useCartContext()

@@ -1,3 +1,6 @@
+"use client"
+
+import isCartEmptyRouteGuard from "@/hoc/isCartEmptyRouteGuard"
 import Container from "react-bootstrap/Container"
 
 function PaymentPage() {
@@ -15,4 +18,4 @@ function PaymentPage() {
 	)
 }
 
-export default PaymentPage
+export default isCartEmptyRouteGuard(PaymentPage)
