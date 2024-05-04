@@ -13,7 +13,7 @@ function CartProductsList() {
     
     return (
         <Container>
-            <Row className="gx-3 gy-4">
+            <Row className="gx-3 gy-4 pt-2">
                 {cart.products.map((product) => (
                     <Col xs={6} key={uniqid()}>
                         <CartDrawerProductCard product={product} />

@@ -8,7 +8,7 @@ function CartEmpty({
     handleDrawerClose
 }:Props) {
     return (
-        <div className="d-flex flex-column justify-content-center h-100">
+        <div className="d-flex flex-column justify-content-center h-100 px-3">
             <h5 className="text-custom-dark">Cart is empty</h5>
             <p className="text-custom-dark">
                 Please head out to the&nbsp;
