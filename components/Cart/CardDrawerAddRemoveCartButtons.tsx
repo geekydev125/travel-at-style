@@ -26,14 +26,14 @@ function CardDrawerAddRemoveCartButtons({
 
     return (
         <>
-            <div style={{ cursor: 'pointer' }} onClick={() => removeProductHandler(product)}>
-                <IconMinus stroke="red" height="25px" width="25px" classes="shadow-sm" />
+            <div style={{ cursor: 'pointer' }} onClick={() => removeProductHandler(product)} className="btn-feedback">
+                <IconMinus stroke="red" height="25px" width="25px" classes="shadow-sm btn-feedback" />
             </div>
 
             <p className="text-custom-dark mb-0 fw-semibold">${(product.price * product.quantity).toFixed(2)}</p>
 
-            <div style={{ cursor: 'pointer' }} onClick={() => addProductHandler(product)}>
-                <IconPlus stroke="green" height="25px" width="25px" classes="shadow-sm" />
+            <div style={{ cursor: 'pointer' }} onClick={() => addProductHandler(product)} className="btn-feedback">
+                <IconPlus stroke="green" height="25px" width="25px" classes="shadow-sm btn-feedback" />
             </div>
         </>
     )

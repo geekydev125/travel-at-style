@@ -45,7 +45,7 @@ function TopNavigationNavItems({
                                 <Nav.Link
                                     as={NextLink}
                                     onClick={collapseNav}
-                                    className={`mx-3 text-custom-light ${route.path === '/shop' ? 'fst-italic fw-medium' : ''}`}
+                                    className={`btn-feedback mx-3 text-custom-light ${route.path === '/shop' ? 'fst-italic fw-medium' : ''}`}
                                     href={route.path}
                                 >
                                     {route.title}
@@ -62,7 +62,7 @@ function TopNavigationNavItems({
                                     <Nav.Link
                                         as={NextLink}
                                         onClick={collapseNav}
-                                        className={`mx-3 text-custom-light`}
+                                        className={`btn-feedback mx-3 text-custom-light`}
                                         href={route.path}
                                     >
                                         {route.title}
@@ -78,7 +78,7 @@ function TopNavigationNavItems({
             <NextLink
                 onClick={collapseNav}
                 href="/steamers"
-                className='d-none d-lg-block'
+                className='btn-feedback d-none d-lg-block'
                 style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translateX(-50%) translateY(-50%)' }}
             >
                 <img className={`${styles.logo}`} src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" />
@@ -90,7 +90,7 @@ function TopNavigationNavItems({
                     <Nav.Link
                         as={'span'}
                         onClick={() => handleBottomNavCollapse()}
-                        className={`text-custom-light mx-3 ${styles['chevron-icon-span']} ${isBottomNavCollapsed ? '' : styles['custom-opacity']}`}
+                        className={`btn-feedback text-custom-light mx-3 ${styles['chevron-icon-span']} ${isBottomNavCollapsed ? '' : styles['custom-opacity']}`}
                     >
                         Misc
                         <IconChevronUp classes={`ms-1 ${styles['chevron-icon']} ${isBottomNavCollapsed ? `${styles['rotated-icon']}` : ''}`} />
@@ -105,7 +105,7 @@ function TopNavigationNavItems({
                                 <Nav.Link
                                     as={NextLink}
                                     onClick={collapseNav}
-                                    className={`fst-italic fw-medium mx-3 text-custom-light ${styles['shop-item']}`}
+                                    className={`btn-feedback fst-italic fw-medium mx-3 text-custom-light ${styles['shop-item']}`}
                                     href={route.path}
                                 >
                                     {route.title}
@@ -117,7 +117,7 @@ function TopNavigationNavItems({
 
                 {/* Cart - Desktop*/}
                 <Nav.Item className='d-none d-lg-block'>
-                    <Nav.Link as={'span'} onClick={handleShow} className='mx-3' style={{ cursor: 'pointer' }}>
+                    <Nav.Link as={'span'} onClick={handleShow} className='btn-feedback mx-3' style={{ cursor: 'pointer' }}>
                         <CartIconWithBadge cartIconHeight='23px' cartIconWidth='23px' cartIconFill='#f5f5f5'/>
                     </Nav.Link>
                 </Nav.Item>

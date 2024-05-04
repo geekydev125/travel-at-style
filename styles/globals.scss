@@ -187,3 +187,10 @@ main {
 		}
 	}
 }
+
+.btn-feedback {
+	&:active {
+		transform: scale(0.97);
+		box-shadow: none!important;
+	}
+}

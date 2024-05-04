@@ -37,13 +37,13 @@ function AddRemoveCartButtons({
         <div className="d-flex flex-row">
             {
                 isProductInCart(product._id) && (
-                    <CustomButton classes={classesRemoveButton} variant="danger" size="sm" onClick={() => removeProductHandler(product)}>
+                    <CustomButton classes={`${classesRemoveButton} btn-feedback`} variant="danger" size="sm" onClick={() => removeProductHandler(product)}>
                         <IconMinus />
                     </CustomButton>
                 )
             }
 
-            <CustomButton variant="success" onClick={() => addProductHandler(product)} size='sm' classes={classesAddButton}>
+            <CustomButton variant="success" onClick={() => addProductHandler(product)} size='sm' classes={`${classesAddButton} btn-feedback`}>
                 Add to cart&nbsp;
                 <IconPlus />
             </CustomButton>

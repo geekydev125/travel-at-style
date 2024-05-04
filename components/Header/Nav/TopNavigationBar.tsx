@@ -77,7 +77,7 @@ function TopNavigationBar({
                                         eventKey={route.path}
                                         as={NextLink}
                                         onClick={collapseNav}
-                                        className={`fw-medium fst-italic text-custom-light mx-2 me-sm-4 ${styles['shop-item']}`}
+                                        className={`btn-feedback fw-medium fst-italic text-custom-light mx-2 me-sm-4 ${styles['shop-item']}`}
                                         href={route.path}
                                     >
                                         {route.title}
@@ -89,13 +89,13 @@ function TopNavigationBar({
 
                     {/* Cart - Mobile*/}
                     <Nav.Item>
-                        <Nav.Link as={'span'} onClick={handleShow} className='mx-2' style={{ cursor: 'pointer' }}>
+                        <Nav.Link as={'span'} onClick={handleShow} className='mx-2 btn-feedback' style={{ cursor: 'pointer' }}>
                             <CartIconWithBadge cartIconHeight='23px' cartIconWidth='23px' cartIconFill='#f5f5f5' />
                         </Nav.Link>
                     </Nav.Item>
                 </Nav>
 
-                <Navbar.Toggle aria-controls="navbarContent" ref={navButtonRef} onClick={() => setExpanded(() => !expanded)}>
+                <Navbar.Toggle className='btn-feedback' aria-controls="navbarContent" ref={navButtonRef} onClick={() => setExpanded(() => !expanded)}>
                     <IconBars width='30px' height='30px' />
                 </Navbar.Toggle>
 

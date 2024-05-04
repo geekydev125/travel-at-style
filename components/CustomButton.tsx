@@ -20,7 +20,7 @@ function CustomButton({
     children,
 }: Props) {
     return (
-        <Button type={type} disabled={disabled} onClick={onClick} size={size} variant={variant} className={`shadow ${classes}`} >
+        <Button type={type} disabled={disabled} onClick={onClick} size={size} variant={variant} className={`shadow btn-feedback ${classes}`} >
             {children}
         </Button>
     )
