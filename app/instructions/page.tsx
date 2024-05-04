@@ -25,7 +25,7 @@ const instructions = [
 function InstructionsPage() {
 	return (
 		<Container as='section' className="py-5">
-			<Row>
+			<Row className="pt-lg-4">
 				<Col xs={12} md={9}>
 					<h3 className="text-custom-dark">Besteam operation instructions: </h3>
 					<ol>

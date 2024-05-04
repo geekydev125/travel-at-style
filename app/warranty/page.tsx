@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 function WarrantyPage() {
 	return (
 		<Container as='section' className="py-5">
-			<Row>
+			<Row className="pt-lg-4">
 				<Col sm={9}>
 					<h3 className="text-custom-dark">Warranty</h3>
 
