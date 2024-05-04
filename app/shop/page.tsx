@@ -1,17 +1,18 @@
-"use client"
-import { useModalContext } from "@/context/modalContext"
+import { Metadata } from "next"
 
 import ProductsTabs from "@/components/ShopViewComponents/ProductsTabs"
 import ProductModal from "@/components/ShopViewComponents/ProductModal"
 
-function ShopPage() {
-	const { showModal } = useModalContext()
+export const metadata: Metadata = {
+    title: "Shop",
+}
 
+function ShopPage() {
 	return (
 		<>
 			<ProductsTabs />
 
-			{showModal && <ProductModal />}
+			<ProductModal />
 		</>
 	)
 }

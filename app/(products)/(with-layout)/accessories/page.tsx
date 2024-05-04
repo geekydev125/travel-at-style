@@ -1,14 +1,18 @@
-"use client"
-import React from "react";
 import uniqid from "uniqid";
+
+import { Metadata } from "next";
 
 import accessories from "@/data/accessories.json"
 
-import { Accessory } from "@/model/Accessory";
+import Accessory from "@/model/Accessory";
 
 import ProductCard from "@/components/ProductCard";
 
 import Col from "react-bootstrap/Col";
+
+export const metadata: Metadata = {
+    title: "Accessories",
+}
 
 function AccessoriesPage() {
 	return (

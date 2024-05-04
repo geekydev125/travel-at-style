@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 import BesteamVideoBackground from '@/components/SteamersViewComponents/BesteamVideoBackground'
 import FirstSectionCallToAction from '@/components/SteamersViewComponents/SectionComponents/FirstSectionComponents/FirstSectionCallToAction'
 import SecondSectionBesteamDescription from '@/components/SteamersViewComponents/SectionComponents/SecondSectionBesteamDescription'
@@ -5,6 +7,10 @@ import ThirdSectionBesteamVideo from '@/components/SteamersViewComponents/Sectio
 import FourthSectionShopOverview from '@/components/SteamersViewComponents/SectionComponents/FourthSectionComponents/FourthSectionShopOverview'
 import SteamerSlider from '@/components/SteamersViewComponents/SteamerSlider'
 import FifthSectionCallToActionDiscounts from '@/components/SteamersViewComponents/SectionComponents/FifthSectionCallToActionDiscounts'
+
+export const metadata: Metadata = {
+    title: "Steamers",
+}
 
 function SteamersPage() {
 	return (

@@ -1,8 +1,14 @@
+import { Metadata } from "next"
+
 import Map from "@/components/Map"
 
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
+
+export const metadata: Metadata = {
+    title: "Shop Location",
+}
 
 function LocationPage() {
 	return (

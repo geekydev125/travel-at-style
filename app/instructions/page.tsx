@@ -1,8 +1,14 @@
 import uniqid from "uniqid";
 
+import { Metadata } from "next";
+
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
+
+export const metadata: Metadata = {
+    title: "Steamers Instructions",
+}
 
 const instructions = [
 	"Swing handle up to the open point (90 degrees) marked on the steamer.",

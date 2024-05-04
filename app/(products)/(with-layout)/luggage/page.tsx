@@ -1,14 +1,17 @@
-"use client"
-import React from 'react'
+import { Metadata } from 'next'
 import uniqid from 'uniqid'
 
 import ProductCard from '@/components/ProductCard'
 
 import luggage from '@/data/luggage.json'
 
-import { Luggage } from '@/model/Luggage'
+import Luggage from '@/model/Luggage'
 
 import Col from 'react-bootstrap/Col'
+
+export const metadata: Metadata = {
+    title: "Luggage",
+}
 
 function LuggagePage() {
 	return (
