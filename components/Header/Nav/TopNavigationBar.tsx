@@ -77,7 +77,7 @@ function TopNavigationBar({
                                         eventKey={route.path}
                                         as={NextLink}
                                         onClick={collapseNav}
-                                        className={`btn-feedback fw-medium fst-italic text-custom-light mx-2 me-sm-4 ${styles['shop-item']}`}
+                                        className={`btn-feedback fw-medium fst-italic text-light mx-2 me-sm-4 ${styles['shop-item']}`}
                                         href={route.path}
                                     >
                                         {route.title}

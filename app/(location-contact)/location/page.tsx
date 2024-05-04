@@ -20,9 +20,9 @@ function LocationPage() {
 						style={{ backgroundColor: 'rgba(0,0,0,0.8)' }}
 					>
 						<div className='py-3 w-100 d-flex flex-column justify-content-center align-items-center'>
-							<h3 className="display-3 d-inline-block text-custom-light text-center">Shop Location</h3>
+							<h3 className="display-3 d-inline-block text-light text-center">Shop Location</h3>
 
-							<ul className="list-unstyled text-start text-custom-light">
+							<ul className="list-unstyled text-start text-light">
 								<li>Fulton Center (lower level)</li>
 								<li>200 Broadway</li>
 								<li>New York, NY 10038</li>
@@ -30,7 +30,7 @@ function LocationPage() {
 						</div>
 
 						<div className='py-4 text-center' style={{ borderTop: '1px solid white', borderBottom: '1px solid white' }}>
-							<h6 className="text-custom-light">Subway Trains to Fulton Center</h6>
+							<h6 className="text-light">Subway Trains to Fulton Center</h6>
 							<img src="/assets/img/ny-subway-trains.png" className="img-fluid" alt="Fulton center trains" />
 						</div>
 					</Col>

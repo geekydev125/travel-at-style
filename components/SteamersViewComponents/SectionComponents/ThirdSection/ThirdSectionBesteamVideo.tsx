@@ -8,7 +8,7 @@ function ThirdSectionBesteamVideo() {
             <ParallaxContainer>
                 <div className={`${styles['container-div']} text-center rounded py-5 py-lg-5 px-3 position-relative `}>
                     <h3
-                        className="d-none d-lg-block text-custom-light fw-semibold text-uppercase display-3 position-absolute"
+                        className="d-none d-lg-block text-light fw-semibold text-uppercase display-3 position-absolute"
                         style={{ transform: 'rotate(-90deg) translateY(-50%)', left: '-100px', top: "45%" }}
                     >
                         Besteam in action!

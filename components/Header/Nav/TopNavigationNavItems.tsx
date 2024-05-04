@@ -45,7 +45,7 @@ function TopNavigationNavItems({
                                 <Nav.Link
                                     as={NextLink}
                                     onClick={collapseNav}
-                                    className={`btn-feedback mx-3 text-custom-light ${route.path === '/shop' ? 'fst-italic fw-medium' : ''}`}
+                                    className={`btn-feedback mx-3 text-light ${route.path === '/shop' ? 'fst-italic fw-medium' : ''}`}
                                     href={route.path}
                                 >
                                     {route.title}
@@ -62,7 +62,7 @@ function TopNavigationNavItems({
                                     <Nav.Link
                                         as={NextLink}
                                         onClick={collapseNav}
-                                        className={`btn-feedback mx-3 text-custom-light`}
+                                        className={`btn-feedback mx-3 text-light`}
                                         href={route.path}
                                     >
                                         {route.title}
@@ -90,7 +90,7 @@ function TopNavigationNavItems({
                     <Nav.Link
                         as={'span'}
                         onClick={() => handleBottomNavCollapse()}
-                        className={`btn-feedback text-custom-light mx-3 ${styles['chevron-icon-span']} ${isBottomNavCollapsed ? '' : styles['custom-opacity']}`}
+                        className={`btn-feedback text-light mx-3 ${styles['chevron-icon-span']} ${isBottomNavCollapsed ? '' : styles['custom-opacity']}`}
                     >
                         Misc
                         <IconChevronUp classes={`ms-1 ${styles['chevron-icon']} ${isBottomNavCollapsed ? `${styles['rotated-icon']}` : ''}`} />
@@ -105,7 +105,7 @@ function TopNavigationNavItems({
                                 <Nav.Link
                                     as={NextLink}
                                     onClick={collapseNav}
-                                    className={`btn-feedback fst-italic fw-medium mx-3 text-custom-light ${styles['shop-item']}`}
+                                    className={`btn-feedback fst-italic fw-medium mx-3 text-light ${styles['shop-item']}`}
                                     href={route.path}
                                 >
                                     {route.title}

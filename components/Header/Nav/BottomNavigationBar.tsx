@@ -31,7 +31,7 @@ function BottomNavigationBar({
                                 <Nav.Item key={uniqid()}>
                                     <Nav.Link
                                         as={NextLink}
-                                        className={`py-0 mx-2 text-custom-light`}
+                                        className={`py-0 mx-2 text-light`}
                                         href={route.path}
                                     >
                                         {route.title}
@@ -49,7 +49,7 @@ function BottomNavigationBar({
                                 <Nav.Item key={uniqid()}>
                                     <Nav.Link
                                         as={NextLink}
-                                        className={`py-0 mx-2 text-custom-light`}
+                                        className={`py-0 mx-2 text-light`}
                                         href={route.path}
                                     >
                                         {route.title}
