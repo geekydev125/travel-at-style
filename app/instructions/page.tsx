@@ -27,7 +27,7 @@ function InstructionsPage() {
 		<Container as='section' className="py-5">
 			<Row className="pt-lg-4">
 				<Col xs={12} md={9}>
-					<h3 className="text-custom-dark">Besteam operation instructions: </h3>
+					<h3>Besteam operation instructions: </h3>
 					<ol>
 						{
 							instructions.map((instruction, index) => {
@@ -46,14 +46,14 @@ function InstructionsPage() {
 										note = 'Warning: '
 									}
 
-									return <li key={uniqid()} className="text-custom-dark">
+									return <li key={uniqid()}>
 										{normalInstructionPart}
 										<br />
-										<span className="fw-semibold text-custom-dark fst-italic">{note} {boldInstructionPart}</span>
+										<span className="fw-semibold  fst-italic">{note} {boldInstructionPart}</span>
 									</li>
 								}
 
-								return <li key={uniqid()} className="text-custom-dark">{instruction}</li>
+								return <li key={uniqid()}>{instruction}</li>
 							})
 						}
 					</ol>

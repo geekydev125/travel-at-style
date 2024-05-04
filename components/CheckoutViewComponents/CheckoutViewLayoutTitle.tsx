@@ -31,10 +31,10 @@ function CheckoutViewLayoutTitle() {
 
     return (
         <div className='me-auto'>
-            <h3 className="display-2 text-custom-dark mb-0 fw-semibold">
+            <h3 className="display-2 mb-0 fw-semibold">
                 {pageTitle}
             </h3>
-            <span className='text-custom-dark display-6 fw-semibold'>{getCartTotalProducts() > 0 && `(${getCartTotalProducts()} product${getCartTotalProducts() > 1 ? 's' : ''} selected)`}</span>
+            <span className='display-6 fw-semibold'>{getCartTotalProducts() > 0 && `(${getCartTotalProducts()} product${getCartTotalProducts() > 1 ? 's' : ''} selected)`}</span>
         </div>
     )
 }

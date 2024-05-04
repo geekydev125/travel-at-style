@@ -19,7 +19,7 @@ function ReviewPage() {
 
 	return (
 		<Container as="section" className="py-5">
-			<h4 className="text-custom-dark mb-3">Please review your selected products:</h4>
+			<h4 className="mb-3">Please review your selected products:</h4>
 			<Row className="gx-3 gy-4" >
 				{
 					cart.products.map((item) => (

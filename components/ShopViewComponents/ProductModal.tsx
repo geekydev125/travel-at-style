@@ -19,25 +19,25 @@ function ProductModal() {
         <>
             <Modal size='lg' centered show={showModal} onHide={() => showModalHandler(false, null)}>
                 <Modal.Header closeButton className='py-4 px-2 p-sm-4 background-light-gradient'>
-                    <Modal.Title>
-                        {/* <h4 className='text-custom-dark display-4 fw-semibold mb-0'>
+                    {/* <Modal.Title>
+                        <h4 className='display-4 fw-semibold mb-0'>
                             {product && product.name}
                             {`${(product as Steamer).color ? ` (${(product as Steamer).color})` : ''}`}
-                        </h4> */}
-                    </Modal.Title>
+                        </h4>
+                    </Modal.Title> */}
                 </Modal.Header>
 
-                <Modal.Body className='background-pattern-crossword text-custom-dark rounded-3'>
+                <Modal.Body className='background-pattern-crossword rounded-3'>
                     <Container>
                         <Row>
                             <Col xs={12} lg={5} className='mb-3 mb-lg-0 d-flex flex-column justify-content-between '>
                                 <div>
-                                    <h4 className='text-custom-dark display-4 fw-semibold'>
+                                    <h4 className='display-4 fw-semibold'>
                                         {product && product.name}
                                         {`${(product as Steamer).color ? ` (${(product as Steamer).color})` : ''}`}
                                     </h4>
 
-                                    <p className='text-custom-dark mt-4'>
+                                    <p className='mt-4'>
                                         {product && product.description}
                                     </p>
                                 </div>
@@ -58,7 +58,7 @@ function ProductModal() {
                 </Modal.Body>
 
                 <Modal.Footer className='background-light-gradient py-4 px-2 p-sm-4 d-flex flex-row justify-content-between align-items-center'>
-                    <p className='text-custom-dark display-5 fw-semibold mb-0'>
+                    <p className='display-5 fw-semibold mb-0'>
                         Price: {product && product.price}
                     </p>
 

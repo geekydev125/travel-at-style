@@ -10,7 +10,7 @@ function CartTotal({
     const { getCartTotalPrice } = useCartContext()
 
     return (
-        <p className={`${displaySize} text-custom-dark fw-bold mb-0`}>
+        <p className={`${displaySize} fw-bold mb-0`}>
             Total: $
             {getCartTotalPrice()}
         </p>

@@ -9,8 +9,8 @@ function CartEmpty({
 }:Props) {
     return (
         <div className="d-flex flex-column justify-content-center h-100 px-3">
-            <h5 className="text-custom-dark">Cart is empty</h5>
-            <p className="text-custom-dark">
+            <h5>Cart is empty</h5>
+            <p>
                 Please head out to the&nbsp;
                 <NextLink href='/shop' onClick={ handleDrawerClose } >shop</NextLink>
                 &nbsp;to fill up the cart with your travel gear.</p>

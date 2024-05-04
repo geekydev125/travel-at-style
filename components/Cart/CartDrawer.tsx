@@ -18,9 +18,9 @@ function CartDrawer() {
         <Offcanvas show={show} onHide={handleClose} placement="end" >
             <Offcanvas.Header closeButton className="background-light-gradient">
                 <Offcanvas.Title>
-                    <h5 className="text-custom-dark mb-0 display-5 fw-semibold">Shopping Cart</h5>
+                    <h5 className="mb-0 display-5 fw-semibold">Shopping Cart</h5>
                 </Offcanvas.Title>
-                <CartIconWithBadge iconContainerClasses="ms-1" cartIconHeight="25px" cartIconWidth="25px" cartIconFill="text-custom-dark" />
+                <CartIconWithBadge iconContainerClasses="ms-1" cartIconHeight="25px" cartIconWidth="25px" />
             </Offcanvas.Header>
             <Offcanvas.Body className="position-relative" style={{ padding: '0 0 100px 0' }}>
                 {cart.products.length > 0 && (
