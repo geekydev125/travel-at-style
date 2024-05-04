@@ -52,6 +52,7 @@ interface ICartContext {
     addProductToCart: (product: TProduct) => void,
     increaseProductQuantity: (productId: TProduct['_id'] | ICartProduct['_id']) => void
     removeProductFromCart: (productId: TProduct['_id'] | ICartProduct['_id']) => void,
+    clearCart: () => void,
     isProductInCart: (productId: TProduct['_id'] | ICartProduct['_id']) => boolean | ICartProduct,
     getCartTotalPrice: () => number
     getCartTotalProducts: () => number
@@ -62,9 +63,10 @@ interface ICartContext {
 export const CartContext = createContext<ICartContext>({
     cart: cartInitialState,
     addProductToCart: () => {},
-    removeProductFromCart: () => { },
+    removeProductFromCart: () => {},
+    clearCart: () => {},
     isProductInCart: () => false,
-    increaseProductQuantity: () => { },
+    increaseProductQuantity: () => {},
     getCartTotalPrice: () => 0,
     getCartTotalProducts: () => 0,
     setReviewedCart: () => {},
@@ -169,6 +171,10 @@ export const CartContextProvider = ({
         }
     }
 
+    const clearCart = () => {
+        setCart(cartInitialState);
+    }
+
     const isProductInCart = (productId: TProduct['_id'] | ICartProduct['_id']) => {
         let productInCart:ICartProduct = cart.products.find((cartProduct: ICartProduct) => cartProduct._id === productId);
 
@@ -206,7 +212,7 @@ export const CartContextProvider = ({
     }
 
     return (
-        <CartContext.Provider value={{ cart, addProductToCart, removeProductFromCart, isProductInCart, increaseProductQuantity, getCartTotalPrice, getCartTotalProducts, setReviewedCart, setClientDetails }}>
+        <CartContext.Provider value={{ cart, addProductToCart, removeProductFromCart, clearCart, isProductInCart, increaseProductQuantity, getCartTotalPrice, getCartTotalProducts, setReviewedCart, setClientDetails }}>
             {children}
         </CartContext.Provider>
     )
