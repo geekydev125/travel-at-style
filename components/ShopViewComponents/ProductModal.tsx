@@ -5,7 +5,7 @@ import Steamer from '@/model/Steamer';
 import Accessory from '@/model/Accessory';
 import Luggage from '@/model/Luggage';
 
-import AddRemoveCartButtons from '../AddRemoveCartButtons';
+import AddRemoveCartButtons from '@/components/AddRemoveCartButtons';
 
 import Modal from 'react-bootstrap/Modal';
 import Container from "react-bootstrap/Container"
@@ -15,7 +15,7 @@ import Col from "react-bootstrap/Col"
 function ProductModal() {
     const { showModal, product, showModalHandler } = useModalContext()
 
-    return (
+    return showModal && (
         <>
             <Modal size='lg' centered show={showModal} onHide={() => showModalHandler(false, null)}>
                 <Modal.Header closeButton className='py-4 px-2 p-sm-4 background-light-gradient'>
