@@ -92,6 +92,13 @@ main {
 	background-attachment: fixed;
 }
 
+.background-ny-skyline {
+	background-image: url(/assets/img/ny-skyline.jpg);
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-position: top top;
+}
+
 // Carousel
 #carousel-besteam, 
 #carousel-besteamXl  {
