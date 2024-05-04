@@ -4,7 +4,7 @@ import CustomButton from './CustomButton'
 import IconChevronRight from './Icons/IconChevronRight'
 
 interface Props {
-    handleDrawerClose: () => void
+    handleDrawerClose?: () => void
 }
 
 function ProceedToCheckoutButton({
