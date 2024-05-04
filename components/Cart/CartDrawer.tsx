@@ -11,7 +11,7 @@ import CartIconWithBadge from "./CartIconWithBadge";
 import ProceedToCheckoutButton from "../ProceedToCheckoutButton";
 
 function CartDrawer() {
-    const { cart } = useCartContext()
+    const { cart, clearCart } = useCartContext()
     const { show, handleClose } = useCartDrawerContext()
 
     return (
@@ -22,12 +22,22 @@ function CartDrawer() {
                 </Offcanvas.Title>
                 <CartIconWithBadge iconContainerClasses="ms-1" cartIconHeight="25px" cartIconWidth="25px" cartIconFill="text-custom-dark" />
             </Offcanvas.Header>
-            <Offcanvas.Body>
-                {
-                    cart.products.length > 0
-                        ? <CartProductsList />
-                        : <CartEmpty handleDrawerClose={handleClose} />
-                }
+            <Offcanvas.Body className="position-relative" style={{padding: '0 0 100px 0'}}>
+                <div className="w-100 bg-white position-sticky top-0 ps-3 py-1 border-bottom">
+                    {cart.products.length > 0 && (
+                        <span className='text-primary fw-semibold' style={{ cursor: 'pointer' }} onClick={clearCart}>
+                            Clear Cart
+                        </span>
+                    )}
+                </div>
+
+                <div className="pt-2">
+                    {
+                        cart.products.length > 0
+                            ? <CartProductsList />
+                            : <CartEmpty handleDrawerClose={handleClose} />
+                    }
+                </div>
             </Offcanvas.Body>
 
             <div className="w-100 px-3 py-4 position-absolute bottom-0 background-light-gradient d-flex flex-row justify-content-between align-items-center">
@@ -36,7 +46,7 @@ function CartDrawer() {
                         <>
                             <CartTotal />
 
-                            <ProceedToCheckoutButton handleDrawerClose={handleClose}/>
+                            <ProceedToCheckoutButton handleDrawerClose={handleClose} />
                         </>
                     )
                 }

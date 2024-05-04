@@ -15,7 +15,7 @@ interface Props {
 function ShopLayout({
     children
 }: Props) {
-    const { cart, getCartTotalProducts } = useCartContext()
+    const { cart, getCartTotalProducts, clearCart } = useCartContext()
     const { handleShow } = useCartDrawerContext()
 
     return (
@@ -23,9 +23,18 @@ function ShopLayout({
             <div className='d-flex flex-column flex-md-row align-items-sm-end justify-content-between pb-3 pb-lg-0 mb-lg-3'>
                 <div className='me-auto'>
                     <h3 className="display-2 text-custom-dark mb-0 fw-semibold">Shop</h3>
-                    <span className='text-custom-dark display-6 fw-semibold d-inline-block' style={{ height: getCartTotalProducts() > 0 ? 'auto' : '19px' }}>
-                        {getCartTotalProducts() > 0 && `(${getCartTotalProducts()} product${getCartTotalProducts() > 1 ? 's' : ''} selected)`}
-                    </span>
+                    
+                    <div className='d-flex flex-row align-items-center mb-3 mb-md-0'>
+                        <span className='text-custom-dark display-6 fw-semibold d-inline-block' style={{ height: getCartTotalProducts() > 0 ? 'auto' : '24px' }}>
+                            {getCartTotalProducts() > 0 && `(${getCartTotalProducts()} product${getCartTotalProducts() > 1 ? 's' : ''} selected)`}
+                        </span>
+
+                        {cart.products.length > 0 && (
+                            <span className='ms-2 text-primary fw-semibold ' style={{ cursor: 'pointer' }} onClick={clearCart}>
+                                Clear Cart
+                            </span>
+                        )}
+                    </div>
                 </div>
 
                 {cart.products.length > 0 && (
