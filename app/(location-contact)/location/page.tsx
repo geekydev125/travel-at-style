@@ -20,7 +20,7 @@ function LocationPage() {
 						style={{ backgroundColor: 'rgba(0,0,0,0.8)' }}
 					>
 						<div className='py-3 w-100 d-flex flex-column justify-content-center align-items-center'>
-							<h3 className="display-3 d-inline-block text-custom-light">Shop Location</h3>
+							<h3 className="display-3 d-inline-block text-custom-light text-center">Shop Location</h3>
 
 							<ul className="list-unstyled text-start text-custom-light">
 								<li>Fulton Center (lower level)</li>

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 function ContactPage() {
 	return (
-		<div style={{ minHeight: '83vh' }} className="d-flex justify-content-center align-items-center py-5">
+		<div style={{ minHeight: '83vh' }} className="d-flex justify-content-center align-items-center px-2 py-5">
 			<Container as='section' className="p-3 p-md-5 rounded-4" style={{ backgroundColor: 'rgba(0,0,0,0.8)' }}>
 				<Row>
 					<Col xs={12} md={5}>
@@ -20,7 +20,7 @@ function ContactPage() {
 						<p className="text-custom-light" style={{textAlign: 'justify'}}>Our main company objective is to provide liable, continuous, and excellent customer service for our consumers. We look forward to your suggestions, comments and questions regarding our product.</p>
 						<p data-bs-theme="dark" className='text-muted'>*All form fields are required</p>
 
-						<div className="w-50 mx-auto">
+						<div className="w-50 mx-auto d-none d-md-block">
 							<img src="/assets/img/logo/logo-transparent.png" className="img-fluid" alt="Contact us" />
 						</div>
 					</Col>
