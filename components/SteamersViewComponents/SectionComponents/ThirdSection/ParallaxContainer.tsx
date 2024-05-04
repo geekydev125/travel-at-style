@@ -1,4 +1,5 @@
 "use client"
+import { useEffect, useState } from "react"
 import { Parallax } from "react-parallax"
 
 interface Props {
@@ -8,8 +9,14 @@ interface Props {
 function ParallaxContainer({
     children
 }: Props) {
+    const [bgImage, setBgImage] = useState<string>('')
+
+    useEffect(()=> {
+        setBgImage('/assets/img/ny-skyline.jpg')
+    })
+
     return (
-        <Parallax blur={3} bgImage="/assets/img/ny-skyline.jpg" bgImageAlt="New York at night" strength={200} >
+        <Parallax bgImage={bgImage} bgImageAlt="New York at night" strength={200} >
             {children}
         </Parallax>
     )
