@@ -3,6 +3,7 @@ import { useNotificationContext } from "@/context/notificationContext"
 
 import IconPlus from "@/components/Icons/IconPlus"
 import IconMinus from "@/components/Icons/IconMinus"
+import CustomButton from "../CustomButton"
 
 interface Props {
     product: ICartProduct,
@@ -26,15 +27,15 @@ function CardDrawerAddRemoveCartButtons({
 
     return (
         <>
-            <div style={{ cursor: 'pointer' }} onClick={() => removeProductHandler(product)} className="btn-feedback">
-                <IconMinus stroke="red" height="25px" width="25px" classes="shadow-sm btn-feedback" />
-            </div>
+            <CustomButton variant="danger" size="sm" onClick={() => removeProductHandler(product)} classes="btn-feedback p-0 lh-1">
+                <IconMinus stroke="white" height="20px" width="20px" classes="shadow-sm btn-feedback" />
+            </CustomButton>
 
             <p className="text-custom-dark mb-0 fw-semibold">${(product.price * product.quantity).toFixed(2)}</p>
 
-            <div style={{ cursor: 'pointer' }} onClick={() => addProductHandler(product)} className="btn-feedback">
-                <IconPlus stroke="green" height="25px" width="25px" classes="shadow-sm btn-feedback" />
-            </div>
+            <CustomButton variant="success" onClick={() => addProductHandler(product)} classes="btn-feedback p-0 lh-1">
+                <IconPlus stroke="white" height="20px" width="20px" classes="shadow-sm btn-feedback" />
+            </CustomButton>
         </>
     )
 }
