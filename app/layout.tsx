@@ -11,7 +11,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 
 import CartDrawerDynamicLoader from "@/components/Cart/CartDrawerDynamicLoader";
-import NotificationDynamicLoader from "@/components/Notification/NotificationDynamicLoader";
+import NotificationDynamicLoader from "@/components/Common/Notification/NotificationDynamicLoader";
 
 const inter = Inter({ subsets: ["latin"] });
 

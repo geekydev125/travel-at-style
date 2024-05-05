@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 
 import { useNotificationContext } from '@/context/notificationContext'
 
-const Notification = dynamic(() => import('@/components/Notification/Notification'), {
+const Notification = dynamic(() => import('@/components/Common/Notification/Notification'), {
     loading: () => null,
     ssr: false
 })

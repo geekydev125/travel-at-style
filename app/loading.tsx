@@ -1,9 +1,9 @@
-import AirplaneLoader from '@/components/Loader/AirplaneLoader'
+import AirplaneLoader from '@/components/Common/Loader/AirplaneLoader'
 
 function RootLoading() {
-  return (
-    <AirplaneLoader />
-  )
+	return (
+		<AirplaneLoader />
+	)
 }
 
 export default RootLoading
