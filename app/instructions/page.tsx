@@ -58,7 +58,7 @@ function InstructionsPage() {
 						}
 					</ol>
 				</Col>
-				<Col xs={{span: 12, offset: 3}} sm={{offset: 0}} md={{span: 3}}  className="d-flex flex-column align-items-center mt-4 mt-md-0">
+				<Col xs={{span: 12}} md={{span: 3}}  className="d-flex flex-column align-items-center mt-4 mt-md-0">
 					<a href="/assets/docs/besteam-manual.pdf" target="_blank">
 						<img src="/assets/img/besteam-manual-cover.jpg" className="img-fluid" alt="Instructions Manual" />
 					</a>
