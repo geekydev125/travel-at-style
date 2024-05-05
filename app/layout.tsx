@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Play} from "next/font/google";
 
 import 'react-toastify/dist/ReactToastify.min.css';
 import "../styles/globals.scss";
@@ -13,7 +13,17 @@ import Footer from "@/components/Footer/Footer";
 import CartDrawerDynamicLoader from "@/components/Cart/CartDrawerDynamicLoader";
 import NotificationDynamicLoader from "@/components/Common/Notification/NotificationDynamicLoader";
 
-const inter = Inter({ subsets: ["latin"] });
+const interFont = Inter({ 
+	weight: ["400", "500", "600"],
+	style: "normal",
+	subsets: ["latin"]
+});
+
+const playFont = Play({
+	weight: ["400"],
+	style: "normal",
+	subsets: ["latin"]
+});
 
 export const metadata: Metadata = {
 	icons: {
@@ -35,17 +45,17 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<Providers>
-				<body style={{ minHeight: '100vh' }} className={`${inter.className} d-flex flex-column background-pattern-crossword`}>
-					<Header />
+				<body style={{ minHeight: '100vh' }} className={` d-flex flex-column background-pattern-crossword`}>
+					<Header fontClass={playFont.className} />
 
-					<main className="flex-grow-1 overflow-hidden d-flex flex-column">
+					<main className={`${interFont.className} flex-grow-1 overflow-hidden d-flex flex-column`}>
 						{children}
 					</main>
 
 					<CartDrawerDynamicLoader />
 					<NotificationDynamicLoader />
 
-					<Footer />
+					<Footer fontClass={playFont.className} />
 
 					<BootstrapClient />
 
