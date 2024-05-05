@@ -1,0 +1,28 @@
+.div-container {
+    height: 50vh;
+    position: relative;
+    width: 100%;
+
+    .svg-plane {
+        width: 150px; 
+        height: 150px;
+        transform-origin: 40% 100%;
+        animation: 5.5s linear infinite loader-spin;
+    }
+     
+    .path-plane { 
+        fill: #084C8D; 
+    }
+
+    .img-title-container {
+        position: absolute;
+        top: 50%;
+    }
+}
+
+@keyframes loader-spin {
+    to{
+        transform: rotate(360deg);
+       }
+}
+
