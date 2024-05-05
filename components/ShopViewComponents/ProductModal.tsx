@@ -1,5 +1,6 @@
 "use client"
 import { useModalContext } from '@/context/modalContext';
+import uniqid from 'uniqid';
 
 import Steamer from '@/model/Steamer';
 import Accessory from '@/model/Accessory';
@@ -18,28 +19,37 @@ function ProductModal() {
     return (
         <Modal size='lg' centered show={showModal} onHide={() => showModalHandler(false, null)}>
             <Modal.Header closeButton className='py-4 px-2 p-sm-4 background-light-gradient'>
-                {/* <Modal.Title>
-                        <h4 className='display-4 fw-semibold mb-0'>
-                            {product && product.name}
-                            {`${(product as Steamer).color ? ` (${(product as Steamer).color})` : ''}`}
-                        </h4>
-                    </Modal.Title> */}
+                <Modal.Title>
+                    <h4 className='display-4 fw-semibold mb-0'>
+                        {product && product.name}
+                        {`${(product as Steamer).color ? ` (${(product as Steamer).color})` : ''}`}
+                    </h4>
+                </Modal.Title>
             </Modal.Header>
 
             <Modal.Body className='background-pattern-crossword rounded-3'>
                 <Container>
                     <Row>
                         <Col xs={12} lg={5} className='mb-3 mb-lg-0 d-flex flex-column justify-content-between '>
-                            <div>
-                                <h4 className='display-4 fw-semibold'>
-                                    {product && product.name}
-                                    {`${(product as Steamer).color ? ` (${(product as Steamer).color})` : ''}`}
-                                </h4>
+                            <p className='mt-2'>
+                                {product && product.description}
+                            </p>
 
-                                <p className='mt-4'>
-                                    {product && product.description}
-                                </p>
-                            </div>
+                            {
+                                (product as Steamer).packageIncludes?.length > 0 && (
+                                    <>
+                                        <p className="display-6 mb-1 mt-3 fw-semibold"> Package Includes:</p>
+                                        <ol>
+                                            {
+                                                (product as Steamer).packageIncludes.map((item) => {
+                                                    return (
+                                                        <li key={uniqid()}>{item}</li>
+                                                    )
+                                                })
+                                            }
+                                        </ol>
+                                    </>
+                                )}
                         </Col>
                         <Col xs={12} lg={7} className='overflow-hidden '>
                             {
@@ -56,8 +66,8 @@ function ProductModal() {
                 </Container>
             </Modal.Body>
 
-            <Modal.Footer className='background-light-gradient py-4 px-2 p-sm-4 d-flex flex-row justify-content-between align-items-center'>
-                <p className='display-5 fw-semibold mb-0'>
+            <Modal.Footer className='background-light-gradient  py-4 px-2 p-sm-4 d-flex flex-row justify-content-between align-items-center'>
+                <p className='display-5 fw-semibold mb-0 mt-0'>
                     Price: {product && product.price}
                 </p>
 
