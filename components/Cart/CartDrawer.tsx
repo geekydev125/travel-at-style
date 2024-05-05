@@ -12,10 +12,10 @@ import ProceedToCheckoutButton from "../ProceedToCheckoutButton";
 
 function CartDrawer() {
     const { cart, clearCart } = useCartContext()
-    const { show, handleClose } = useCartDrawerContext()
+    const { showDrawer, handleClose } = useCartDrawerContext()
 
     return (
-        <Offcanvas show={show} onHide={handleClose} placement="end" >
+        <Offcanvas show={showDrawer} onHide={handleClose} placement="end" >
             <Offcanvas.Header closeButton className="background-light-gradient">
                 <Offcanvas.Title>
                     <h5 className="mb-0 display-5 fw-semibold">Shopping Cart</h5>
