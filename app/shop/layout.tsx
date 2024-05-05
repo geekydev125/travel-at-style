@@ -19,7 +19,7 @@ function ShopLayout({
     const { getCartTotalProducts } = useCartContext()
 
     return (
-        <Container as='section' className="py-lg-5">
+        <Container as='section' className="py-3 py-lg-5">
             <div style={{ minHeight: '82px' }}>
                 {
                     getCartTotalProducts() > 0
