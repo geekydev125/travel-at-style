@@ -1,6 +1,12 @@
 import styles from './AirplaneLoader.module.scss'
 
-function AirplaneLoader() {
+interface Props {
+    hasLogo?: boolean
+}
+
+function AirplaneLoader({
+    hasLogo = true
+}: Props) {
     return (
         <div className={` ${styles['div-container']} d-flex flex-column justify-content-center align-items-center`}>
 
@@ -11,7 +17,11 @@ function AirplaneLoader() {
             </svg>
 
             <div className={`${styles['img-title-container']} p-3 rounded-3`}>
-                <img src="/assets/img/logo/logo-transparent.png" alt="logo" width='130' height='auto' className='img-fluid' />
+
+                {hasLogo && (
+                    <img src="/assets/img/logo/logo-transparent.png" alt="logo" width='130' height='auto' className='img-fluid' />
+                )}
+
                 <h3 className="text-primary text-center mt-3 mb-0"> Loading...</h3>
             </div>
         </div>
