@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 
 import ProductsTabs from "@/components/ShopViewComponents/ProductsTabs"
-import ProductModal from "@/components/ShopViewComponents/ProductModal"
+import ProductModalDynamicLoader from "@/components/ShopViewComponents/ProductModalDynamicLoader"
 
 export const metadata: Metadata = {
     title: "Shop",
@@ -12,7 +12,7 @@ function ShopPage() {
 		<>
 			<ProductsTabs />
 
-			<ProductModal />
+			<ProductModalDynamicLoader />
 		</>
 	)
 }
