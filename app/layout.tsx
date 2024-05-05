@@ -9,9 +9,9 @@ import Providers from "./providers";
 import BootstrapClient from "@/components/BootstrapClient";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import Notification from "@/components/Notification";
 
 import CartDrawerDynamicLoader from "@/components/Cart/CartDrawerDynamicLoader";
+import NotificationDynamicLoader from "@/components/Notification/NotificationDynamicLoader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -43,7 +43,7 @@ export default function RootLayout({
 					</main>
 
 					<CartDrawerDynamicLoader />
-					<Notification />
+					<NotificationDynamicLoader />
 
 					<Footer />
 
