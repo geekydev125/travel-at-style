@@ -167,7 +167,7 @@ main {
 // Shop Tabs 
 .custom-tabs {
     font-size: 14px;
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 	border-bottom: 1px solid lightgray;
 
     .nav-item {
@@ -176,10 +176,12 @@ main {
 			color: #292b2c;
 			border-radius: 38px;
 			background-color: #f5f5f5;
+			border: 1px solid lightgray;
 
 			&.active {
 				color: #f5f5f5;
 				background-color: #084C8D;
+				border: none;
 			}
         }
     }
