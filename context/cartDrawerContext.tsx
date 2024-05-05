@@ -3,13 +3,13 @@ import { createContext, useContext, useState } from 'react';
 
 
 interface CartDrawerContext {
-    show: boolean,
+    showDrawer: boolean,
     handleClose: () => void,
     handleShow: () => void
 }
 
 const CartDrawerContext = createContext<CartDrawerContext>({
-    show: false,
+    showDrawer: false,
     handleClose: () => { },
     handleShow: () => { }
 })
@@ -21,13 +21,13 @@ interface Props {
 export const CartDrawerContextProvider = ({
     children
 }: Props) => {
-    const [show, setShow] = useState(false);
+    const [showDrawer, setShowDrawer] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleClose = () => setShowDrawer(false);
+    const handleShow = () => setShowDrawer(true);
 
     return (
-        <CartDrawerContext.Provider value={{ show, handleClose, handleShow }}>
+        <CartDrawerContext.Provider value={{ showDrawer, handleClose, handleShow }}>
             {children}
         </CartDrawerContext.Provider>
     )
