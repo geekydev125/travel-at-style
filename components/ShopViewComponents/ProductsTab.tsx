@@ -1,12 +1,21 @@
+import uniqid from "uniqid"
+
+import Accessory from "@/model/Accessory"
+import Luggage from "@/model/Luggage"
+import Steamer from "@/model/Steamer"
+
+import ShopProductCard from "./ShopProductCards/ShopProductCard"
+
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
 interface Props {
-    children: React.ReactNode
+    products: Steamer[] | Luggage[] | Accessory[]
 }
 
 function ProductsTab({
-    children
+    products
 }: Props) {
     return (
         <>
@@ -15,7 +24,13 @@ function ProductsTab({
             </p>
             <Container>
                 <Row className='gx-3 gx-lg-4 gy-4'>
-                    {children}
+                    {products.map((product) => {
+                        return (
+                            <Col xs={12} sm={6} lg={4} key={uniqid()}>
+                                <ShopProductCard product={product} />
+                            </Col>
+                        )
+                    })}
                 </Row>
             </Container>
         </>
