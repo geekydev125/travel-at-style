@@ -13,13 +13,11 @@ function AnimatedSteamerImg() {
                 ref={imgRef}
                 style={{
                     transform: isInView ? "scale(1)" : "scale(0)",
-                    transition: 'transform 1.1s ease-in-out'
-                
+                    transition: 'transform 1.1s ease-in-out',
                 }}
-
+                className="img-fluid"
                 src="/assets/img/steamers/besteam-blue-shadow-close-up.png"
                 alt="Steamer"
-                width='100%'
             />
         </>
     )
