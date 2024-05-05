@@ -35,10 +35,10 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<Providers>
-				<body style={{ minHeight: '100vh' }} className={`${inter.className} d-flex flex-column  background-pattern-crossword`}>
+				<body style={{ minHeight: '100vh' }} className={`${inter.className} d-flex flex-column background-pattern-crossword`}>
 					<Header />
 
-					<main className="flex-grow-1 overflow-hidden">
+					<main className="flex-grow-1 overflow-hidden d-flex flex-column">
 						{children}
 					</main>
 
