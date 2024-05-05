@@ -22,11 +22,20 @@ header {
 		.navbar-nav {
 			.nav-item {
 				.nav-link {
+					text-transform: uppercase;
 					&.active {
 						border-bottom: 1px solid #f5f5f5;
 					}
 				}
 			}
+		}
+	}
+}
+
+footer {
+	nav {
+		.nav-link {
+			text-transform: uppercase;
 		}
 	}
 }
