@@ -3,9 +3,15 @@ import TopFooter from "./TopFooter"
 
 import Container from "react-bootstrap/Container"
 
-function Footer() {
+interface Props {
+    fontClass: string
+}
+
+function Footer({
+    fontClass
+}:Props) {
     return (
-        <footer className='background-pattern-wood'>
+        <footer className={`${fontClass} background-pattern-wood`}>
             <TopFooter />
             
             <Container>
