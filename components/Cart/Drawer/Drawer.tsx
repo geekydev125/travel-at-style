@@ -1,14 +1,21 @@
 "use client"
+import dynamic from "next/dynamic";
+
 import { useCartContext } from "@/context/cartContext"
 import { useCartDrawerContext } from "@/context/cartDrawerContext";
 
 import CartTotal from "@/components/Cart/CartTotal";
 import CartEmpty from "@/components/Cart/CartEmpty";
-import CartProductsList from "@/components/Cart/CartProductsList";
+import CartIconWithBadge from "@/components/Cart/CartIconWithBadge";
+import ProceedToCheckoutButton from "@/components/Common/Buttons/ProceedToCheckoutButton";
+import CartProductListPlaceholder from "@/components/Common/Placeholders/Cart/CartProductListPlaceholder";
 
 import Offcanvas from "react-bootstrap/Offcanvas"
-import CartIconWithBadge from "../CartIconWithBadge";
-import ProceedToCheckoutButton from "../../Common/Buttons/ProceedToCheckoutButton";
+
+const CartProductsListDynamic = dynamic(() => import("@/components/Cart/CartProductsList"), {
+    loading: () => <CartProductListPlaceholder />,
+    ssr: false
+})
 
 function Drawer() {
     const { cart, clearCart } = useCartContext()
@@ -35,7 +42,7 @@ function Drawer() {
 
                 {
                     cart.products.length > 0
-                        ? <CartProductsList />
+                        ? <CartProductsListDynamic />
                         : <CartEmpty handleDrawerClose={handleClose} />
                 }
             </Offcanvas.Body>
