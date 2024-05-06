@@ -4,11 +4,9 @@ import Placeholder from "react-bootstrap/Placeholder"
 function ShopProductCardPlaceholder() {
     return (
         <>
-            <div className="w-100 border" style={{ minHeight: '200px' }}>
+            <div className="w-100 border">
                 <Placeholder as="div" className="d-flex flex-row" animation="glow" >
                     <Placeholder xs={12} style={{ minHeight: '285px' }} />
-
-
                 </Placeholder>
 
                 <div className="bg-white">
