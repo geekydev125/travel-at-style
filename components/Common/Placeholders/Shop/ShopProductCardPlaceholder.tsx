@@ -13,7 +13,7 @@ function ShopProductCardPlaceholder() {
                     <Placeholder animation="glow" className="w-100 d-flex flex-row flex-sm-column flex-xl-row justify-content-between align-items-center px-2 py-4">
                         <Placeholder xs={5} size="lg"/>
 
-                        <Placeholder.Button variant="success" size="sm" xs={3} className='mt-sm-2 mt-xl-0' />
+                        <Placeholder.Button variant="success" size="sm" xs={4} className='mt-sm-2 mt-xl-0 py-1' />
                     </Placeholder>
                 </div>
             </div>
