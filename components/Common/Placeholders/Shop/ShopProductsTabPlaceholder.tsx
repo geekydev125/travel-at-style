@@ -7,7 +7,13 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Placeholder from 'react-bootstrap/Placeholder'
 
-function ProductsTabPlaceholder() {
+interface Props {
+    productsLength: number
+}
+
+function ShopProductsTabPlaceholder({
+    productsLength
+}: Props) {
     return (
         <>
             <Placeholder as='p' className='ms-2 mb-3' animation='glow'>
@@ -17,7 +23,7 @@ function ProductsTabPlaceholder() {
             <Container>
                 <Row className='gx-3 gx-lg-4 gy-4'>
                     {
-                        [...Array(6)].map(el => {
+                        [...Array(productsLength)].map(el => {
                             return (
                                 <Col xs={12} sm={6} lg={4} key={uniqid()}>
                                     <ShopProductCardPlaceholder />
@@ -31,4 +37,4 @@ function ProductsTabPlaceholder() {
     )
 }
 
-export default ProductsTabPlaceholder
+export default ShopProductsTabPlaceholder
