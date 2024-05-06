@@ -10,7 +10,7 @@ import accessories from "@/data/accessories.json"
 
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import ProductsTabPlaceholder from '../Common/Placeholders/ProductsTabPlaceholder';
+import ProductsTabPlaceholder from '../Common/Placeholders/Shop/ProductsTabPlaceholder';
 
 const ProductsTabDynamic = dynamic(() => import('@/components/ShopViewComponents/ProductsTab'), {
 	loading: () => <ProductsTabPlaceholder />,
