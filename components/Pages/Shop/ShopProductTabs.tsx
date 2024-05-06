@@ -7,20 +7,24 @@ import steamers from "@/data/steamers.json"
 import luggage from "@/data/luggage.json"
 import accessories from "@/data/accessories.json"
 
-
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import ProductsTabPlaceholder from '@/components/Common/Placeholders/Shop/ProductsTabPlaceholder';
-
-const ProductsTabDynamic = dynamic(() => import('@/components/Pages/Shop/ShopProductTab'), {
-	loading: () => <ProductsTabPlaceholder />,
-	ssr: false
-})
+import ShopProductsTabPlaceholder from '@/components/Common/Placeholders/Shop/ShopProductsTabPlaceholder';
 
 function ShopProductsTabs({ }) {
 	const searchParams = useSearchParams()
 	const defaultTab = searchParams.get('tab') || 'steamers'
 	const [activeTab, setActiveTab] = useState<string>(defaultTab)
+
+	// Dynamically importing inside the component in order to be able to pass props to the placeholder
+	const ProductsTabDynamic = dynamic(() => import('@/components/Pages/Shop/ShopProductTab'), {
+		loading: () => <ShopProductsTabPlaceholder productsLength={
+			activeTab === 'steamers' ? steamers.length 
+			: activeTab === 'luggage' ? luggage.length 
+			: accessories.length 
+		} />,
+		ssr: false
+	})
 
 	return (
 		<section className='py-4'>
