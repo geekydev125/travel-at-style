@@ -1,6 +1,6 @@
 import NextLink from 'next/link'
 
-import CustomButton from '@/components/CustomButton'
+import CustomButton from '@/components/Common/Buttons/CustomButton'
 
 import Container from 'react-bootstrap/Container'
 

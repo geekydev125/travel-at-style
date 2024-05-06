@@ -4,9 +4,9 @@ import NextLink from "next/link"
 
 import { useCartContext } from "@/context/cartContext"
 
-import CartDrawerProductCard from "@/components/Cart/CartDrawerProductCard"
+import DrawerProductCard from "@/components/Cart/Drawer/DrawerProductCard"
 import CartTotal from "@/components/Cart/CartTotal"
-import CustomButton from "@/components/CustomButton"
+import CustomButton from "@/components/Common/Buttons/CustomButton"
 import IconChevronRight from "@/components/Icons/IconChevronRight"
 
 import Container from "react-bootstrap/Container"
@@ -24,7 +24,7 @@ function ReviewPage() {
 				{
 					cart.products.map((item) => (
 						<Col xs={6} sm={4} md={3} lg={2} key={uniqid()}>
-							<CartDrawerProductCard key={uniqid()} product={item} />
+							<DrawerProductCard key={uniqid()} product={item} />
 						</Col>
 					))
 				}

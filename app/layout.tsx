@@ -10,7 +10,7 @@ import BootstrapClient from "@/components/BootstrapClient";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 
-import CartDrawerDynamicLoader from "@/components/Cart/CartDrawerDynamicLoader";
+import DrawerDynamicLoader from "@/components/Cart/Drawer/DrawerDynamicLoader";
 import NotificationDynamicLoader from "@/components/Common/Notification/NotificationDynamicLoader";
 
 const interFont = Inter({ 
@@ -52,7 +52,7 @@ export default function RootLayout({
 						{children}
 					</main>
 
-					<CartDrawerDynamicLoader />
+					<DrawerDynamicLoader />
 					<NotificationDynamicLoader />
 
 					<Footer fontClass={playFont.className} />

@@ -2,8 +2,8 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import LayoutTitle from "@/components/LuggageAccessoriesViewComponents/LayoutTitle";
-import FlyingAirplane from "@/components/LuggageAccessoriesViewComponents/FlyingAirplane";
+import LuggageAccessoriesLayoutTitle from "@/components/Pages/LuggageAccessories/LuggageAccessoriesLayoutTitle";
+import FlyingAirplane from "@/components/Pages/LuggageAccessories/FlyingAirplane";
 
 interface Props {
     children: React.ReactNode
@@ -19,7 +19,7 @@ function ProductsLayout({
                     <FlyingAirplane />
                 </Col>
                 <Col xs={8} md={7} className="d-flex flex-column justify-content-center">
-                    <LayoutTitle />
+                    <LuggageAccessoriesLayoutTitle />
                 </Col>
             </Row>
 

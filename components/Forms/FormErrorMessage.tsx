@@ -1,7 +1,7 @@
 import { FieldErrors } from "react-hook-form"
 
-import { ClientDetailsFormData } from "./ClientDetailsForm"
-import { ContactFormData } from "./ContactForm"
+import { ClientDetailsFormData } from "./ClientDetails/ClientDetailsForm"
+import { ContactFormData } from "./Contact/ContactForm"
 
 interface Props {
 	errors: FieldErrors<ClientDetailsFormData> | FieldErrors<ContactFormData>,

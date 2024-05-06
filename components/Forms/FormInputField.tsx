@@ -1,8 +1,8 @@
 import { FieldErrors, UseFormRegister } from "react-hook-form"
 
 import FormErrorMessage from "./FormErrorMessage"
-import { ClientDetailsFormData } from "./ClientDetailsForm"
-import { ContactFormData } from "./ContactForm"
+import { ClientDetailsFormData } from "./ClientDetails/ClientDetailsForm"
+import { ContactFormData } from "./Contact/ContactForm"
 
 import Form from "react-bootstrap/Form"
 import FloatingLabel from "react-bootstrap/FloatingLabel"

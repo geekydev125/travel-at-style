@@ -1,5 +1,5 @@
 "use client"
-import ClientDetailsForm from "@/components/Forms/ClientDetailsForm"
+import ClientDetailsForm from "@/components/Forms/ClientDetails/ClientDetailsForm"
 import isCartEmptyRouteGuard from "@/hoc/isCartEmptyRouteGuard"
 
 import Container from "react-bootstrap/Container"

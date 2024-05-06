@@ -2,7 +2,7 @@ import uniqid from "uniqid"
 
 import { useCartContext } from "@/context/cartContext"
 
-import CartDrawerProductCard from "./CartDrawerProductCard"
+import DrawerProductCard from "./Drawer/DrawerProductCard"
 
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
@@ -16,7 +16,7 @@ function CartProductsList() {
             <Row className="gx-3 gy-4 pt-2">
                 {cart.products.map((product) => (
                     <Col xs={6} key={uniqid()}>
-                        <CartDrawerProductCard product={product} />
+                        <DrawerProductCard product={product} />
                     </Col>
                 ))}
             </Row>

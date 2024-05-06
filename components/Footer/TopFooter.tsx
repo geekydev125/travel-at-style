@@ -3,7 +3,7 @@ import uniqid from "uniqid"
 
 import routes from "@/data/routes.json"
 
-import { Route } from '@/components/Header/Nav/TopNavigationBar'
+import { Route } from '@/components/Header/Navbar/TopNavbar'
 
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
