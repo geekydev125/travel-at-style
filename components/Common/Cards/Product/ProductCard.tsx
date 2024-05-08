@@ -30,7 +30,7 @@ function ProductCard({
         <CardContainer>
             <CardPrice price={product.price} />
 
-            <CardImage product={product} />
+            <CardImage product={product} modalType="product"/>
 
             <CardButtons product={product} cardType="product"/>
         </CardContainer>

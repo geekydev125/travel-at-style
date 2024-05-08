@@ -31,7 +31,7 @@ function ShopCard({
             <CardContainer>
                 <CardPrice price={product.price} />
 
-                <CardImage product={product} />
+                <CardImage product={product} modalType="shop" />
 
                 <CardButtons product={product} cardType="shop" />
             </CardContainer>

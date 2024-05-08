@@ -23,11 +23,12 @@ function CardButtons({
     cardType
 }: Props) {
     const { showModalHandler } = useModalContext()
+    const modalType = cardType
 
     return (
         <div className="d-flex flex-row flex-sm-column flex-xl-row justify-content-between align-items-center px-2 py-4 position-relative overflow-hidden">
 
-            <span onClick={() => showModalHandler(true, product)} className={`${styles['shop-card-title']} mb-0 px-md-0 px-lg-2 display-6 fw-bold text-dark`}>
+            <span onClick={() => showModalHandler(true, product, modalType)} className={`${styles['shop-card-title']} mb-0 px-md-0 px-lg-2 display-6 fw-bold text-dark`}>
                 <span className='text-uppercase'>{product.name}</span>
                 {(product as Steamer).color ? ` (${(product as Steamer).color})` : ''}
             </span>

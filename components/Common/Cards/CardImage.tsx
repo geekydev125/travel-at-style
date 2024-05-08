@@ -8,17 +8,19 @@ import Luggage from '@/model/Luggage'
 import Accessory from '@/model/Accessory'
 
 interface Props {
-    product: Steamer | Luggage | Accessory
+    product: Steamer | Luggage | Accessory,
+    modalType: 'shop' | 'product'
 }
 
 function CardImage({
     product,
+    modalType
 }: Props) {
     const { showModalHandler } = useModalContext()
 
     return (
         <div className="overflow-hidden position-relative">
-            <img onClick={() => showModalHandler(true, product)} className={`img-fluid ${styles['shop-card-img']} `} src={`/assets/img/${product.imgFolder}/${product.img}`} alt={product.name} />
+            <img onClick={() => showModalHandler(true, product, modalType)} className={`img-fluid ${styles['shop-card-img']} `} src={`/assets/img/${product.imgFolder}/${product.img}`} alt={product.name} />
         </div>
     )
 }
