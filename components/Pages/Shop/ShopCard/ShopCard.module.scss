@@ -1,8 +1,16 @@
-.shop-product-card-img {
+.shop-card-img {
     transition: transform 0.5s ease-in-out;
     cursor: pointer;
 
     &:hover {
         transform: scale(1.05);
+    }
+}
+
+.shop-card-title {
+    cursor: pointer;
+    
+    &:hover {
+        text-decoration: underline;
     }
 }

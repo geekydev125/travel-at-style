@@ -1,3 +1,4 @@
+import styles from '@/components/Pages/Shop/ShopCard/ShopCard.module.scss'
 
 import { useModalContext } from "@/context/modalContext"
 
@@ -19,8 +20,8 @@ function ShopCardButtons({
     return (
         <div className="d-flex flex-row flex-sm-column flex-xl-row justify-content-between align-items-center px-2 py-4 position-relative overflow-hidden">
 
-            <span onClick={() => showModalHandler(true, product)} className="fw-bold h5 mb-0 px-md-0 px-lg-2 display-6">
-                {product.name}
+            <span onClick={() => showModalHandler(true, product)} className={`${styles['shop-card-title']} mb-0 px-md-0 px-lg-2 display-6 fw-bold text-dark`}>
+                <span className='text-uppercase'>{product.name}</span>
                 {(product as Steamer).color ? ` (${(product as Steamer).color})` : ''}
             </span>
             
