@@ -13,7 +13,7 @@ interface Props {
     product: Steamer | Luggage | Accessory,
 }
 
-function ShopCardButtons({
+function CardButtons({
     product,
 }: Props) {
     const { showModalHandler } = useModalContext()
@@ -31,4 +31,4 @@ function ShopCardButtons({
     )
 }
 
-export default ShopCardButtons
+export default CardButtons

@@ -2,7 +2,7 @@ interface Props {
 	price: number
 }
 
-function ShopCardPrice({
+function CardPrice({
 	price
 }:Props) {
 	return (
@@ -12,4 +12,4 @@ function ShopCardPrice({
 	)
 }
 
-export default ShopCardPrice
+export default CardPrice

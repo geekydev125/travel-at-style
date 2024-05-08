@@ -11,7 +11,7 @@ interface Props {
     product: Steamer | Luggage | Accessory
 }
 
-function ShopCardImage({
+function CardImage({
     product,
 }: Props) {
     const { showModalHandler } = useModalContext()
@@ -23,4 +23,4 @@ function ShopCardImage({
     )
 }
 
-export default ShopCardImage
+export default CardImage
