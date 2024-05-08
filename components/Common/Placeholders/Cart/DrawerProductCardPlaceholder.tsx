@@ -4,7 +4,7 @@ import Placeholder from 'react-bootstrap/Placeholder'
 
 function DrawerProductCardPlaceholder() {
     return (
-        <div className="border h-100 d-flex flex-column">
+        <div className="border h-100 d-flex flex-column" style={{ minHeight: '230px'}}>
             <Placeholder as="div" className="d-flex flex-row" animation="glow" >
                 <Placeholder
                     xs={12}
