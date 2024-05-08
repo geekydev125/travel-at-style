@@ -6,15 +6,15 @@ import { redirect } from "next/navigation";
 
 function isCartEmptyRouteGuard<P extends JSX.IntrinsicAttributes>( Component: React.ComponentType<P> ) {
     const WrappedComponent = (props: P ) => {
-        const { cart } = useCartContext();
+        const { cart, getCartTotalProducts } = useCartContext();
 
-        const isCartEmpty = cart.products.length === 0;
+        const isCartEmpty = getCartTotalProducts() === 0;
 
         useEffect(() => {
             if(isCartEmpty) {
                 redirect('/shop')
             }
-        }, [])
+        }, [cart])
 
         return isCartEmpty ? null : <Component {...props} />
     }
