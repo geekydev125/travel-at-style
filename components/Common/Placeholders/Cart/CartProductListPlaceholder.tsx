@@ -14,11 +14,11 @@ interface Props {
 function CartProductListPlaceholder({
     displayOn
 }: Props) {
-    const { getCartTotalProducts } = useCartContext()
+    const { cart } = useCartContext()
     return (
         <>
             {
-                [...Array(getCartTotalProducts())].map((el) => (
+                [...Array(cart.products.length)].map((el) => (
                     <Col
                         xs={6}
                         sm={displayOn === "checkout" && 4}
