@@ -1,44 +1,67 @@
 "use client"
 import { useSearchParams } from 'next/navigation';
-import { useState } from 'react';
-import dynamic from 'next/dynamic';
+import { useCallback, useEffect, useState } from 'react';
 
-import steamers from "@/data/steamers.json"
-import luggage from "@/data/luggage.json"
-import accessories from "@/data/accessories.json"
+import Steamer from '@/model/Steamer';
+import Luggage from '@/model/Luggage';
+import Accessory from '@/model/Accessory';
 
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import ShopProductsTabPlaceholder from '@/components/Common/Placeholders/Shop/ShopProductsTabPlaceholder';
+
+import ShopProductTabContentWrapper from './ShopProductTabContentWrapper';
+
+export type TActiveTab = "steamers" | "luggage" | "accessories";
+
+export interface IProducts {
+	steamers: Steamer[] | []
+	luggage: Luggage[] | []
+	accessories: Accessory[] | []
+}
 
 function ShopProductsTabs({ }) {
 	const searchParams = useSearchParams()
-	const defaultTab = searchParams.get('tab') || 'steamers'
-	const [activeTab, setActiveTab] = useState<string>(defaultTab)
+	const defaultTab = searchParams.get('tab') as TActiveTab || 'steamers'
+	const [activeTab, setActiveTab] = useState<TActiveTab>(defaultTab)
+	const [isLoading, setIsLoading] = useState<boolean>(true)
 
-	// Dynamically importing inside the component in order to be able to pass props to the placeholder
-	const ProductsTabDynamic = dynamic(() => import('@/components/Pages/Shop/ShopProductTab'), {
-		loading: () => <ShopProductsTabPlaceholder productsLength={
-			activeTab === 'steamers' ? steamers.length 
-			: activeTab === 'luggage' ? luggage.length 
-			: accessories.length 
-		} />,
-		ssr: false
+	const [products, setProducts] = useState<IProducts>({
+		steamers: [],
+		luggage: [],
+		accessories: []
 	})
+
+	const productsLoader = useCallback(() => {
+		import(`@/data/${activeTab}.json`)
+			.then((data) => {
+				setProducts((prev) => ({
+					...prev,
+					[activeTab]: data.default
+				}))
+				setIsLoading(false)
+			})
+	}, [activeTab])
+
+	useEffect(() => {
+		if (products[activeTab].length === 0) {
+			setIsLoading(true)
+			productsLoader()
+		}
+	}, [activeTab])
 
 	return (
 		<section className='py-4'>
-			<Tabs onSelect={(activeKey) => setActiveTab(activeKey as string)} justify variant='pills' defaultActiveKey={defaultTab ?? ''} className='custom-tabs mb-3' >
+			<Tabs onSelect={(activeKey) => setActiveTab(activeKey as TActiveTab)} justify variant='pills' defaultActiveKey={defaultTab ?? ''} className='custom-tabs mb-3' >
 				<Tab eventKey="steamers" title="Steamers">
-					{activeTab === 'steamers' && <ProductsTabDynamic products={steamers} />}
+					<ShopProductTabContentWrapper products={products.steamers} isLoading={isLoading} />
 				</Tab>
 
 				<Tab eventKey="luggage" title="Luggage">
-					{activeTab === 'luggage' && <ProductsTabDynamic products={luggage} />}
+					<ShopProductTabContentWrapper products={products.luggage} isLoading={isLoading} />
 				</Tab>
 
 				<Tab eventKey="accessories" title="Accessories">
-					{activeTab === 'accessories' && <ProductsTabDynamic products={accessories} />}
+					<ShopProductTabContentWrapper products={products.accessories} isLoading={isLoading} />
 				</Tab>
 			</Tabs>
 		</section>
