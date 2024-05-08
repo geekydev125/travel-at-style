@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 
 import Container from 'react-bootstrap/Container'
 
-const ShopViewHeaderDynamic = dynamic(() => import('@/components/Pages/Shop/ShopHeader'), {
+const DynamicShopHeader = dynamic(() => import('@/components/Pages/Shop/ShopHeader'), {
     ssr: false,
     loading: () => <h3 className="display-2 mb-0 fw-semibold">Shop</h3>
 })
@@ -23,7 +23,7 @@ function ShopLayout({
             <div style={{ minHeight: '82px' }}>
                 {
                     getCartTotalProducts() > 0
-                        ? <ShopViewHeaderDynamic />
+                        ? <DynamicShopHeader />
                         : <h3 className="display-2 mb-0 fw-semibold">Shop</h3>
                 }
             </div>

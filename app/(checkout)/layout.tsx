@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import CheckoutViewLayoutHeader from '@/components/Pages/Checkout/CheckoutLayoutHeader';
+import CheckoutViewLayoutHeader from '@/components/Pages/Checkout/CheckoutHeader';
 
 import Container from 'react-bootstrap/Container'
 
