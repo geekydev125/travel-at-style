@@ -5,7 +5,7 @@ import Accessory from "@/model/Accessory"
 import Luggage from "@/model/Luggage"
 import Steamer from "@/model/Steamer"
 
-import ShopCard from "@/components/Pages/Shop/ShopCard/ShopCard"
+import ShopCard from "@/components/Common/Cards/Shop/ShopCard"
 
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"

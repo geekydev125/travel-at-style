@@ -1,5 +1,5 @@
 "use client"
-import styles from '@/components/Pages/Shop/ShopCard/ShopCard.module.scss'
+import styles from '@/components/Common/Cards/Shop/ShopCard.module.scss'
 
 import { useModalContext } from '@/context/modalContext'
 
