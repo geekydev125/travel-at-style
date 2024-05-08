@@ -11,9 +11,11 @@ import ProceedToCheckoutButton from "@/components/Common/Buttons/ProceedToChecko
 import CartProductListPlaceholder from "@/components/Common/Placeholders/Cart/CartProductListPlaceholder";
 
 import Offcanvas from "react-bootstrap/Offcanvas"
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
-const CartProductsListDynamic = dynamic(() => import("@/components/Cart/CartProductsList"), {
-    loading: () => <CartProductListPlaceholder />,
+const DynamicCartProductsList = dynamic(() => import("@/components/Cart/CartProductsList"), {
+    loading: () => <CartProductListPlaceholder displayOn="drawer" />,
     ssr: false
 })
 
@@ -42,7 +44,13 @@ function Drawer() {
 
                 {
                     cart.products.length > 0
-                        ? <CartProductsListDynamic />
+                        ? (
+                            <Container>
+                                <Row className="gx-3 gy-4 pt-2">
+                                    <DynamicCartProductsList displayOn="drawer" />
+                                </Row>
+                            </Container>
+                        )
                         : <CartEmpty handleDrawerClose={handleClose} />
                 }
             </Offcanvas.Body>
