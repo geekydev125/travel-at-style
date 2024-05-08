@@ -8,6 +8,8 @@ import Steamer from "@/model/Steamer"
 import CardPrice from "@/components/Common/Cards/CardPrice"
 import CardImage from "@/components/Common/Cards/CardImage"
 import CardButtons from "@/components/Common/Cards/CardButtons"
+import CardContainer from "@/components/Common/Cards/CardContainer"
+
 import CardPlaceholder from "@/components/Common/Placeholders/Shop/CardPlaceholder"
 
 interface Props {
@@ -26,13 +28,13 @@ function ShopCard({
     return isLoading
         ? <CardPlaceholder />
         : (
-            <div className="position-relative background-light-gradient h-100">
+            <CardContainer>
                 <CardPrice price={product.price} />
 
                 <CardImage product={product} />
 
                 <CardButtons product={product} cardType="shop" />
-            </div>
+            </CardContainer>
         )
 }
 

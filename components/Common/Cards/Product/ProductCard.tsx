@@ -8,7 +8,8 @@ import CardImage from "@/components/Common/Cards/CardImage"
 import CardPrice from "@/components/Common/Cards/CardPrice"
 import CardButtons from "@/components/Common/Cards/CardButtons"
 
-import CardPlaceholder from "../../Placeholders/Shop/CardPlaceholder"
+import CardPlaceholder from "@/components/Common/Placeholders/Shop/CardPlaceholder"
+import CardContainer from "@/components/Common/Cards/CardContainer"
 
 interface Props {
     product: Accessory | Luggage
@@ -26,13 +27,13 @@ function ProductCard({
     return isLoading
     ? <CardPlaceholder />
     : (
-        <div className="position-relative background-light-gradient h-100">
+        <CardContainer>
             <CardPrice price={product.price} />
 
             <CardImage product={product} />
 
             <CardButtons product={product} cardType="product"/>
-        </div>
+        </CardContainer>
     )
 }
 
