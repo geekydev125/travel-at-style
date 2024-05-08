@@ -1,4 +1,5 @@
 "use client"
+import NextLink from "next/link"
 import { useModalContext } from '@/context/modalContext';
 import uniqid from 'uniqid';
 
@@ -7,17 +8,19 @@ import Accessory from '@/model/Accessory';
 import Luggage from '@/model/Luggage';
 
 import AddRemoveCartButtons from '@/components/Common/Buttons/AddRemoveCartButtons';
+import CustomButton from "@/components/Common/Buttons/CustomButton";
 
 import Modal from 'react-bootstrap/Modal';
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
+import IconChevronRight from "@/components/Icons/IconChevronRight";
 
 function ProductModal() {
-    const { showModal, product, showModalHandler } = useModalContext()
+    const { showModal, product, modalType, showModalHandler } = useModalContext()
 
     return (
-        <Modal size='lg' centered show={showModal} onHide={() => showModalHandler(false, null)}>
+        <Modal size='lg' centered show={showModal} onHide={() => showModalHandler(false, null, null)}>
             <Modal.Header closeButton className='py-4 px-2 p-sm-4 background-light-gradient'>
                 <Modal.Title>
                     <h4 className='display-4 fw-semibold mb-0'>
@@ -71,7 +74,18 @@ function ProductModal() {
                     Price: {product && product.price}
                 </p>
 
-                <AddRemoveCartButtons classesRemoveButton='me-1' product={(product as Luggage | Accessory | Steamer)} />
+                {modalType === 'shop' && <AddRemoveCartButtons classesRemoveButton='me-1' product={(product as Luggage | Accessory | Steamer)} />}
+
+                {modalType === 'product' && (
+
+                    <NextLink onClick={() => showModalHandler(false, null, null)} href={`/shop?tab=${(product as Luggage | Accessory | Steamer).productCategory}`}>
+                        <CustomButton variant="primary" size="sm">
+                            GET YOURS NOW!
+                            <IconChevronRight />
+                        </CustomButton>
+                    </NextLink>
+                )
+                }
             </Modal.Footer>
         </Modal>
     );
