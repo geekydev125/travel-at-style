@@ -8,12 +8,14 @@ import Steamer from "@/model/Steamer";
 interface IModalContext {
     showModal: boolean,
     product: Steamer | Accessory | Luggage | null,
-    showModalHandler: (showModal: boolean, product: IModalContext['product']) => void
+    modalType: 'product' | 'shop' | null,
+    showModalHandler: (showModal: boolean, product: IModalContext['product'], modalType: IModalContext['modalType'] ) => void
 }
 
 export const ModalContext = createContext<IModalContext>({
     showModal: false,
     product: null,
+    modalType: 'product',
     showModalHandler: () => {}
 });
 
@@ -24,11 +26,13 @@ interface Props {
 export const ModalContextProvider = ({ children }:Props) => {
     const [showModal, setShowModal] = useState<IModalContext['showModal']>(false);
 	const [product, setProduct] = useState<IModalContext['product']>(null);
+    const [modalType, setModalType] = useState<IModalContext['modalType']>('product');
 
-	const showModalHandler = (showModal: boolean, product: IModalContext['product']) => {
+	const showModalHandler = (showModal: boolean, product: IModalContext['product'], modalType: IModalContext['modalType']) => {
         if(showModal) {
             if (product) {
                 setProduct(product)
+                setModalType(modalType)
                 setShowModal(true)
             } else {
                 setShowModal(false)
@@ -39,7 +43,7 @@ export const ModalContextProvider = ({ children }:Props) => {
 	}
 
     return (
-        <ModalContext.Provider value={{showModal, product, showModalHandler}}>
+        <ModalContext.Provider value={{showModal, product, modalType, showModalHandler}}>
             {children}
         </ModalContext.Provider>
     )
