@@ -2,7 +2,7 @@
 import { useCartDrawerContext } from '@/context/cartDrawerContext'
 import dynamic from 'next/dynamic'
 
-const CartDrawer = dynamic(() => import('@/components/Cart/Drawer/Drawer'), {
+const DynamicDrawer = dynamic(() => import('@/components/Cart/Drawer/Drawer'), {
     ssr: false,
     loading: () => null
 })
@@ -12,7 +12,7 @@ function DrawerDynamicLoader() {
 
     return (
         <>
-            { showDrawer && <CartDrawer />}
+            { showDrawer && <DynamicDrawer />}
         </>
     )
 }
