@@ -22,7 +22,7 @@ function CustomButton({
     children,
 }: Props) {
     return (
-        <Button style={style} type={type} disabled={disabled} onClick={onClick} size={size} variant={variant} className={`shadow btn-feedback ${classes}`} >
+        <Button style={style} type={type} disabled={disabled} onClick={onClick} size={size} variant={variant} className={`shadow btn-feedback text-uppercase ${classes}`} >
             {children}
         </Button>
     )
