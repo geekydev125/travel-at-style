@@ -2,19 +2,14 @@
 import isCartEmptyRouteGuard from '@/hoc/isCartEmptyRouteGuard';
 
 import ShopCheckoutHeaderTitle from '@/components/Pages/Checkout/ShopCheckoutHeaderTitle';
-import CheckoutViewLayoutButtons from '@/components/Pages/Checkout/CheckoutButtons';
-import CheckoutProgressBar from '@/components/Pages/Checkout/CheckoutProgressBar';
+import CheckoutButtons from '@/components/Pages/Checkout/CheckoutButtons';
 
 function CheckoutHeader() {
     return (
         <>
-            <div className='d-flex flex-column flex-md-row align-items-sm-end justify-content-between pb-3 pb-lg-0 mb-lg-4'>
-                <ShopCheckoutHeaderTitle />
+            <ShopCheckoutHeaderTitle />
 
-                <CheckoutViewLayoutButtons />
-            </div>
-
-            <CheckoutProgressBar />
+            <CheckoutButtons />
         </>
     )
 }
