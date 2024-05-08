@@ -1,3 +1,4 @@
+import { memo } from "react"
 import uniqid from "uniqid"
 
 import Accessory from "@/model/Accessory"
@@ -14,7 +15,7 @@ interface Props {
     products: Steamer[] | Luggage[] | Accessory[]
 }
 
-function ShopProductTab({
+function ShopProductTabContent({
     products
 }: Props) {
     return (
@@ -37,4 +38,4 @@ function ShopProductTab({
     )
 }
 
-export default ShopProductTab
+export default memo(ShopProductTabContent)
