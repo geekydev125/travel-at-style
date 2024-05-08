@@ -1,11 +1,14 @@
 "use client"
+import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 
+import { useNotificationContext } from '@/context/notificationContext';
 import contactFormSchema from '@/validation/contactFormSchema';
 
 import CustomButton from '@/components/Common/Buttons/CustomButton';
 import FormInputField from '@/components/Forms/FormInputField';
+import AirplaneLoader from '@/components/Common/Loader/AirplaneLoader';
 
 import Form from 'react-bootstrap/Form';
 
@@ -17,7 +20,9 @@ export interface ContactFormData {
 }
 
 function ContactForm() {
-    const { register, handleSubmit, formState: { errors, isDirty, isValid, isLoading } } = useForm<ContactFormData>({
+    const { displayNotification } = useNotificationContext();
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+    const { register, handleSubmit, reset, formState: { errors, isDirty, isValid, isLoading } } = useForm<ContactFormData>({
         resolver: yupResolver(contactFormSchema),
         mode: 'onBlur',
         defaultValues: {
@@ -31,16 +36,26 @@ function ContactForm() {
     const onFormSubmit: SubmitHandler<ContactFormData> = (formData: ContactFormData, e) => {
         e?.preventDefault();
 
-        const response = fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        }).then(res => res.json()).then(data => console.log(data))
+        if (formData) {
+            setIsSubmitting(true);
 
-        console.log(response);
+            fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    setIsSubmitting(false);
+                    displayNotification(data.message, 'success');
+                    reset();
+                }).catch(err => {
+                    displayNotification(err.message, 'error');
+                })
+        }
     }
 
     return (
@@ -59,7 +74,14 @@ function ContactForm() {
 
             {/* Submit Button */}
             <div className='d-flex justify-content-center mt-3'>
-                <CustomButton variant='primary' disabled={!(isDirty && isValid) || isLoading}>Submit</CustomButton>
+                {isSubmitting
+                    ? <div>
+                        <p className='text-primary display-6 mb-0 fw-semibold'>Submitting your message...</p>
+                        <AirplaneLoader showText={false} />
+                    </div>
+                    : <CustomButton variant='primary' disabled={!(isDirty && isValid) || isLoading || isSubmitting}>Submit</CustomButton>
+                }
+
             </div>
         </Form>
     )
