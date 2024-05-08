@@ -1,6 +1,6 @@
 import uniqid from 'uniqid'
 
-import ShopCardPlaceholder from './ShopCardPlaceholder'
+import CardPlaceholder from './CardPlaceholder'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -26,7 +26,7 @@ function ShopProductTabContentPlaceholder({
                         [...Array(productsLength)].map(el => {
                             return (
                                 <Col xs={12} sm={6} lg={4} key={uniqid()}>
-                                    <ShopCardPlaceholder />
+                                    <CardPlaceholder />
                                 </Col>
                             )
                         })

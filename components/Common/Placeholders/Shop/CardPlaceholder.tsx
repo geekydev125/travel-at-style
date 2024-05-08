@@ -2,7 +2,7 @@ import IconPhoto from "@/components/Icons/IconPhoto"
 
 import Placeholder from "react-bootstrap/Placeholder"
 
-function ShopCardPlaceholder() {
+function CardPlaceholder() {
     return (
         <>
             <div className="w-100 border">
@@ -30,4 +30,4 @@ function ShopCardPlaceholder() {
     )
 }
 
-export default ShopCardPlaceholder
+export default CardPlaceholder
