@@ -14,7 +14,7 @@ interface IButtonTextAndLink {
     link: string
 }
 
-function CheckoutLayoutButtons() {
+function CheckoutButtons() {
     const pathname = usePathname()
     const { setReviewedCart, setClientDetails } = useCartContext()
 
@@ -79,4 +79,4 @@ function CheckoutLayoutButtons() {
     )
 }
 
-export default CheckoutLayoutButtons
+export default CheckoutButtons

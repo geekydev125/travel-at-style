@@ -9,7 +9,7 @@ interface IProgressBar {
     label: string
 }
 
-function CheckoutLayoutProgressBar() {
+function CheckoutProgressBar() {
     const pathname = usePathname()
 
     const [progressBarValueAndLabel, setProgressBarValueAndLabel] = useState<IProgressBar>({
@@ -50,4 +50,4 @@ function CheckoutLayoutProgressBar() {
     )
 }
 
-export default CheckoutLayoutProgressBar
+export default CheckoutProgressBar
