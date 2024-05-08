@@ -197,7 +197,7 @@ function ClientDetailsForm() {
 
             {/* Submit button */}
             <div className='d-flex justify-content-end mt-4'>
-                <CustomButton variant='primary' disabled={!(isDirty && isValid) || isLoading} type="submit">Continue to Payment <IconChevronRight /></CustomButton>
+                <CustomButton variant='primary' disabled={!(isDirty && isValid) || isLoading} type="submit">Proceed to Payment <IconChevronRight /></CustomButton>
             </div>
         </Form>
     )
