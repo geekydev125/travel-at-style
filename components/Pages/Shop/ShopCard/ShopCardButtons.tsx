@@ -1,3 +1,4 @@
+"use client"
 import styles from '@/components/Pages/Shop/ShopCard/ShopCard.module.scss'
 
 import { useModalContext } from "@/context/modalContext"
