@@ -5,10 +5,10 @@ import Accessory from "@/model/Accessory"
 import Luggage from "@/model/Luggage"
 import Steamer from "@/model/Steamer"
 
-import ShopCardPrice from "./ShopCardPrice"
-import ShopCardImage from "./ShopCardImage"
-import ShopCardButtons from "./ShopCardButtons"
-import ShopCardPlaceholder from "@/components/Common/Placeholders/Shop/ShopCardPlaceholder"
+import CardPrice from "@/components/Common/Cards/CardPrice"
+import CardImage from "@/components/Common/Cards/CardImage"
+import CardButtons from "@/components/Common/Cards/CardButtons"
+import CardPlaceholder from "@/components/Common/Placeholders/Shop/CardPlaceholder"
 
 interface Props {
     product: Luggage | Accessory | Steamer
@@ -24,14 +24,14 @@ function ShopCard({
     }, [])
 
     return isLoading
-        ? <ShopCardPlaceholder />
+        ? <CardPlaceholder />
         : (
             <div className="position-relative background-light-gradient h-100">
-                <ShopCardPrice price={product.price} />
+                <CardPrice price={product.price} />
 
-                <ShopCardImage product={product} />
+                <CardImage product={product} />
 
-                <ShopCardButtons product={product} />
+                <CardButtons product={product} cardType="shop" />
             </div>
         )
 }
