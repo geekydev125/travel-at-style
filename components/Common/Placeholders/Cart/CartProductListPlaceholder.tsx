@@ -5,26 +5,32 @@ import { useCartContext } from "@/context/cartContext"
 
 import DrawerProductCardPlaceholder from "./DrawerProductCardPlaceholder";
 
-import Container from "react-bootstrap/Container"
-import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col";
 
-function CartProductListPlaceholder() {
+interface Props {
+    displayOn: 'checkout' | 'drawer'
+}
+
+function CartProductListPlaceholder({
+    displayOn
+}: Props) {
     const { getCartTotalProducts } = useCartContext()
     return (
-        <Container>
-            <Row className="gx-3 gy-4 pt-2">
-                {
-                    [...Array(getCartTotalProducts())].map((el) => (
-                        <Col xs={6} key={uniqid()}>
-                            <DrawerProductCardPlaceholder />
-                        </Col>
-                    ))
+        <>
+            {
+                [...Array(getCartTotalProducts())].map((el) => (
+                    <Col
+                        xs={6}
+                        sm={displayOn === "checkout" && 4}
+                        md={displayOn === "checkout" && 3}
+                        lg={displayOn === "checkout" && 2}
+                        key={uniqid()}>
+                        <DrawerProductCardPlaceholder />
+                    </Col>
+                ))
 
-                }
-
-            </Row>
-        </Container>
+            }
+        </>
     )
 }
 
