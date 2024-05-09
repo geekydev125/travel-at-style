@@ -20,8 +20,8 @@ function ProductsLayout({
                 <Container className='h-100 d-flex flex-column justify-content-center align-items-center z-1 position-relative'>
                     <LuggageAccessoriesHeaderTitle />
 
-                    <GoToShopButton size="sm">
-                        Explore our shop's products
+                    <GoToShopButton>
+                        Explore all products
                     </GoToShopButton>
 
                 </Container>
