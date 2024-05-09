@@ -42,28 +42,18 @@ footer {
 
 main {
 	margin-top: 60px;
-}
-
-@media (min-width: 992px) {
-	main {
+	
+	@media (min-width: 992px) {
 		margin-top: 83px;
 	}
 }
 
-// Backgrounds
-.background-gray-gradient {
-    background: rgb(66,66,66);
-    background: linear-gradient(90deg, rgb(66, 66, 66) 0%, rgba(158,158,158,1) 54%);
-}
 
+
+// Backgrounds
 .background-gray-radial-gradient {
 	background: rgb(158,158,158);
 	background: radial-gradient(circle, rgba(158,158,158,1) 0%, rgba(66,66,66,1) 100%);
-}
-
-.background-blue-radial-gradient {
-	background: rgb(41,68,107);
-	background: radial-gradient(circle, rgba(41,68,107,1) 0%, rgba(25,35,49,1) 100%);
 }
 
 .background-light-gradient {
@@ -171,6 +161,7 @@ main {
 	border-bottom: 1px solid lightgray;
 
     .nav-item {
+		margin: 0 3px;
         .nav-link {
             text-transform: uppercase;
 			color: #292b2c;
@@ -185,25 +176,20 @@ main {
 			}
         }
     }
-}
-
-@media (min-width: 576px) {
-	.custom-tabs {
+	@media (min-width: 576px) {
 		font-size: 16px;
 		.nav-item {
 			margin: 0 10px;
 		}
 	}
-}
-
-@media (min-width: 992px) {
-	.custom-tabs {
+	@media (min-width: 992px) {
 		font-size: 20px;
 		.nav-item {
 			margin: 0 20px;
 		}
 	}
 }
+
 
 .btn-feedback {
 	&:active {
