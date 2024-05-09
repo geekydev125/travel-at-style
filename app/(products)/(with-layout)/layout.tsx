@@ -1,11 +1,10 @@
-import LuggageAccessoriesLayoutTitle from "@/components/Pages/LuggageAccessories/LuggageAccessoriesLayoutTitle";
-import FlyingAirplane from "@/components/Pages/LuggageAccessories/FlyingAirplane";
+import styles from '@/components/Pages/LuggageAccessories/LuggageAccessories.module.scss'
 
 import ProductModalDynamicLoader from "@/components/Common/ProductModal/ProductModalDynamicLoader";
+import LuggageAccessoriesHeaderTitle from "@/components/Pages/LuggageAccessories/LuggageAccessoriesHeaderTitle";
 
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
 interface Props {
     children: React.ReactNode
@@ -16,17 +15,16 @@ function ProductsLayout({
 }: Props) {
     return (
         <>
-            <Container as='div' className="pt-4 pb-5 py-md-5">
-                <Row className="pb-4 pb-md-5">
-                    <Col xs={4} md={5} className="d-flex flex-column justify-content-center align-items-center">
-                        <FlyingAirplane />
-                    </Col>
-                    <Col xs={8} md={7} className="d-flex flex-column justify-content-center">
-                        <LuggageAccessoriesLayoutTitle />
-                    </Col>
-                </Row>
+            <section className={`${styles['luggage-accessories-title-section']} background-gray-radial-gradient position-relative `} >
+                <Container className='h-100 d-flex justify-content-center align-items-center  '>
+                    <LuggageAccessoriesHeaderTitle />
+                </Container>
 
-                <Row as='section' className="gx-2 gx-md-3 gy-4 d-flex flex-row align-items-stretch flex-wrap">
+                <img src="/assets/img/logo/logo-gray.png" alt="logo" className={`z-0 ${styles['logo-img']}`}  />
+            </section>
+
+            <Container as='section' className="py-5">
+                <Row className="gx-2 gx-md-3 gy-4 d-flex flex-row align-items-stretch flex-wrap">
                     {children}
                 </Row>
             </Container>
