@@ -4,7 +4,7 @@ import { Inter, Play} from "next/font/google";
 import 'react-toastify/dist/ReactToastify.min.css';
 import "../styles/globals.scss";
 
-import Providers from "./providers";
+import Providers from "@/components/Providers";
 
 import BootstrapClient from "@/components/BootstrapClient";
 import Header from "@/components/Header/Header";
