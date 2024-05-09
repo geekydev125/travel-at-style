@@ -1,14 +1,14 @@
 "use client"
 import { usePathname } from "next/navigation";
 
-function LuggageAccessoriesLayoutTitle() {
+function LuggageAccessoriesHeaderTitle() {
     const pathname = usePathname();
 
     return (
-        <h3 className="display-2 text-center mb-0 fw-semibold">
+        <h3 className="display-2 text-center z-1 fw-semibold text-light text-uppercase">
             {pathname === '/luggage' ? 'Luggage' : 'Travel Accessories'}
         </h3>
     )
 }
 
-export default LuggageAccessoriesLayoutTitle
+export default LuggageAccessoriesHeaderTitle
