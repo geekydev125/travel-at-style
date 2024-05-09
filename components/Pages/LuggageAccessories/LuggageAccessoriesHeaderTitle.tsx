@@ -5,7 +5,7 @@ function LuggageAccessoriesHeaderTitle() {
     const pathname = usePathname();
 
     return (
-        <h3 className="display-2 text-center fw-semibold text-dark text-uppercase">
+        <h3 className="display-2 text-center fw-semibold text-dark text-uppercase" style={{maxWidth: '90%'}}>
             {pathname === '/luggage' ? 'Luggage' : 'Travel Accessories'}
         </h3>
     )
