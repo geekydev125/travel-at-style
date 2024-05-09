@@ -5,6 +5,7 @@ import LuggageAccessoriesHeaderTitle from "@/components/Pages/LuggageAccessories
 
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row";
+import GoToShopButton from '@/components/Common/Buttons/GoToShopButton';
 
 interface Props {
     children: React.ReactNode
@@ -16,11 +17,16 @@ function ProductsLayout({
     return (
         <>
             <section className={`${styles['luggage-accessories-title-section']} background-gray-radial-gradient position-relative `} >
-                <Container className='h-100 d-flex justify-content-center align-items-center  '>
+                <Container className='h-100 d-flex flex-column justify-content-center align-items-center z-1 position-relative'>
                     <LuggageAccessoriesHeaderTitle />
+
+                    <GoToShopButton size="sm">
+                        Explore our shop's products
+                    </GoToShopButton>
+
                 </Container>
 
-                <img src="/assets/img/logo/logo-gray.png" alt="logo" className={`z-0 ${styles['logo-img']}`}  />
+                <img src="/assets/img/logo/logo-gray.png" alt="logo" className={`z-0 ${styles['logo-img']}`} />
             </section>
 
             <Container as='section' className="py-5">
