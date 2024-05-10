@@ -9,13 +9,16 @@ import ShopCard from "@/components/Common/Cards/Shop/ShopCard"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
+import ProductCard from "./Common/Cards/Product/ProductCard"
 
 interface Props {
     products: ISteamer[] | ILuggage[] | IAccessory[]
+    cardType: "shop" | "product"
 }
 
-function ShopProductTabContent({
-    products
+function ProductsContent({
+    products,
+    cardType
 }: Props) {
     return (
         <>
@@ -27,7 +30,8 @@ function ShopProductTabContent({
                     {products.map((product) => {
                         return (
                             <Col xs={12} sm={6} lg={4} key={uniqid()}>
-                                <ShopCard product={product} />
+                                {cardType === "product" && <ProductCard product={product} />}
+                                {cardType === "shop" && <ShopCard product={product} /> }
                             </Col>
                         )
                     })}
@@ -37,4 +41,4 @@ function ShopProductTabContent({
     )
 }
 
-export default ShopProductTabContent
+export default ProductsContent

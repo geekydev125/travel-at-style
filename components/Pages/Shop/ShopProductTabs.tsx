@@ -10,7 +10,7 @@ import { IAccessory } from '@/model/Accessory';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
-import ShopProductTabContentWrapper from './ShopProductTabContentWrapper';
+import ProductsContentWrapper from '../../ProductsContentWrapper';
 import { baseUrl } from '@/lib/baseUrl';
 
 export type TActiveTab = "steamers" | "luggage" | "accessories";
@@ -59,15 +59,15 @@ function ShopProductsTabs() {
 		<section className='py-4'>
 			<Tabs onSelect={(activeKey) => setActiveTab(activeKey as TActiveTab)} justify variant='pills' defaultActiveKey={defaultTab ?? ''} className='custom-tabs mb-3' >
 				<Tab eventKey="steamers" title="Steamers">
-					<ShopProductTabContentWrapper products={products.steamers} isLoading={isLoading} />
+					<ProductsContentWrapper products={products.steamers} isLoading={isLoading} cardType='shop'/>
 				</Tab>
 
 				<Tab eventKey="luggage" title="Luggage">
-					<ShopProductTabContentWrapper products={products.luggage} isLoading={isLoading} />
+					<ProductsContentWrapper products={products.luggage} isLoading={isLoading} cardType='shop'/>
 				</Tab>
 
 				<Tab eventKey="accessories" title="Accessories">
-					<ShopProductTabContentWrapper products={products.accessories} isLoading={isLoading} />
+					<ProductsContentWrapper products={products.accessories} isLoading={isLoading} cardType='shop'/>
 				</Tab>
 			</Tabs>
 		</section>

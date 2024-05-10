@@ -11,7 +11,7 @@ interface Props {
     productsLength: number
 }
 
-function ShopProductTabContentPlaceholder({
+function ProductsContentPlaceholder({
     productsLength
 }: Props) {
     return (
@@ -37,4 +37,4 @@ function ShopProductTabContentPlaceholder({
     )
 }
 
-export default ShopProductTabContentPlaceholder
+export default ProductsContentPlaceholder
