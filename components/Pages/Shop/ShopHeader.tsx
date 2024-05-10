@@ -10,7 +10,9 @@ function ShopHeader() {
         <>
             <ShopCheckoutHeaderTitle />
 
-            {getCartTotalProducts() > 0 && <ShowCartCheckoutButtons />}
+            <div className='d-flex align-items-end'>
+                {getCartTotalProducts() > 0 && <ShowCartCheckoutButtons />}
+            </div>
         </>
     )
 }

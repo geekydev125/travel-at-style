@@ -22,8 +22,8 @@ function ShopCheckoutHeader() {
     return (
         <>
             <div
-                className={`d-flex flex-column flex-md-row align-items-end justify-content-between pb-3 pb-lg-0 ${pathname.includes('/checkout') ? 'mb-lg-4' : 'mb-lg-3'} `}
-                style={{ height: '82px' }}
+                className={`d-flex flex-column flex-md-row justify-content-between pb-3 pb-lg-0 ${pathname.includes('/checkout') ? 'mb-lg-4' : 'mb-lg-3'} `}
+                style={{ minHeight: '82px' }}
             >
 
                 { pathname.includes('/checkout') && (
