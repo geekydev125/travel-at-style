@@ -34,7 +34,7 @@ function AddRemoveCartButtons({
     }
 
     return (
-        <div className="d-flex flex-row">
+        <div className="d-flex flex-row align-items-end">
             {
                 isProductInCart(product._id) && (
                     <CustomButton classes={`${classesRemoveButton} btn-feedback`} variant="danger" size="sm" onClick={() => removeProductHandler(product)}>

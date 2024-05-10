@@ -39,21 +39,25 @@ function CardButtons({
     }, [cart])
 
     return (
-        <div className="d-flex flex-row flex-sm-column flex-xl-row justify-content-between align-items-start align-content-start px-2 pt-4 pb-1 position-relative overflow-hidden">
+        <div className="d-flex flex-row justify-content-between align-items-start flex-sm-column justify-content-center align-items-sm-center flex-xl-row  align-items-xl-start px-2 pt-4 pb-4 position-relative overflow-hidden">
 
-            <div>
-                <span onClick={() => showModalHandler(true, product, modalType)} className={`${styles['shop-card-title']} mb-0 px-md-0 display-6 fw-bold text-dark`}>
+            <div className="pb-sm-2 pb-xl-0">
+                <span
+                    onClick={() => showModalHandler(true, product, modalType)}
+                    className={`${styles['shop-card-title']} mb-0 px-md-0 display-6 fw-bold text-dark`}
+                >
                     <span className='text-uppercase'>{product.name}</span>
                     {(product as ISteamer).color ? ` (${(product as ISteamer).color})` : ''}
                 </span>
 
-                {productQuantityInCart && cardType === 'shop'
-                    ? <p className="mb-0">Quantity: {productQuantityInCart}</p>
-                    : <p style={{ minHeight: '8px' }}> </p>
-                }
+                {(productQuantityInCart && cardType === 'shop') ? <p className="mb-0 d-sm-none d-xl-block">Quantity: {productQuantityInCart}</p> : ''}
+
             </div>
 
+
+
             {cardType === 'shop' && <AddRemoveCartButtons classesAddButton="mt-sm-2 mt-xl-0 text-nowrap" classesRemoveButton="me-1 text-nowrap" product={product} />}
+
             {cardType === 'product' && (
                 <NextLink href={`/shop?tab=${product.productCategory}`} >
                     <CustomButton variant="primary" size="sm" classes="text-nowrap" >
@@ -63,6 +67,7 @@ function CardButtons({
                 </NextLink>
             )}
 
+            {(productQuantityInCart && cardType === 'shop') ? <p className="mb-0 d-none mt-sm-2 d-sm-block d-xl-none">Quantity: {productQuantityInCart}</p> : ''}
         </div>
     )
 }
