@@ -6,20 +6,22 @@ import { ISteamer } from "@/model/Steamer"
 import Carousel from 'react-bootstrap/Carousel';
 
 interface Props {
-    carouselId: string,
-    steamers: ISteamer[],
-    indicatorLabels: string[]
+    steamerModel: 'besteam' | 'besteamXL'
+    steamers: ISteamer[]
 }
 
 function ProductCarousel({
-    carouselId,
-    steamers,
-    indicatorLabels
+    steamerModel,
+    steamers
 }: Props) {
+    const indicatorLabels = steamerModel === 'besteam'
+        ? ['blue', 'black', 'red', 'white']
+        : ['yellow', 'blue', 'black', 'red'];
+
     return (
-        <Carousel id={carouselId} controls={false} fade indicators={true} indicatorLabels={indicatorLabels} interval={1200} touch>
+        <Carousel id={steamerModel === 'besteam' ? 'carousel-besteam' : 'carousel-besteamXl'} controls={false} fade indicators={true} indicatorLabels={indicatorLabels} interval={1200} touch>
             {
-                steamers.map((steamer, index) => (
+                steamers.map((steamer) => (
                     <Carousel.Item key={uniqid()}>
                         <img
                             className="w-100"
