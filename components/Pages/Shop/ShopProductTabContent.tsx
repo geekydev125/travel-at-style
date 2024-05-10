@@ -1,4 +1,3 @@
-import { memo } from "react"
 import uniqid from "uniqid"
 
 import { IAccessory } from "@/model/Accessory"
@@ -38,4 +37,4 @@ function ShopProductTabContent({
     )
 }
 
-export default memo(ShopProductTabContent)
+export default ShopProductTabContent
