@@ -108,12 +108,16 @@ main {
 	.carousel-indicators {
 		bottom: -38px;
 		justify-content: space-around;
+		margin-left: 0;
+		margin-right: 0;
+
 		button {
 			height: 40px;
 			border: 1px solid lightgrey;
 			opacity: 1;
 			border-radius: 50px;
 			transition: transform 1s ease-in-out;
+
 			&.active {
 				transform: scale(1.2);
 			}
@@ -129,6 +133,13 @@ main {
 			&[aria-label="white"] {
 				background-color: white;
 			}
+		}
+	}
+
+	@media (min-width: 992px){
+		.carousel-indicators {
+			margin-left: 15%;
+			margin-right: 15%;
 		}
 	}
 }

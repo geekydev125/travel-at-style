@@ -37,11 +37,11 @@ function BesteamRow({
         ? <AirplaneLoader />
         : (
             <Row className="px-3 px-md-5">
-                <Col xs={{ span: 12, order: 2 }} md={{ order: steamerModel === 'besteam' ? 1 : 2 }} lg={7} className='d-flex flex-column pt-2 pb-3 px-2 px-lg-5'>
+                <Col xs={{ span: 12, order: 2 }} md={{ span: 7, order: steamerModel === 'besteam' ? 1 : 2 }} className='d-flex flex-column pt-2 pb-3 px-2 px-lg-5'>
                     <h3 className="text-center  h2 mb-3 display-2 fw-semibold">{steamers[0]?.name}</h3>
                     <p>{steamers[0]?.description}</p>
 
-                    <div className={`d-lg-none w-75 mx-auto mt-2 mb-4`}>
+                    <div className={`d-md-none w-75 mx-auto mt-2 mb-4`}>
                         <ProductCarousel
                             steamerModel={steamerModel}
                             steamers={steamers}
@@ -70,7 +70,7 @@ function BesteamRow({
                     </div>
                 </Col>
 
-                <Col xs={{ span: 12, order: 1 }} md={{ order: steamerModel === 'besteam' ? 2 : 1 }} lg={5} className='d-none d-lg-block mb-5'>
+                <Col xs={{ span: 12, order: 1 }} md={{span: 5, order: steamerModel === 'besteam' ? 2 : 1 }} className='d-none d-md-block mb-5 mt-md-5 mt-lg-0'>
                     <ProductCarousel
                         steamerModel={steamerModel}
                         steamers={steamers}
