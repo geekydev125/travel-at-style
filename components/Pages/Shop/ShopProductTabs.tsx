@@ -1,6 +1,7 @@
 "use client"
 import { useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
+import { useNotificationContext } from '@/context/notificationContext';
 
 import { ISteamer } from '@/model/Steamer';
 import { ILuggage } from '@/model/Luggage';
@@ -10,6 +11,7 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
 import ShopProductTabContentWrapper from './ShopProductTabContentWrapper';
+import { baseUrl } from '@/lib/baseUrl';
 
 export type TActiveTab = "steamers" | "luggage" | "accessories";
 
@@ -19,7 +21,8 @@ export interface IProducts {
 	accessories: IAccessory[] | []
 }
 
-function ShopProductsTabs({ }) {
+function ShopProductsTabs() {
+	const { displayNotification } = useNotificationContext()
 	const searchParams = useSearchParams()
 	const defaultTab = searchParams.get('tab') as TActiveTab || 'steamers'
 	const [activeTab, setActiveTab] = useState<TActiveTab>(defaultTab)
@@ -32,13 +35,16 @@ function ShopProductsTabs({ }) {
 	})
 
 	const productsLoader = useCallback(() => {
-		import(`@/data/${activeTab}.json`)
+		fetch(`${baseUrl}/api/products/${activeTab}`)
+			.then((res) => res.json())
 			.then((data) => {
 				setProducts((prev) => ({
 					...prev,
-					[activeTab]: data.default
+					[activeTab]: data
 				}))
 				setIsLoading(false)
+			}).catch((error) => {
+				displayNotification("An error occurred while fetching the requested resource", 'error')
 			})
 	}, [activeTab])
 
