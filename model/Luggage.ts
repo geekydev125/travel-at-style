@@ -1,4 +1,4 @@
-import Product from "./Product";
+import IProduct from "./Product";
 
-export default interface Luggage extends Product {
+export interface ILuggage extends IProduct {
 }

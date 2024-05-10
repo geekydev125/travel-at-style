@@ -1,7 +1,9 @@
-import Product from "./Product";
+import IProduct from "./Product";
 
-export default interface Steamer extends Product {
+export interface ISteamer extends IProduct {
     color: string,
     imgSpecial: string,
     packageIncludes: string[] | [],
 }
+
+

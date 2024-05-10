@@ -1,6 +1,6 @@
 import { IdType, Identifiable } from "@/types/common-types";
 
-export default interface Product extends Identifiable<IdType>{
+export default interface IProduct extends Identifiable<IdType>{
     name: string,
     productCategory: string,
     nameCamelCase: string,
