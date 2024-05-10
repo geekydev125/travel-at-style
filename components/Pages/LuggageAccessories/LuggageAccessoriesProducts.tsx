@@ -9,6 +9,7 @@ import { IAccessory } from '@/model/Accessory'
 import { baseUrl } from '@/lib/baseUrl'
 
 import ProductsContentWrapper from '@/components/ProductsContentWrapper'
+import AirplaneLoader from '@/components/Common/Loader/AirplaneLoader'
 
 interface Props {
     productCategory: "luggage" | "accessories"
@@ -33,7 +34,14 @@ function LuggageAccessoriesProducts({
     }, [])
 
     return (
-        <ProductsContentWrapper products={products} isLoading={isLoading} cardType='product' />
+        <>
+            {
+                isLoading
+                    ? <AirplaneLoader />
+                    : <ProductsContentWrapper products={products} cardType='product' />
+
+            }
+        </>
     )
 }
 

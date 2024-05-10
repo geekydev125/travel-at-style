@@ -10,7 +10,9 @@ import { IAccessory } from '@/model/Accessory';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
-import ProductsContentWrapper from '../../ProductsContentWrapper';
+import ProductsContentWrapper from '@/components/ProductsContentWrapper';
+import AirplaneLoader from '@/components/Common/Loader/AirplaneLoader';
+
 import { baseUrl } from '@/lib/baseUrl';
 
 export type TActiveTab = "steamers" | "luggage" | "accessories";
@@ -59,15 +61,27 @@ function ShopProductsTabs() {
 		<section className='py-4'>
 			<Tabs onSelect={(activeKey) => setActiveTab(activeKey as TActiveTab)} justify variant='pills' defaultActiveKey={defaultTab ?? ''} className='custom-tabs mb-3' >
 				<Tab eventKey="steamers" title="Steamers">
-					<ProductsContentWrapper products={products.steamers} isLoading={isLoading} cardType='shop'/>
+					{
+						isLoading
+							? <AirplaneLoader />
+							: <ProductsContentWrapper products={products.steamers} cardType='product' />
+					}
 				</Tab>
 
 				<Tab eventKey="luggage" title="Luggage">
-					<ProductsContentWrapper products={products.luggage} isLoading={isLoading} cardType='shop'/>
+					{
+						isLoading
+							? <AirplaneLoader />
+							: <ProductsContentWrapper products={products.luggage} cardType='product' />
+					}
 				</Tab>
 
 				<Tab eventKey="accessories" title="Accessories">
-					<ProductsContentWrapper products={products.accessories} isLoading={isLoading} cardType='shop'/>
+					{
+						isLoading
+							? <AirplaneLoader />
+							: <ProductsContentWrapper products={products.accessories} cardType='product' />
+					}
 				</Tab>
 			</Tabs>
 		</section>
