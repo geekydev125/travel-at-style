@@ -155,33 +155,35 @@ function Map() {
             {
                 isLoaded
                     ? (
-                        <GoogleMap
-                            mapContainerStyle={{
-                                width: '100%',
-                                height: '300px',
-                                zIndex: 0,
-                            }}
-                            center={center}
-                            zoom={15}
-                            options={{
-                                controlSize: 24,
-                                disableDefaultUI: true,
-                                maxZoom: 20,
-                                minZoom: 10,
-                                scrollwheel: true,
-                                styles: mapStyles,
-
-                            }}
-                        >
-                            { /* Child components, such as markers, info windows, etc. */}
-                            <MarkerF
-                                position={center}
-                                options={{
-                                    icon: '/assets/img/logo/google-map-marker.png',
-                                    title: 'Travel @ Style',
+                        <div className='background-blue-radial-gradient'>
+                            <GoogleMap
+                                mapContainerStyle={{
+                                    width: '100%',
+                                    height: '300px',
+                                    zIndex: 0,
                                 }}
-                            />
-                        </GoogleMap>
+                                center={center}
+                                zoom={15}
+                                options={{
+                                    controlSize: 24,
+                                    disableDefaultUI: true,
+                                    maxZoom: 20,
+                                    minZoom: 10,
+                                    scrollwheel: true,
+                                    styles: mapStyles,
+
+                                }}
+                            >
+                                { /* Child components, such as markers, info windows, etc. */}
+                                <MarkerF
+                                    position={center}
+                                    options={{
+                                        icon: '/assets/img/logo/google-map-marker.png',
+                                        title: 'Travel @ Style',
+                                    }}
+                                />
+                            </GoogleMap>
+                        </div>
                     ) : (
                         <div className='px-2 background-blue-radial-gradient d-flex justify-content-center align-items-center' style={{ height: '300px' }}>
                             <p className='display-3 me-3 text-light'>Loading Map...</p>
