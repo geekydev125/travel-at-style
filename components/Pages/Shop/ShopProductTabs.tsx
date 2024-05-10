@@ -35,7 +35,7 @@ function ShopProductsTabs() {
 	})
 
 	const productsLoader = useCallback(() => {
-		fetch(`${baseUrl}/api/products/${activeTab}`)
+		return fetch(`${baseUrl}/api/products/${activeTab}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setProducts((prev) => ({

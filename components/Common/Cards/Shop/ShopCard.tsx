@@ -1,5 +1,3 @@
-"use client"
-import { useEffect, useState } from "react"
 
 import { IAccessory } from "@/model/Accessory"
 import { ILuggage } from "@/model/Luggage"
@@ -10,8 +8,6 @@ import CardImage from "@/components/Common/Cards/CardImage"
 import CardButtons from "@/components/Common/Cards/CardButtons"
 import CardContainer from "@/components/Common/Cards/CardContainer"
 
-import CardPlaceholder from "@/components/Common/Placeholders/Shop/CardPlaceholder"
-
 interface Props {
     product: ILuggage | IAccessory | ISteamer
 }
@@ -19,23 +15,16 @@ interface Props {
 function ShopCard({
     product,
 }: Props) {
-    const [isLoading, setIsLoading] = useState(true)
 
-    useEffect(() => {
-        setIsLoading(false)
-    }, [])
+    return (
+        <CardContainer>
+            <CardPrice price={product.price} />
 
-    return isLoading
-        ? <CardPlaceholder />
-        : (
-            <CardContainer>
-                <CardPrice price={product.price} />
+            <CardImage product={product} modalType="shop" />
 
-                <CardImage product={product} modalType="shop" />
-
-                <CardButtons product={product} cardType="shop" />
-            </CardContainer>
-        )
+            <CardButtons product={product} cardType="shop" />
+        </CardContainer>
+    )
 }
 
 export default ShopCard

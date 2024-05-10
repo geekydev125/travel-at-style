@@ -2,7 +2,6 @@
 import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
 
-import { useCartContext } from '@/context/cartContext';
 import CheckoutProgressBar from './CheckoutProgressBar';
 
 const DynamicShopHeader = dynamic(() => import('@/components/Pages/Shop/ShopHeader'), {
@@ -17,7 +16,6 @@ const DynamicCheckoutHeader = dynamic(() => import('@/components/Pages/Checkout/
 
 function ShopCheckoutHeader() {
     const pathname = usePathname();
-    const { getCartTotalProducts } = useCartContext()
 
     return (
         <>
@@ -26,15 +24,9 @@ function ShopCheckoutHeader() {
                 style={{ minHeight: '82px' }}
             >
 
-                { pathname.includes('/checkout') && (
-                    <DynamicCheckoutHeader />
-                )}
+                { pathname.includes('/checkout') && <DynamicCheckoutHeader />}
 
-                { pathname === '/shop' && (
-                    getCartTotalProducts() > 0
-                        ? <DynamicShopHeader />
-                        : <h3 className="display-2 mb-0 fw-semibold h-100">Shop</h3>
-                )}
+                { pathname === '/shop' && <DynamicShopHeader /> }
             </div >
 
             {pathname.includes('/checkout') && <CheckoutProgressBar />}

@@ -4,7 +4,7 @@ import AirplaneLoader from '@/components/Common/Loader/AirplaneLoader'
 
 import ProductsContentPlaceholder from '@/components/Common/Placeholders/Shop/ProductsContentPlaceholder'
 
-import { IProducts } from './Pages/Shop/ShopProductTabs';
+import { IProducts } from '@/components/Pages/Shop/ShopProductTabs';
 
 const LazyProductsTab = lazy(() => import('@/components/ProductsContent'))
 
