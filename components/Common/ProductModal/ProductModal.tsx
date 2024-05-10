@@ -3,9 +3,9 @@ import NextLink from "next/link"
 import { useModalContext } from '@/context/modalContext';
 import uniqid from 'uniqid';
 
-import Steamer from '@/model/Steamer';
-import Accessory from '@/model/Accessory';
-import Luggage from '@/model/Luggage';
+import { ISteamer } from '@/model/Steamer';
+import { IAccessory } from '@/model/Accessory';
+import { ILuggage } from '@/model/Luggage';
 
 import AddRemoveCartButtons from '@/components/Common/Buttons/AddRemoveCartButtons';
 import CustomButton from "@/components/Common/Buttons/CustomButton";
@@ -25,7 +25,7 @@ function ProductModal() {
                 <Modal.Title>
                     <h4 className='display-4 fw-semibold mb-0'>
                         <span className='text-uppercase'>{product && product.name}</span>
-                        {`${(product as Steamer).color ? ` (${(product as Steamer).color})` : ''}`}
+                        {`${(product as ISteamer).color ? ` (${(product as ISteamer).color})` : ''}`}
                     </h4>
                 </Modal.Title>
             </Modal.Header>
@@ -39,12 +39,12 @@ function ProductModal() {
                             </p>
 
                             {
-                                (product as Steamer).packageIncludes?.length > 0 && (
+                                (product as ISteamer).packageIncludes?.length > 0 && (
                                     <>
                                         <p className="display-6 mb-1 mt-3 fw-semibold"> Package Includes:</p>
                                         <ol>
                                             {
-                                                (product as Steamer).packageIncludes.map((item) => {
+                                                (product as ISteamer).packageIncludes.map((item) => {
                                                     return (
                                                         <li key={uniqid()}>{item}</li>
                                                     )
@@ -60,7 +60,7 @@ function ProductModal() {
                                     <img
                                         className='img-fluid'
                                         src={`/assets/img/${product.imgFolder}/${product.img}`}
-                                        alt={`${product && product.name} (${(product as Steamer).color})`}
+                                        alt={`${product && product.name} (${(product as ISteamer).color})`}
                                     />
                                 )
                             }
@@ -74,11 +74,11 @@ function ProductModal() {
                     Price: {product && product.price}
                 </p>
 
-                {modalType === 'shop' && <AddRemoveCartButtons classesRemoveButton='me-1' product={(product as Luggage | Accessory | Steamer)} />}
+                {modalType === 'shop' && <AddRemoveCartButtons classesRemoveButton='me-1' product={(product as ILuggage | IAccessory | ISteamer)} />}
 
                 {modalType === 'product' && (
 
-                    <NextLink onClick={() => showModalHandler(false, null, null)} href={`/shop?tab=${(product as Luggage | Accessory | Steamer).productCategory}`}>
+                    <NextLink onClick={() => showModalHandler(false, null, null)} href={`/shop?tab=${(product as ILuggage | IAccessory | ISteamer).productCategory}`}>
                         <CustomButton variant="primary" size="sm">
                             GET YOURS NOW!
                             <IconChevronRight />

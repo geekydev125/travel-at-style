@@ -1,9 +1,9 @@
 "use client";
 import useLocalStorage from "@/hooks/useLocalStorage";
-import Accessory from "@/model/Accessory";
-import Luggage from "@/model/Luggage";
-import Product from "@/model/Product";
-import Steamer from "@/model/Steamer";
+import { IAccessory } from "@/model/Accessory";
+import { ILuggage } from "@/model/Luggage";
+import IProduct from "@/model/Product";
+import { ISteamer } from "@/model/Steamer";
 import { createContext, useContext } from "react";
 
 export interface IClient {
@@ -23,13 +23,13 @@ export interface IClient {
 }
 
 export interface ICartProduct {
-    _id: Product['_id'],
-    productCategory: Product['productCategory'],
-    name: Product['name'],
-    img: Product['img'],
-    price: Product['price'],
+    _id: IProduct['_id'],
+    productCategory: IProduct['productCategory'],
+    name: IProduct['name'],
+    img: IProduct['img'],
+    price: IProduct['price'],
     quantity: number;
-    color?: Steamer['color'],
+    color?: ISteamer['color'],
 }
 
 export interface ICart {
@@ -39,7 +39,7 @@ export interface ICart {
 
 }
 
-export type TProduct = Steamer | Luggage | Accessory;
+export type TProduct = ISteamer | ILuggage | IAccessory;
 
 const cartInitialState: ICart = {
     products: [],
@@ -114,7 +114,7 @@ export const CartContextProvider = ({
             if(product.hasOwnProperty('color')) {
                 newProduct = {
                     ...newProduct,
-                    color: (product as Steamer).color
+                    color: (product as ISteamer).color
                 }
             }
 

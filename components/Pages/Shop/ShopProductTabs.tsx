@@ -2,9 +2,9 @@
 import { useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 
-import Steamer from '@/model/Steamer';
-import Luggage from '@/model/Luggage';
-import Accessory from '@/model/Accessory';
+import { ISteamer } from '@/model/Steamer';
+import { ILuggage } from '@/model/Luggage';
+import { IAccessory } from '@/model/Accessory';
 
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -14,9 +14,9 @@ import ShopProductTabContentWrapper from './ShopProductTabContentWrapper';
 export type TActiveTab = "steamers" | "luggage" | "accessories";
 
 export interface IProducts {
-	steamers: Steamer[] | []
-	luggage: Luggage[] | []
-	accessories: Accessory[] | []
+	steamers: ISteamer[] | []
+	luggage: ILuggage[] | []
+	accessories: IAccessory[] | []
 }
 
 function ShopProductsTabs({ }) {

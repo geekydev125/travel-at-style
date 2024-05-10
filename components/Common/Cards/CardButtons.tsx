@@ -7,16 +7,16 @@ import styles from '@/components/Common/Cards/Shop/ShopCard.module.scss'
 import { ICartProduct, useCartContext } from "@/context/cartContext"
 import { useModalContext } from "@/context/modalContext"
 
-import Accessory from "@/model/Accessory"
-import Luggage from "@/model/Luggage"
-import Steamer from "@/model/Steamer"
+import { IAccessory } from "@/model/Accessory"
+import { ILuggage } from "@/model/Luggage"
+import { ISteamer } from "@/model/Steamer"
 
 import CustomButton from "@/components/Common/Buttons/CustomButton"
 import IconChevronRight from "@/components/Icons/IconChevronRight"
 import AddRemoveCartButtons from "@/components/Common/Buttons/AddRemoveCartButtons"
 
 interface Props {
-    product: Steamer | Luggage | Accessory,
+    product: ISteamer | ILuggage | IAccessory,
     cardType: 'product' | 'shop'
 }
 
@@ -44,7 +44,7 @@ function CardButtons({
             <div>
                 <span onClick={() => showModalHandler(true, product, modalType)} className={`${styles['shop-card-title']} mb-0 px-md-0 display-6 fw-bold text-dark`}>
                     <span className='text-uppercase'>{product.name}</span>
-                    {(product as Steamer).color ? ` (${(product as Steamer).color})` : ''}
+                    {(product as ISteamer).color ? ` (${(product as ISteamer).color})` : ''}
                 </span>
 
                 {productQuantityInCart && cardType === 'shop'

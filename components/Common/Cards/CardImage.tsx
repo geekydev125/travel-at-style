@@ -3,12 +3,12 @@ import styles from '@/components/Common/Cards/Shop/ShopCard.module.scss'
 
 import { useModalContext } from '@/context/modalContext'
 
-import Steamer from '@/model/Steamer'
-import Luggage from '@/model/Luggage'
-import Accessory from '@/model/Accessory'
+import { ISteamer } from '@/model/Steamer'
+import { ILuggage } from '@/model/Luggage'
+import { IAccessory } from '@/model/Accessory'
 
 interface Props {
-    product: Steamer | Luggage | Accessory,
+    product: ISteamer | ILuggage | IAccessory,
     modalType: 'shop' | 'product'
 }
 

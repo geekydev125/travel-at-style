@@ -1,13 +1,13 @@
 "use client"
 import { createContext, useContext, useState } from "react";
 
-import Accessory from "@/model/Accessory";
-import Luggage from "@/model/Luggage";
-import Steamer from "@/model/Steamer";
+import { IAccessory } from "@/model/Accessory";
+import { ILuggage } from "@/model/Luggage";
+import { ISteamer } from "@/model/Steamer";
 
 interface IModalContext {
     showModal: boolean,
-    product: Steamer | Accessory | Luggage | null,
+    product: ISteamer | IAccessory | ILuggage | null,
     modalType: 'product' | 'shop' | null,
     showModalHandler: (showModal: boolean, product: IModalContext['product'], modalType: IModalContext['modalType'] ) => void
 }

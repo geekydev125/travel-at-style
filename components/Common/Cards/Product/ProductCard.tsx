@@ -1,8 +1,8 @@
 "use client"
 import { useEffect, useState } from "react"
 
-import Accessory from "@/model/Accessory"
-import Luggage from "@/model/Luggage"
+import { IAccessory } from "@/model/Accessory"
+import { ILuggage } from "@/model/Luggage"
 
 import CardImage from "@/components/Common/Cards/CardImage"
 import CardPrice from "@/components/Common/Cards/CardPrice"
@@ -12,7 +12,7 @@ import CardPlaceholder from "@/components/Common/Placeholders/Shop/CardPlacehold
 import CardContainer from "@/components/Common/Cards/CardContainer"
 
 interface Props {
-    product: Accessory | Luggage
+    product: IAccessory | ILuggage
 }
 
 function ProductCard({

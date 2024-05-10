@@ -1,9 +1,9 @@
 import { memo } from "react"
 import uniqid from "uniqid"
 
-import Accessory from "@/model/Accessory"
-import Luggage from "@/model/Luggage"
-import Steamer from "@/model/Steamer"
+import { IAccessory } from "@/model/Accessory"
+import { ILuggage } from "@/model/Luggage"
+import { ISteamer } from "@/model/Steamer"
 
 import ShopCard from "@/components/Common/Cards/Shop/ShopCard"
 
@@ -12,7 +12,7 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
 interface Props {
-    products: Steamer[] | Luggage[] | Accessory[]
+    products: ISteamer[] | ILuggage[] | IAccessory[]
 }
 
 function ShopProductTabContent({

@@ -1,7 +1,7 @@
 import uniqid from "uniqid"
 import NextLink from "next/link"
 
-import Steamer from "@/model/Steamer"
+import { ISteamer } from "@/model/Steamer"
 
 import ProductCarousel from "./ProductCarousel"
 
@@ -11,7 +11,7 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
 interface Props {
-    steamers: Steamer[]
+    steamers: ISteamer[]
     steamerModel: 'besteam' | 'besteamXl'
 }
 

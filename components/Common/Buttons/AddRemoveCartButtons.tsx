@@ -1,8 +1,8 @@
 import { useCartContext } from "@/context/cartContext"
 
-import Luggage from "@/model/Luggage"
-import Accessory from "@/model/Accessory"
-import Steamer from "@/model/Steamer"
+import { ILuggage } from "@/model/Luggage"
+import { IAccessory } from "@/model/Accessory"
+import { ISteamer } from "@/model/Steamer"
 
 import CustomButton from "@/components/Common/Buttons/CustomButton"
 import IconPlus from "@/components/Icons/IconPlus"
@@ -10,7 +10,7 @@ import IconMinus from "@/components/Icons/IconMinus"
 import { useNotificationContext } from "@/context/notificationContext"
 
 interface Props {
-    product: Luggage | Accessory | Steamer,
+    product: ILuggage | IAccessory | ISteamer,
     classesAddButton?: string,
     classesRemoveButton?: string,
 }
@@ -23,14 +23,14 @@ function AddRemoveCartButtons({
     const { addProductToCart, removeProductFromCart, isProductInCart } = useCartContext()
     const { displayNotification } = useNotificationContext()
 
-    function addProductHandler(product: Luggage | Accessory | Steamer) {
+    function addProductHandler(product: ILuggage | IAccessory | ISteamer) {
         addProductToCart(product)
-        displayNotification(`${product.name} ${(product as Steamer).color ? ` (${(product as Steamer).color})` : ''} added to cart`, 'success')
+        displayNotification(`${product.name} ${(product as ISteamer).color ? ` (${(product as ISteamer).color})` : ''} added to cart`, 'success')
     }
 
-    function removeProductHandler(product: Luggage | Accessory | Steamer) {
+    function removeProductHandler(product: ILuggage | IAccessory | ISteamer) {
         removeProductFromCart(product._id)
-        displayNotification(`${product.name} ${(product as Steamer).color ? ` (${(product as Steamer).color})` : ''} removed from cart`, 'error')
+        displayNotification(`${product.name} ${(product as ISteamer).color ? ` (${(product as ISteamer).color})` : ''} removed from cart`, 'error')
     }
 
     return (

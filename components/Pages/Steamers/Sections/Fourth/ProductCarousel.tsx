@@ -1,13 +1,13 @@
 "use client";
 import uniqid from 'uniqid';
 
-import Steamer from "@/model/Steamer"
+import { ISteamer } from "@/model/Steamer"
 
 import Carousel from 'react-bootstrap/Carousel';
 
 interface Props {
     carouselId: string,
-    steamers: Steamer[],
+    steamers: ISteamer[],
     indicatorLabels: string[]
 }
 
