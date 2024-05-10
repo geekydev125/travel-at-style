@@ -30,7 +30,7 @@ function ProductModal() {
                 </Modal.Title>
             </Modal.Header>
 
-            <Modal.Body className='background-pattern-crossword rounded-3'>
+            <Modal.Body className='background-pattern-crossword rounded-3 p-0 p-md-2'>
                 <Container>
                     <Row>
                         <Col xs={12} lg={5} className='mb-3 mb-lg-0 d-flex flex-column justify-content-between '>
