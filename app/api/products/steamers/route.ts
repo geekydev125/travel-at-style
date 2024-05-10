@@ -6,7 +6,7 @@ export async function GET() {
     await dbConnect();
 
     try {
-        let steamers = await Steamer.find().lean()
+        let steamers = await Steamer.find({}).lean()
 
         return NextResponse.json(steamers)
     } catch (error: any) {
