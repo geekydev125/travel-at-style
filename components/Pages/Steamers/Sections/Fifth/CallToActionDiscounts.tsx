@@ -9,7 +9,7 @@ import Col from "react-bootstrap/Col"
 function CallToActionDiscounts() {
     return (
         <section className="background-pattern-wool px-2 py-5">
-            <Container className="background-gray-radial-gradient px-3 py-3">
+            <Container className="background-blue-radial-gradient px-3 py-3">
                 <Row className="gx-md-0">
 
                     <Col xs={{span: 4, order: 2}} md={{span:3, order: 1}} lg={{span: 2, order: 1}} className="d-flex justify-content-center align-items-center">

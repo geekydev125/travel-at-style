@@ -6,7 +6,7 @@ import CustomButton from '@/components/Common/Buttons/CustomButton'
 
 function CallToAction() {
     return (
-        <section className={`${styles.section} text-center px-3 py-3 py-lg-4 background-gray-radial-gradient position-relative`} >
+        <section className={`${styles.section} text-center px-3 py-3 py-lg-4 background-blue-radial-gradient position-relative`} >
             <h3 className="text-uppercase text-light">The steamer that has taken America by storm is now available for purchase online</h3>
 
             <NextLink href='/shop'>
