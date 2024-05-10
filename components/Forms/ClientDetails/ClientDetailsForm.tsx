@@ -81,7 +81,6 @@ function ClientDetailsForm() {
     }, [countryName])
 
     const onFormSubmit: SubmitHandler<ClientDetailsFormData> = (formData: ClientDetailsFormData, e) => {
-        console.log('formData:', formData)
         e?.preventDefault();
 
         if (formData) {
