@@ -16,7 +16,7 @@ function ProductsLayout({
 }: Props) {
     return (
         <>
-            <section className={`${styles['luggage-accessories-title-section']} background-gray-radial-gradient position-relative `} >
+            <section className={`${styles['luggage-accessories-title-section']} background-blue-radial-gradient position-relative `} >
                 <Container className='h-100 d-flex flex-column justify-content-center align-items-center z-1 position-relative'>
                     <LuggageAccessoriesHeaderTitle />
 

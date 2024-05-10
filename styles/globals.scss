@@ -51,6 +51,11 @@ main {
 
 
 // Backgrounds
+.background-blue-radial-gradient {
+	background: rgb(41,68,107);
+	background: radial-gradient(circle, rgba(41,68,107,1) 0%, rgba(25,35,49,1) 100%);
+}
+
 .background-gray-radial-gradient {
 	background: rgb(158,158,158);
 	background: radial-gradient(circle, rgba(158,158,158,1) 0%, rgba(66,66,66,1) 100%);
