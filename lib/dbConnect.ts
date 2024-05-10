@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { NextResponse } from 'next/server';
 
 let isConnected = false;
 
@@ -18,8 +19,11 @@ export const dbConnect = async () => {
         if (db.connection.readyState) {
             isConnected = true;
             console.log('MongoDB is connected');
+        } else {
+            throw new Error('MongoDB connection failed');
         }
-    } catch(error) {
+    } catch(error: any) {
         console.log(error);
+        return NextResponse.json({message: error.message})
     }
 }
