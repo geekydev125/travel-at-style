@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react'
+import React, { Suspense, lazy, memo } from 'react'
 
 import ProductsContentPlaceholder from '@/components/Common/Placeholders/Shop/ProductsContentPlaceholder'
 
@@ -24,4 +24,4 @@ function ProductsContentWrapper({
     )
 }
 
-export default ProductsContentWrapper
+export default memo(ProductsContentWrapper)
