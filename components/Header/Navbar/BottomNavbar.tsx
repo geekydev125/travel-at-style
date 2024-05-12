@@ -1,14 +1,19 @@
+import { startTransition } from 'react'
+import { useProgress } from 'react-transition-progress'
+import { Link as NextTransitionProgressLink } from "react-transition-progress/next"
 import uniqid from 'uniqid'
-import NextLink from 'next/link'
+
+import { usePathname } from 'next/navigation'
+
+import routes from '@/data/routes.json'
+
+import { Route } from '@/components/Header/Navbar/TopNavbar'
 
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from "react-bootstrap/Container"
 
-import routes from '@/data/routes.json'
 
-import { Route } from '@/components/Header/Navbar/TopNavbar'
-import { usePathname } from 'next/navigation'
 
 interface Props {
     isBottomNavCollapsed: boolean,
@@ -18,6 +23,7 @@ function BottomNavbar({
     isBottomNavCollapsed,
 }:Props) {
     const pathname = usePathname()
+    const startProgress = useProgress()
     
     return (
 
@@ -30,7 +36,8 @@ function BottomNavbar({
                             return (
                                 <Nav.Item key={uniqid()}>
                                     <Nav.Link
-                                        as={NextLink}
+                                        as={NextTransitionProgressLink}
+                                        onClick={() => startTransition(startProgress)}
                                         className={`py-0 mx-2 text-light`}
                                         href={route.path}
                                     >
@@ -48,7 +55,8 @@ function BottomNavbar({
                             return (
                                 <Nav.Item key={uniqid()}>
                                     <Nav.Link
-                                        as={NextLink}
+                                        as={NextTransitionProgressLink}
+                                        onClick={() => startTransition(startProgress)}
                                         className={`py-0 mx-2 text-light`}
                                         href={route.path}
                                     >
