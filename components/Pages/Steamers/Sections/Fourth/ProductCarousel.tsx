@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from 'react';
 import uniqid from 'uniqid';
 
 import { ISteamer } from "@/model/Steamer"
@@ -14,9 +15,12 @@ function ProductCarousel({
     steamerModel,
     steamers
 }: Props) {
-    const indicatorLabels = steamerModel === 'besteam'
-        ? ['blue', 'black', 'red', 'white']
-        : ['yellow', 'blue', 'black', 'red'];
+    const [indicatorLabels, setIndicatorLabels] = useState<string[]>([])
+
+    useEffect(() => {
+        const currentIndicatorLabels = steamers.map((steamer) => steamer.color);
+        setIndicatorLabels(currentIndicatorLabels)
+    }, [])
 
     return (
         <Carousel id={steamerModel === 'besteam' ? 'carousel-besteam' : 'carousel-besteamXl'} controls={false} fade indicators={true} indicatorLabels={indicatorLabels} interval={1200} touch>
