@@ -1,5 +1,4 @@
 "use client"
-import NextLink from "next/link"
 import { useModalContext } from '@/context/modalContext';
 import uniqid from 'uniqid';
 
@@ -8,13 +7,14 @@ import { IAccessory } from '@/model/Accessory';
 import { ILuggage } from '@/model/Luggage';
 
 import AddRemoveCartButtons from '@/components/Common/Buttons/AddRemoveCartButtons';
-import CustomButton from "@/components/Common/Buttons/CustomButton";
+import IconChevronRight from "@/components/Icons/IconChevronRight";
+import CustomButtonWithLink from "@/components/Common/Buttons/CustomButtonWithLink";
 
 import Modal from 'react-bootstrap/Modal';
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import IconChevronRight from "@/components/Icons/IconChevronRight";
+
 
 function ProductModal() {
     const { showModal, product, modalType, showModalHandler } = useModalContext()
@@ -78,12 +78,16 @@ function ProductModal() {
 
                 {modalType === 'product' && (
 
-                    <NextLink onClick={() => showModalHandler(false, null, null)} href={`/shop?tab=${(product as ILuggage | IAccessory | ISteamer).productCategory}`}>
-                        <CustomButton variant="primary" size="sm">
-                            GET YOURS NOW!
-                            <IconChevronRight />
-                        </CustomButton>
-                    </NextLink>
+                    <CustomButtonWithLink
+                        onClick={() => showModalHandler(false, null, null)}
+                        href={`/shop?tab=${(product as ILuggage | IAccessory | ISteamer).productCategory}`}
+                        variant="primary"
+                        size="sm"
+                    >
+                        GET YOURS NOW!
+                        <IconChevronRight />
+                    </CustomButtonWithLink>
+
                 )
                 }
             </Modal.Footer>

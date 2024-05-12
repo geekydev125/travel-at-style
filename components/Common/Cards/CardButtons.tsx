@@ -1,6 +1,5 @@
 "use client"
 import { useEffect, useState } from "react"
-import NextLink from "next/link"
 
 import styles from '@/components/Common/Cards/Shop/ShopCard.module.scss'
 
@@ -11,9 +10,9 @@ import { IAccessory } from "@/model/Accessory"
 import { ILuggage } from "@/model/Luggage"
 import { ISteamer } from "@/model/Steamer"
 
-import CustomButton from "@/components/Common/Buttons/CustomButton"
 import IconChevronRight from "@/components/Icons/IconChevronRight"
 import AddRemoveCartButtons from "@/components/Common/Buttons/AddRemoveCartButtons"
+import CustomButtonWithLink from "@/components/Common/Buttons/CustomButtonWithLink"
 
 interface Props {
     product: ISteamer | ILuggage | IAccessory,
@@ -51,20 +50,15 @@ function CardButtons({
                 </span>
 
                 {(productQuantityInCart && cardType === 'shop') ? <p className="mb-0 d-sm-none d-xl-block">Quantity: {productQuantityInCart}</p> : ''}
-
             </div>
-
-
 
             {cardType === 'shop' && <AddRemoveCartButtons classesAddButton="mt-sm-2 mt-xl-0 text-nowrap" classesRemoveButton="me-1 text-nowrap" product={product} />}
 
             {cardType === 'product' && (
-                <NextLink href={`/shop?tab=${product.productCategory}`} >
-                    <CustomButton variant="primary" size="sm" classes="text-nowrap" >
-                        Get Yours Now!
-                        <IconChevronRight classes="ms-1" />
-                    </CustomButton>
-                </NextLink>
+                <CustomButtonWithLink href={`/shop?tab=${product.productCategory}`} classesButton="text-nowrap" variant="primary" size="sm">
+                    Get Yours Now!
+                    <IconChevronRight classes="ms-1" />
+                </CustomButtonWithLink>
             )}
 
             {(productQuantityInCart && cardType === 'shop') ? <p className="mb-0 d-none mt-sm-2 d-sm-block d-xl-none">Quantity: {productQuantityInCart}</p> : ''}

@@ -11,7 +11,7 @@ function ShowCartCheckoutButtons() {
     
     return (
         <div className='ms-auto'>
-            <CustomButton variant='primary' size='sm' classes='me-2' onClick={handleShow}>
+            <CustomButton variant='primary' size='sm' classesButton='me-2' onClick={handleShow}>
                 Show Cart&nbsp;
                 <IconShoppingCart />
             </CustomButton>

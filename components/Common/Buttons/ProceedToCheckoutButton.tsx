@@ -1,22 +1,19 @@
-import NextLink from 'next/link'
-
-import CustomButton from './CustomButton'
-import IconChevronRight from '../../Icons/IconChevronRight'
+import IconChevronRight from '@/components/Icons/IconChevronRight'
+import CustomButtonWithLink from '@/components/Common/Buttons/CustomButtonWithLink'
 
 interface Props {
-    handleDrawerClose?: () => void
+	handleDrawerClose?: () => void
 }
 
 function ProceedToCheckoutButton({
-    handleDrawerClose
-}:Props) {
+	handleDrawerClose
+}: Props) {
 	return (
-		<NextLink href='/checkout/review' onClick={ handleDrawerClose }>
-			<CustomButton variant='primary' size='sm'>
-				Proceed to checkout&nbsp;
-				<IconChevronRight />
-			</CustomButton>
-		</NextLink>
+		<CustomButtonWithLink href='/checkout/review' onClick={handleDrawerClose} variant='primary' size='sm'>
+			Proceed to checkout&nbsp;
+			<IconChevronRight />
+		</CustomButtonWithLink>
+
 	)
 }
 

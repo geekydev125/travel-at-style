@@ -2,12 +2,11 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-import NextLink from 'next/link';
 
 import { useCartContext } from '@/context/cartContext';
 
-import CustomButton from '@/components/Common/Buttons/CustomButton';
 import IconChevronLeft from '@/components/Icons/IconChevronLeft';
+import CustomButtonWithLink from '@/components/Common/Buttons/CustomButtonWithLink';
 
 interface IButtonTextAndLink {
     text: string
@@ -70,12 +69,10 @@ function CheckoutButtons() {
     }
 
     return (
-        <NextLink href={buttonTextAndLink.link} className='ms-auto mt-3 mt-sm-0' onClick={() => handleReviewedCartOrClient(pathname)}>
-            <CustomButton variant='primary' size='sm'>
-                <IconChevronLeft />
-                &nbsp;{buttonTextAndLink.text}
-            </CustomButton>
-        </NextLink>
+        <CustomButtonWithLink href={buttonTextAndLink.link} classesLink='ms-auto mt-3 mt-sm-0' onClick={() => handleReviewedCartOrClient(pathname)} variant='primary' size='sm'>
+            <IconChevronLeft />
+            &nbsp;{buttonTextAndLink.text}
+        </CustomButtonWithLink>
     )
 }
 

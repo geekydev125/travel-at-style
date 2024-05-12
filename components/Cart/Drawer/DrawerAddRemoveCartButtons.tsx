@@ -27,13 +27,13 @@ function DrawerAddRemoveCartButtons({
 
     return (
         <>
-            <CustomButton variant="danger" size="sm" onClick={() => removeProductHandler(product)} classes="btn-feedback p-0 lh-1">
+            <CustomButton variant="danger" size="sm" onClick={() => removeProductHandler(product)} classesButton="btn-feedback p-0 lh-1">
                 <IconMinus stroke="white" height="20px" width="20px" classes="shadow-sm btn-feedback" />
             </CustomButton>
 
             <p className="mb-0 fw-semibold">${(product.price * product.quantity).toFixed(2)}</p>
 
-            <CustomButton variant="success" onClick={() => addProductHandler(product)} classes="btn-feedback p-0 lh-1">
+            <CustomButton variant="success" onClick={() => addProductHandler(product)} classesButton="btn-feedback p-0 lh-1">
                 <IconPlus stroke="white" height="20px" width="20px" classes="shadow-sm btn-feedback" />
             </CustomButton>
         </>

@@ -1,10 +1,8 @@
-import NextLink from 'next/link'
-
-import CustomButton from '@/components/Common/Buttons/CustomButton'
-
-import Container from 'react-bootstrap/Container'
 
 import IconChevronLeft from '@/components/Icons/IconChevronLeft'
+import CustomButtonWithLink from '@/components/Common/Buttons/CustomButtonWithLink'
+
+import Container from 'react-bootstrap/Container'
 
 function NotFound() {
     return (
@@ -12,12 +10,10 @@ function NotFound() {
             <h3 className='text-danger text-center display-3'>Oops! Looks like you've wandered off course...</h3>
             <p className='text-danger text-center display-6'>(404 Error - Page not found)</p>
             <div className='mt-3'>
-                <NextLink href='/' >
-                    <CustomButton variant='primary'>
-                        <IconChevronLeft classes='me-1' />
-                        Click here to go back home
-                    </CustomButton>
-                </NextLink>
+                <CustomButtonWithLink href='/' variant='primary'>
+                    <IconChevronLeft classes='me-1' />
+                    Click here to go back home
+                </CustomButtonWithLink>
             </div>
         </Container>
     )

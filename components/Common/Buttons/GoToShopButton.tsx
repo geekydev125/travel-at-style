@@ -1,9 +1,8 @@
 "use client"
 import { usePathname } from 'next/navigation'
-import NextLink from 'next/link'
 
-import CustomButton from '@/components/Common/Buttons/CustomButton'
 import IconChevronRight from '@/components/Icons/IconChevronRight'
+import CustomButtonWithLink from './CustomButtonWithLink'
 
 interface Props {
     classes?: string
@@ -15,17 +14,15 @@ function GoToShopButton({
     classes,
     size,
     children = 'Check out all products in our shop!'
-}:Props) {
+}: Props) {
     const pathname = usePathname();
     const productTabPath = pathname.split('/')[1]
 
     return (
-        <NextLink href={`/shop?tab=${productTabPath}`} >
-            <CustomButton size={size} variant="primary" classes={classes}>
-                {children}
-                <IconChevronRight classes="ms-1" />
-            </CustomButton>
-        </NextLink>
+        <CustomButtonWithLink href={`/shop?tab=${productTabPath}`} classesButton={classes} variant="primary" size={size}>
+            {children}
+            <IconChevronRight classes="ms-1" />
+        </CustomButtonWithLink>
     )
 }
 

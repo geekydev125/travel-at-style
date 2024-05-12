@@ -1,6 +1,5 @@
 "use client"
 import uniqid from "uniqid"
-import NextLink from "next/link"
 import { useState, useEffect } from "react"
 
 import { baseUrl } from "@/lib/baseUrl"
@@ -8,8 +7,7 @@ import { baseUrl } from "@/lib/baseUrl"
 import { ISteamer } from "@/model/Steamer"
 
 import ProductCarousel from "@/components/Pages/Steamers/Sections/Fourth/ProductCarousel"
-
-import CustomButton from "@/components/Common/Buttons/CustomButton"
+import CustomButtonWithLink from "@/components/Common/Buttons/CustomButtonWithLink"
 import AirplaneLoader from "@/components/Common/Loader/AirplaneLoader"
 
 import Row from "react-bootstrap/Row"
@@ -64,9 +62,9 @@ function BesteamRow({
                     <div className="text-center mt-3 ">
                         <p className=" display-3 fw-semibold">Now only ${steamers[0]?.price}</p>
 
-                        <NextLink href="/shop">
-                            <CustomButton variant="primary" size="lg">GET YOURS NOW!</CustomButton>
-                        </NextLink>
+                        <CustomButtonWithLink href="/shop" variant="primary" size="lg">
+                            GET YOURS NOW!
+                        </CustomButtonWithLink>
                     </div>
                 </Col>
 
