@@ -64,7 +64,7 @@ function ShopProductsTabs() {
 					{
 						isLoading
 							? <AirplaneLoader />
-							: <ProductsContentWrapper products={products.steamers} cardType='product' />
+							: <ProductsContentWrapper products={products.steamers} cardType='shop' />
 					}
 				</Tab>
 
@@ -72,7 +72,7 @@ function ShopProductsTabs() {
 					{
 						isLoading
 							? <AirplaneLoader />
-							: <ProductsContentWrapper products={products.luggage} cardType='product' />
+							: <ProductsContentWrapper products={products.luggage} cardType='shop' />
 					}
 				</Tab>
 
@@ -80,7 +80,7 @@ function ShopProductsTabs() {
 					{
 						isLoading
 							? <AirplaneLoader />
-							: <ProductsContentWrapper products={products.accessories} cardType='product' />
+							: <ProductsContentWrapper products={products.accessories} cardType='shop' />
 					}
 				</Tab>
 			</Tabs>
