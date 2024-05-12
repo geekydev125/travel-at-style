@@ -1,11 +1,13 @@
 "use client"
-import { useEffect, useState } from 'react';
+import { startTransition, useEffect, useState } from 'react';
+import { useProgress } from 'react-transition-progress';
 import { useRouter } from 'next/navigation';
 import uniqid from 'uniqid';
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import clientDetailsFormSchema from '@/validation/clientDetailsFormSchema';
+import { useCartContext, IClient } from '@/context/cartContext';
 
 import countries from '@/data/countries.json';
 import usStates from '@/data/usStates.json';
@@ -13,13 +15,12 @@ import usStates from '@/data/usStates.json';
 import CustomButton from '@/components/Common/Buttons/CustomButton';
 import FormInputField from '@/components/Forms/FormInputField';
 import IconChevronRight from '@/components/Icons/IconChevronRight';
+import FormErrorMessage from '@/components/Forms/FormErrorMessage';
 
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useCartContext, IClient } from '@/context/cartContext';
-import FormErrorMessage from '../FormErrorMessage';
 
 interface ICountry {
     name: string,
@@ -30,7 +31,7 @@ interface ICountry {
 interface IUsState {
     name: string,
     code: string
-} 
+}
 
 export interface ClientDetailsFormData {
     firstName: string,
@@ -53,6 +54,7 @@ function ClientDetailsForm() {
     const [usState, setUsState] = useState<IClient['state'] | IUsState['code']>(cart.client?.state || 'AL');
     const [countryDialCode, setCountryDialCode] = useState<IClient['countryDialCode'] | string>(cart.client?.countryDialCode || '(United States) +1');
     const router = useRouter();
+    const startProgress = useProgress();
 
     const { register, handleSubmit, formState: { errors, isDirty, isValid, isLoading } } = useForm<ClientDetailsFormData>({
         resolver: yupResolver(clientDetailsFormSchema),
@@ -86,6 +88,7 @@ function ClientDetailsForm() {
         if (formData) {
             setClientDetails(formData);
             router.push('/checkout/payment')
+            startTransition(startProgress)
         }
 
     }
@@ -146,7 +149,7 @@ function ClientDetailsForm() {
                 <Col md={countryName === 'United States' ? 4 : 6}>
                     {/* City */}
                     <FormInputField label='City' type='text' register={register} inputName='city' errors={errors} />
-                </Col>               
+                </Col>
             </Row>
 
             {/* Address 1/Address 2/ZIP code */}
@@ -196,7 +199,14 @@ function ClientDetailsForm() {
 
             {/* Submit button */}
             <div className='d-flex justify-content-end mt-4'>
-                <CustomButton variant='primary' disabled={!(isDirty && isValid) || isLoading} type="submit">Proceed to Payment <IconChevronRight /></CustomButton>
+                <CustomButton
+                    variant='primary'
+                    disabled={!(isDirty && isValid) || isLoading}
+                    type="submit"
+                >
+                    Proceed to Payment
+                    <IconChevronRight />
+                </CustomButton>
             </div>
         </Form>
     )
