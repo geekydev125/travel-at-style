@@ -2,8 +2,25 @@
 @import '~bootstrap/scss/bootstrap';
 
 // :root {
-// 	font-size: 16px;
+
 // }
+
+::-webkit-scrollbar {
+	width: 0.7em;
+}
+
+::-webkit-scrollbar-track {
+	background: url(/assets/img/patterns/wood-pattern.jpg);
+}
+ 
+::-webkit-scrollbar-thumb {
+	background: #084C8D ;
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #063c6f;
+}
 
 * {
 	box-sizing: border-box;
