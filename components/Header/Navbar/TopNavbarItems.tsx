@@ -1,7 +1,8 @@
 "use client"
 import { Fragment, startTransition } from 'react'
-import { Link as NextTransitionProgressLink } from "react-transition-progress/next"
 import uniqid from 'uniqid'
+import { usePathname } from 'next/navigation'
+import { useProgress } from 'react-transition-progress'
 
 import { useCartDrawerContext } from '@/context/cartDrawerContext'
 
@@ -10,13 +11,11 @@ import styles from './Navbar.module.scss'
 import routes from '@/data/routes.json'
 
 import CartIconWithBadge from '@/components/Cart/CartIconWithBadge'
+import NextTransitionProgressLink from '@/components/Common/NextTransitionProgressLink'
+import IconChevronUp from '@/components/Icons/IconChevronUp'
+import { Route } from '@/components/Header/Navbar/TopNavbar'
 
 import Nav from 'react-bootstrap/Nav'
-import IconChevronUp from '@/components/Icons/IconChevronUp'
-
-import { Route } from '@/components/Header/Navbar/TopNavbar'
-import { usePathname } from 'next/navigation'
-import { useProgress } from 'react-transition-progress'
 
 interface Props {
     collapseNav: () => void
@@ -46,7 +45,7 @@ function TopNavbarItems({
                             <Nav.Item key={uniqid()}>
                                 <Nav.Link
                                     as={NextTransitionProgressLink}
-                                    onClick={() => {
+                                    onClickHandler={() => {
                                         collapseNav()
                                         startTransition(startProgress)
                                     }}
@@ -66,7 +65,7 @@ function TopNavbarItems({
                                 <Nav.Item className={`d-inline-block d-lg-none ${index === 6 ? 'mt-3' : ''}`}>
                                     <Nav.Link
                                         as={NextTransitionProgressLink}
-                                        onClick={() => {
+                                        onClickHandler={() => {
                                             collapseNav()
                                             startTransition(startProgress)
                                         }}
@@ -84,7 +83,7 @@ function TopNavbarItems({
 
             {/* Logo - Desktop*/}
             <NextTransitionProgressLink
-                onClick={() => {
+                onClickHandler={() => {
                     collapseNav()
                     startTransition(startProgress)
                 }}
@@ -115,7 +114,7 @@ function TopNavbarItems({
                             <Nav.Item key={uniqid()} className='d-none d-lg-block'>
                                 <Nav.Link
                                     as={NextTransitionProgressLink}
-                                    onClick={() => {
+                                    onClickHandler={() => {
                                         collapseNav()
                                         startTransition(startProgress)
                                     }}

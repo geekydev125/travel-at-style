@@ -1,6 +1,3 @@
-import { startTransition } from 'react'
-import { useProgress } from 'react-transition-progress'
-import { Link as NextTransitionProgressLink } from "react-transition-progress/next"
 import uniqid from 'uniqid'
 
 import { usePathname } from 'next/navigation'
@@ -12,6 +9,7 @@ import { Route } from '@/components/Header/Navbar/TopNavbar'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from "react-bootstrap/Container"
+import NextTransitionProgressLink from '@/components/Common/NextTransitionProgressLink'
 
 
 
@@ -23,7 +21,6 @@ function BottomNavbar({
     isBottomNavCollapsed,
 }:Props) {
     const pathname = usePathname()
-    const startProgress = useProgress()
     
     return (
 
@@ -37,7 +34,6 @@ function BottomNavbar({
                                 <Nav.Item key={uniqid()}>
                                     <Nav.Link
                                         as={NextTransitionProgressLink}
-                                        onClick={() => startTransition(startProgress)}
                                         className={`py-0 mx-2 text-light`}
                                         href={route.path}
                                     >
@@ -56,7 +52,6 @@ function BottomNavbar({
                                 <Nav.Item key={uniqid()}>
                                     <Nav.Link
                                         as={NextTransitionProgressLink}
-                                        onClick={() => startTransition(startProgress)}
                                         className={`py-0 mx-2 text-light`}
                                         href={route.path}
                                     >

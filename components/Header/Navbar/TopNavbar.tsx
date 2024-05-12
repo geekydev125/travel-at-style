@@ -1,6 +1,5 @@
 "use client"
 import { useEffect, useRef, useState, startTransition } from 'react'
-import { Link as NextTransitionProgressLink } from "react-transition-progress/next"
 import { usePathname } from 'next/navigation'
 import { useProgress } from 'react-transition-progress'
 import uniqid from 'uniqid'
@@ -10,6 +9,7 @@ import { useCartDrawerContext } from '@/context/cartDrawerContext'
 import styles from './Navbar.module.scss'
 import routes from '@/data/routes.json'
 
+import NextTransitionProgressLink from '@/components/Common/NextTransitionProgressLink'
 import TopNavbarItems from '@/components/Header/Navbar/TopNavbarItems'
 import IconBars from '@/components/Icons/IconBars'
 import CartIconWithBadge from '@/components/Cart/CartIconWithBadge'
@@ -66,7 +66,7 @@ function TopNavbar({
         <Navbar expand="lg" expanded={expanded} className='background-pattern-wood px-md-5' >
             <Container fluid className="px-3 px-lg-5">
                 {/* Logo mobile */}
-                <NextTransitionProgressLink onClick={() => {
+                <NextTransitionProgressLink onClickHandler={() => {
                     collapseNav()
                     startTransition(startProgress)
                 }}
@@ -83,7 +83,7 @@ function TopNavbar({
                                     <Nav.Link
                                         eventKey={route.path}
                                         as={NextTransitionProgressLink}
-                                        onClick={() => {
+                                        onClickHandler={() => {
                                             collapseNav()
                                             startTransition(startProgress)
                                         }}
