@@ -1,0 +1,36 @@
+.scroll-down {
+    max-height: 100px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    opacity: 0;
+    display: none;
+
+    &.show {
+        animation-name: show;   
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        animation-duration: 5s;
+        animation-delay: 6s;
+    }
+
+    &.hide {
+        transition: opacity 0.5s;
+        opacity: 0;
+    }
+    
+    @media (min-width: 768px) {
+       display: block;
+    }
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+
+}
