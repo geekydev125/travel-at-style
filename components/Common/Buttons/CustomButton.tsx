@@ -1,9 +1,9 @@
 import Button from "react-bootstrap/Button"
 
-interface Props {
+export interface CustomButtonProps {
     size?: 'sm' | 'lg' | undefined
     variant: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link' | 'outline-primary' | 'outline-secondary' | 'outline-success' | 'outline-danger' | 'outline-warning' | 'outline-info' | 'outline-light' | 'outline-dark' | 'outline-link' | undefined
-    classes?: string
+    classesButton?: string
     style?: React.CSSProperties
     onClick?: () => void
     disabled?: boolean
@@ -14,13 +14,13 @@ interface Props {
 function CustomButton({
     size,
     variant,
-    classes,
+    classesButton: classes,
     style,
     onClick,
     disabled,
     type,
     children,
-}: Props) {
+}: CustomButtonProps) {
     return (
         <Button style={style} type={type} disabled={disabled} onClick={onClick} size={size} variant={variant} className={`shadow btn-feedback text-uppercase ${classes}`} >
             {children}
