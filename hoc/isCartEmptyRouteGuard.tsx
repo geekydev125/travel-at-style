@@ -1,25 +1,25 @@
-"use client"
-import { useEffect } from "react";
-
+import React, { useEffect, ComponentType } from "react";
 import { useCartContext } from "@/context/cartContext";
 import { redirect } from "next/navigation";
 
-function isCartEmptyRouteGuard<P extends JSX.IntrinsicAttributes>( Component: React.ComponentType<P> ) {
-    const WrappedComponent = (props: P ) => {
+interface Props {}
+
+function isCartEmptyRouteGuard<P extends Props>(Component: ComponentType<P>): React.FC<P> {
+    const WrappedComponent: React.FC<P> = (props) => {
         const { cart, getCartTotalProducts } = useCartContext();
 
-        const isCartEmpty = getCartTotalProducts() === 0;
+        const isCartEmpty: boolean = getCartTotalProducts() === 0;
 
         useEffect(() => {
-            if(isCartEmpty) {
-                redirect('/shop')
+            if (isCartEmpty) {
+                redirect('/shop');
             }
-        }, [cart])
+        }, [cart, isCartEmpty]);
 
-        return isCartEmpty ? null : <Component {...props} />
-    }
+        return isCartEmpty ? null : <Component {...props} />;
+    };
 
-    return WrappedComponent
+    return WrappedComponent;
 }
 
-export default isCartEmptyRouteGuard
+export default isCartEmptyRouteGuard;
