@@ -7,7 +7,7 @@ function CardContainer({
     children
 }: Props) {
   return (
-    <div className="position-relative background-light-gradient h-100 border">
+    <div className="position-relative background-light-gradient h-100 border d-flex flex-column">
         {children}
     </div>
   )
