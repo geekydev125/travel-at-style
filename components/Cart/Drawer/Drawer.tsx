@@ -9,6 +9,7 @@ import CartEmpty from "@/components/Cart/CartEmpty";
 import CartIconWithBadge from "@/components/Cart/CartIconWithBadge";
 import ProceedToCheckoutButton from "@/components/Common/Buttons/ProceedToCheckoutButton";
 import CartProductListPlaceholder from "@/components/Common/Placeholders/Cart/CartProductListPlaceholder";
+import ClearCart from "@/components/Cart/ClearCart";
 
 import Offcanvas from "react-bootstrap/Offcanvas"
 import Container from "react-bootstrap/Container";
@@ -20,7 +21,7 @@ const DynamicCartProductsList = dynamic(() => import("@/components/Cart/CartProd
 })
 
 function Drawer() {
-    const { cart, clearCart } = useCartContext()
+    const { cart } = useCartContext()
     const { showDrawer, handleClose } = useCartDrawerContext()
 
     return (
@@ -35,9 +36,7 @@ function Drawer() {
                 {cart.products.length > 0 && (
                     <div className="w-100 bg-white position-sticky top-0 ps-3 py-1 border-bottom">
 
-                        <span className='text-primary fw-semibold' style={{ cursor: 'pointer' }} onClick={clearCart}>
-                            Clear Cart
-                        </span>
+                        <ClearCart />
 
                     </div>
                 )}
