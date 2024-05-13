@@ -27,7 +27,7 @@ function ReviewPage() {
 				<DynamicCartProductsList displayOn="checkout" />
 			</Row>
 
-			<div className="mt-2 d-flex flex-column align-items-end">
+			<div className="mt-5 d-flex flex-column align-items-end">
 				<CartTotal displaySize="display-5" />
 
 				<CustomButtonWithLink href='/checkout/client-details' onClick={() => setReviewedCart(true)} classesLink="mt-2" variant="primary">
