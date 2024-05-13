@@ -16,17 +16,15 @@ function ProductsLayout({
 }: Props) {
     return (
         <>
-            <section className={`${styles['luggage-accessories-title-section']} background-blue-radial-gradient position-relative `} >
-                <Container className='h-100 d-flex flex-column justify-content-center align-items-center z-1 position-relative'>
+            <section className={`${styles['luggage-accessories-title-section']} background-blue-radial-gradient`} >
+                <Container className='h-100 d-flex flex-column justify-content-center align-items-center z-1 '>
                     <LuggageAccessoriesHeaderTitle />
 
                     <GoToShopButton>
                         Explore all products
                     </GoToShopButton>
-
                 </Container>
 
-                <img src="/assets/img/logo/logo-gray.png" alt="logo" className={`z-0 ${styles['logo-img']}`} />
             </section>
 
             <Container as='section' className="py-5">

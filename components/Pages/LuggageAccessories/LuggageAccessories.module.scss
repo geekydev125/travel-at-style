@@ -1,30 +1,9 @@
 .luggage-accessories-title-section {
     height: 23vh;
-    .logo-img {
-        height: 45px;
-        position: absolute;
-        top: 10px;
-        right: 15px;
-    }
 } 
-
-@media (min-width: 576px) {
-    .luggage-accessories-title-section {
-        .logo-img {
-            height: 50px;
-        }
-    }
-}
 
 @media (min-width: 992px) {
     .luggage-accessories-title-section {
         height: 25vh;
-
-        .logo-img {
-            top:auto;
-            right: 20px;
-            bottom: 10px;
-            height: 60px;
-        }
     }
 }
