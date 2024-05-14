@@ -1,5 +1,3 @@
-import styles from '@/components/Pages/LuggageAccessories/LuggageAccessories.module.scss'
-
 import ProductModalDynamicLoader from "@/components/Common/ProductModal/ProductModalDynamicLoader";
 import LuggageAccessoriesHeaderTitle from "@/components/Pages/LuggageAccessories/LuggageAccessoriesHeaderTitle";
 
@@ -16,7 +14,7 @@ function ProductsLayout({
 }: Props) {
     return (
         <>
-            <section className={`${styles['luggage-accessories-title-section']} background-blue-radial-gradient`} >
+            <section className="background-blue-radial-gradient" style={{height: '25vh'}}>
                 <Container className='h-100 d-flex flex-column justify-content-center align-items-center z-1 '>
                     <LuggageAccessoriesHeaderTitle />
 
