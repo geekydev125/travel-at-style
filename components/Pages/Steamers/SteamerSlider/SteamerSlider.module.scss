@@ -1,11 +1,22 @@
 .steamer-slider {
     background: url(/assets/img/steamer-slider.png);
     background-repeat: repeat-x;
-    height: 182px;
-    width: 5076px;
+    background-size: contain;
+    height: 91px;
+    width: 2538px;
+
     animation: slide 60s linear infinite;
     z-index: 0;
-    opacity: 0.8;
+
+    @media (min-width: 768px) {
+        height: 121px;
+        width: 3384px;
+    }
+
+    @media (min-width: 1200px) {
+        height: 182px;
+        width: 5076px;
+    }
 }
 
 @keyframes slide {
