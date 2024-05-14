@@ -13,7 +13,7 @@ function TopFooter() {
 
     return (
         <Container as='nav'>
-            <Row className="px-4 pt-5">
+            <Row className="px-3 pt-5">
                 <Col xs={6} md={3} className="order-1 d-flex flex-column align-items-md-center">
                     <h4 className="text-primary fw-semibold">Products</h4>
                     <ul className="list-unstyled">
@@ -45,7 +45,12 @@ function TopFooter() {
                                             className="nav-link text-light"
                                             href={route.path}
                                         >
-                                            {route.title}
+                                            {route.path === '/instructions'
+                                                ? 'Instructions'
+                                                : route.path === '/warranty'
+                                                    ? 'Warranty'
+                                                    : route.title
+                                            }
                                         </NextTransitionProgressLink>
                                     </li>
                                 )
@@ -55,7 +60,7 @@ function TopFooter() {
                 </Col>
 
                 <Col xs={6} md={3} className="order-4 order-md-3 d-flex flex-column align-items-md-center">
-                    <NextTransitionProgressLink className="nav-link" href='/' style={{ maxWidth: '150px' }}>
+                    <NextTransitionProgressLink className="nav-link" href='/' style={{ maxWidth: '120px' }}>
                         <img src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" className="img-fluid" />
                     </NextTransitionProgressLink>
                 </Col>
