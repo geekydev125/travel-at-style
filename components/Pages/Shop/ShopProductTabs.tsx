@@ -3,6 +3,8 @@ import { useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 import { useNotificationContext } from '@/context/notificationContext';
 
+import getProductsData from '@/lib/getProductsData';
+
 import { ISteamer } from '@/model/Steamer';
 import { ILuggage } from '@/model/Luggage';
 import { IAccessory } from '@/model/Accessory';
@@ -12,8 +14,6 @@ import Tabs from 'react-bootstrap/Tabs';
 
 import ProductsContentWrapper from '@/components/ProductsContentWrapper';
 import AirplaneLoader from '@/components/Common/Loader/AirplaneLoader';
-
-import { baseUrl } from '@/lib/baseUrl';
 
 export type TActiveTab = "steamers" | "luggage" | "accessories";
 
@@ -36,18 +36,21 @@ function ShopProductsTabs() {
 		accessories: []
 	})
 
-	const productsLoader = useCallback(() => {
-		return fetch(`${baseUrl}/api/products/${activeTab}`)
-			.then((res) => res.json())
-			.then((data) => {
-				setProducts((prev) => ({
-					...prev,
-					[activeTab]: data
-				}))
-				setIsLoading(false)
-			}).catch((error) => {
-				displayNotification("An error occurred while fetching the requested resource", 'error')
-			})
+	const productsLoader = useCallback(async () => {
+		const productData = await getProductsData(activeTab)
+
+		if (productData) {
+			setProducts((prev) => ({
+				...prev,
+				[activeTab]: productData
+			}))
+			setIsLoading(false)
+			return
+		} else {
+			displayNotification("An error occurred while fetching the requested resource", 'error')
+			return
+		}
+		
 	}, [activeTab])
 
 	useEffect(() => {
