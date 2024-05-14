@@ -2,6 +2,8 @@ import uniqid from "uniqid"
 
 import routes from "@/data/routes.json"
 
+import styles from './Footer.module.scss'
+
 import { Route } from '@/components/Header/Navbar/TopNavbar'
 import NextTransitionProgressLink from "@/components/Common/NextTransitionProgressLink"
 
@@ -60,7 +62,7 @@ function TopFooter() {
                 </Col>
 
                 <Col xs={6} md={3} className="order-4 order-md-3 d-flex flex-column align-items-md-center">
-                    <NextTransitionProgressLink className="nav-link" href='/' style={{ maxWidth: '120px' }}>
+                    <NextTransitionProgressLink className={`nav-link ${styles['logo']}`} href='/' >
                         <img src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" className="img-fluid" />
                     </NextTransitionProgressLink>
                 </Col>
