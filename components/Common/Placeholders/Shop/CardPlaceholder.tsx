@@ -1,3 +1,4 @@
+"use client"
 import IconPhoto from "@/components/Icons/IconPhoto"
 
 import Placeholder from "react-bootstrap/Placeholder"
