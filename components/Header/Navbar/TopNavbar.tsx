@@ -87,7 +87,7 @@ function TopNavbar({
                                             collapseNav()
                                             startTransition(startProgress)
                                         }}
-                                        className={`btn-feedback fw-medium fst-italic text-light mx-2 me-sm-4 ${styles['shop-item']}`}
+                                        className={`btn-feedback fw-medium fst-italic text-light mx-3 me-sm-4 ${styles['shop-item']}`}
                                         href={route.path}
                                     >
                                         {route.title}
@@ -99,7 +99,7 @@ function TopNavbar({
 
                     {/* Cart - Mobile*/}
                     <Nav.Item>
-                        <Nav.Link as={'span'} onClick={handleShow} className='mx-2 btn-feedback' style={{ cursor: 'pointer' }}>
+                        <Nav.Link as={'span'} onClick={handleShow} className='mx-3 btn-feedback' style={{ cursor: 'pointer' }}>
                             <CartIconWithBadge cartIconHeight='23px' cartIconWidth='23px' cartIconFill='#f5f5f5' />
                         </Nav.Link>
                     </Nav.Item>

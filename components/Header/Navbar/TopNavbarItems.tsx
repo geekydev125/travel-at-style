@@ -42,14 +42,14 @@ function TopNavbarItems({
                 {routes.map((route: Route, index) => {
                     if (route.path !== '/' && index < 4) {
                         return (
-                            <Nav.Item key={uniqid()}>
+                            <Nav.Item key={uniqid()} className='d-flex justify-content-center justify-content-sm-start d-lg-block'>
                                 <Nav.Link
                                     as={NextTransitionProgressLink}
                                     onClickHandler={() => {
                                         collapseNav()
                                         startTransition(startProgress)
                                     }}
-                                    className={`btn-feedback mx-3 text-light ${route.path === '/shop' ? 'fst-italic fw-medium' : ''}`}
+                                    className={`d-inline-block btn-feedback mx-3 text-light text-center ${route.path === '/shop' ? 'fst-italic fw-medium' : ''}`}
                                     href={route.path}
                                 >
                                     {route.title}
@@ -62,14 +62,14 @@ function TopNavbarItems({
                     if (route.path !== '/' && index > 5) {
                         return (
                             <Fragment key={uniqid()}>
-                                <Nav.Item className={`d-inline-block d-lg-none ${index === 6 ? 'mt-3' : ''}`}>
+                                <Nav.Item className={`d-flex justify-content-center justify-content-sm-start d-lg-none ${index === 6 ? 'mt-3' : ''}`}>
                                     <Nav.Link
                                         as={NextTransitionProgressLink}
                                         onClickHandler={() => {
                                             collapseNav()
                                             startTransition(startProgress)
                                         }}
-                                        className={`btn-feedback mx-3 text-light`}
+                                        className="btn-feedback mx-3 text-light d-inline-block"
                                         href={route.path}
                                     >
                                         {route.title}
