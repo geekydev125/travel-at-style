@@ -1,8 +1,8 @@
 import uniqid from "uniqid"
 
-import { baseUrl } from "@/lib/baseUrl"
-
 import { ISteamer } from "@/model/Steamer"
+
+import getProductsData from "@/lib/getProductsData"
 
 import ProductCarousel from "@/components/Pages/Steamers/Sections/Fourth/ProductCarousel"
 import CustomButtonWithLink from "@/components/Common/Buttons/CustomButtonWithLink"
@@ -15,20 +15,10 @@ interface Props {
     steamerModel: 'besteam' | 'besteamXL'
 }
 
-async function getData(steamerModel: Props['steamerModel']) {
-    const res = await fetch(`${baseUrl}/api/products/steamers/${steamerModel}`)
-
-    if (!res.ok) {
-        throw new Error('Failed to fetch data')
-    }
-
-    return res.json()
-}
-
 async function BesteamRow({
     steamerModel
 }: Props) {
-    const steamers: ISteamer[] | [] = await getData(steamerModel)
+    const steamers: ISteamer[] | [] = await getProductsData(`steamers/${steamerModel}`)
     const indicatorLabels = steamers.map((steamer) => steamer.color)
 
     return steamers.length === 0
