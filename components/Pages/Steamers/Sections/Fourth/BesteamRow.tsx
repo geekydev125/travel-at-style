@@ -1,6 +1,4 @@
-"use client"
 import uniqid from "uniqid"
-import { useState, useEffect } from "react"
 
 import { baseUrl } from "@/lib/baseUrl"
 
@@ -17,19 +15,21 @@ interface Props {
     steamerModel: 'besteam' | 'besteamXL'
 }
 
-function BesteamRow({
+async function getData(steamerModel: Props['steamerModel']) {
+    const res = await fetch(`${baseUrl}/api/products/steamers/${steamerModel}`)
+
+    if (!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
+
+    return res.json()
+}
+
+async function BesteamRow({
     steamerModel
 }: Props) {
-    const [steamers, setSteamers] = useState<ISteamer[] | []>([])
-
-    useEffect(() => {
-        fetch(`${baseUrl}/api/products/steamers/${steamerModel}`)
-            .then(response => response.json())
-            .then(data => {
-                setSteamers(data)
-            })
-    }, [])
-
+    const steamers: ISteamer[] | [] = await getData(steamerModel)
+    const indicatorLabels = steamers.map((steamer) => steamer.color)
 
     return steamers.length === 0
         ? <AirplaneLoader />
@@ -43,6 +43,7 @@ function BesteamRow({
                         <ProductCarousel
                             steamerModel={steamerModel}
                             steamers={steamers}
+                            indicatorLabels={indicatorLabels}
                         />
                     </div>
 
@@ -68,10 +69,11 @@ function BesteamRow({
                     </div>
                 </Col>
 
-                <Col xs={{ span: 12, order: 1 }} md={{span: 5, order: steamerModel === 'besteam' ? 2 : 1 }} className='d-none d-md-block mb-5 mt-md-5 mt-lg-0'>
+                <Col xs={{ span: 12, order: 1 }} md={{ span: 5, order: steamerModel === 'besteam' ? 2 : 1 }} className='d-none d-md-block mb-5 mt-md-5 mt-lg-0'>
                     <ProductCarousel
                         steamerModel={steamerModel}
                         steamers={steamers}
+                        indicatorLabels={indicatorLabels}
                     />
                 </Col>
             </Row>
