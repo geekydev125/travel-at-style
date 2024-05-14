@@ -1,17 +1,10 @@
 .section {
-    margin-top: 35vh;
-}
+    margin-top: 38vh;
 
-.logo-img {
-    height: 45px;
-    position: absolute;
-    right: 20px;
-    bottom: 10px;
-}
-
-@media (min-width: 768px) {
-    .section {
+    @media (min-width: 768px) {
         margin-top: 67vh;
     }
 }
+
+
 

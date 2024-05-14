@@ -51,9 +51,9 @@ async function BesteamRow({
                     </div>
 
                     <div className="text-center mt-3 ">
-                        <p className=" display-3 fw-semibold">Now only ${steamers[0]?.price}</p>
+                        <p className=" display-4 fw-semibold">Now only ${steamers[0]?.price}</p>
 
-                        <CustomButtonWithLink href="/shop" variant="primary" size="lg">
+                        <CustomButtonWithLink href="/shop" variant="primary">
                             GET YOURS NOW!
                         </CustomButtonWithLink>
                     </div>
