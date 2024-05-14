@@ -1,3 +1,4 @@
+"use client"
 import uniqid from 'uniqid'
 
 import CardPlaceholder from './CardPlaceholder'
