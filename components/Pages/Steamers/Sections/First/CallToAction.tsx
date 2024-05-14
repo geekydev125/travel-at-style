@@ -12,7 +12,6 @@ function CallToAction() {
                 GET YOURS NOW!
             </CustomButtonWithLink>
 
-            <img src="/assets/img/logo/logo-gray.png" alt="logo" className={`z-0 ${styles['logo-img']}`}  />
         </section>
     )
 }
