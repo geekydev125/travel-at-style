@@ -3,6 +3,7 @@ todo.txt
 .vscode
 .env
 .env.local
+.env.production
 
 # dependencies
 /node_modules
@@ -38,3 +39,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel
