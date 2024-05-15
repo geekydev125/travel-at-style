@@ -6,11 +6,13 @@ import Row from "react-bootstrap/Row"
 import Container from "react-bootstrap/Container"
 
 const steamerBulletPoints = [
-	"Multi-purpose steamer suitable for travel and home use",
-	"Light and small - weighs only 0.6 pounds",
-	"Produces powerful steam and can be used on all fabrics",
-	"Designed for world wide use; 110v and 220v compatible",
-	"Allowed to be taken as a carry-on on an airplane"
+	"Suitable for travel and home use",
+	"Light and small - weighs only 0.6lbs (270g)",
+	"Easy to use - no complicated settings",
+
+	"Can be used on all fabrics",
+	"World wide compatibility - 110V & 220V ",
+	"Can be taken as a carry-on on an airplane"
 ]
 
 function BesteamDescription() {
@@ -19,9 +21,9 @@ function BesteamDescription() {
 			<Row>
 				<Col xs={12} lg={4} className="mx-auto px-4 px-lg-5 pt-1 pt-md-4 pt-xl-2">
 					<h3 className="display-3 text-center fw-bold">Besteam</h3>
-					<p className="mt-3 " style={{ textAlign: 'justify' }}>BeSteam is the ultimate user-friendly, light steam iron. Small and light, it's built using cutting-edge technology and top-quality materials.</p>
+					<p className="mt-3 " style={{ textAlign: 'justify' }}>BeSteam is the ultimate user-friendly steam iron. Small and light, it is built using cutting-edge technology and top-quality materials.</p>
 
-					<p style={{ textAlign: 'justify' }}>BeSteam is not only designed for ease of use but also prioritizes safety. Equipped with advanced temperature control mechanisms and automatic shut-off features, it ensures worry-free ironing sessions, even for beginners.</p>
+					<p style={{ textAlign: 'justify' }}>BeSteam is not only designed for ease of use, but also prioritizes safety. Equipped with advanced temperature control mechanisms and automatic shut-off features, it ensures worry-free ironing sessions, even for beginners.</p>
 				</Col>
 
 				<Col xs={12} sm={5} lg={4} className="mt-sm-5 mt-md-2 mt-lg-5 mt-xl-0 d-flex justify-content-center align-items-center">
