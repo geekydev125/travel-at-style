@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from "react"
 
-import styles from '@/components/Common/Cards/Shop/ShopCard.module.scss'
+import styles from '@/components/Common/Cards/Card.module.scss'
 
 import { ICartProduct, useCartContext } from "@/context/cartContext"
 import { useModalContext } from "@/context/modalContext"
@@ -40,15 +40,17 @@ function CardButtons({
     }, [cart])
 
     return (
-        <div className="d-flex flex-column justify-content-between flex-grow-1 p-3 position-relative overflow-hidden">
+        <div className="d-flex flex-column justify-content-between flex-grow-1 px-2 py-3 p-lg-3 position-relative overflow-hidden">
 
-            <div className="d-flex flex-row flex-sm-column flex-xl-row justify-content-between">
+            <div className="d-flex flex-column flex-xl-row justify-content-between">
                 <span
                     onClick={() => showModalHandler(true, product, modalType)}
                     className={`${styles['shop-card-title']} mb-0 px-md-0 display-6 fw-bold text-dark`}
                 >
-                    <span className='text-uppercase'>{product.name}</span>
-                    {(product as ISteamer).color ? ` (${(product as ISteamer).color})` : ''}
+                    <p className='mb-1'>
+                        {product.name}
+                        <span>{(product as ISteamer).color ? ` (${(product as ISteamer).color})` : ''}</span>
+                    </p>
                 </span>
 
                 {
@@ -58,11 +60,13 @@ function CardButtons({
                                 <span className="text-dark">Quantity: {productQuantityInCart}</span>
                             </Badge>
                         )
-                        : <span style={{height: '24px'}}></span>
+                        : cardType === 'product'
+                            ? ""
+                            : <span style={{ height: '22px' }}></span>
                 }
             </div>
 
-            <div className="w-100 d-flex flex-row justify-content-end align-items-end flex-grow-1">
+            <div className="w-100 d-flex flex-row justify-content-center justify-content-md-end align-items-end flex-grow-1">
                 {cardType === 'shop' && <AddRemoveCartButtons classesAddButton="mt-1 text-nowrap" classesRemoveButton="me-1 text-nowrap" product={product} />}
 
                 {cardType === 'product' && (

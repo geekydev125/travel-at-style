@@ -24,8 +24,8 @@ function ProductModal() {
             <Modal.Header closeButton className='py-4 px-2 p-sm-4 background-light-gradient'>
                 <Modal.Title>
                     <h4 className='display-4 fw-semibold mb-0'>
-                        <span className='text-uppercase'>{product && product.name}</span>
-                        {`${(product as ISteamer).color ? ` (${(product as ISteamer).color})` : ''}`}
+                        <span>{product && product.name}</span>
+                        <span>{`${(product as ISteamer).color ? ` (${(product as ISteamer).color})` : ''}`}</span>
                     </h4>
                 </Modal.Title>
             </Modal.Header>

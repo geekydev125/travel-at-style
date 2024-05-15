@@ -25,11 +25,11 @@ function ProductsContent({
             <p>
                 <small className='text-muted'>*Click on product's image/name for more info</small>
             </p>
-            <Container>
-                <Row className='gx-3 gx-lg-4 gy-4'>
+            <Container className="px-0">
+                <Row className='gx-2 gx-lg-4 gy-4'>
                     {products.map((product) => {
                         return (
-                            <Col xs={12} sm={6} lg={4} key={uniqid()}>
+                            <Col xs={6} sm={6} lg={4} key={uniqid()}>
                                 {cardType === "product" && <ProductCard product={product} />}
                                 {cardType === "shop" && <ShopCard product={product} /> }
                             </Col>
