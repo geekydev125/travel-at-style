@@ -5,7 +5,7 @@
     height: 91px;
     width: 2538px;
 
-    animation: slide 60s linear infinite;
+    animation: slide 40s linear infinite;
     z-index: 0;
 
     @media (min-width: 768px) {
@@ -24,6 +24,6 @@
         transform: translate3d(0, 0, 0)
     }
     100% {
-        transform: translate3d(-3394px, 0, 0)
+        transform: translate3d(-63%, 0, 0)
     }
 }
