@@ -1,11 +1,11 @@
 import { FieldErrors } from "react-hook-form"
 
-import { ClientDetailsFormData } from "./ClientDetails/ClientDetailsForm"
-import { ContactFormData } from "./Contact/ContactForm"
+import { IContactFormData } from "@/validation/contactFormSchema"
+import { IClientDetailsFormData } from "@/validation/clientDetailsFormSchema"
 
 interface Props {
-	errors: FieldErrors<ClientDetailsFormData> | FieldErrors<ContactFormData>,
-	inputName: keyof ClientDetailsFormData | keyof ContactFormData
+	errors: FieldErrors<IClientDetailsFormData> | FieldErrors<IContactFormData>,
+	inputName: keyof IClientDetailsFormData | keyof IContactFormData
 
 }
 
@@ -16,7 +16,7 @@ function FormErrorMessage({
 	return (
 		<p className="text-danger mb-2">
 			<small>
-				{errors[inputName as keyof (ClientDetailsFormData | ContactFormData)]?.message}
+				{errors[inputName as keyof (IClientDetailsFormData | IContactFormData)]?.message}
 			</small>
 		</p>
 	)

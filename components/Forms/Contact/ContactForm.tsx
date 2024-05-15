@@ -4,7 +4,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { useNotificationContext } from '@/context/notificationContext';
-import contactFormSchema from '@/validation/contactFormSchema';
+import contactFormSchema, { IContactFormData } from '@/validation/contactFormSchema';
 
 import CustomButton from '@/components/Common/Buttons/CustomButton';
 import FormInputField from '@/components/Forms/FormInputField';
@@ -12,17 +12,10 @@ import AirplaneLoader from '@/components/Common/Loader/AirplaneLoader';
 
 import Form from 'react-bootstrap/Form';
 
-export interface ContactFormData {
-    name: string,
-    email: string,
-    subject: string,
-    message: string
-}
-
 function ContactForm() {
     const { displayNotification } = useNotificationContext();
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-    const { register, handleSubmit, reset, formState: { errors, isDirty, isValid, isLoading } } = useForm<ContactFormData>({
+    const { register, handleSubmit, reset, formState: { errors, isDirty, isValid, isLoading } } = useForm<IContactFormData>({
         resolver: yupResolver(contactFormSchema),
         mode: 'onBlur',
         defaultValues: {
@@ -33,7 +26,7 @@ function ContactForm() {
         },
     });
 
-    const onFormSubmit: SubmitHandler<ContactFormData> = (formData: ContactFormData, e) => {
+    const onFormSubmit: SubmitHandler<IContactFormData> = (formData: IContactFormData, e) => {
         e?.preventDefault();
 
         if (formData) {

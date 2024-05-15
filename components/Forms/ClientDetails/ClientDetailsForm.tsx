@@ -6,7 +6,7 @@ import uniqid from 'uniqid';
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import clientDetailsFormSchema from '@/validation/clientDetailsFormSchema';
+import clientDetailsFormSchema, { IClientDetailsFormData } from '@/validation/clientDetailsFormSchema';
 import { useCartContext, IClient } from '@/context/cartContext';
 
 import countries from '@/data/countries.json';
@@ -33,20 +33,7 @@ interface IUsState {
     code: string
 }
 
-export interface ClientDetailsFormData {
-    firstName: string,
-    lastName: string,
-    email: string,
-    country: string,
-    addressOne: string,
-    addressTwo?: string | undefined,
-    city: string,
-    state?: string | undefined,
-    zipCode: string,
-    countryDialCode: string,
-    phoneNumber: string,
-    notes?: string | undefined
-}
+
 
 function ClientDetailsForm() {
     const { cart, setClientDetails } = useCartContext();
@@ -56,7 +43,7 @@ function ClientDetailsForm() {
     const router = useRouter();
     const startProgress = useProgress();
 
-    const { register, handleSubmit, formState: { errors, isDirty, isValid, isLoading } } = useForm<ClientDetailsFormData>({
+    const { register, handleSubmit, formState: { errors, isDirty, isValid, isLoading } } = useForm<IClientDetailsFormData>({
         resolver: yupResolver(clientDetailsFormSchema),
         mode: 'onBlur',
         defaultValues: {
@@ -82,7 +69,7 @@ function ClientDetailsForm() {
         }
     }, [countryName])
 
-    const onFormSubmit: SubmitHandler<ClientDetailsFormData> = (formData: ClientDetailsFormData, e) => {
+    const onFormSubmit: SubmitHandler<IClientDetailsFormData> = (formData: IClientDetailsFormData, e) => {
         e?.preventDefault();
 
         if (formData) {
