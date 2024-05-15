@@ -3,6 +3,21 @@ import * as yup from 'yup';
 import countries from '@/data/countries.json';
 import usStates from '@/data/usStates.json';
 
+export interface IClientDetailsFormData {
+    firstName: string,
+    lastName: string,
+    email: string,
+    country: string,
+    addressOne: string,
+    addressTwo?: string | undefined,
+    city: string,
+    state?: string | undefined,
+    zipCode: string,
+    countryDialCode: string,
+    phoneNumber: string,
+    notes?: string | undefined
+}
+
 export const clientDetailsFormSchemaShape = {
     firstName: yup
         .string()
@@ -71,7 +86,7 @@ export const clientDetailsFormSchemaShape = {
         .max(150, 'Note should be at most 150 characters long'),
 }
 
-const clientDetailsFormSchema = yup.object().shape(clientDetailsFormSchemaShape)
+const clientDetailsFormSchema: yup.ObjectSchema<IClientDetailsFormData> = yup.object().shape(clientDetailsFormSchemaShape)
 
 function allCountries() {
     let countriesArray = countries.map(country => country.name);
