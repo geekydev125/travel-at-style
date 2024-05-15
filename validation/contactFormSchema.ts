@@ -1,6 +1,13 @@
 import * as yup from 'yup';
 
-export const contactFormSchemaShape = {
+export interface IContactFormData {
+    name: string,
+    email: string,
+    subject: string,
+    message: string
+}
+
+export const contactFormSchemaShape= {
     name: yup
         .string()
         .required('Name is required')
@@ -22,6 +29,6 @@ export const contactFormSchemaShape = {
         .max(150, 'Subject should be at most 150 characters long'),
 }
 
-const contactFormSchema = yup.object().shape(contactFormSchemaShape)
+const contactFormSchema: yup.ObjectSchema<IContactFormData> = yup.object().shape(contactFormSchemaShape)
 
 export default contactFormSchema;
