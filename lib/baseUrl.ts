@@ -1,3 +1,3 @@
 export const baseUrl = process.env.NODE_ENV === 'production'
-    ? 'https://travel-at-style.vercel.app'
+    ? 'https://travelatstyle.biz/'
     : 'http://localhost:3000'
