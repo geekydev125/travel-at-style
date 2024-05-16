@@ -25,8 +25,8 @@ export const contactFormSchemaShape= {
     message: yup
         .string()
         .required('Message is required')
-        .min(10, 'Subject should be at least 10 characters long')
-        .max(150, 'Subject should be at most 150 characters long'),
+        .min(10, 'Message should be at least 10 characters long')
+        .max(150, 'Message should be at most 150 characters long'),
 }
 
 const contactFormSchema: yup.ObjectSchema<IContactFormData> = yup.object().shape(contactFormSchemaShape)
