@@ -1,8 +1,8 @@
-"use client"
 import uniqid from "uniqid"
 
 import { ISteamer } from "@/model/Steamer"
 
+import getProductsData from "@/lib/getProductsData"
 
 import ProductCarousel from "@/components/Pages/Steamers/Sections/Fourth/ProductCarousel"
 import CustomButtonWithLink from "@/components/Common/Buttons/CustomButtonWithLink"
@@ -10,8 +10,6 @@ import AirplaneLoader from "@/components/Common/Loader/AirplaneLoader"
 
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import { baseUrl } from "@/lib/baseUrl"
-import { useEffect, useState } from "react"
 
 interface Props {
     steamerModel: 'besteam' | 'besteamXL'
@@ -20,16 +18,7 @@ interface Props {
 async function BesteamRow({
     steamerModel
 }: Props) {
-    const [steamers, setSteamers] = useState<ISteamer[] | []>([])
-
-    useEffect(() => {
-        fetch(`${baseUrl}/api/products/steamers/${steamerModel}`)
-            .then(response => response.json())
-            .then(data => {
-                setSteamers(data)
-            })
-    }, [])
-    
+    const steamers: ISteamer[] | [] = await getProductsData(`steamers/${steamerModel}`)
     const indicatorLabels = steamers.map((steamer) => steamer.color)
 
     return steamers.length === 0
