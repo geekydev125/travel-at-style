@@ -63,13 +63,13 @@ function ShopProductsTabs() {
 					<ProductsContentWrapper products={products.steamers} cardType='shop' />
 				</Tab>
 
-				<Tab eventKey="luggage" title="Luggage">
+				{/* <Tab eventKey="luggage" title="Luggage">
 					<ProductsContentWrapper products={products.luggage} cardType='shop' />
 				</Tab>
 
 				<Tab eventKey="accessories" title="Accessories">
 					<ProductsContentWrapper products={products.accessories} cardType='shop' />
-				</Tab>
+				</Tab> */}
 			</Tabs>
 		</section>
 	)
