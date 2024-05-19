@@ -13,7 +13,6 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
 import ProductsContentWrapper from '@/components/ProductsContentWrapper';
-import AirplaneLoader from '@/components/Common/Loader/AirplaneLoader';
 
 export type TActiveTab = "steamers" | "luggage" | "accessories";
 
@@ -28,7 +27,6 @@ function ShopProductsTabs() {
 	const searchParams = useSearchParams()
 	const defaultTab = searchParams.get('tab') as TActiveTab || 'steamers'
 	const [activeTab, setActiveTab] = useState<TActiveTab>(defaultTab)
-	const [isLoading, setIsLoading] = useState<boolean>(true)
 
 	const [products, setProducts] = useState<IProducts>({
 		steamers: [],
@@ -37,25 +35,23 @@ function ShopProductsTabs() {
 	})
 
 	const productsLoader = useCallback(async () => {
-		const productData = await getProductsData(activeTab)
+		let productData = await getProductsData("steamers")
 
 		if (productData) {
 			setProducts((prev) => ({
 				...prev,
 				[activeTab]: productData
 			}))
-			setIsLoading(false)
 			return
 		} else {
 			displayNotification("An error occurred while fetching the requested resource", 'error')
 			return
 		}
-		
+
 	}, [activeTab])
 
 	useEffect(() => {
 		if (products[activeTab].length === 0) {
-			setIsLoading(true)
 			productsLoader()
 		}
 	}, [activeTab])
@@ -64,27 +60,15 @@ function ShopProductsTabs() {
 		<section className='py-4'>
 			<Tabs onSelect={(activeKey) => setActiveTab(activeKey as TActiveTab)} justify variant='pills' defaultActiveKey={defaultTab ?? ''} className='custom-tabs mb-3' >
 				<Tab eventKey="steamers" title="Steamers">
-					{
-						isLoading
-							? <AirplaneLoader />
-							: <ProductsContentWrapper products={products.steamers} cardType='shop' />
-					}
+					<ProductsContentWrapper products={products.steamers} cardType='shop' />
 				</Tab>
 
 				<Tab eventKey="luggage" title="Luggage">
-					{
-						isLoading
-							? <AirplaneLoader />
-							: <ProductsContentWrapper products={products.luggage} cardType='shop' />
-					}
+					<ProductsContentWrapper products={products.luggage} cardType='shop' />
 				</Tab>
 
 				<Tab eventKey="accessories" title="Accessories">
-					{
-						isLoading
-							? <AirplaneLoader />
-							: <ProductsContentWrapper products={products.accessories} cardType='shop' />
-					}
+					<ProductsContentWrapper products={products.accessories} cardType='shop' />
 				</Tab>
 			</Tabs>
 		</section>
