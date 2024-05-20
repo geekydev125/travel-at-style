@@ -1,16 +1,10 @@
 .container-div {
     background-color: rgba(0,0,0,0.5);
 
-    .iframe {
-        aspect-ratio: 1.78;
-        width: 100%;
-    }
-}
-
-@media (min-width: 768px) {
-    .container-div {
-        .iframe {
-            width: 730px;
-        }
+    .video-frame-container {
+        max-width: 750px;
+        margin: 0 auto;
+        border-radius: 20px;
+        overflow: hidden;
     }
 }
