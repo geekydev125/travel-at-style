@@ -56,7 +56,7 @@ function CardButtons({
                 {
                     (productQuantityInCart && cardType === 'shop')
                         ? (
-                            <Badge pill bg="secondary" className="py-1 mt-1 fw-semibold">
+                            <Badge pill bg="secondary" className="py-1 mt-lg-2 fw-semibold">
                                 <span className="text-dark">Quantity: {productQuantityInCart}</span>
                             </Badge>
                         )
