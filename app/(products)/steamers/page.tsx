@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 
 import VideoOverlayContainer from '@/components/Pages/Steamers/BesteamBackgroundVideo/VideoOverlayContainer'
-import FirstSectionCallToAction from '@/components/Pages/Steamers/Sections/First/CallToAction'
-import SecondSectionBesteamDescription from '@/components/Pages/Steamers/Sections/Second/BesteamDescription'
-import ThirdSectionBesteamVideo from '@/components/Pages/Steamers/Sections/Third/BesteamVideo'
-import FourthSectionShopOverview from '@/components/Pages/Steamers/Sections/Fourth/ShopOverview'
+import CallToAction from '@/components/Pages/Steamers/Sections/First/CallToAction'
+import BesteamDescription from '@/components/Pages/Steamers/Sections/Second/BesteamDescription'
+import ShopOverview from '@/components/Pages/Steamers/Sections/Fourth/ShopOverview'
 import SteamerSlider from '@/components/Pages/Steamers/SteamerSlider/SteamerSlider'
-import FifthSectionCallToActionDiscounts from '@/components/Pages/Steamers/Sections/Fifth/CallToActionDiscounts'
+import CallToActionDiscounts from '@/components/Pages/Steamers/Sections/Fifth/CallToActionDiscounts'
+import BesteamVideoContainer from "@/components/Pages/Steamers/Sections/Third/BesteamVideoContainer";
 
 export const metadata: Metadata = {
     title: "Steamers",
@@ -18,17 +18,17 @@ function SteamersPage() {
 			<VideoOverlayContainer />
 
 			<div className="position-relative z-1">
-				<FirstSectionCallToAction />
+				<CallToAction />
 
-				<SecondSectionBesteamDescription />
+				<BesteamDescription />
 
-				<ThirdSectionBesteamVideo />
+				<BesteamVideoContainer />
 
-				<FourthSectionShopOverview />
+				<ShopOverview />
 
 				<SteamerSlider />
 
-				<FifthSectionCallToActionDiscounts />
+				<CallToActionDiscounts />
 			</div>
 		</>
 	)
