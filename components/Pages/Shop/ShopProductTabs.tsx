@@ -1,9 +1,6 @@
 "use client"
 import { useSearchParams } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
-import { useNotificationContext } from '@/context/notificationContext';
-
-import getProductsData from '@/lib/getProductsData';
+import { useEffect, useState } from 'react';
 
 import { ISteamer } from '@/model/Steamer';
 import { ILuggage } from '@/model/Luggage';
@@ -23,41 +20,22 @@ export interface IProducts {
 	accessories: IAccessory[] | []
 }
 
-function ShopProductsTabs() {
-	const { displayNotification } = useNotificationContext()
+interface Props {
+	products: IProducts
+}
+
+function ShopProductsTabs({
+	products
+}: Props) {
 	const searchParams = useSearchParams()
 	const defaultTab = searchParams.get('tab') as TActiveTab || 'steamers'
 	const [activeTab, setActiveTab] = useState<TActiveTab>(defaultTab)
 	const [isLoading, setIsLoading] = useState<boolean>(true)
 
-	const [products, setProducts] = useState<IProducts>({
-		steamers: [],
-		luggage: [],
-		accessories: []
-	})
-
-	const productsLoader = useCallback(async () => {
-		const productData = await getProductsData(activeTab)
-
-		if (productData) {
-			setProducts((prev) => ({
-				...prev,
-				[activeTab]: productData
-			}))
-			setIsLoading(false)
-			return
-		} else {
-			displayNotification("An error occurred while fetching the requested resource", 'error')
-			return
-		}
-		
-	}, [activeTab])
-
 	useEffect(() => {
-		if (products[activeTab].length === 0) {
-			setIsLoading(true)
-			productsLoader()
-		}
+		setIsLoading(false)
+
+		return () => setIsLoading(true)
 	}, [activeTab])
 
 	return (
