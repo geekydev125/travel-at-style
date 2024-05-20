@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const allowedOrigins = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://www.travelatstyle.biz'
+const allowedOrigins = process.env.NODE_ENV === 'development' ? ['http://localhost:3000'] : ['https://www.travelatstyle.biz']
 
 const corsOptions = {
     'Access-Control-Allow-Methods': 'GET, POST',
