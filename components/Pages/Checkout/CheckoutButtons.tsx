@@ -69,7 +69,7 @@ function CheckoutButtons() {
     }
 
     return (
-        <CustomButtonWithLink href={buttonTextAndLink.link} classesLink='ms-auto mt-3 mt-sm-0' onClick={() => handleReviewedCartOrClient(pathname)} variant='primary' size='sm'>
+        <CustomButtonWithLink href={buttonTextAndLink.link} classesLink='ms-auto mt-3 mt-sm-0 d-flex align-items-end' onClick={() => handleReviewedCartOrClient(pathname)} variant='primary' size='sm'>
             <IconChevronLeft />
             &nbsp;{buttonTextAndLink.text}
         </CustomButtonWithLink>
