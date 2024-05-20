@@ -1,7 +1,11 @@
-import ParallaxContainer from './ParallaxContainer'
+import { Suspense, lazy } from 'react'
 
 import styles from './BesteamVideo.module.scss'
-import BesteamVideo from './BesteamVideo'
+
+import ParallaxContainer from './ParallaxContainer'
+import AirplaneLoader from '@/components/Common/Loader/AirplaneLoader'
+
+const LazyBesteamVideo = lazy(() => import('./BesteamVideo'))
 
 function BesteamVideoContainer() {
     return (
@@ -16,7 +20,9 @@ function BesteamVideoContainer() {
                     </h3>
 
                     <div className={styles['video-frame-container']}>
-                        <BesteamVideo />
+                        <Suspense fallback={<AirplaneLoader />}>
+                            <LazyBesteamVideo />
+                        </Suspense>
                     </div>
 
                 </div>
