@@ -12,7 +12,7 @@ interface Props {
 async function LuggageAccessoriesProducts({
     productCategory
 }: Props) {
-    const products: ILuggage[] | IAccessory[] = await getProductsData(`${productCategory}`)
+    const products: ILuggage[] | IAccessory[] = await getProductsData(productCategory)
 
     return (
         <ProductsContentWrapper products={products} cardType='product' />
