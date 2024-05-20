@@ -4,17 +4,16 @@ import { NextRequest ,NextResponse } from "next/server";
 
 interface Params {
     params: {
-        besteamModel: string
+        steamerModel: string
     }
 }
 
 export async function GET(req: NextRequest, { params }: Params) {
     await dbConnect();
-
-    const { besteamModel } = params;
+    const { steamerModel  } = params;
 
     try {
-        let steamers = await Steamer.find({ nameCamelCase: besteamModel })
+        let steamers = await Steamer.find({ nameCamelCase: steamerModel })
 
         if(steamers) {
             return NextResponse.json(steamers)
