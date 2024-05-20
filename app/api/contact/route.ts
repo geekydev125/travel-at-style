@@ -68,7 +68,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
         const info = await transporter.sendMail(options);
 
         if(info) {
-            return NextResponse.json({ status: 200, message: `Message sent successfully: %s ${info.messageId}` });
+            console.log(`Message sent successfully: %s ${info.messageId}`);
+            return NextResponse.json({ status: 200, message: `Message sent successfully!` });
         } else {
             return NextResponse.json({ status: 500, message: 'An error occurred while attempting to process your message.' });
         }
