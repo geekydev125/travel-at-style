@@ -123,7 +123,6 @@ React-Bootstrap
 <h2>External integrations</h2>
 
 <blockquote>Google Maps</blockquote>
-<br />
 <blockquote>Youtube Embeds</blockquote>
 
 <br />
