@@ -1,36 +1,137 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-## Getting Started
+<div style='font-family: "Montserrat", sans-serif; font-optical-sizing: autoм font-weight: 400; font-style: normal;'>
 
-First, run the development server:
+<h1 align="center" style="text-transform: uppercase">TRAVEL @ STYLE</h1>
+<h3 align="center" style="margin-top: 1px; text-align: center;" ><em>The revolutionary travel size steamer from Italy</em></h3>
+
+<br />
+
+<p align="center">
+    <img style="height: 350px; width: auto" alt="Travel @ Style" src="https://github-repositories-images.s3.eu-central-1.amazonaws.com/travel.png">
+</p>
+
+<br />
+
+<table align="center" style="width:100%;">
+  <tr>
+    <th align="center">
+        <img align="center" alt="Link" style="height: 20px; width: auto; margin-right: 10px;" src="https://github-repositories-images.s3.eu-central-1.amazonaws.com/link.png">
+        <h3 align="center" style="margin-bottom: 10px; display: inline-block;">Project URL</h3>
+    </th>
+    <th align="center">
+        <img align="center" alt="Github" style="height: 20px; width: auto; margin-right: 10px;" src="https://github-repositories-images.s3.eu-central-1.amazonaws.com/github.png">
+        <h3 align="center" style="margin-bottom: 10px; display: inline-block;">Github Repository</h3>
+    </th>
+  </tr>
+  <tr>
+    <td align="center">
+        <a align="center" href="https://www.travelatstyle.biz/" target="_blank">www.travelatstyle.biz</a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ariel-behar/travel-at-style" target="_blank">github.com/ariel-behar/travel-at-style</a>
+    </td>
+  </tr>
+</table>
+
+<br />
+
+<h2>Project Description</h2>
+
+<blockquote>E-Commerce platform for a New York-based store focusing on travel apparel and hand-held steamer irons.</blockquote>
+
+<br />
+
+<h2>Release Date</h2>
+
+<blockquote>Legacy Version - Aug 2017 </blockquote>
+<blockquote>Latest Version - July 2024</blockquote>
+
+<br />
+
+<h2>Quick Start</h2>
+
+<h3>Development mode</h3>
+
+<blockquote style="padding-top:5px; padding-bottom: 5px">
+
+1. In the terminal, navigate to the project's folder
+
+2. Execute the following command:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. The development server will run on [http://localhost:3000](http://localhost:3000)
+</blockquote>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<br />
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<h3>Production mode</h3>
 
-## Learn More
+<blockquote style="padding-top:5px; padding-bottom: 5px">
 
-To learn more about Next.js, take a look at the following resources:
+1. Execute the following command to create a production build for the project:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Once the creation of the production build has been finalized, execute the following command:
+```bash
+npm start
+```
+3. If the port 3000 is available, the production build will be served on [http://localhost:3000](http://localhost:3000)
+</blockquote>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<br />
 
-## Deploy on Vercel
+<h2>Technological Overview</h2>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<blockquote>The Travel @ Style web app utilizes Bootstrap for responsive and organized styling. The site features a visually appealing shop section; however, the back end for the shop is not integrated, as the client chose not to have a functional e-commerce system, using it purely for marketing purposes. Next.js ensures optimal performance with server-side rendering, while TypeScript provides robust type-checking for maintaining code quality and scalability.</blockquote>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<br />
+
+<h2>Technologies' Stack</h2>
+
+<h3>Javascript Framework</h3> 
+
+<blockquote>Next.JS</blockquote>
+
+<h3>Javascript Superscript</h3> 
+
+<blockquote>Typescript</blockquote>
+
+<h3>CSS Frameworks/Libraries/Pre-Processors</h3>
+
+<blockquote>
+SCSS
+<br />
+Bootstrap
+<br/>
+React-Bootstrap
+</blockquote>
+
+<h3>Database ODM</h3>
+
+<blockquote>Mongoose</blockquote>
+
+<br />
+
+<h2>External integrations</h2>
+
+<blockquote>
+Google Maps
+<br />
+Youtube Embeds</blockquote>
+
+<br />
+
+<h2>Deployment</h2>
+
+<blockquote>Vercel</blockquote>
+
+<!-- <br /> -->
+<!-- <h2>Specs</h2> -->
