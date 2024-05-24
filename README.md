@@ -130,7 +130,8 @@ React-Bootstrap
 
 <h2>Deployment</h2>
 
-<blockquote>Vercel</blockquote>
+<blockquote>Legacy Version (2017) - Heroku</blockquote>
+<blockquote>Latest Version (2024)- Vercel</blockquote>
 
 <!-- <br /> -->
 <!-- <h2>Specs</h2> -->
