@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import uniqid from 'uniqid'
 
 import { usePathname } from 'next/navigation'
@@ -9,9 +10,6 @@ import { Route } from '@/components/Header/Navbar/TopNavbar'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from "react-bootstrap/Container"
-import NextTransitionProgressLink from '@/components/Common/NextTransitionProgressLink'
-
-
 
 interface Props {
     isBottomNavCollapsed: boolean,
@@ -33,7 +31,7 @@ function BottomNavbar({
                             return (
                                 <Nav.Item key={uniqid()}>
                                     <Nav.Link
-                                        as={NextTransitionProgressLink}
+                                        as={Link}
                                         className={`py-0 mx-2 text-light`}
                                         href={route.path}
                                     >
@@ -51,7 +49,7 @@ function BottomNavbar({
                             return (
                                 <Nav.Item key={uniqid()}>
                                     <Nav.Link
-                                        as={NextTransitionProgressLink}
+                                        as={Link}
                                         className={`py-0 mx-2 text-light`}
                                         href={route.path}
                                     >
