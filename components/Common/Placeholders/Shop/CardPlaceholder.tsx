@@ -11,7 +11,7 @@ function CardPlaceholder() {
                     <Placeholder
                         xs={12}
                         className="d-flex flex-row justify-content-center align-items-center"
-                        style={{ minHeight: '285px' }}
+                        style={{ minHeight: '220px' }}
                     >
                         <IconPhoto stroke="black" width="50px" height="50px" />
 

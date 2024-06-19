@@ -1,4 +1,3 @@
-"use client"
 import uniqid from 'uniqid'
 
 import CardPlaceholder from './CardPlaceholder'
@@ -26,7 +25,7 @@ function ProductsContentPlaceholder({
                     {
                         [...Array(productsLength)].map(el => {
                             return (
-                                <Col xs={12} sm={6} lg={4} key={uniqid()}>
+                                <Col xs={6} sm={6} lg={4} key={uniqid()}>
                                     <CardPlaceholder />
                                 </Col>
                             )
