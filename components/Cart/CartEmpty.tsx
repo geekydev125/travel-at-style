@@ -1,4 +1,4 @@
-import NextTransitionProgressLink from "../Common/NextTransitionProgressLink";
+import Link from "next/link";
 
 interface Props {
     handleDrawerClose: () => void
@@ -12,7 +12,7 @@ function CartEmpty({
             <h5>Cart is empty</h5>
             <p>
                 Please head out to the&nbsp;
-                <NextTransitionProgressLink href='/shop' onClickHandler={ handleDrawerClose } >shop</NextTransitionProgressLink>
+                <Link href='/shop' onClick={ handleDrawerClose } >shop</Link>
                 &nbsp;to fill up the cart with your travel gear.</p>
         </div>
     )
