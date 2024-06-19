@@ -1,7 +1,7 @@
 "use client"
-import { useEffect, useRef, useState, startTransition } from 'react'
+import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { useProgress } from 'react-transition-progress'
 import uniqid from 'uniqid'
 
 import { useCartDrawerContext } from '@/context/cartDrawerContext'
@@ -9,7 +9,6 @@ import { useCartDrawerContext } from '@/context/cartDrawerContext'
 import styles from './Navbar.module.scss'
 import routes from '@/data/routes.json'
 
-import NextTransitionProgressLink from '@/components/Common/NextTransitionProgressLink'
 import TopNavbarItems from '@/components/Header/Navbar/TopNavbarItems'
 import IconBars from '@/components/Icons/IconBars'
 import CartIconWithBadge from '@/components/Cart/CartIconWithBadge'
@@ -33,7 +32,6 @@ function TopNavbar({
     handleBottomNavCollapse
 }: Props) {
     const pathname = usePathname()
-    const startProgress = useProgress()
     const [numRender, setNumRender] = useState<number>(0)
     const [expanded, setExpanded] = useState<boolean>(false)
     const navButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -66,13 +64,10 @@ function TopNavbar({
         <Navbar expand="lg" expanded={expanded} className='background-pattern-wood px-md-5' >
             <Container fluid className="px-3 px-lg-5">
                 {/* Logo mobile */}
-                <NextTransitionProgressLink onClickHandler={() => {
-                    collapseNav()
-                    startTransition(startProgress)
-                }}
+                <Link onClick={collapseNav}
                     href="/steamers" className='d-lg-none py-0'>
                     <img className={`${styles.logo}`} src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" style={{ maxWidth: '75px' }} />
-                </NextTransitionProgressLink>
+                </Link>
 
                 <Nav className='d-flex flex-row d-lg-none' activeKey={pathname}>
                     {/* Shop Now item - Mobile*/}
@@ -82,11 +77,8 @@ function TopNavbar({
                                 <Nav.Item key={uniqid()}>
                                     <Nav.Link
                                         eventKey={route.path}
-                                        as={NextTransitionProgressLink}
-                                        onClickHandler={() => {
-                                            collapseNav()
-                                            startTransition(startProgress)
-                                        }}
+                                        as={Link}
+                                        onClick={collapseNav}
                                         className={`btn-feedback fw-medium fst-italic text-light mx-3 me-sm-4 ${styles['shop-item']}`}
                                         href={route.path}
                                     >
