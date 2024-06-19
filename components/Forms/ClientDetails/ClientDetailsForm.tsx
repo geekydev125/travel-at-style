@@ -1,6 +1,5 @@
 "use client"
-import { startTransition, useEffect, useState } from 'react';
-import { useProgress } from 'react-transition-progress';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import uniqid from 'uniqid';
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -41,7 +40,6 @@ function ClientDetailsForm() {
     const [usState, setUsState] = useState<IClient['state'] | IUsState['code']>(cart.client?.state || 'AL');
     const [countryDialCode, setCountryDialCode] = useState<IClient['countryDialCode'] | string>(cart.client?.countryDialCode || '(United States) +1');
     const router = useRouter();
-    const startProgress = useProgress();
 
     const { register, handleSubmit, formState: { errors, isDirty, isValid, isLoading } } = useForm<IClientDetailsFormData>({
         resolver: yupResolver(clientDetailsFormSchema),
@@ -75,7 +73,6 @@ function ClientDetailsForm() {
         if (formData) {
             setClientDetails(formData);
             router.push('/checkout/payment')
-            startTransition(startProgress)
         }
 
     }
