@@ -1,8 +1,8 @@
 "use client"
-import { Fragment, startTransition } from 'react'
+import { Fragment } from 'react'
 import uniqid from 'uniqid'
 import { usePathname } from 'next/navigation'
-import { useProgress } from 'react-transition-progress'
+import Link from 'next/link'
 
 import { useCartDrawerContext } from '@/context/cartDrawerContext'
 
@@ -11,7 +11,6 @@ import styles from './Navbar.module.scss'
 import routes from '@/data/routes.json'
 
 import CartIconWithBadge from '@/components/Cart/CartIconWithBadge'
-import NextTransitionProgressLink from '@/components/Common/NextTransitionProgressLink'
 import IconChevronUp from '@/components/Icons/IconChevronUp'
 import { Route } from '@/components/Header/Navbar/TopNavbar'
 
@@ -32,9 +31,7 @@ function TopNavbarItems({
     handleBottomNavCollapse
 }: Props) {
     const pathname = usePathname()
-    const startProgress = useProgress()
     const { handleShow } = useCartDrawerContext()
-
 
     return (
         <>
@@ -44,11 +41,8 @@ function TopNavbarItems({
                         return (
                             <Nav.Item key={uniqid()} className='d-flex justify-content-center justify-content-sm-start d-lg-block'>
                                 <Nav.Link
-                                    as={NextTransitionProgressLink}
-                                    onClickHandler={() => {
-                                        collapseNav()
-                                        startTransition(startProgress)
-                                    }}
+                                    as={Link}
+                                    onClick={collapseNav}
                                     className={`d-inline-block btn-feedback mx-3 text-light text-center ${route.path === '/shop' ? 'fst-italic fw-medium' : ''}`}
                                     href={route.path}
                                 >
@@ -64,11 +58,8 @@ function TopNavbarItems({
                             <Fragment key={uniqid()}>
                                 <Nav.Item className={`d-flex justify-content-center justify-content-sm-start d-lg-none ${index === 6 ? 'mt-3' : ''}`}>
                                     <Nav.Link
-                                        as={NextTransitionProgressLink}
-                                        onClickHandler={() => {
-                                            collapseNav()
-                                            startTransition(startProgress)
-                                        }}
+                                        as={Link}
+                                        onClick={collapseNav}
                                         className="btn-feedback mx-3 text-light d-inline-block"
                                         href={route.path}
                                     >
@@ -82,17 +73,14 @@ function TopNavbarItems({
             </Nav>
 
             {/* Logo - Desktop*/}
-            <NextTransitionProgressLink
-                onClickHandler={() => {
-                    collapseNav()
-                    startTransition(startProgress)
-                }}
+            <Link
+                onClick={collapseNav}
                 href="/steamers"
                 className='btn-feedback d-none d-lg-block'
                 style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translateX(-50%) translateY(-50%)' }}
             >
                 <img className={`${styles.logo}`} src="/assets/img/logo/logo-transparent.png" alt="Travel at Style Logo" />
-            </NextTransitionProgressLink>
+            </Link>
 
             <Nav className="ms-auto" activeKey={pathname}>
                 {/* Misc menu item */}
@@ -113,11 +101,8 @@ function TopNavbarItems({
                         return (
                             <Nav.Item key={uniqid()} className='d-none d-lg-block'>
                                 <Nav.Link
-                                    as={NextTransitionProgressLink}
-                                    onClickHandler={() => {
-                                        collapseNav()
-                                        startTransition(startProgress)
-                                    }}
+                                    as={Link}
+                                    onClick={collapseNav}
                                     className={`btn-feedback fst-italic fw-medium mx-3 text-light ${styles['shop-item']}`}
                                     href={route.path}
                                 >
