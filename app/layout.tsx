@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Play} from "next/font/google";
+import { Inter, Play } from "next/font/google";
+import NextTopLoader from 'nextjs-toploader';
 
 import 'react-toastify/dist/ReactToastify.min.css';
 import "../styles/globals.scss";
@@ -13,7 +14,7 @@ import Footer from "@/components/Footer/Footer";
 import DrawerDynamicLoader from "@/components/Cart/Drawer/DrawerDynamicLoader";
 import NotificationDynamicLoader from "@/components/Common/Notification/NotificationDynamicLoader";
 
-const interFont = Inter({ 
+const interFont = Inter({
 	weight: ["400", "500", "600"],
 	style: "normal",
 	subsets: ["latin"]
@@ -49,6 +50,16 @@ export default function RootLayout({
 					<Header fontClass={playFont.className} />
 
 					<main className={`${interFont.className} flex-grow-1 overflow-hidden d-flex flex-column`}>
+						<NextTopLoader
+							color="#084C8D"
+							height={5}
+							initialPosition={0.08}
+							crawlSpeed={200}
+							crawl={true}
+							showSpinner={false}
+							easing="ease"
+							speed={200}
+						/>
 						{children}
 					</main>
 
