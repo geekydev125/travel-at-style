@@ -1,4 +1,4 @@
-import NextTransitionProgressLink from "@/components/Common/NextTransitionProgressLink"
+import Link from "next/link"
 
 import CustomButton, { CustomButtonProps } from "@/components/Common/Buttons/CustomButton"
 
@@ -14,11 +14,11 @@ function CustomButtonWithLink({
     ...rest
 }: Props) {
     return (
-        <NextTransitionProgressLink href={href} className={classesLink}>
+        <Link href={href} className={classesLink}>
             <CustomButton {...rest}>
                 {children}
             </CustomButton>
-        </NextTransitionProgressLink>
+        </Link>
     )
 }
 
