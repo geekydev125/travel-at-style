@@ -2,7 +2,6 @@ import { CartContextProvider } from "@/context/cartContext"
 import { CartDrawerContextProvider } from "@/context/cartDrawerContext"
 import { ModalContextProvider } from "@/context/modalContext"
 import { NotificationProvider } from "@/context/notificationContext"
-import { ProgressBarProvider } from "react-transition-progress"
 
 function Providers({ children }: { children: React.ReactNode }) {
     return (
@@ -10,9 +9,7 @@ function Providers({ children }: { children: React.ReactNode }) {
             <CartDrawerContextProvider>
                 <NotificationProvider>
                     <ModalContextProvider>
-                        <ProgressBarProvider>
-                            {children}
-                        </ProgressBarProvider>
+                        {children}
                     </ModalContextProvider>
                 </NotificationProvider>
             </CartDrawerContextProvider>
