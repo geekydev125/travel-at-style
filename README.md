@@ -15,27 +15,6 @@
 
 <br />
 
-<table align="center" style="width:100%;">
-  <tr>
-    <th align="center">
-        <img align="center" alt="Link" style="height: 20px; width: auto; margin-right: 10px;" src="https://github-repositories-images.s3.eu-central-1.amazonaws.com/link.png">
-        <h3 align="center" style="margin-bottom: 10px; display: inline-block;">Project URL</h3>
-    </th>
-    <th align="center">
-        <img align="center" alt="Github" style="height: 20px; width: auto; margin-right: 10px;" src="https://github-repositories-images.s3.eu-central-1.amazonaws.com/github.png">
-        <h3 align="center" style="margin-bottom: 10px; display: inline-block;">Github Repository</h3>
-    </th>
-  </tr>
-  <tr>
-    <td align="center">
-        <a align="center" href="https://www.travelatstyle.biz/" target="_blank">www.travelatstyle.biz</a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/ariel-behar/travel-at-style" target="_blank">github.com/ariel-behar/travel-at-style</a>
-    </td>
-  </tr>
-</table>
-
 <br />
 
 <h2>Project Description</h2>
